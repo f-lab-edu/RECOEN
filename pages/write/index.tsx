@@ -1,5 +1,7 @@
+import { TextEditor } from 'src/components/molecules';
+
 const WriteContainer = () => {
-  return <div>this is write page</div>;
+  return <TextEditor />;
 };
 
 export default WriteContainer;
