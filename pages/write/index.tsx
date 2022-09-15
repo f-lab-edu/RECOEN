@@ -3,6 +3,7 @@ import { TextEditor } from 'src/components/molecules';
 
 const WriteContainer = () => {
   const [content, setContent] = useState<string>();
+  console.log(content);
   return <TextEditor onChange={setContent} />;
 };
 
