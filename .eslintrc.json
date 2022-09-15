@@ -4,5 +4,8 @@
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
-  ]
+  ],
+  "rules": {
+    "react/display-name": ["on"]
+  }
 }
