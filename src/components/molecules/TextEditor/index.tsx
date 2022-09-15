@@ -2,18 +2,14 @@ import React, { useRef } from 'react';
 import dynamic from 'next/dynamic';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor as EditorType, EditorProps } from '@toast-ui/react-editor';
-import { EditorPropsWithForwardedProps } from './EditorWrapper';
 
 interface TextEditorProps extends EditorProps {
   onChange(value: string): void;
 }
 
-const Editor = dynamic<EditorPropsWithForwardedProps>(
-  () => import('./EditorWrapper'),
-  {
-    ssr: false,
-  },
-);
+const Editor = dynamic(() => import('./EditorWrapper'), {
+  ssr: false,
+});
 
 const EditorWithForwardedRef = React.forwardRef<
   EditorType | undefined,
