@@ -6,6 +6,6 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    "react/display-name": ["on"]
+    "react/display-name": [0]
   }
 }
