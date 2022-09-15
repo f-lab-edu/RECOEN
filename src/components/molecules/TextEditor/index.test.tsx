@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import React from 'react';
+import { render, waitFor } from '@testing-library/react';
 import { TextEditor } from './index';
+import preloadAll from 'jest-next-dynamic';
 import '@testing-library/jest-dom/extend-expect';
 
 describe('<TextEditor />', () => {
   it('renders TextEditor component correctly', async () => {
-    const Wrapper = () => {
-      const [content, setContent] = useState<string>();
-      return <TextEditor onChange={setContent} />;
-    };
+    await preloadAll();
 
-    const { getByPlaceholderText } = render(<Wrapper />);
+    const onChange = jest.fn();
 
-    const lazyContent = await waitFor(() =>
-      getByPlaceholderText(/hello react editor world!/),
+    const { container } = render(<TextEditor onChange={onChange} />);
+
+    await waitFor(() =>
+      expect(container.firstChild).toHaveClass('toastui-editor-defaultUI'),
     );
-
-    expect(lazyContent).toBeInTheDocument();
   });
 });
