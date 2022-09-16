@@ -1,25 +1,20 @@
 import React, { useRef } from 'react';
-import dynamic from 'next/dynamic';
 import '@toast-ui/editor/dist/toastui-editor.css';
-import { Editor as EditorType, EditorProps } from '@toast-ui/react-editor';
+import { Editor, EditorProps } from '@toast-ui/react-editor';
 
-interface TextEditorProps extends EditorProps {
+export interface TextEditorProps extends EditorProps {
   onChange(value: string): void;
 }
 
-const Editor = dynamic(() => import('./EditorWrapper'), {
-  ssr: false,
-});
-
 const EditorWithForwardedRef = React.forwardRef<
-  EditorType | undefined,
+  Editor | undefined,
   TextEditorProps
 >((props, ref) => (
-  <Editor {...props} forwardedRef={ref as React.MutableRefObject<EditorType>} />
+  <Editor {...props} ref={ref as React.MutableRefObject<Editor>} />
 ));
 
-export const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
-  const editorRef = useRef<EditorType>();
+const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
+  const editorRef = useRef<Editor>();
   const handleChange = () => {
     if (!editorRef.current) return;
     const markDownData = editorRef.current.getInstance().getMarkdown();
@@ -37,3 +32,5 @@ export const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
     />
   );
 };
+
+export default TextEditor;
