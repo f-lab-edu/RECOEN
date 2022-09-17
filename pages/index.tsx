@@ -4,7 +4,8 @@ import type {
   InferGetServerSidePropsType,
 } from 'next';
 import { connectMongo } from 'src/utils/connectMongo';
-import Article from 'src/models/articleModel';
+import { Article } from 'src/components/molecules';
+import ArticleModel from 'src/models/articleModel';
 
 const Home: NextPage = ({
   articles,
@@ -12,7 +13,11 @@ const Home: NextPage = ({
   return (
     <>
       {articles.map((article: any) => (
-        <div key={article._id}>{article.content}</div>
+        <Article
+          key={article._id}
+          title={article.title}
+          description={article.description}
+        />
       ))}
     </>
   );
@@ -27,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     console.log('CONNECTED TO MONGO');
 
     console.log('FETCHING DATA');
-    const articles = await Article.find();
+    const articles = await ArticleModel.find();
     console.log('FETCHED DATA');
 
     return {
