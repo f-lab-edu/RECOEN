@@ -11,6 +11,8 @@ const WriteContainer = () => {
   const handleCreate = () => {
     axios
       .post('/api/article/create', {
+        title,
+        description,
         content,
       })
       .then((res) => {
