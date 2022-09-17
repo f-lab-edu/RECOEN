@@ -30,8 +30,10 @@ export const getStaticPaths = async () => {
   try {
     await connectMongo();
 
-    const articles = await ArticleModel.find();
-    const paths = articles.map((article) => {
+    const res = await ArticleModel.find();
+    const articles = JSON.parse(JSON.stringify(res));
+
+    const paths = articles.map((article: any) => {
       return { params: { id: article._id.toString() } };
     });
 
