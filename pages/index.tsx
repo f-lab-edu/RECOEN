@@ -1,15 +1,11 @@
-import type {
-  NextPage,
-  GetServerSideProps,
-  InferGetServerSidePropsType,
-} from 'next';
+import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'src/utils/connectMongo';
 import { Article } from 'src/components/molecules';
 import ArticleModel from 'src/models/articleModel';
 
 const Home: NextPage = ({
   articles,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       {articles.map((article: any) => (
@@ -26,7 +22,7 @@ const Home: NextPage = ({
 
 export default Home;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
     console.log('CONNECTING TO MONGO');
     await connectMongo();
