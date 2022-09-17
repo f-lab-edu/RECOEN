@@ -10,7 +10,7 @@ interface Props {
 
 export const Article = ({ title, description, path }: Props) => {
   return (
-    <Link href={path}>
+    <Link href={`/article/${path}`}>
       <a>
         <Title>Title : {title}</Title>
         <Desc>Description : {description}</Desc>
