@@ -15,6 +15,7 @@ const Home: NextPage = ({
       {articles.map((article: any) => (
         <Article
           key={article._id}
+          path={encodeURI(article._id)}
           title={article.title}
           description={article.description}
         />

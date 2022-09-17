@@ -1,17 +1,21 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 interface Props {
   title: string;
   description: string;
+  path: string;
 }
 
-export const Article = ({ title, description }: Props) => {
+export const Article = ({ title, description, path }: Props) => {
   return (
-    <article>
-      <Title>Title : {title}</Title>
-      <Desc>Description : {description}</Desc>
-    </article>
+    <Link href={path}>
+      <a>
+        <Title>Title : {title}</Title>
+        <Desc>Description : {description}</Desc>
+      </a>
+    </Link>
   );
 };
 
