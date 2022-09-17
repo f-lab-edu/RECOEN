@@ -24,9 +24,9 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    console.log('CONNECTING TO MONGO');
+    console.log('CONNECTING TO MONGO IN MAIN');
     await connectMongo();
-    console.log('CONNECTED TO MONGO');
+    console.log('CONNECTED TO MONGO IN MAIN');
 
     console.log('FETCHING DATA');
     const articles = await ArticleModel.find();

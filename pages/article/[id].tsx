@@ -28,10 +28,15 @@ export default Article;
 
 export const getStaticPaths = async () => {
   try {
+    console.log('CONNECTING TO MONGO IN DETAIL');
     await connectMongo();
+    console.log('CONNECTED TO MONGO IN DETAIL');
 
+    console.log('FETCHING DATA');
     const res = await ArticleModel.find();
+    console.log('FETCHED DATA');
     const articles = JSON.parse(JSON.stringify(res));
+    console.log('this is articles', articles);
 
     const paths = articles.map((article: any) => {
       return { params: { id: article._id.toString() } };
@@ -43,6 +48,7 @@ export const getStaticPaths = async () => {
     };
   } catch (error) {
     console.log(error);
+    return { paths: [], fallback: false };
   }
 };
 
