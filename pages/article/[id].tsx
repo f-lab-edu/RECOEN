@@ -27,28 +27,39 @@ const Article = ({
 export default Article;
 
 export const getStaticPaths = async () => {
-  await connectMongo();
+  try {
+    await connectMongo();
 
-  const articles = await ArticleModel.find();
-  const paths = articles.map((article) => {
-    return { params: { id: article._id.toString() } };
-  });
+    const articles = await ArticleModel.find();
+    const paths = articles.map((article) => {
+      return { params: { id: article._id.toString() } };
+    });
 
-  return {
-    paths,
-    fallback: false,
-  };
+    return {
+      paths,
+      fallback: false,
+    };
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext,
 ) => {
-  const { id } = context.params as IPrams;
-  const res = await ArticleModel.findById(id);
+  try {
+    const { id } = context.params as IPrams;
+    const res = await ArticleModel.findById(id);
 
-  return {
-    props: {
-      article: JSON.parse(JSON.stringify(res)),
-    },
-  };
+    return {
+      props: {
+        article: JSON.parse(JSON.stringify(res)),
+      },
+    };
+  } catch (err) {
+    console.log(err);
+    return {
+      notFound: true,
+    };
+  }
 };
