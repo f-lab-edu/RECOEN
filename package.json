@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@toast-ui/react-editor": "^3.2.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
