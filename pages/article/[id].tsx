@@ -5,7 +5,7 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { connectMongo } from 'src/utils/connectMongo';
+import { connectMongo } from 'src/middlewares/connectMongo';
 import ArticleModel from 'src/models/articleModel';
 
 interface IPrams extends ParsedUrlQuery {

@@ -1,5 +1,5 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
-import { connectMongo } from 'src/utils/connectMongo';
+import { connectMongo } from 'src/middlewares/connectMongo';
 import { Article } from 'src/components/molecules';
 import ArticleModel from 'src/models/articleModel';
 
