@@ -4,7 +4,7 @@ import { Input } from 'src/components/atoms';
 import { client } from 'src/utils';
 import styled from '@emotion/styled';
 
-const WriteContainer = () => {
+const WritePage = () => {
   const [title, setTitle] = useState<string>();
   const [description, setDescription] = useState<string>();
   const [content, setContent] = useState<string>();
@@ -38,7 +38,7 @@ const WriteContainer = () => {
   );
 };
 
-export default WriteContainer;
+export default WritePage;
 
 const TitleInput = styled(Input)``;
 const DescriptionInput = styled(Input)``;
