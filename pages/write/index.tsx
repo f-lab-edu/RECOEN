@@ -10,7 +10,7 @@ const WritePage = () => {
   const [content, setContent] = useState<string>();
   const handleCreateArticle = () => {
     client
-      .post('/api/article/create', {
+      .post('/api/article', {
         title,
         description,
         content,
