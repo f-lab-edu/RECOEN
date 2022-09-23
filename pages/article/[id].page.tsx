@@ -36,7 +36,6 @@ export const getStaticPaths = async () => {
     const res = await ArticleModel.find();
     console.log('FETCHED DATA');
     const articles = JSON.parse(JSON.stringify(res));
-    console.log('this is articles', articles);
 
     const paths = articles.map((article: any) => {
       return { params: { id: article._id.toString() } };
