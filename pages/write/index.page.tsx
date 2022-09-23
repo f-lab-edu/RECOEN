@@ -9,18 +9,11 @@ const WritePage = () => {
   const [description, setDescription] = useState<string>();
   const [content, setContent] = useState<string>();
   const handleCreateArticle = () => {
-    client
-      .post('/api/article', {
-        title,
-        description,
-        content,
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    client.post('/api/article', {
+      title,
+      description,
+      content,
+    });
   };
 
   console.log(title, description, content);
