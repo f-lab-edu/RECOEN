@@ -1,0 +1,24 @@
+name: intergrate
+
+on:
+  pull_request:
+    branches: ['main']
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - uses: actions/checkout@v2
+
+      # Install Node 12
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.17.0
+
+      # Install dependencies
+      - run: npm install --force
+
+      # Run tests
+      - run: npm test
