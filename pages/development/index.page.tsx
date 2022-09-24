@@ -2,7 +2,7 @@ import React from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { connectMongo } from 'src/middlewares/connectMongo';
-import { Article } from 'src/components/molecules';
+import { Article, SideTab } from 'src/components/molecules';
 import ArticleModel from 'src/models/articleModel';
 
 import { Layout, Grid } from 'src/components/atoms';
@@ -11,18 +11,21 @@ const DevelopmentPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
-      <Grid>
-        <>
-          {articles.map((article: any) => (
-            <Article
-              key={article._id}
-              path={encodeURI(article._id)}
-              title={article.title}
-              description={article.description}
-            />
-          ))}
-        </>
-      </Grid>
+      <>
+        <SideTab />
+        <Grid>
+          <>
+            {articles.map((article: any) => (
+              <Article
+                key={article._id}
+                path={encodeURI(article._id)}
+                title={article.title}
+                description={article.description}
+              />
+            ))}
+          </>
+        </Grid>
+      </>
     </Layout>
   );
 };

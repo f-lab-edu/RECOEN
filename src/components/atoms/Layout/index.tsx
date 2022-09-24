@@ -10,6 +10,7 @@ export const Layout = ({ children }: Props) => {
 };
 
 const Container = styled.main`
+  padding-top: 50px;
   margin: 0 auto;
   max-width: 1200px;
   display: flex;
