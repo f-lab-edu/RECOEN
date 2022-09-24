@@ -6,6 +6,7 @@ import styled from '@emotion/styled';
 import { HeaderBarItem } from 'src/components/atoms';
 
 export const HeaderBar = () => {
+  // NOTE : 추후 각 페이지 만들어지면 path 수정하기
   const items = [
     {
       id: 'dev',
@@ -17,25 +18,25 @@ export const HeaderBar = () => {
       id: 'book',
       name: 'Book',
       title: '독후감 아티클 리스트 페이지입니다.',
-      path: '/book',
+      path: '/dev',
     },
     {
       id: 'essay',
       name: 'Essay',
       title: '에세이 리스트 페이지입니다.',
-      path: '/essay',
+      path: '/dev',
     },
     {
       id: 'quotes',
       name: 'Quotes',
       title: '인용구 리스트 페이지입니다.',
-      path: '/quotes',
+      path: '/dev',
     },
     {
       id: 'about',
       name: 'About',
       title: '소개페이지입니다.',
-      path: '/about',
+      path: '/dev',
     },
   ];
 
