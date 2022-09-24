@@ -7,7 +7,7 @@ export const HeaderBar = () => {
   return (
     <Container>
       <Link href="/">
-        <Title>RECOEN.</Title>
+        <Title>recoen.</Title>
       </Link>
       <Wrapper>
         <Link href="/dev">
@@ -31,9 +31,10 @@ export const HeaderBar = () => {
 };
 
 const Container = styled.div`
-  width: 90vw;
+  width: 100%;
   height: 90px;
-  padding: 0 25px;
+  padding: 0 50px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,6 +46,7 @@ const Container = styled.div`
 
 const Title = styled.a`
   font-size: 25px;
+  font-weight: 600;
   color: #ffffff;
   cursor: pointer;
 `;

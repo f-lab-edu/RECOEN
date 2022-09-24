@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { Article, HeaderBar } from 'src/components/molecules';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
-import { Article } from 'src/components/molecules';
 import ArticleModel from 'pages/api/models/articleModel';
 
 const Home: NextPage = ({
@@ -8,6 +8,7 @@ const Home: NextPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
+      <HeaderBar />
       {articles.map((article: any) => (
         <Article
           key={article._id}
