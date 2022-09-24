@@ -13,7 +13,6 @@ interface StyleProps {
 }
 
 export const HeaderBarItem = ({ isActive, path, title, name }: Props) => {
-  console.log(isActive);
   return (
     <Link href={path} title={title} isActive={isActive}>
       <Item>{name}</Item>
