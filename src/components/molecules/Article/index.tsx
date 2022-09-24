@@ -12,7 +12,7 @@ interface Props {
 
 export const Article = ({ title, description, path }: Props) => {
   return (
-    <Link href={`/article/${path}`}>
+    <Link href={`/development/${path}`}>
       <Anchor>
         <Container>
           <CustomImage
