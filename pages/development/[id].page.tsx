@@ -37,6 +37,7 @@ export const getStaticPaths = async () => {
     console.log('FETCHED DATA');
     const articles = JSON.parse(JSON.stringify(res));
 
+    // Note : any 수정할 것
     const paths = articles.map((article: any) => {
       return { params: { id: article._id.toString() } };
     });
@@ -55,6 +56,7 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext,
 ) => {
   try {
+    await connectMongo();
     const { id } = context.params as IPrams;
     const res = await ArticleModel.findById(id);
 
