@@ -78,6 +78,7 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
+  z-index: 99;
 `;
 
 const Title = styled.a`

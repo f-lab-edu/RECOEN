@@ -7,5 +7,6 @@ export const globalStyles = css`
     box-sizing: border-box;
     background-color: #252628;
     font-family: 'Pretendard';
+    color: #ffffff;
   }
 `;
