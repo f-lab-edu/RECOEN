@@ -8,7 +8,6 @@ const Home: NextPage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <HeaderBar />
       {articles.map((article: any) => (
         <Article
           key={article._id}
