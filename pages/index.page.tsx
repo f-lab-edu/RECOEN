@@ -1,7 +1,7 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
-import { connectMongo } from 'src/middlewares/connectMongo';
+import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import { Article } from 'src/components/molecules';
-import ArticleModel from 'src/models/articleModel';
+import ArticleModel from 'pages/api/models/articleModel';
 
 const Home: NextPage = ({
   articles,
