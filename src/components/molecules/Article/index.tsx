@@ -18,8 +18,10 @@ export const Article = ({ title, description, path }: Props) => {
           <CustomImage
             src={Space}
             alt="Thumbnail of article"
-            width="330"
-            height="330"
+            width={330}
+            height={220}
+            layout="responsive"
+            placeholder="blur"
           />
           <Wrapper>
             <Title>{title}</Title>
@@ -49,6 +51,11 @@ const Anchor = styled.a`
 
 const CustomImage = styled(Image)`
   border-radius: 16px;
+  :hover {
+    transform: scale(1.09);
+    border-radius: 16px;
+  }
+  transition: all 0.3s ease-in-out;
 `;
 
 const Wrapper = styled.article``;
