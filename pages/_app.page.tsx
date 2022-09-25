@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Container>
     </>
   );
+      <div id="modal_root"></div>
 }
 
 export default MyApp;
