@@ -29,13 +29,13 @@ const Link = styled.a<StyleProps>`
   ${(props) =>
     props.isActive &&
     `:before {
-    content: '';
-    position: absolute;
-    left: -15px;
-    background-color: #0af5cb;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
+        content: '';
+        position: absolute;
+        left: -15px;
+        background-color: #0af5cb;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
   }`}
 `;
 
