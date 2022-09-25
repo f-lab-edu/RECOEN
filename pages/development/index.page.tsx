@@ -1,9 +1,9 @@
 import React from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-import { connectMongo } from 'src/middlewares/connectMongo';
+import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import { Article, SideTab } from 'src/components/molecules';
-import ArticleModel from 'src/models/articleModel';
+import ArticleModel from 'pages/api/models/articleModel';
 
 import { Layout, Grid } from 'src/components/atoms';
 const DevelopmentPage = ({
