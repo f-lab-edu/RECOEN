@@ -7,6 +7,7 @@ import {
 import { ParsedUrlQuery } from 'querystring';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
+import { client } from 'src/utils';
 
 interface IPrams extends ParsedUrlQuery {
   id: string;
@@ -37,7 +38,7 @@ export const getStaticPaths = async () => {
     console.log('FETCHED DATA');
     const articles = JSON.parse(JSON.stringify(res));
 
-    // Note : any 수정할 것
+    // NOTE : any 수정할 것
     const paths = articles.map((article: any) => {
       return { params: { id: article._id.toString() } };
     });
@@ -56,13 +57,12 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext,
 ) => {
   try {
-    await connectMongo();
     const { id } = context.params as IPrams;
-    const res = await ArticleModel.findById(id);
+    const res = await client.get('/api/article', { data: id });
 
     return {
       props: {
-        article: JSON.parse(JSON.stringify(res)),
+        article: JSON.parse(JSON.stringify(res.data)),
       },
     };
   } catch (err) {
