@@ -9,10 +9,10 @@ export const HeaderBar = () => {
   // NOTE : 추후 각 페이지 만들어지면 path 수정하기
   const items = [
     {
-      id: 'development',
-      name: 'Development',
+      id: 'article',
+      name: 'Article',
       title: '개발 아티클 리스트 페이지입니다.',
-      path: '/development',
+      path: '/article',
     },
     {
       id: 'book',
