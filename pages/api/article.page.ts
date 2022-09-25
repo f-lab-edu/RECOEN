@@ -1,6 +1,6 @@
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import nc from 'next-connect';
-import Article from 'pages/api/models/articleModel';
+import ArticleModel from 'pages/api/models/articleModel';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = nc<NextApiRequest, NextApiResponse>({
@@ -20,7 +20,7 @@ handler
   .get(async (req, res) => {
     try {
       console.log('FETCHING SINGLE ARTICLE');
-      const article = await Article.findById(req.body);
+      const article = await ArticleModel.findById(req.body);
       console.log('FETCHED SINGLE ARTICLE');
       res.status(200).json(article);
     } catch (err) {
@@ -30,7 +30,7 @@ handler
   .post(async (req, res) => {
     try {
       console.log('CREATING DOCUMENT');
-      const article = await Article.create(req.body);
+      const article = await ArticleModel.create(req.body);
       console.log('CREATED DOCUMENT');
       res.status(200).json({ article });
     } catch (err) {
