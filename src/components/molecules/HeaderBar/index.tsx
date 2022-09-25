@@ -76,7 +76,6 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   z-index: 99;
