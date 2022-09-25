@@ -41,6 +41,7 @@ export const HeaderBar = () => {
   ];
 
   const router = useRouter();
+  console.log(router);
 
   return (
     <Container>
@@ -56,7 +57,7 @@ export const HeaderBar = () => {
                 title={item.title}
                 name={item.name}
                 path={item.path}
-                isActive={item.path == router.pathname}
+                isActive={router.pathname.includes(item.path)}
               />
             );
           })}
