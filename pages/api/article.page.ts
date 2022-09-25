@@ -1,6 +1,6 @@
-import { connectMongo } from 'src/middlewares/connectMongo';
+import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import nc from 'next-connect';
-import Article from 'src/models/articleModel';
+import Article from 'pages/api/models/articleModel';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const handler = nc<NextApiRequest, NextApiResponse>({
