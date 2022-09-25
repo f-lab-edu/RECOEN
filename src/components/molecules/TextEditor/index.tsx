@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
+import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { Editor, EditorProps } from '@toast-ui/react-editor';
 
 export interface TextEditorProps extends EditorProps {
@@ -29,6 +30,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
       height="600px"
       initialEditType="markdown"
       useCommandShortcut={true}
+      theme="dark"
     />
   );
 };
