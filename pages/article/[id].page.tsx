@@ -57,9 +57,9 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext,
 ) => {
   try {
-    console.log('CONNECTING TO MONGO IN DETAIL PATH');
+    console.log('CONNECTING TO MONGO IN DETAIL PROPS');
     await connectMongo();
-    console.log('CONNECTED TO MONGO IN DETAIL PATH');
+    console.log('CONNECTED TO MONGO IN DETAIL PROPS');
 
     const { id } = context.params as IPrams;
 
@@ -67,7 +67,7 @@ export const getStaticProps: GetStaticProps = async (
 
     return {
       props: {
-        article: JSON.parse(JSON.stringify(res.data)),
+        article: JSON.parse(JSON.stringify(res)),
       },
     };
   } catch (err) {
