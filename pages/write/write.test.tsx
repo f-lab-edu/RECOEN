@@ -4,7 +4,7 @@ import { createArticle } from 'src/utils';
 
 import WritePage from './index.page';
 
-jest.mock('@toast-ui/react-editor');
+jest.mock('src/components/molecules');
 jest.mock('src/utils');
 
 describe('WritePage', () => {
