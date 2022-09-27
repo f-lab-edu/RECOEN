@@ -6,7 +6,9 @@ const ARTICLES_URI = '/api/articles';
 interface CreateArticleParameter {
   title?: string;
   description?: string;
+  hashtag?: string;
   content?: string;
+  imgUrl?: string;
 }
 
 export const getArticle = async (id: string) => {
@@ -18,5 +20,5 @@ export const getArticles = async () => {
 };
 
 export const createArticle = async (data: CreateArticleParameter) => {
-  return await client.post(ARTICLE_URI, data);
+  return await client.post(ARTICLE_URI, data).then((res) => console.log(res));
 };

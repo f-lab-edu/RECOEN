@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Input } from 'src/components/atoms';
 import { ImageUpload } from 'src/components/atoms';
-import { client } from 'src/utils';
+import { createArticle } from 'src/utils';
 import styled from '@emotion/styled';
 
 interface Props {
@@ -13,23 +13,21 @@ interface Props {
 }
 
 export const CreateArticleModal = ({ articleElements }: Props) => {
-  const [imageUrl, setImageUrl] = useState<string>();
+  const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>();
-  console.log(articleElements);
-
-  const handleCreateArticle = () => {
-    client.post('/api/article', {
-      title: articleElements.title,
-      description: articleElements.hashtag, // NOTE : 서버쪽 코드 수정 후 수정하기
-      content: articleElements.content,
-    });
-  };
 
   return (
     <Modal>
       <>
-        <ImageUpload setImageUrl={setImageUrl} />
+        <ImageUpload setImageUrl={setImgUrl} />
         <DescriptionInput onChange={setDescription} />
+        <button
+          onClick={() =>
+            createArticle({ ...articleElements, imgUrl, description })
+          }
+        >
+          생성하기
+        </button>
       </>
     </Modal>
   );

@@ -41,7 +41,6 @@ export const HeaderBar = () => {
   ];
 
   const router = useRouter();
-  console.log(router);
 
   return (
     <Container>
