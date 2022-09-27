@@ -1,4 +1,4 @@
-name: intergrate
+name: integrate
 
 on:
   pull_request:
@@ -11,7 +11,7 @@ jobs:
       # Checkout the Repo
       - uses: actions/checkout@v2
 
-      # Install Node 12
+      # Install Node LTS
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
