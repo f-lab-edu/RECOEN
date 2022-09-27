@@ -3,9 +3,9 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
 
-import { Article, SideTab } from 'src/components/molecules';
+import { Article, SideTab } from 'src/components';
+import { Layout, Grid } from 'src/components/Common';
 
-import { Layout, Grid } from 'src/components/atoms';
 const ArticlePage = ({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {

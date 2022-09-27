@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Modal, Input } from 'src/components/atoms';
-import { ImageUpload } from 'src/components/atoms';
+import { Modal, Input } from 'src/components/Common';
+import { ImageUpload } from 'src/components/Common';
 import { createArticle } from 'src/utils';
 import styled from '@emotion/styled';
 
@@ -12,7 +12,7 @@ interface Props {
   };
 }
 
-export const CreateArticleModal = ({ articleElements }: Props) => {
+const CreateArticleModal = ({ articleElements }: Props) => {
   const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>();
 
@@ -32,5 +32,7 @@ export const CreateArticleModal = ({ articleElements }: Props) => {
     </Modal>
   );
 };
+
+export default CreateArticleModal;
 
 const DescriptionInput = styled(Input)``;
