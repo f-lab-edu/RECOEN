@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Container>
         <Component {...pageProps} />
       </Container>
+      <div id="modal_root"></div>
     </>
   );
-      <div id="modal_root"></div>
 }
 
 export default MyApp;
