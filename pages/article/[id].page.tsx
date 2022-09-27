@@ -28,15 +28,17 @@ export default Article;
 
 export const getStaticPaths = async () => {
   try {
-    console.log('CONNECTING TO MONGO IN DETAIL');
+    console.log('CONNECTING TO MONGO IN DETAIL PATH');
     await connectMongo();
-    console.log('CONNECTED TO MONGO IN DETAIL');
+    console.log('CONNECTED TO MONGO IN DETAIL PATH');
 
     console.log('FETCHING DATA');
     const res = await ArticleModel.find();
     console.log('FETCHED DATA');
+
     const articles = JSON.parse(JSON.stringify(res));
 
+    // NOTE : any 수정할 것
     const paths = articles.map((article: any) => {
       return { params: { id: article._id.toString() } };
     });
@@ -55,7 +57,12 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext,
 ) => {
   try {
+    console.log('CONNECTING TO MONGO IN DETAIL PROPS');
+    await connectMongo();
+    console.log('CONNECTED TO MONGO IN DETAIL PROPS');
+
     const { id } = context.params as IPrams;
+
     const res = await ArticleModel.findById(id);
 
     return {
