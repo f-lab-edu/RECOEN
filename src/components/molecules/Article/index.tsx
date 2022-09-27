@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
-import Space from 'public/space.webp';
 
 interface Props {
   title: string;
@@ -22,7 +21,7 @@ export const Article = ({ title, description, path, imgUrl }: Props) => {
             width={330}
             height={220}
             layout="responsive"
-            placeholder="blur"
+            // placeholder="blur" NOTE : 추후 blur 부분 작업하기. blurDataURL 부분 추가되어야함
           />
           <Wrapper>
             <Title>{title}</Title>

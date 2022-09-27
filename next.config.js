@@ -4,14 +4,7 @@ const nextConfig = {
   swcMinify: true,
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'recoen.s3.ap-northeast-2.amazonaws.com',
-        port: '',
-        pathname: '/next-s3-uploads/**',
-      },
-    ],
+    domains: ['recoen.s3.ap-northeast-2.amazonaws.com'],
   },
 };
 
