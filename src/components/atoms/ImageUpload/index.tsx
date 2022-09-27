@@ -23,7 +23,9 @@ export const ImageUpload = ({ setImageUrl }: Props) => {
     <div>
       <FileInput onChange={handleFileChange} />
       <button onClick={openFileDialog}>Upload file</button>
-      {preview && <img src={preview} alt="preview image" />}
+      {preview && (
+        <img src={preview} alt="preview image" width="200" height="200" />
+      )}
     </div>
   );
 };

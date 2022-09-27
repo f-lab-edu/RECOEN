@@ -8,15 +8,16 @@ interface Props {
   title: string;
   description: string;
   path: string;
+  imgUrl: string;
 }
 
-export const Article = ({ title, description, path }: Props) => {
+export const Article = ({ title, description, path, imgUrl }: Props) => {
   return (
     <Link href={`/article/${path}`}>
       <Anchor>
         <Container>
           <CustomImage
-            src={Space}
+            src={imgUrl}
             alt="Thumbnail of article"
             width={330}
             height={220}
