@@ -6,6 +6,7 @@ import styled from '@emotion/styled';
 import { HeaderBarItem } from './HeaderBarItem/HeaderBarItem';
 
 export const HeaderBar = () => {
+  const router = useRouter();
   // NOTE : 추후 각 페이지 만들어지면 path 수정하기
   const items = [
     {
@@ -39,8 +40,6 @@ export const HeaderBar = () => {
       path: '/dev',
     },
   ];
-
-  const router = useRouter();
 
   return (
     <Container>
