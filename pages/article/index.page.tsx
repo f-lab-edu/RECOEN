@@ -1,11 +1,12 @@
 import React from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { connectMongo } from 'pages/api/middlewares/connectMongo';
+import ArticleModel from 'pages/api/models/articleModel';
 
 import { Article, SideTab } from 'src/components/molecules';
-import { getArticles } from 'src/utils';
 
 import { Layout, Grid } from 'src/components/atoms';
-const DevelopmentPage = ({
+const ArticlePage = ({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -29,15 +30,23 @@ const DevelopmentPage = ({
   );
 };
 
-export default DevelopmentPage;
+export default ArticlePage;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const { data } = await getArticles();
+    console.log('CONNECTING TO MONGO IN ARTICLE PAGE');
+    await connectMongo();
+    console.log('CONNECTED TO MONGO IN ARTICLE PAGE');
+
+    console.log('FETCHING DATA IN ARTICLE PAGE');
+    const res = await ArticleModel.find();
+    console.log('FETCHED DATA IN ARTICLE PAGE');
+
+    const articles = JSON.parse(JSON.stringify(res));
 
     return {
       props: {
-        articles: JSON.parse(JSON.stringify(data)),
+        articles: JSON.parse(JSON.stringify(articles)),
       },
     };
   } catch (error) {

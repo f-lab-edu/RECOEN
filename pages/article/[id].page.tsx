@@ -5,7 +5,8 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { getArticle, getArticles } from 'src/utils';
+import { connectMongo } from 'pages/api/middlewares/connectMongo';
+import ArticleModel from 'pages/api/models/articleModel';
 
 interface IPrams extends ParsedUrlQuery {
   id: string;
@@ -27,10 +28,18 @@ export default Article;
 
 export const getStaticPaths = async () => {
   try {
-    const { data } = await getArticles();
+    console.log('CONNECTING TO MONGO IN DETAIL PATH');
+    await connectMongo();
+    console.log('CONNECTED TO MONGO IN DETAIL PATH');
+
+    console.log('FETCHING DATA');
+    const res = await ArticleModel.find();
+    console.log('FETCHED DATA');
+
+    const articles = JSON.parse(JSON.stringify(res));
 
     // NOTE : any 수정할 것
-    const paths = data.map((article: any) => {
+    const paths = articles.map((article: any) => {
       return { params: { id: article._id.toString() } };
     });
 
@@ -48,8 +57,13 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext,
 ) => {
   try {
+    console.log('CONNECTING TO MONGO IN DETAIL PATH');
+    await connectMongo();
+    console.log('CONNECTED TO MONGO IN DETAIL PATH');
+
     const { id } = context.params as IPrams;
-    const res = await getArticle(id);
+
+    const res = await ArticleModel.findById(id);
 
     return {
       props: {

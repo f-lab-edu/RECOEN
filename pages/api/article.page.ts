@@ -17,16 +17,6 @@ handler
     await connectMongo();
     await next();
   })
-  .get(async (req, res) => {
-    try {
-      console.log('FETCHING SINGLE ARTICLE');
-      const article = await ArticleModel.findById(req.body);
-      console.log('FETCHED SINGLE ARTICLE');
-      res.status(200).json(article);
-    } catch (err) {
-      console.log(err);
-    }
-  })
   .post(async (req, res) => {
     try {
       console.log('CREATING DOCUMENT');
