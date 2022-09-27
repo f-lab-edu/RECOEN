@@ -12,7 +12,7 @@ interface Props {
   };
 }
 
-const CreateArticleModal = ({ articleElements }: Props) => {
+export const CreateArticleModal = ({ articleElements }: Props) => {
   const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>();
 
@@ -32,7 +32,5 @@ const CreateArticleModal = ({ articleElements }: Props) => {
     </Modal>
   );
 };
-
-export default CreateArticleModal;
 
 const DescriptionInput = styled(Input)``;
