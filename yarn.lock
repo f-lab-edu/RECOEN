@@ -91,7 +91,7 @@
     "@aws-sdk/util-utf8-browser" "^3.0.0"
     "tslib" "^1.11.1"
 
-"@aws-sdk/abort-controller@^3.0.0", "@aws-sdk/abort-controller@3.178.0":
+"@aws-sdk/abort-controller@3.178.0":
   "integrity" "sha512-ptDkCB06BJrYdhKzamM9yI15LxcGkPczY80hzKAY/aecm09alnW27uCt5HJJx2nCd18IUH28ZO1sc7DTLOWb3A=="
   "resolved" "https://registry.npmjs.org/@aws-sdk/abort-controller/-/abort-controller-3.178.0.tgz"
   "version" "3.178.0"
@@ -114,7 +114,7 @@
   dependencies:
     "tslib" "^2.3.1"
 
-"@aws-sdk/client-s3@^3.0.0", "@aws-sdk/client-s3@>=3.88.0":
+"@aws-sdk/client-s3@>=3.88.0":
   "integrity" "sha512-MyVmDj/eR/n5b8SRWKHK/U4c4HEppW+9uqaTLdYYlz9RpFyc3Pw1dWbwdvT65+Eb/ZOy4VkWPxzL+SAibvoFpw=="
   "resolved" "https://registry.npmjs.org/@aws-sdk/client-s3/-/client-s3-3.178.0.tgz"
   "version" "3.178.0"
@@ -5213,7 +5213,7 @@ next-connect@^0.13.0:
     "@aws-sdk/lib-storage" ">=3.88.0"
     "uuid" "^8.3.1"
 
-"next@>=9.4", "next@12.2.5":
+"next@12.2.5":
   "integrity" "sha512-tBdjqX5XC/oFs/6gxrZhjmiq90YWizUYU6qOWAfat7zJwrwapJ+BYgX2PmiacunXMaRpeVT4vz5MSPSLgNkrpA=="
   "resolved" "https://registry.npmjs.org/next/-/next-12.2.5.tgz"
   "version" "12.2.5"
@@ -5767,7 +5767,7 @@ react-query@^3.39.2:
     broadcast-channel "^3.4.1"
     match-sorter "^6.0.2"
 
-"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.1", "react@^17.0.2 || ^18.0.0-0", "react@^18.0.0", "react@^18.2.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.13.1", "react@>=16.8.0", "react@18.2.0":
+"react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -6557,11 +6557,6 @@ util-deprecate@^1.0.1:
   "integrity" "sha512-OZeJfZP+R0z9D6TmBgLq2LHzSSptGMGDGigGiEe0pr8UBe/7fdflgHlHBNDASTXB5jnFuxHpNaJywSg8YFeGng=="
   "resolved" "https://registry.npmjs.org/uzip/-/uzip-0.20201231.0.tgz"
   "version" "0.20201231.0"
-
-"v8-compile-cache-lib@^3.0.1":
-  "integrity" "sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg=="
-  "resolved" "https://registry.npmjs.org/v8-compile-cache-lib/-/v8-compile-cache-lib-3.0.1.tgz"
-  "version" "3.0.1"
 
 "v8-to-istanbul@^9.0.1":
   "integrity" "sha512-74Y4LqY74kLE6IFyIjPtkSTWzUZmj8tdHT9Ii/26dvQ6K9Dl2NbEfj0XgU2sHCtKgt5VupqhlO/5aWuqS+IY1w=="
