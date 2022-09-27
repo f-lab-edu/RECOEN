@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import styled from '@emotion/styled';
 import { Global } from '@emotion/react';
 import { globalStyles } from 'src/shared';
-import { HeaderBar } from 'src/components/molecules';
+import { HeaderBar } from 'src/components';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

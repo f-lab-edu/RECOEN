@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { TextEditor, CreateArticleModal } from 'src/components/molecules';
-import { Input } from 'src/components/atoms';
+import { TextEditor, CreateArticleModal } from 'src/components';
+import { Input } from 'src/components/Common';
 
 import styled from '@emotion/styled';
 

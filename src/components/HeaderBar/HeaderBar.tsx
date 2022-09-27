@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 
-import { HeaderBarItem } from 'src/components/atoms';
+import { HeaderBarItem } from './HeaderBarItem/HeaderBarItem';
 
 export const HeaderBar = () => {
   // NOTE : 추후 각 페이지 만들어지면 path 수정하기
