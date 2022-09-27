@@ -20,7 +20,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/api/article/create.js"
+    "pages/api/article/create.js",
+    "pages/api/middlewares/connectMongo.ㅓㄴ"
   ],
   "exclude": ["node_modules"]
 }
