@@ -40,6 +40,7 @@ export const HeaderBar = () => {
       path: '/dev',
     },
   ];
+  if (router.pathname === '/write') return null;
 
   return (
     <Container>

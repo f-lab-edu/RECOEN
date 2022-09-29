@@ -3,13 +3,15 @@ import styled from '@emotion/styled';
 import { Global } from '@emotion/react';
 import { globalStyles } from 'src/shared';
 import { HeaderBar } from 'src/components';
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   return (
     <>
       <Global styles={globalStyles} />
       <HeaderBar />
-      <Container>
+      <Container location={router.pathname}>
         <Component {...pageProps} />
       </Container>
       <div id="modal_root"></div>
@@ -19,6 +21,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 export default MyApp;
 
-const Container = styled.div`
-  padding-top: 90px;
+interface StyleProps {
+  location: string;
+}
+
+const Container = styled.div<StyleProps>`
+  ${(props) => props.location !== '/write' && `padding-top: 90px;`}
 `;
