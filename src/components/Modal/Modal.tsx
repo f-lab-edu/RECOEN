@@ -50,4 +50,5 @@ const Box = styled.div`
   width: 432px;
   height: 100vh;
   z-index: 101;
+  box-sizing: border-box;
 `;
