@@ -4,9 +4,10 @@ import styled from '@emotion/styled';
 
 interface ModalProps {
   children: React.ReactElement;
+  handleOpenModal: () => void;
 }
 
-export const Modal = ({ children }: ModalProps) => {
+export const Modal = ({ children, handleOpenModal }: ModalProps) => {
   const [container, setContainer] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ export const Modal = ({ children }: ModalProps) => {
 
   return ReactDOM.createPortal(
     <>
-      <Overlay />
+      <Overlay onClick={handleOpenModal} />
       <Box>{children}</Box>
     </>,
     container,
