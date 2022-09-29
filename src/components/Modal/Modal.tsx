@@ -29,7 +29,7 @@ const Overlay = styled.div`
   width: 100vw;
   left: 0;
   top: 0;
-  background: #ffffff;
+  background: #24262a;
   opacity: 50%;
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -41,13 +41,13 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #2e2f31;
-  border-radius: 16px;
+  background-color: #161718;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: fixed;
-  left: 50%;
+  right: 0%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: 508px;
+  transform: translate(0%, -50%);
+  width: 432px;
+  height: 100vh;
   z-index: 101;
 `;
