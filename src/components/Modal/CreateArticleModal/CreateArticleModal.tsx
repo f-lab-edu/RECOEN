@@ -10,20 +10,24 @@ interface Props {
     hashtag?: string;
     content?: string;
   };
+  handleOpenModal: () => void;
 }
 
-export const CreateArticleModal = ({ articleElements }: Props) => {
+export const CreateArticleModal = ({
+  articleElements,
+  handleOpenModal,
+}: Props) => {
   const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>();
 
   return (
-    <Modal>
+    <Modal handleOpenModal={handleOpenModal}>
       <>
         <ButtonWrapper>
           <Button
             label="취소"
             buttonType="secondary"
-            onClick={() => console.log('close modal')}
+            onClick={handleOpenModal}
           />
           <Button
             label="저장"

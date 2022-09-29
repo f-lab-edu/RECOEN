@@ -11,14 +11,19 @@ const WritePage = () => {
   const [isOpen, setOpen] = useState<boolean>();
   const articleElements = { title, hashtag, content };
 
-  const openCreateModal = () => {
+  const handleOpenModal = () => {
     setOpen(!isOpen);
   };
 
   return (
     <>
-      {isOpen && <CreateArticleModal articleElements={articleElements} />}
-      <button onClick={openCreateModal}>생성하기</button>
+      {isOpen && (
+        <CreateArticleModal
+          handleOpenModal={handleOpenModal}
+          articleElements={articleElements}
+        />
+      )}
+      <button onClick={handleOpenModal}>생성하기</button>
       <TitleInput onChange={setTitle} placeholder="제목을 입력해주세요." />
       <HashtagInput
         onChange={setHashtag}
