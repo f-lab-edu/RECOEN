@@ -6,4 +6,4 @@ export * from './Article/Article';
 export * from './SideTab';
 export * from './HeaderBar/HeaderBar';
 export * from './Modal/CreateArticleModal/CreateArticleModal';
-export * from './ImageUpload/ImageUpload';
+export * from './ImageUpload';
