@@ -7,13 +7,6 @@ export interface TextEditorProps extends EditorProps {
   onChange(value: string): void;
 }
 
-const EditorWithForwardedRef = React.forwardRef<
-  Editor | undefined,
-  TextEditorProps
->((props, ref) => (
-  <Editor {...props} ref={ref as React.MutableRefObject<Editor>} />
-));
-
 const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
   const editorRef = useRef<Editor>();
   const handleChange = () => {
@@ -22,8 +15,8 @@ const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
     onChange(markDownData);
   };
   return (
-    <EditorWithForwardedRef
-      ref={editorRef}
+    <Editor
+      ref={editorRef as React.MutableRefObject<Editor>}
       onChange={handleChange}
       initialValue="hello react editor world!"
       previewStyle="vertical"
