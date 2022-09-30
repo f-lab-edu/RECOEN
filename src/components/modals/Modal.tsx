@@ -19,7 +19,7 @@ export const Modal = ({ children, handleOpenModal }: ModalProps) => {
   return ReactDOM.createPortal(
     <>
       <Overlay onClick={handleOpenModal} />
-      <Box>{children}</Box>
+      <Box data-testid="modal">{children}</Box>
     </>,
     container,
   );

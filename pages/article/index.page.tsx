@@ -4,7 +4,7 @@ import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
 
 import { Article, SideTab } from 'src/components';
-import { Layout, Grid } from 'src/components/Common';
+import { Layout, Grid } from 'src/components/common';
 
 const ArticlePage = ({
   articles,

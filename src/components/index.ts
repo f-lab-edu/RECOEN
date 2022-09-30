@@ -5,5 +5,5 @@ export const TextEditor = dynamic(() => import('./TextEditor'), {
 export * from './Article';
 export * from './SideTab';
 export * from './HeaderBar';
-export * from './Modal/CreateArticleModal';
+export * from './modals/CreateArticleModal';
 export * from './ImageUpload';
