@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import { Article } from 'src/components/Article';
-import '@testing-library/jest-dom';
 
 describe('<Article/>', () => {
   it('should render correctly', () => {

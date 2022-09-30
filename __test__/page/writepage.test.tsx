@@ -1,8 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import '@testing-library/jest-dom';
 
-import WritePage from './index.page';
+import WritePage from 'pages/write/index.page';
 
 jest.mock('src/components/TextEditor');
 jest.mock('src/utils');
