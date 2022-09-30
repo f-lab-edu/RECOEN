@@ -23,7 +23,7 @@ export const CreateArticleModal = ({
   return (
     <Modal handleOpenModal={handleOpenModal}>
       <>
-        <ButtonWrapper>
+        <ButtonWrapper data-testid="createArticleModal">
           <Button
             label="취소"
             buttonType="secondary"

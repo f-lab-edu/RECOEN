@@ -19,7 +19,6 @@ const WritePage = () => {
     <>
       {isOpen && (
         <CreateArticleModal
-          data-testid="createAritcleModal"
           handleOpenModal={handleOpenModal}
           articleElements={articleElements}
         />
