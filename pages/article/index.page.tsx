@@ -3,7 +3,8 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
 
-import { Article, SideTab, Layout, Grid } from 'src/components';
+import { Article, SideTab } from 'src/components';
+import { Layout, Grid } from 'src/components/common';
 
 const ArticlePage = ({
   articles,
