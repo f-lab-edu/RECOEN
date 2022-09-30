@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Input, Button } from 'src/components/common';
-import { ImageUpload } from 'src/components';
+import { ImageUpload, Modal, Button, Input } from 'src/components';
 import { createArticle } from 'src/utils';
 import styled from '@emotion/styled';
 
@@ -40,14 +39,12 @@ export const CreateArticleModal = ({
         <Guide>대표이미지 선택</Guide>
         <ImageUpload setImageUrl={setImgUrl} />
         <Guide>태그를 선택하세요.</Guide>
-        <DescriptionInput onChange={setDescription} />
+        <Input onChange={setDescription} />
         <Guide>설명글을 작성해주세요.</Guide>
       </>
     </Modal>
   );
 };
-
-const DescriptionInput = styled(Input)``;
 
 const Guide = styled.h3`
   font-size: 16px;
