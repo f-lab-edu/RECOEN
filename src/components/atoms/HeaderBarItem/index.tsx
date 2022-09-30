@@ -8,10 +8,6 @@ interface Props {
   name: string;
 }
 
-interface StyleProps {
-  isActive: boolean;
-}
-
 export const HeaderBarItem = ({ isActive, path, title, name }: Props) => {
   return (
     <Link href={path} title={title} isActive={isActive}>
@@ -19,6 +15,10 @@ export const HeaderBarItem = ({ isActive, path, title, name }: Props) => {
     </Link>
   );
 };
+
+interface StyleProps {
+  isActive: boolean;
+}
 
 const Link = styled.a<StyleProps>`
   cursor: pointer;
