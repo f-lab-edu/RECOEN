@@ -1,10 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { createArticle } from 'src/utils';
 
 import WritePage from './index.page';
 
-jest.mock('src/components/molecules');
+jest.mock('src/components/TextEditor');
 jest.mock('src/utils');
 
 describe('WritePage', () => {
@@ -28,27 +27,19 @@ describe('WritePage', () => {
         screen.queryByPlaceholderText(/제목을 입력해주세요/),
       ).not.toBeNull();
     });
-
-    it('설명을 입력하는 input이 보여야 한다.', async () => {
-      await act(() => {
-        renderWritePage();
-      });
-
-      expect(
-        screen.queryByPlaceholderText(/설명을 입력해주세요/),
-      ).not.toBeNull();
-    });
   });
 
   describe('"생성하기" 버튼을 클릭했을 때', () => {
-    it('createArticle이 호출된다.', async () => {
+    it('createArticleModal이 생성된다.', async () => {
       await act(() => {
         renderWritePage();
       });
 
-      fireEvent.click(screen.getByRole('button', { name: '생성하기' }));
+      const button = screen.getByRole('button', { name: '생성하기' });
+      fireEvent.click(button);
+      const modal = await screen.findByTestId('createAritcleModal');
 
-      expect(createArticle).toBeCalled();
+      expect(modal).toBeInTheDocument();
     });
   });
 });
