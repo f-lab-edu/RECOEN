@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { HeaderBar } from './HeaderBar';
+import { HeaderBar } from '../HeaderBar';
 import '@testing-library/jest-dom';
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter');
