@@ -17,6 +17,7 @@ const customJestConfig = {
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
+    uuid: require.resolve('uuid'),
   },
 };
 
