@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { TextEditor, CreateArticleModal } from 'src/components';
-import { Input } from 'src/components/Common';
+import { Input } from 'src/components/common';
 
 import styled from '@emotion/styled';
 

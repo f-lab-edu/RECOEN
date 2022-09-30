@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Input, Button } from 'src/components/Common';
+import { Modal, Input, Button } from 'src/components/common';
 import { ImageUpload } from 'src/components';
 import { createArticle } from 'src/utils';
 import styled from '@emotion/styled';
