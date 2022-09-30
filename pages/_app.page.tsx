@@ -8,14 +8,14 @@ import { useRouter } from 'next/router';
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
-    <>
+    <div>
       <Global styles={globalStyles} />
       <HeaderBar />
       <Container location={router.pathname}>
         <Component {...pageProps} />
       </Container>
       <div id="modal_root"></div>
-    </>
+    </div>
   );
 }
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 
-import { HeaderBarItem } from './HeaderBarItem/HeaderBarItem';
+import { HeaderBarItem } from './HeaderBarItem';
 
 export const HeaderBar = () => {
   const router = useRouter();
