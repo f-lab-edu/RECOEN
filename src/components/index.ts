@@ -8,4 +8,4 @@ export * from './HeaderBar';
 export * from './modals/CreateArticleModal';
 export * from './ImageUpload';
 export * from './modals';
-export * from './common';
+export * from './ui';
