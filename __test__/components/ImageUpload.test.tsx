@@ -8,7 +8,7 @@ describe('ImageUpload', () => {
 
   it('렌더링되어야한다', () => {
     renderImageUpload();
-    const imageUpload = screen.getByText(/Upload file/);
+    const imageUpload = screen.getByText(/이미지 추가/);
     expect(imageUpload).toBeInTheDocument();
   });
 

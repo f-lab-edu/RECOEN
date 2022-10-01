@@ -19,8 +19,6 @@ describe('TitleInput', () => {
     const titleInput = screen.getByPlaceholderText(placeholder);
     expect(titleInput).toBeInTheDocument();
 
-    screen.debug();
-
     fireEvent.change(titleInput, {
       target: { title },
     });
