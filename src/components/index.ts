@@ -9,3 +9,4 @@ export * from './modals/CreateArticleModal';
 export * from './ImageUpload';
 export * from './modals';
 export * from './ui';
+export * from './Inputs';

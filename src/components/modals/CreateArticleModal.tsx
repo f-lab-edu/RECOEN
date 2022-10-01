@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ImageUpload, Modal } from 'src/components';
-import { Button, Input } from 'src/components/ui';
+import { Button, Input } from 'src/components';
 import { createArticle } from 'src/utils';
 import styled from '@emotion/styled';
 
