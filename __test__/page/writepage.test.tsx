@@ -16,12 +16,12 @@ describe('WritePage', () => {
     );
 
   describe('rendering', () => {
-    it('생성하는 버튼이 보여야 한다.', async () => {
+    it('완료 버튼이 보여야 한다.', async () => {
       await act(() => {
         renderWritePage();
       });
 
-      expect(screen.queryByRole('button', { name: '생성하기' })).not.toBeNull();
+      expect(screen.queryByRole('button', { name: '완료' })).not.toBeNull();
     });
 
     it('제목을 입력하는 input이 보여야 한다.', async () => {
@@ -35,13 +35,13 @@ describe('WritePage', () => {
     });
   });
 
-  describe('"생성하기" 버튼을 클릭했을 때', () => {
+  describe('"완료" 버튼을 클릭했을 때', () => {
     it('createArticleModal이 생성된다.', async () => {
       await act(() => {
         renderWritePage();
       });
 
-      const button = screen.getByRole('button', { name: '생성하기' });
+      const button = screen.getByRole('button', { name: '완료' });
       fireEvent.click(button);
       const modal = await screen.findByTestId('createArticleModal');
 
