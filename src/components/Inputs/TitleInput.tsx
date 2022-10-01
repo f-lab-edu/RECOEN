@@ -19,7 +19,7 @@ const StyledInput = styled.input`
   font-size: 38px;
   outline: none;
   background: transparent;
-  margin: 20px 0px;
+  margin-bottom: 20px;
   padding: 0px 40px;
   color: #ffffff;
   border: none;
