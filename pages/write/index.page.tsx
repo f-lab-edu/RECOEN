@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TextEditor, CreateArticleModal } from 'src/components';
-import { TitleInput } from 'src/components';
+import { TitleInput, Button } from 'src/components';
+import styled from '@emotion/styled';
 
 const WritePage = () => {
   const [title, setTitle] = useState<string>();
@@ -20,7 +21,15 @@ const WritePage = () => {
           articleElements={articleElements}
         />
       )}
-      <button onClick={handleOpenModal}>생성하기</button>
+      <ButtonWrapper>
+        <Button
+          onClick={handleOpenModal}
+          label="나가기"
+          buttonType="tertiary"
+        />
+        <Button onClick={handleOpenModal} label="완료" buttonType="secondary" />
+      </ButtonWrapper>
+
       <TitleInput onChange={setTitle} />
       <TextEditor onChange={setContent} />
     </>
@@ -28,3 +37,10 @@ const WritePage = () => {
 };
 
 export default WritePage;
+
+const ButtonWrapper = styled.div`
+  padding: 25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+`;
