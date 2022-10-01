@@ -30,8 +30,8 @@ describe('WritePage', () => {
       });
 
       expect(
-        screen.queryByPlaceholderText(/제목을 입력해주세요/),
-      ).not.toBeNull();
+        screen.queryByPlaceholderText('제목을 입력하세요.'),
+      ).toBeInTheDocument();
     });
   });
 
