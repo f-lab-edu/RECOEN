@@ -20,7 +20,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
       onChange={handleChange}
       initialValue="hello react editor world!"
       previewStyle="vertical"
-      height="600px"
+      height="100vh"
       initialEditType="markdown"
       useCommandShortcut={true}
       theme="dark"
