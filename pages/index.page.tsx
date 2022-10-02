@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
+import { QuoteSlider } from 'src/components';
 
 const Home: NextPage = () => {
-  return <div>This is Main Page</div>;
+  return <QuoteSlider />;
 };
 
 export default Home;
