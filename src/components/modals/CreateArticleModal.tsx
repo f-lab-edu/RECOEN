@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { ImageUpload, Modal } from 'src/components';
-import { Button, Input } from 'src/components';
+import { ImageUpload, Modal, Button, Input, TagInput } from 'src/components';
 import { createArticle } from 'src/utils';
 import styled from '@emotion/styled';
 
@@ -19,6 +18,7 @@ export const CreateArticleModal = ({
 }: Props) => {
   const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>();
+  const [tags, setTags] = useState<string[]>();
 
   return (
     <Modal handleOpenModal={handleOpenModal}>
@@ -40,7 +40,7 @@ export const CreateArticleModal = ({
         <Guide>대표이미지 선택</Guide>
         <ImageUpload setImageUrl={setImgUrl} />
         <Guide>태그를 선택하세요.</Guide>
-        <Input onChange={setDescription} />
+        <TagInput values={tags!} onChange={setTags} />
         <Guide>설명글을 작성해주세요.</Guide>
       </>
     </Modal>
