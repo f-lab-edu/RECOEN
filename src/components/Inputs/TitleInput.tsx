@@ -15,7 +15,7 @@ export const TitleInput = ({ onChange }: Props) => {
 };
 
 const StyledInput = styled.input`
-  width: 100%;
+  width: 100vh;
   font-size: 38px;
   outline: none;
   background: transparent;
