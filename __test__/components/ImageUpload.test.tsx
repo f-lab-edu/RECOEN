@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { ImageUpload } from 'src/components';
+import { renderHook } from '@testing-library/react-hooks';
 
 describe('ImageUpload', () => {
   const setImageUrl = jest.fn();
@@ -14,7 +15,21 @@ describe('ImageUpload', () => {
 
   describe('이미지를 선택하면', () => {
     // jest.mock('src/hooks'); NOTE : usePreview 모킹해서 확인하기
-    it('preview 이미지가 보여야한다.', () => {});
+    it('preview 이미지가 보여야한다.', async () => {
+      renderImageUpload();
+      const imageInput = screen.getByTestId('fileinput');
+      fireEvent.change(imageInput, {
+        target: {
+          files: [
+            new File(['(⌐□_□)'], 'chucknorris.png', { type: 'image/png' }),
+          ],
+        },
+      });
+
+      const preview = screen.queryByAltText('preview image');
+      // expect(preview).toBeInTheDocument();
+    });
+
     it('UploadBox가 사라져야한다.', () => {});
   });
 });
