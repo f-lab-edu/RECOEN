@@ -23,9 +23,10 @@ export const ImageUpload = ({ setImageUrl }: Props) => {
   return (
     <div>
       <FileInput data-testid="fileinput" onChange={handleFileChange} />
-      {!preview && <UploadBox onClick={openFileDialog}>이미지 추가</UploadBox>}
-      {preview && (
+      {preview ? (
         <Img src={preview} alt="preview image" width="200" height="200" />
+      ) : (
+        <UploadBox onClick={openFileDialog}>이미지 추가</UploadBox>
       )}
     </div>
   );
