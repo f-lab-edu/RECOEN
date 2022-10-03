@@ -4,8 +4,8 @@ import { QuoteSlider } from 'src/components';
 const Home: NextPage = ({
   quotesData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(quotesData.quotes);
-  return <QuoteSlider />;
+  const { quotes } = quotesData;
+  return <QuoteSlider quotes={quotes} />;
 };
 
 export default Home;
