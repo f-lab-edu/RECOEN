@@ -10,7 +10,7 @@ const emptyArray: string[] = [];
 
 export const TagInput = ({ onChange, values = emptyArray }: Props) => {
   const [value, setValue] = useState('');
-  const [tags, setTags] = useState<string[]>();
+  const [tags, setTags] = useState<string[]>(emptyArray);
   const [isOnComposition, setIsOnComposition] = useState(false);
 
   useEffect(() => {
