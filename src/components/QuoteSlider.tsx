@@ -4,7 +4,17 @@ import Image from 'next/image';
 import LeftArrow from '../../public/leftArrow.png';
 import RigthArrow from '../../public/rightArrow.png';
 
-export const QuoteSlider = () => {
+type QuoteT = {
+  englishQuote: string;
+  englishCite: string;
+  koreanQuote: string;
+  koreanCite: string;
+};
+interface Props {
+  quotes: QuoteT[];
+}
+
+export const QuoteSlider = ({ quotes }: Props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef<HTMLDivElement>(null);
   const TOTAL_SLIDES = 2;
@@ -38,7 +48,9 @@ export const QuoteSlider = () => {
   return (
     <Container>
       <QuotesBox>
-        <Quote />
+        {quotes.map((quote) => {
+          return <Quote key={quote.englishQuote} quote={quote} />;
+        })}
       </QuotesBox>
       <ProgressBox>
         <LineWrapper>
@@ -89,39 +101,23 @@ const StyleImage = styled(Image)`
 `;
 
 interface QuoteProps {
-  englishQuote: string;
-  englishCite: string;
-  koreanQuote: string;
-  koreanCite: string;
+  quote: QuoteT;
 }
 
-const Quote = ({
-  englishQuote,
-  englishCite,
-  koreanQuote,
-  koreanCite,
-}: QuoteProps) => {
+const Quote = ({ quote }: QuoteProps) => {
   return (
     <QuoteBox>
       <UpperWrapper>
         <EnglishQuote>
-          <EnglishParagraph>
-            Any fool can write code that <br /> a computer can understand.{' '}
-            <br />
-            Good programmers write code that <br /> humans can understand.
-          </EnglishParagraph>
+          <EnglishParagraph>{quote.englishQuote}</EnglishParagraph>
         </EnglishQuote>
-        <EnglishCite>- Martin Fowler</EnglishCite>
+        <EnglishCite>{quote.englishCite}</EnglishCite>
       </UpperWrapper>
       <DownWrapper>
         <KoreanQuote>
-          <KoreanParagraph>
-            어떤 바보도 컴퓨터가 이해하는 코드를 작성할 수 있다.
-            <br /> 하지만 좋은 프로그래머는 사람이 이해할 수 있는 코드를
-            작성한다.
-          </KoreanParagraph>
+          <KoreanParagraph>{quote.koreanQuote}</KoreanParagraph>
         </KoreanQuote>
-        <KoreanCite>- 마틴 파울러</KoreanCite>
+        <KoreanCite>{quote.koreanCite}</KoreanCite>
       </DownWrapper>
     </QuoteBox>
   );
@@ -144,6 +140,7 @@ const EnglishQuote = styled.blockquote`
   margin-left: 0;
   padding: 0;
   color: #9499a1;
+  white-space: pre;
 `;
 
 const EnglishParagraph = styled.p`
@@ -168,6 +165,7 @@ const KoreanQuote = styled.blockquote`
   color: #494c56;
   display: inline;
   border-top: 1px solid #494c56;
+  white-space: pre;
 `;
 
 const KoreanParagraph = styled.p``;
