@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import LeftArrow from '../../public/leftArrow.png';
@@ -15,10 +15,17 @@ interface Props {
 }
 
 export const QuoteSlider = ({ quotes }: Props) => {
+  const TOTAL_SLIDES = 2;
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef<HTMLDivElement>(null);
-  const TOTAL_SLIDES = 2;
-  const SLIDE_BOX_WIDTH = 420 * (TOTAL_SLIDES + 1);
+  const [currentLineWidth, setCurrentLineWidth] = useState<number>(0);
+
+  const measuredRef = useCallback((node: HTMLDivElement) => {
+    if (node !== null) {
+      const progressBarWidth = node.getBoundingClientRect().width;
+      setCurrentLineWidth(progressBarWidth / quotes.length);
+    }
+  }, []);
 
   // Next 버튼 클릭 시
   const NextSlide = () => {
@@ -31,7 +38,7 @@ export const QuoteSlider = ({ quotes }: Props) => {
 
   const PrevSlide = () => {
     if (currentSlide === 0) {
-      return; // 클릭이 작동하지 않습니다.
+      return;
     } else {
       setCurrentSlide(currentSlide - 1);
     }
@@ -39,7 +46,7 @@ export const QuoteSlider = ({ quotes }: Props) => {
 
   useEffect(() => {
     if (slideRef.current) {
-      const moveX = 420 * currentSlide;
+      const moveX = 1200 * currentSlide;
       slideRef.current.style.transition = 'all 0.5s ease-in-out';
       slideRef.current.style.transform = `translateX(-${moveX}px)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
     }
@@ -54,7 +61,9 @@ export const QuoteSlider = ({ quotes }: Props) => {
       </QuotesBox>
       <ProgressBox>
         <LineWrapper>
-          <ProgressLine />
+          <ProgressLine ref={measuredRef}>
+            <CurrentLine currentLineWidth={currentLineWidth} />
+          </ProgressLine>
         </LineWrapper>
         <StyleImage src={LeftArrow} width="50" height="50" alt="Left Arrow" />
         <StyleImage src={RigthArrow} width="50" height="50" alt="Rigth Arrow" />
@@ -63,12 +72,18 @@ export const QuoteSlider = ({ quotes }: Props) => {
   );
 };
 
+interface StyleProps {
+  currentLineWidth: number;
+}
+
 const Container = styled.div`
   width: 100%;
   height: 90%;
 `;
 
-const QuotesBox = styled.section``;
+const QuotesBox = styled.section`
+  display: flex;
+`;
 
 const ProgressBox = styled.div`
   display: flex;
@@ -87,9 +102,21 @@ const LineWrapper = styled.div`
 `;
 
 const ProgressLine = styled.div`
-  height: 0.2px;
+  height: 0.3px;
   width: 100%;
-  border: 0.2px solid #494c56;
+  border: 0.3px solid #494c56;
+  position: relative;
+`;
+
+const CurrentLine = styled.hr<StyleProps>`
+  height: 0.1px;
+  width: ${(props) => props.currentLineWidth}px;
+  border: 0.1px solid #9499a1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  transition: 0.1s ease-in-out;
 `;
 
 const StyleImage = styled(Image)`
