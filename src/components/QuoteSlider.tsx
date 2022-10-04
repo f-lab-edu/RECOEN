@@ -15,10 +15,11 @@ interface Props {
 }
 
 export const QuoteSlider = ({ quotes }: Props) => {
-  const TOTAL_SLIDES = 2;
-  const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef<HTMLDivElement>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [currentLineWidth, setCurrentLineWidth] = useState<number>(0);
+  const TOTAL_SLIDES = quotes.length - 1;
+  const SLIDE_BOX_WIDTH = 1200 * TOTAL_SLIDES;
 
   const measuredRef = useCallback((node: HTMLDivElement) => {
     if (node !== null) {
@@ -55,9 +56,11 @@ export const QuoteSlider = ({ quotes }: Props) => {
   return (
     <Container>
       <QuotesBox>
-        {quotes.map((quote) => {
-          return <Quote key={quote.englishQuote} quote={quote} />;
-        })}
+        <SlideBox ref={slideRef} slideBoxWidth={SLIDE_BOX_WIDTH}>
+          {quotes.map((quote) => {
+            return <Quote key={quote.englishQuote} quote={quote} />;
+          })}
+        </SlideBox>
       </QuotesBox>
       <ProgressBox>
         <LineWrapper>
@@ -65,15 +68,28 @@ export const QuoteSlider = ({ quotes }: Props) => {
             <CurrentLine currentLineWidth={currentLineWidth} />
           </ProgressLine>
         </LineWrapper>
-        <StyleImage src={LeftArrow} width="50" height="50" alt="Left Arrow" />
-        <StyleImage src={RigthArrow} width="50" height="50" alt="Rigth Arrow" />
+        <StyleImage
+          onClick={PrevSlide}
+          src={LeftArrow}
+          width="50"
+          height="50"
+          alt="Left Arrow"
+        />
+        <StyleImage
+          onClick={NextSlide}
+          src={RigthArrow}
+          width="50"
+          height="50"
+          alt="Rigth Arrow"
+        />
       </ProgressBox>
     </Container>
   );
 };
 
 interface StyleProps {
-  currentLineWidth: number;
+  currentLineWidth?: number;
+  slideBoxWidth?: number;
 }
 
 const Container = styled.div`
@@ -89,6 +105,11 @@ const QuotesBox = styled.section`
   height: 100%;
   overflow: hidden;
   box-sizing: border-box;
+`;
+
+const SlideBox = styled.div<StyleProps>`
+  display: flex;
+  width: ${(props) => props.slideBoxWidth}px;
 `;
 
 const ProgressBox = styled.div`
