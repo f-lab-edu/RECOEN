@@ -77,12 +77,18 @@ interface StyleProps {
 }
 
 const Container = styled.div`
-  width: 100%;
+  width: 1200px;
   height: 90%;
+  box-sizing: border-box;
+  margin: 0 auto;
 `;
 
 const QuotesBox = styled.section`
   display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 `;
 
 const ProgressBox = styled.div`
@@ -150,10 +156,14 @@ const Quote = ({ quote }: QuoteProps) => {
   );
 };
 
-const QuoteBox = styled.article``;
+const QuoteBox = styled.article`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const UpperWrapper = styled.div`
-  width: 100%;
+  width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -180,11 +190,11 @@ const EnglishCite = styled.cite`
 `;
 
 const DownWrapper = styled.div`
-  width: 100%;
+  width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
 
 const KoreanQuote = styled.blockquote`
