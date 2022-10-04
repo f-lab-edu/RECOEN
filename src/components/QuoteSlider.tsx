@@ -20,6 +20,7 @@ export const QuoteSlider = ({ quotes }: Props) => {
   const [currentLineWidth, setCurrentLineWidth] = useState<number>(0);
   const TOTAL_SLIDES = quotes.length - 1;
   const SLIDE_BOX_WIDTH = 1200 * TOTAL_SLIDES;
+  const currentLinePost = currentSlide * currentLineWidth;
 
   const measuredRef = useCallback((node: HTMLDivElement) => {
     if (node !== null) {
@@ -65,7 +66,10 @@ export const QuoteSlider = ({ quotes }: Props) => {
       <ProgressBox>
         <LineWrapper>
           <ProgressLine ref={measuredRef}>
-            <CurrentLine currentLineWidth={currentLineWidth} />
+            <CurrentLine
+              currentLinePos={currentLinePost}
+              currentLineWidth={currentLineWidth}
+            />
           </ProgressLine>
         </LineWrapper>
         <StyleImage
@@ -90,6 +94,7 @@ export const QuoteSlider = ({ quotes }: Props) => {
 interface StyleProps {
   currentLineWidth?: number;
   slideBoxWidth?: number;
+  currentLinePos?: number;
 }
 
 const Container = styled.div`
@@ -140,10 +145,10 @@ const CurrentLine = styled.hr<StyleProps>`
   width: ${(props) => props.currentLineWidth}px;
   border: 0.1px solid #9499a1;
   position: absolute;
-  left: 0;
+  left: ${(props) => props.currentLinePos}px;
   top: 0;
   margin: 0;
-  transition: 0.1s ease-in-out;
+  transition: 0.5s ease-in-out;
 `;
 
 const StyleImage = styled(Image)`
