@@ -3,9 +3,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 
-import { HeaderBarItem } from 'src/components/atoms';
+import { HeaderBarItem } from './HeaderBarItem';
 
 export const HeaderBar = () => {
+  const router = useRouter();
   // NOTE : 추후 각 페이지 만들어지면 path 수정하기
   const items = [
     {
@@ -39,9 +40,7 @@ export const HeaderBar = () => {
       path: '/dev',
     },
   ];
-
-  const router = useRouter();
-  console.log(router);
+  if (router.pathname === '/write') return null;
 
   return (
     <Container>

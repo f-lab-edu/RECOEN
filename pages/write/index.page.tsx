@@ -1,24 +1,36 @@
 import { useState } from 'react';
-import { TextEditor } from 'src/components/molecules';
-import { Input } from 'src/components/atoms';
-import { createArticle } from 'src/utils';
+import { TextEditor, CreateArticleModal } from 'src/components';
+import { TitleInput, Button } from 'src/components';
 import styled from '@emotion/styled';
 
 const WritePage = () => {
-  const [title, setTitle] = useState<string>();
-  const [description, setDescription] = useState<string>();
-  const [content, setContent] = useState<string>();
+  const [title, setTitle] = useState<string>('');
+  const [content, setContent] = useState<string>('');
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const articleElements = { title, content };
+
+  const handleOpenModal = () => {
+    setOpen(!isOpen);
+  };
 
   return (
     <>
-      <button onClick={() => createArticle({ title, description, content })}>
-        생성하기
-      </button>
-      <TitleInput onChange={setTitle} placeholder="제목을 입력해주세요." />
-      <DescriptionInput
-        onChange={setDescription}
-        placeholder="글에대한 설명을 입력해주세요"
-      />
+      {isOpen && (
+        <CreateArticleModal
+          handleOpenModal={handleOpenModal}
+          articleElements={articleElements}
+        />
+      )}
+      <ButtonWrapper>
+        <Button
+          onClick={handleOpenModal}
+          label="나가기"
+          buttonType="tertiary"
+        />
+        <Button onClick={handleOpenModal} label="완료" buttonType="secondary" />
+      </ButtonWrapper>
+
+      <TitleInput onChange={setTitle} />
       <TextEditor onChange={setContent} />
     </>
   );
@@ -26,5 +38,9 @@ const WritePage = () => {
 
 export default WritePage;
 
-const TitleInput = styled(Input)``;
-const DescriptionInput = styled(Input)``;
+const ButtonWrapper = styled.div`
+  padding: 25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+`;

@@ -1,0 +1,76 @@
+import React from 'react';
+import styled from '@emotion/styled';
+
+type ButtonType = 'primary' | 'secondary' | 'tertiary';
+
+interface Props {
+  label: string;
+  buttonType: ButtonType;
+  onClick: () => void;
+}
+
+export const Button = ({ label, buttonType, onClick }: Props) => {
+  const handleOnClick = () => {
+    if (!onClick) return;
+    onClick();
+  };
+  return (
+    <StyledButton buttonType={buttonType} onClick={handleOnClick}>
+      {label}
+    </StyledButton>
+  );
+};
+
+interface StyledProps {
+  buttonType: ButtonType;
+}
+
+const getBackgroundColor = (buttonType: ButtonType) => {
+  switch (buttonType) {
+    case 'primary':
+      return '#0af5cb';
+    case 'secondary':
+      return 'transparent';
+    case 'tertiary':
+      return 'transparent';
+    default:
+      return null;
+  }
+};
+
+const getFontColor = (buttonType: ButtonType) => {
+  switch (buttonType) {
+    case 'primary':
+      return '#000000';
+    case 'secondary':
+      return '#0af5cb';
+    case 'tertiary':
+      return '#494c56';
+    default:
+      return null;
+  }
+};
+
+const getBorderColor = (buttonType: ButtonType) => {
+  switch (buttonType) {
+    case 'primary':
+      return '#0af5cb';
+    case 'secondary':
+      return '#0af5cb';
+    case 'tertiary':
+      return '#494c56';
+    default:
+      return null;
+  }
+};
+
+const StyledButton = styled.button<StyledProps>`
+  width: 84px;
+  height: 40px;
+  border-radius: 50px;
+  border: 1px solid ${({ buttonType }) => getBorderColor(buttonType)};
+  background: ${({ buttonType }) => getBackgroundColor(buttonType)};
+  color: ${({ buttonType }) => getFontColor(buttonType)};
+  font-size: 16px;
+  cursor: pointer;
+`;
