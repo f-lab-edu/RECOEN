@@ -56,7 +56,7 @@ export const QuoteSlider = ({ quotes }: Props) => {
       </QuotesBox>
       <ProgressBox>
         <NumBox>
-          <CurrentNum>0{currentSlide + 1}</CurrentNum>
+          <CurrentNum data-testid="currentNum">0{currentSlide + 1}</CurrentNum>
           <StyledHyphen />
           <TotalNum>0{TOTAL_SLIDES + 1}</TotalNum>
         </NumBox>
@@ -68,6 +68,7 @@ export const QuoteSlider = ({ quotes }: Props) => {
           alt="Left Arrow"
         />
         <StyleImage
+          data-testid="nextSlideButton"
           onClick={NextSlide}
           src={RigthArrow}
           width={50}
