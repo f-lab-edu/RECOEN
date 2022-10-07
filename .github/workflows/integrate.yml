@@ -5,20 +5,17 @@ on:
     branches: ['main']
 
 jobs:
-  tests:
+  build:
+    name: Setup
     runs-on: ubuntu-latest
     steps:
-      # Checkout the Repo
       - uses: actions/checkout@v2
-
-      # Install Node LTS
-      - name: Setup Node
-        uses: actions/setup-node@v1
+      - uses: borales/actions-yarn@v3.0.0
         with:
-          node-version: 16.17.0
-
-      # Install dependencies
-      - run: npm install --force
-
-      # Run tests
-      - run: npm test
+          cmd: install # will run `yarn install` command
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: build # will run `yarn build` command
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: test # will run `yarn test` command
