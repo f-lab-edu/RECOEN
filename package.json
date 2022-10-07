@@ -31,6 +31,7 @@
     "react-dom": "18.2.0",
     "react-query": "^3.39.2",
     "recoil": "^0.7.5",
+    "uuid": "^9.0.0",
     "vercel": "^28.4.2"
   },
   "devDependencies": {
