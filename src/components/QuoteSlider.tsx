@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import LeftArrow from '../../public/leftArrow.png';
@@ -17,19 +17,9 @@ interface Props {
 export const QuoteSlider = ({ quotes }: Props) => {
   const slideRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [currentLineWidth, setCurrentLineWidth] = useState<number>(0);
   const TOTAL_SLIDES = quotes.length - 1;
   const SLIDE_BOX_WIDTH = 1200 * TOTAL_SLIDES;
-  const currentLinePost = currentSlide * currentLineWidth;
 
-  const measuredRef = useCallback((node: HTMLDivElement) => {
-    if (node !== null) {
-      const progressBarWidth = node.getBoundingClientRect().width;
-      setCurrentLineWidth(progressBarWidth / quotes.length);
-    }
-  }, []);
-
-  // Next 버튼 클릭 시
   const NextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       return;
@@ -50,7 +40,7 @@ export const QuoteSlider = ({ quotes }: Props) => {
     if (slideRef.current) {
       const moveX = 1200 * currentSlide;
       slideRef.current.style.transition = 'all 0.5s ease-in-out';
-      slideRef.current.style.transform = `translateX(-${moveX}px)`; // 백틱을 사용하여 슬라이드로 이동하는 에니메이션을 만듭니다.
+      slideRef.current.style.transform = `translateX(-${moveX}px)`;
     }
   }, [currentSlide]);
 
@@ -64,26 +54,23 @@ export const QuoteSlider = ({ quotes }: Props) => {
         </SlideBox>
       </QuotesBox>
       <ProgressBox>
-        <LineWrapper>
-          <ProgressLine ref={measuredRef}>
-            <CurrentLine
-              currentLinePos={currentLinePost}
-              currentLineWidth={currentLineWidth}
-            />
-          </ProgressLine>
-        </LineWrapper>
+        <NumBox>
+          <CurrentNum>0{currentSlide + 1}</CurrentNum>
+          <StyledHyphen />
+          <TotalNum>0{TOTAL_SLIDES + 1}</TotalNum>
+        </NumBox>
         <StyleImage
           onClick={PrevSlide}
           src={LeftArrow}
-          width="50"
-          height="50"
+          width={50}
+          height={50}
           alt="Left Arrow"
         />
         <StyleImage
           onClick={NextSlide}
           src={RigthArrow}
-          width="50"
-          height="50"
+          width={50}
+          height={50}
           alt="Rigth Arrow"
         />
       </ProgressBox>
@@ -99,7 +86,7 @@ interface StyleProps {
 
 const Container = styled.div`
   width: 1200px;
-  height: 90%;
+  height: 600px;
   box-sizing: border-box;
   margin: 0 auto;
 `;
@@ -122,39 +109,35 @@ const ProgressBox = styled.div`
   justify-content: flex-end;
   gap: 16px;
   box-sizing: content-box;
-  height: 44.92px;
+  height: 50px;
+  width: 100%;
 `;
 
-const LineWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+const NumBox = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
 `;
 
-const ProgressLine = styled.div`
-  height: 0.3px;
-  width: 100%;
-  border: 0.3px solid #494c56;
-  position: relative;
+const TotalNum = styled.div`
+  color: #494c56;
+  font-size: 20px;
 `;
 
-const CurrentLine = styled.hr<StyleProps>`
-  height: 0.1px;
-  width: ${(props) => props.currentLineWidth}px;
-  border: 0.1px solid #9499a1;
-  position: absolute;
-  left: ${(props) => props.currentLinePos}px;
-  top: 0;
-  margin: 0;
-  transition: 0.5s ease-in-out;
+const StyledHyphen = styled.div`
+  height: 0.5px;
+  width: 20px;
+  background-color: #494c56;
+  margin: 5px;
+`;
+
+const CurrentNum = styled.div`
+  color: #9499a1;
+  font-size: 20px;
 `;
 
 const StyleImage = styled(Image)`
   cursor: pointer;
   :hover {
-    /* transition: 0.1s ease-in-out; */
     opacity: 0.5;
   }
 `;
@@ -176,7 +159,6 @@ const Quote = ({ quote }: QuoteProps) => {
         <KoreanQuote>
           <KoreanParagraph>{quote.koreanQuote}</KoreanParagraph>
         </KoreanQuote>
-        <KoreanCite>{quote.koreanCite}</KoreanCite>
       </DownWrapper>
     </QuoteBox>
   );
@@ -193,17 +175,18 @@ const UpperWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 `;
 
 const EnglishQuote = styled.blockquote`
-  font-size: 60px;
+  font-size: 46px;
   text-align: right;
   margin-right: 0;
   margin-left: 0;
   padding: 0;
   color: #9499a1;
   white-space: pre;
+  font-family: 'PT Serif', serif;
 `;
 
 const EnglishParagraph = styled.p`
@@ -213,6 +196,9 @@ const EnglishParagraph = styled.p`
 const EnglishCite = styled.cite`
   text-align: right;
   color: #9499a1;
+  font-size: 18px;
+  font-family: 'PT Serif', serif;
+  font-style: none;
 `;
 
 const DownWrapper = styled.div`
@@ -220,19 +206,23 @@ const DownWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 30px;
 `;
 
 const KoreanQuote = styled.blockquote`
   margin: 0;
   color: #494c56;
   display: inline;
-  border-top: 1px solid #494c56;
   white-space: pre;
+  position: relative;
+  :before {
+    content: '';
+    background-color: #494c56;
+    width: 50px;
+    height: 1px;
+    position: absolute;
+    right: 0;
+    left: 0;
+  }
 `;
 
 const KoreanParagraph = styled.p``;
-
-const KoreanCite = styled.cite`
-  color: #494c56;
-`;
