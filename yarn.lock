@@ -124,6 +124,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@aws-sdk/abort-controller@npm:^3.186.0":
+  version: 3.186.0
+  resolution: "@aws-sdk/abort-controller@npm:3.186.0"
+  dependencies:
+    "@aws-sdk/types": 3.186.0
+    tslib: ^2.3.1
+  checksum: 65496fa05c984d8a570665a886d45590803ed41dd9a1341304daa94699bd43e0862644b2d076af4431c8b186e556054dc47240bf25fccf8deaa2f1499e3a230d
+  languageName: node
+  linkType: hard
+
 "@aws-sdk/chunked-blob-reader-native@npm:3.170.0":
   version: 3.170.0
   resolution: "@aws-sdk/chunked-blob-reader-native@npm:3.170.0"
@@ -872,6 +882,13 @@ __metadata:
   version: 3.178.0
   resolution: "@aws-sdk/types@npm:3.178.0"
   checksum: 9d339078953481c4db38c23a590638b7058698f204ea317369a132d06142bfde65beaf6f6ac724180e98f73917ef6a041aa61e44f447ffff43cc845c771c2510
+  languageName: node
+  linkType: hard
+
+"@aws-sdk/types@npm:3.186.0":
+  version: 3.186.0
+  resolution: "@aws-sdk/types@npm:3.186.0"
+  checksum: d940623eb6ccc9efee77b12c80ec4ebf03aedcaba493d0ece615de3eef8ae9f01b9cb22947aa4c1a78d7c242dc84b8945e2cd621146bfcb3342492e1a32e2070
   languageName: node
   linkType: hard
 
@@ -2394,9 +2411,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@toast-ui/editor@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "@toast-ui/editor@npm:3.2.0"
+"@toast-ui/editor@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@toast-ui/editor@npm:3.2.1"
   dependencies:
     dompurify: ^2.3.3
     prosemirror-commands: ^1.1.9
@@ -2406,18 +2423,18 @@ __metadata:
     prosemirror-model: ^1.14.1
     prosemirror-state: ^1.3.4
     prosemirror-view: ^1.18.7
-  checksum: 1402ff222b8caaa3a638ef0cb92d98100522f87b418b28a77dee9b0b38f663479a482bb94515e24d4ecac3c8822f4ad1ba8eff59aaffbb4347cab2f76dcf3618
+  checksum: 9282260854ed2a53806dbf982fbacd53c7d5b2cacfa8e83918d6db3841f6107d11f7ded120a5bbb4e7c6e565469d4451631129ed9eb621ffc26d7dac939dfb46
   languageName: node
   linkType: hard
 
-"@toast-ui/react-editor@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "@toast-ui/react-editor@npm:3.2.0"
+"@toast-ui/react-editor@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "@toast-ui/react-editor@npm:3.2.2"
   dependencies:
-    "@toast-ui/editor": ^3.2.0
+    "@toast-ui/editor": ^3.2.1
   peerDependencies:
     react: ^17.0.1
-  checksum: 20e9c7d782ca10f5d4f0b41425e7f231aea41ea3ff5b755794e69ed106619c34d67417058be693066df863a1d070cd9aa4f6de2bc711f78af72c30e6fe55533e
+  checksum: a069f10c9eeb942d8d0fb1dd3e6a4e9b743eb7ab7f2283846f13c99937636a695da69ccf443f6a59668beea6cd7d3f86fc3a132044105da1f5f5381afb1d5e72
   languageName: node
   linkType: hard
 
@@ -2948,6 +2965,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "RECOEN@workspace:."
   dependencies:
+    "@aws-sdk/abort-controller": ^3.186.0
     "@babel/core": ^7.19.1
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
@@ -2955,7 +2973,7 @@ __metadata:
     "@testing-library/react": ^13.4.0
     "@testing-library/react-hooks": ^8.0.1
     "@testing-library/user-event": ^14.4.3
-    "@toast-ui/react-editor": ^3.2.0
+    "@toast-ui/react-editor": ^3.2.2
     "@types/jest": ^29.0.2
     "@types/node": 18.7.15
     "@types/react": 18.0.18
@@ -2977,7 +2995,7 @@ __metadata:
     next-connect: ^0.13.0
     next-s3-upload: ^0.2.3
     prettier: ^2.7.1
-    react: 18.2.0
+    react: ^18.2.0
     react-dom: 18.2.0
     react-query: ^3.39.2
     recoil: ^0.7.5
@@ -8131,7 +8149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
+"react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
