@@ -9,4 +9,4 @@ export * from './ImageUpload';
 export * from './modals';
 export * from './ui';
 export * from './Inputs';
-export * from './QuoteSlider';
+export * from './quoteSlider';
