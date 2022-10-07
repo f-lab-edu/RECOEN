@@ -1,4 +1,4 @@
-import { getArticle, client } from '.';
+import { getArticle, client } from 'src/utils';
 
 jest.mock('axios');
 

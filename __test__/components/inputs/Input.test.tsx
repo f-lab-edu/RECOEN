@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Input } from './index';
+import { Input } from 'src/components/Inputs';
 
 describe('Input', () => {
   const onChange = jest.fn();
