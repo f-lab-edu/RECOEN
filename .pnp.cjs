@@ -70,6 +70,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["recoil", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:0.7.5"],\
             ["ts-jest", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:29.0.3"],\
             ["typescript", "patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=701156"],\
+            ["uuid", "npm:9.0.0"],\
             ["vercel", "npm:28.4.2"]\
           ],\
           "linkType": "SOFT"\
@@ -4173,6 +4174,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["recoil", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:0.7.5"],\
             ["ts-jest", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:29.0.3"],\
             ["typescript", "patch:typescript@npm%3A4.8.2#~builtin<compat/typescript>::version=4.8.2&hash=701156"],\
+            ["uuid", "npm:9.0.0"],\
             ["vercel", "npm:28.4.2"]\
           ],\
           "linkType": "SOFT"\
@@ -11889,6 +11891,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/uuid-npm-8.3.2-eca0baba53-5575a8a75c.zip/node_modules/uuid/",\
           "packageDependencies": [\
             ["uuid", "npm:8.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:9.0.0", {\
+          "packageLocation": "./.yarn/cache/uuid-npm-9.0.0-46c41e3e43-8dd2c83c43.zip/node_modules/uuid/",\
+          "packageDependencies": [\
+            ["uuid", "npm:9.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
