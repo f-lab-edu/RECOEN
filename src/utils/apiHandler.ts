@@ -6,9 +6,10 @@ const ARTICLES_URI = '/api/articles';
 interface CreateArticleParameter {
   title?: string;
   description?: string;
-  hashtag?: string;
+  tags?: string[];
   content?: string;
   imgUrl?: string;
+  blurDataURL?: string;
 }
 
 export const getArticle = async (id: string) => {

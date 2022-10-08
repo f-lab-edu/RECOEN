@@ -6,19 +6,23 @@ import styled from '@emotion/styled';
 interface Props {
   articleElements: {
     title?: string;
-    hashtag?: string;
     content?: string;
   };
   handleOpenModal: () => void;
 }
 
+export type ImageUrl = {
+  url: string;
+  blurDataURL: string;
+};
+
 export const CreateArticleModal = ({
   articleElements,
   handleOpenModal,
 }: Props) => {
-  const [imgUrl, setImgUrl] = useState<string>();
-  const [description, setDescription] = useState<string>();
-  const [tags, setTags] = useState<string[]>();
+  const [imgUrl, setImgUrl] = useState<ImageUrl>({});
+  const [description, setDescription] = useState<string>('');
+  const [tags, setTags] = useState<string[]>([]);
 
   return (
     <Modal handleOpenModal={handleOpenModal}>
@@ -33,15 +37,21 @@ export const CreateArticleModal = ({
             label="저장"
             buttonType="primary"
             onClick={() =>
-              createArticle({ ...articleElements, imgUrl, description })
+              createArticle({
+                ...articleElements,
+                ...imgUrl,
+                description,
+                tags,
+              })
             }
           />
         </ButtonWrapper>
         <Guide>대표이미지 선택</Guide>
-        <ImageUpload setImageUrl={setImgUrl} />
+        <ImageUpload setImgUrl={setImgUrl} />
         <Guide>태그를 선택하세요.</Guide>
         <TagInput values={tags!} onChange={setTags} />
         <Guide>설명글을 작성해주세요.</Guide>
+        <input onChange={(e) => setDescription(e.target.value)} />
       </>
     </Modal>
   );

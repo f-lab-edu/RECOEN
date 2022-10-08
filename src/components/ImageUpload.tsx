@@ -4,23 +4,23 @@ import { useS3Upload } from 'next-s3-upload';
 import { compressImage } from 'src/utils';
 import { usePreview } from 'src/hooks';
 import styled from '@emotion/styled';
-import { getPlaiceholder } from 'plaiceholder';
 import { client } from 'src/utils';
+import { ImageUrl } from './CreateArticleModal';
 
 interface Props {
-  setImageUrl: (e: string) => void;
+  setImgUrl: (e: ImageUrl) => void;
 }
 
-export const ImageUpload = ({ setImageUrl }: Props) => {
+export const ImageUpload = ({ setImgUrl }: Props) => {
   const [preview, setPreview] = usePreview();
   const { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
 
   const handleFileChange = async (file: File) => {
     setPreview(file);
     const compressedImage = await compressImage(file);
-    const { url } = await uploadToS3(compressedImage);
-    const { data: base64 } = await client.post('/api/base64', { url });
-    setImageUrl(url);
+    const { url: imgUrl } = await uploadToS3(compressedImage);
+    const { data: blurDataURL } = await client.post('/api/base64', { imgUrl });
+    setImgUrl({ imgUrl, blurDataURL });
   };
 
   return (
