@@ -5,6 +5,7 @@ import { compressImage } from 'src/utils';
 import { usePreview } from 'src/hooks';
 import styled from '@emotion/styled';
 import { getPlaiceholder } from 'plaiceholder';
+import { client } from 'src/utils';
 
 interface Props {
   setImageUrl: (e: string) => void;
@@ -18,6 +19,7 @@ export const ImageUpload = ({ setImageUrl }: Props) => {
     setPreview(file);
     const compressedImage = await compressImage(file);
     const { url } = await uploadToS3(compressedImage);
+    const { data: base64 } = await client.post('/api/base64', { url });
     setImageUrl(url);
   };
 
