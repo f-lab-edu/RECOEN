@@ -4,6 +4,7 @@ import { useS3Upload } from 'next-s3-upload';
 import { compressImage } from 'src/utils';
 import { usePreview } from 'src/hooks';
 import styled from '@emotion/styled';
+import { getPlaiceholder } from 'plaiceholder';
 
 interface Props {
   setImageUrl: (e: string) => void;
