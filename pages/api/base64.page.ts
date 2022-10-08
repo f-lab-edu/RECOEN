@@ -13,8 +13,8 @@ const handler = nc<NextApiRequest, NextApiResponse>({
 
 handler.post(async (req, res) => {
   try {
-    const { url } = req.body;
-    const { base64 } = await getPlaiceholder(url, { size: 10 });
+    const { imgUrl } = req.body;
+    const { base64 } = await getPlaiceholder(imgUrl);
     res.status(200).json(base64);
   } catch (err) {
     console.log(err);
