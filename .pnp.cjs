@@ -10701,13 +10701,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-<<<<<<< config/yarn-migration
-      ["pluralize", [\
-        ["npm:7.0.0", {\
-          "packageLocation": "./.yarn/cache/pluralize-npm-7.0.0-5e0212129c-e3f694924b.zip/node_modules/pluralize/",\
-          "packageDependencies": [\
-            ["pluralize", "npm:7.0.0"]\
-=======
       ["plaiceholder", [\
         ["npm:2.5.0", {\
           "packageLocation": "./.yarn/cache/plaiceholder-npm-2.5.0-75785527ce-8fde074409.zip/node_modules/plaiceholder/",\
@@ -10731,7 +10724,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@types/sharp",\
             "sharp"\
->>>>>>> chore : add plaiceholder
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["pluralize", [\
+        ["npm:7.0.0", {\
+          "packageLocation": "./.yarn/cache/pluralize-npm-7.0.0-5e0212129c-e3f694924b.zip/node_modules/pluralize/",\
+          "packageDependencies": [\
+            ["pluralize", "npm:7.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\

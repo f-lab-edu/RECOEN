@@ -4328,7 +4328,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< config/yarn-migration
 "chevrotain@npm:^9.1.0":
   version: 9.1.0
   resolution: "chevrotain@npm:9.1.0"
@@ -4337,12 +4336,13 @@ __metadata:
     "@chevrotain/utils": ^9.1.0
     regexp-to-ast: 0.5.0
   checksum: 632d0d7c69081e3cc3a08c071cb738c46499a05f1a513b7f9101f7a9b5570d6ee62cac5ba506659a85bf9e71e1029c462dbb7bd9fe1bfe019b6c1879ca29c525
-=======
+  languageName: node
+  linkType: hard
+
 "chownr@npm:^1.1.1":
   version: 1.1.4
   resolution: "chownr@npm:1.1.4"
   checksum: 115648f8eb38bac5e41c3857f3e663f9c39ed6480d1349977c4d96c95a47266fcacc5a5aabf3cb6c481e22d72f41992827db47301851766c4fd77ac21a4f081d
->>>>>>> chore : add plaiceholder
   languageName: node
   linkType: hard
 
@@ -8061,7 +8061,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< config/yarn-migration
+"mkdirp-classic@npm:^0.5.2, mkdirp-classic@npm:^0.5.3":
+  version: 0.5.3
+  resolution: "mkdirp-classic@npm:0.5.3"
+  checksum: 3f4e088208270bbcc148d53b73e9a5bd9eef05ad2cbf3b3d0ff8795278d50dd1d11a8ef1875ff5aea3fa888931f95bfcb2ad5b7c1061cfefd6284d199e6776ac
+  languageName: node
+  linkType: hard
+
 "mkdirp@npm:^0.5.1":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
@@ -8070,12 +8076,6 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: 0c91b721bb12c3f9af4b77ebf73604baf350e64d80df91754dc509491ae93bf238581e59c7188360cec7cb62fc4100959245a42cfe01834efedc5e9d068376c2
-=======
-"mkdirp-classic@npm:^0.5.2, mkdirp-classic@npm:^0.5.3":
-  version: 0.5.3
-  resolution: "mkdirp-classic@npm:0.5.3"
-  checksum: 3f4e088208270bbcc148d53b73e9a5bd9eef05ad2cbf3b3d0ff8795278d50dd1d11a8ef1875ff5aea3fa888931f95bfcb2ad5b7c1061cfefd6284d199e6776ac
->>>>>>> chore : add plaiceholder
   languageName: node
   linkType: hard
 
@@ -8823,12 +8823,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< config/yarn-migration
-"pluralize@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "pluralize@npm:7.0.0"
-  checksum: e3f694924b7c8c03dc9fa40b2312e17787998ac6e20fccace11efa1146046eb9931541bfd247b3ec5535e730d902a5aee7c32681d5bf9a00fc74a72039a3e609
-=======
 "plaiceholder@npm:^2.5.0":
   version: 2.5.0
   resolution: "plaiceholder@npm:2.5.0"
@@ -8841,7 +8835,13 @@ __metadata:
   peerDependencies:
     sharp: ">= 0.30.6"
   checksum: 8fde0744094abdf1db33fba647669836a0a7069f150524a75b104f1c76e7c61766a85e1eb693430c0bf291709f9becf596a8ab483d240ce22a668e6ab5c5e64e
->>>>>>> chore : add plaiceholder
+  languageName: node
+  linkType: hard
+
+"pluralize@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "pluralize@npm:7.0.0"
+  checksum: e3f694924b7c8c03dc9fa40b2312e17787998ac6e20fccace11efa1146046eb9931541bfd247b3ec5535e730d902a5aee7c32681d5bf9a00fc74a72039a3e609
   languageName: node
   linkType: hard
 
@@ -9561,18 +9561,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< config/yarn-migration
-"safe-buffer@npm:~5.2.0":
-  version: 5.2.1
-  resolution: "safe-buffer@npm:5.2.1"
-  checksum: b99c4b41fdd67a6aaf280fcd05e9ffb0813654894223afb78a31f14a19ad220bba8aba1cb14eddce1fcfb037155fe6de4e861784eb434f7d11ed58d1e70dd491
-  languageName: node
-  linkType: hard
-
 "safer-buffer@npm:>= 2.1.2 < 3.0.0, safer-buffer@npm:^2.0.2":
-=======
-"safer-buffer@npm:>= 2.1.2 < 3.0.0":
->>>>>>> chore : add plaiceholder
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
   checksum: cab8f25ae6f1434abee8d80023d7e72b598cf1327164ddab31003c51215526801e40b66c5e65d658a0af1e9d6478cadcb4c745f4bd6751f97d8644786c0978b0
