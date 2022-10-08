@@ -22,6 +22,7 @@ const ArticlePage = ({
                 title={article.title}
                 imgUrl={article.imgUrl}
                 description={article.description}
+                blurDataURL={article.blurDataURL}
               />
             ))}
           </>

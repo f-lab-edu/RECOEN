@@ -8,9 +8,16 @@ interface Props {
   description: string;
   path: string;
   imgUrl: string;
+  blurDataURL: string;
 }
 
-export const Article = ({ title, description, path, imgUrl }: Props) => {
+export const Article = ({
+  title,
+  description,
+  path,
+  imgUrl,
+  blurDataURL,
+}: Props) => {
   return (
     <Link href={`/article/${path}`}>
       <Anchor>
@@ -21,7 +28,8 @@ export const Article = ({ title, description, path, imgUrl }: Props) => {
             width={330}
             height={220}
             layout="responsive"
-            // placeholder="blur" NOTE : 추후 blur 부분 작업하기. blurDataURL 부분 추가되어야함
+            placeholder="blur"
+            blurDataURL={blurDataURL}
           />
           <Wrapper>
             <Title>{title}</Title>
