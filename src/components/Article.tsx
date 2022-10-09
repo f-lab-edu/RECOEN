@@ -22,15 +22,16 @@ export const Article = ({
     <Link href={`/article/${path}`}>
       <Anchor>
         <Container>
-          <CustomImage
-            src={imgUrl}
-            alt="Thumbnail of article"
-            width={330}
-            height={220}
-            layout="responsive"
-            placeholder="blur"
-            blurDataURL={blurDataURL}
-          />
+          <ImageWrapper>
+            <CustomImage
+              src={imgUrl}
+              alt="Thumbnail of article"
+              layout="fill"
+              objectFit="cover"
+              placeholder="blur"
+              blurDataURL={blurDataURL}
+            />
+          </ImageWrapper>
           <Wrapper>
             <Title>{title}</Title>
             <Desc>{description}</Desc>
@@ -55,6 +56,12 @@ const Container = styled.article`
 
 const Anchor = styled.a`
   text-decoration-line: none;
+`;
+
+const ImageWrapper = styled.div`
+  width: 320px;
+  height: 200px;
+  position: relative;
 `;
 
 const CustomImage = styled(Image)`
