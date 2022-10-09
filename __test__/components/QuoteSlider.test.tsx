@@ -30,9 +30,9 @@ describe('QuoteSlider', () => {
   describe('render', () => {
     it('should render correctly', () => {
       renderQuoteSlider();
-      expect(screen.getByText(quotesData[0].englishCite)).toBeInTheDocument();
-      expect(screen.getByText(quotesData[1].englishCite)).toBeInTheDocument();
-      expect(screen.getByText(quotesData[2].englishCite)).toBeInTheDocument();
+      quotesData.forEach(({englishCite}) => {
+        expect(screen.getByText(englishCite)).toBeInTheDocument();
+      })
     });
   });
 
