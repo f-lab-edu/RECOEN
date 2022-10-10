@@ -20,7 +20,7 @@ export const CreateArticleModal = ({
   articleElements,
   handleOpenModal,
 }: Props) => {
-  const [imgUrl, setImgUrl] = useState<ImageUrl>({});
+  const [imgUrl, setImgUrl] = useState<ImageUrl>();
   const [description, setDescription] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
 

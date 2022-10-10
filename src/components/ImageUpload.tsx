@@ -5,7 +5,7 @@ import { compressImage } from 'src/utils';
 import { usePreview } from 'src/hooks';
 import styled from '@emotion/styled';
 import { client } from 'src/utils';
-import { ImageUrl } from './CreateArticleModal';
+import { ImageUrl } from './modals/CreateArticleModal';
 
 interface Props {
   setImgUrl: (e: ImageUrl) => void;
@@ -18,9 +18,9 @@ export const ImageUpload = ({ setImgUrl }: Props) => {
   const handleFileChange = async (file: File) => {
     setPreview(file);
     const compressedImage = await compressImage(file);
-    const { url: imgUrl } = await uploadToS3(compressedImage);
-    const { data: blurDataURL } = await client.post('/api/base64', { imgUrl });
-    setImgUrl({ imgUrl, blurDataURL });
+    const { url } = await uploadToS3(compressedImage);
+    const { data: blurDataURL } = await client.post('/api/base64', { url });
+    setImgUrl({ url, blurDataURL });
   };
 
   return (
