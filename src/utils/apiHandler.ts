@@ -9,7 +9,6 @@ interface CreateArticleParameter {
   tags?: string[];
   content?: string;
   imgUrl?: string;
-  blurDataURL?: string;
 }
 
 export const getArticle = async (id: string) => {
