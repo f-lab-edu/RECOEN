@@ -12,7 +12,6 @@ const WritePage = () => {
   const handleOpenModal = () => {
     setOpen(!isOpen);
   };
-
   return (
     <>
       {isOpen && (
