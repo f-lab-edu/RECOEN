@@ -30,16 +30,16 @@ describe('QuoteSlider', () => {
   describe('render', () => {
     it('should render correctly', () => {
       renderQuoteSlider();
-      quotesData.forEach(({englishCite}) => {
+      quotesData.forEach(({ englishCite }) => {
         expect(screen.getByText(englishCite)).toBeInTheDocument();
-      })
+      });
     });
   });
 
   describe('버튼을 클릭하면', () => {
     it('slide가 움직여야 한다.', () => {
       renderQuoteSlider();
-      const nextSlideButton = screen.getByTestId('nextSlideButton');
+      const nextSlideButton = screen.getByAltText(/Rigth Arrow/);
       const { getByText } = within(screen.getByTestId('currentNum'));
 
       expect(getByText('01')).toBeInTheDocument();
