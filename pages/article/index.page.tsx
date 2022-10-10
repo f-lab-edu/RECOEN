@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async () => {
     );
     return {
       props: {
-        articles: JSON.parse(JSON.stringify(articlesWithBlurURL)),
+        articles: articlesWithBlurURL,
       },
     };
   } catch (error) {
