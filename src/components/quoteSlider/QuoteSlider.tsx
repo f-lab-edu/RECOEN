@@ -22,27 +22,21 @@ export const QuoteSlider = ({ quotes }: Props) => {
   const SLIDE_BOX_WIDTH = 1200 * TOTAL_SLIDES;
 
   const NextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES) {
-      return;
-    } else {
-      setCurrentSlide(currentSlide + 1);
-    }
+    if (currentSlide >= TOTAL_SLIDES) return;
+    setCurrentSlide(currentSlide + 1);
   };
 
   const PrevSlide = () => {
-    if (currentSlide === 0) {
-      return;
-    } else {
-      setCurrentSlide(currentSlide - 1);
-    }
+    if (currentSlide === 0) return;
+    setCurrentSlide(currentSlide - 1);
   };
 
   useEffect(() => {
-    if (slideRef.current) {
-      const moveX = 1200 * currentSlide;
-      slideRef.current.style.transition = 'all 0.5s ease-in-out';
-      slideRef.current.style.transform = `translateX(-${moveX}px)`;
-    }
+    if (!slideRef.current) return;
+
+    const moveX = 1200 * currentSlide;
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
+    slideRef.current.style.transform = `translateX(-${moveX}px)`;
   }, [currentSlide]);
 
   return (
