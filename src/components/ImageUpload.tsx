@@ -4,11 +4,9 @@ import { useS3Upload } from 'next-s3-upload';
 import { compressImage } from 'src/utils';
 import { usePreview } from 'src/hooks';
 import styled from '@emotion/styled';
-import { client } from 'src/utils';
-import { ImageUrl } from './modals/CreateArticleModal';
 
 interface Props {
-  setImgUrl: (e: ImageUrl) => void;
+  setImgUrl: (e: string) => void;
 }
 
 export const ImageUpload = ({ setImgUrl }: Props) => {
@@ -19,8 +17,7 @@ export const ImageUpload = ({ setImgUrl }: Props) => {
     setPreview(file);
     const compressedImage = await compressImage(file);
     const { url } = await uploadToS3(compressedImage);
-    const { data: blurDataURL } = await client.post('/api/base64', { url });
-    setImgUrl({ url, blurDataURL });
+    setImgUrl(url);
   };
 
   return (

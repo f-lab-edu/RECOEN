@@ -6,7 +6,6 @@ const articleSchema = new Schema({
   tags: [String],
   content: String,
   imgUrl: String,
-  blurDataURL: String,
 });
 
 const ArticleModel = models.Article || model('Article', articleSchema);

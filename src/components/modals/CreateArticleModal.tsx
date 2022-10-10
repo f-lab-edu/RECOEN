@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageUpload, Modal, Button, Input, TagInput } from 'src/components';
+import { ImageUpload, Modal, Button, TagInput } from 'src/components';
 import { createArticle } from 'src/utils';
 import styled from '@emotion/styled';
 
@@ -11,16 +11,11 @@ interface Props {
   handleOpenModal: () => void;
 }
 
-export type ImageUrl = {
-  url: string;
-  blurDataURL: string;
-};
-
 export const CreateArticleModal = ({
   articleElements,
   handleOpenModal,
 }: Props) => {
-  const [imgUrl, setImgUrl] = useState<ImageUrl>();
+  const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
 
@@ -39,7 +34,7 @@ export const CreateArticleModal = ({
             onClick={() =>
               createArticle({
                 ...articleElements,
-                ...imgUrl,
+                imgUrl,
                 description,
                 tags,
               })
