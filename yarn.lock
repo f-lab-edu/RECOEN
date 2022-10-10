@@ -2925,7 +2925,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/testing-library__jest-dom@npm:^5.9.1":
+"@types/testing-library__jest-dom@npm:^5.14.5, @types/testing-library__jest-dom@npm:^5.9.1":
   version: 5.14.5
   resolution: "@types/testing-library__jest-dom@npm:5.14.5"
   dependencies:
@@ -3496,6 +3496,7 @@ __metadata:
     "@types/node": 18.7.15
     "@types/react": ^18.0.21
     "@types/react-dom": 18.0.6
+    "@types/testing-library__jest-dom": ^5.14.5
     "@typescript-eslint/eslint-plugin": ^5.36.2
     "@typescript-eslint/parser": ^5.36.2
     "@yarnpkg/pnpify": ^3.1.6

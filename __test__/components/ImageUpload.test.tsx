@@ -1,6 +1,5 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { ImageUpload } from 'src/components';
-import { renderHook } from '@testing-library/react-hooks';
 
 describe('ImageUpload', () => {
   const setImageUrl = jest.fn();
