@@ -8,21 +8,30 @@ interface Props {
   description: string;
   path: string;
   imgUrl: string;
+  blurDataURL: string;
 }
 
-export const Article = ({ title, description, path, imgUrl }: Props) => {
+export const Article = ({
+  title,
+  description,
+  path,
+  imgUrl,
+  blurDataURL,
+}: Props) => {
   return (
     <Link href={`/article/${path}`}>
       <Anchor>
         <Container>
-          <CustomImage
-            src={imgUrl}
-            alt="Thumbnail of article"
-            width={330}
-            height={220}
-            layout="responsive"
-            // placeholder="blur" NOTE : 추후 blur 부분 작업하기. blurDataURL 부분 추가되어야함
-          />
+          <ImageWrapper>
+            <CustomImage
+              src={imgUrl}
+              alt="Thumbnail of article"
+              layout="fill"
+              objectFit="cover"
+              placeholder="blur"
+              blurDataURL={blurDataURL}
+            />
+          </ImageWrapper>
           <Wrapper>
             <Title>{title}</Title>
             <Desc>{description}</Desc>
@@ -47,6 +56,12 @@ const Container = styled.article`
 
 const Anchor = styled.a`
   text-decoration-line: none;
+`;
+
+const ImageWrapper = styled.div`
+  width: 320px;
+  height: 200px;
+  position: relative;
 `;
 
 const CustomImage = styled(Image)`
