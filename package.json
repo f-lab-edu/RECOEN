@@ -26,11 +26,13 @@
     "next": "12.2.5",
     "next-connect": "^0.13.0",
     "next-s3-upload": "^0.2.3",
+    "plaiceholder": "^2.5.0",
     "prosemirror-transform": "^1.7.0",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-query": "^3.39.2",
     "recoil": "^0.7.5",
+    "sharp": "^0.31.1",
     "uuid": "^9.0.0",
     "vercel": "^28.4.2"
   },

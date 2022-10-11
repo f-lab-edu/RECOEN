@@ -5,6 +5,7 @@ const nextConfig = {
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
   images: {
     domains: ['recoen.s3.ap-northeast-2.amazonaws.com'],
+    formats: ['image/avif', 'image/webp'],
   },
 };
 

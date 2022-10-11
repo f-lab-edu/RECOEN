@@ -5,6 +5,17 @@ import ArticleModel from 'pages/api/models/articleModel';
 
 import { Article, SideTab } from 'src/components';
 import { Layout, Grid } from 'src/components/ui';
+import { getPlaiceholder } from 'plaiceholder';
+
+type ArticleT = {
+  _id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  content: string;
+  imgUrl: string;
+  blurDataURL: string;
+};
 
 const ArticlePage = ({
   articles,
@@ -15,13 +26,14 @@ const ArticlePage = ({
         <SideTab />
         <Grid>
           <>
-            {articles.map((article: any) => (
+            {articles.map((article: ArticleT) => (
               <Article
                 key={article._id}
                 path={encodeURI(article._id)}
                 title={article.title}
                 imgUrl={article.imgUrl}
                 description={article.description}
+                blurDataURL={article.blurDataURL}
               />
             ))}
           </>
@@ -45,9 +57,15 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const articles = JSON.parse(JSON.stringify(res));
 
+    const articlesWithBlurURL = await Promise.all(
+      articles.map(async (article: ArticleT) => {
+        const { base64 } = await getPlaiceholder(article.imgUrl);
+        return { ...article, blurDataURL: base64 };
+      }),
+    );
     return {
       props: {
-        articles: JSON.parse(JSON.stringify(articles)),
+        articles: articlesWithBlurURL,
       },
     };
   } catch (error) {

@@ -6,10 +6,10 @@ import { usePreview } from 'src/hooks';
 import styled from '@emotion/styled';
 
 interface Props {
-  setImageUrl: (e: string) => void;
+  setImgUrl: (e: string) => void;
 }
 
-export const ImageUpload = ({ setImageUrl }: Props) => {
+export const ImageUpload = ({ setImgUrl }: Props) => {
   const [preview, setPreview] = usePreview();
   const { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
 
@@ -17,7 +17,7 @@ export const ImageUpload = ({ setImageUrl }: Props) => {
     setPreview(file);
     const compressedImage = await compressImage(file);
     const { url } = await uploadToS3(compressedImage);
-    setImageUrl(url);
+    setImgUrl(url);
   };
 
   return (
