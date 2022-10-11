@@ -10,6 +10,8 @@ describe('<Article/>', () => {
       imgUrl:
         'http://localhost:3000/_next/image?url=https%3A%2F%2Frecoen.s3.ap-northeast-2.amazonaws.com%2Fnext-s3-uploads%2F34606707-2b1e-4f0f-ac8b-d4d937a240d4%2Fsumner-mahaffey-7Y0NshQLohk-unsplash.jpg&w=3840&q=75',
       hashtag: '리액트',
+      blurDataURL:
+        "'http://localhost:3000/_next/image?url=https%3A%2F%2Frecoen.s3.ap-northeast-2.amazonaws.com%2Fnext-s3-uploads%2F34606707-2b1e-4f0f-ac8b-d4d937a240d4%2Fsumner-mahaffey-7Y0NshQLohk-unsplash.jpg&w=3840&q=75'",
     };
     render(
       <Article
@@ -17,6 +19,7 @@ describe('<Article/>', () => {
         description={props.description}
         path={props.path}
         imgUrl={props.imgUrl}
+        blurDataURL={props.blurDataURL}
       />,
     );
 
