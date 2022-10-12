@@ -22,7 +22,6 @@ interface StyleProps {
 }
 
 const StyledLink = styled(Link)<StyleProps>`
-  cursor: pointer;
   text-decoration-line: none;
   display: flex;
   align-items: center;
@@ -42,4 +41,5 @@ const StyledLink = styled(Link)<StyleProps>`
 
 const Item = styled.li`
   color: #ffffff;
+  cursor: pointer;
 `;
