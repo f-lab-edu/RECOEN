@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-type ButtonType = 'primary' | 'secondary' | 'tertiary';
+type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'normal';
 
 interface Props {
   label: string;
@@ -33,6 +33,8 @@ const getBackgroundColor = (buttonType: ButtonType) => {
       return 'transparent';
     case 'tertiary':
       return 'transparent';
+    case 'normal':
+      return 'transparent';
     default:
       return null;
   }
@@ -45,6 +47,8 @@ const getFontColor = (buttonType: ButtonType) => {
     case 'secondary':
       return '#0af5cb';
     case 'tertiary':
+      return '#494c56';
+    case 'normal':
       return '#494c56';
     default:
       return null;
@@ -59,6 +63,8 @@ const getBorderColor = (buttonType: ButtonType) => {
       return '#0af5cb';
     case 'tertiary':
       return '#494c56';
+    case 'normal':
+      return 'transparent';
     default:
       return null;
   }
