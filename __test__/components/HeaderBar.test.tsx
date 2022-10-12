@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { HeaderBar } from 'src/components/HeaderBar';
+import { HeaderBar } from 'src/components/headerBar';
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter');
 useRouter.mockImplementation(() => ({
