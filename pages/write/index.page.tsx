@@ -28,8 +28,10 @@ const WritePage = () => {
         />
         <Button onClick={handleOpenModal} label="완료" buttonType="secondary" />
       </ButtonWrapper>
+      <TitleWrapper>
+        <TitleInput onChange={setTitle} />
+      </TitleWrapper>
 
-      <TitleInput onChange={setTitle} />
       <TextEditor onChange={setContent} />
     </>
   );
@@ -42,4 +44,11 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 16px;
+`;
+
+const TitleWrapper = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  margin-bottom: 10px;
 `;
