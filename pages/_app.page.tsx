@@ -4,18 +4,19 @@ import { Global } from '@emotion/react';
 import { globalStyles } from 'src/shared';
 import { HeaderBar } from 'src/components';
 import { useRouter } from 'next/router';
+import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
-    <div>
+    <RecoilRoot>
       <Global styles={globalStyles} />
       <HeaderBar />
       <Container location={router.pathname}>
         <Component {...pageProps} />
       </Container>
       <div id="modal_root"></div>
-    </div>
+    </RecoilRoot>
   );
 }
 
