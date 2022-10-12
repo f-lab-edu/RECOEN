@@ -27,7 +27,7 @@ interface StyleProps {
 
 const Container = styled.div<StyleProps>`
   padding-top: 90px;
-  ${(props) => props.location == '/write' && 'padding: 90px 50px 0px 50px'};
+  ${(props) => props.location == '/write' && 'padding: 0px 50px 0px 50px'};
   height: calc(100vh - 90px);
   box-sizing: border-box;
 `;
