@@ -37,3 +37,10 @@ const TitleWrapper = styled.div`
   margin-bottom: 10px;
   display: flex;
 `;
+
+const TitleWrapper = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  margin-bottom: 10px;
+`;

@@ -47,3 +47,18 @@ export const TitleInput = ({ onChange }: Props) => {
     />
   );
 };
+
+const StyledInput = styled.input`
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  outline: none;
+  background: #232428;
+  padding: 0px 40px;
+  color: #ffffff;
+  border: 1px solid #4a4c55;
+  box-sizing: border-box;
+  :placeholder {
+    color: #c9c9c9;
+  }
+`;
