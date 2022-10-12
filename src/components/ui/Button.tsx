@@ -28,7 +28,7 @@ interface StyledProps {
 const getBackgroundColor = (buttonType: ButtonType) => {
   switch (buttonType) {
     case 'primary':
-      return '#0af5cb';
+      return '#3941FF';
     case 'secondary':
       return 'transparent';
     case 'tertiary':
@@ -43,7 +43,7 @@ const getBackgroundColor = (buttonType: ButtonType) => {
 const getFontColor = (buttonType: ButtonType) => {
   switch (buttonType) {
     case 'primary':
-      return '#000000';
+      return '#ffffff';
     case 'secondary':
       return '#0af5cb';
     case 'tertiary':
@@ -58,7 +58,7 @@ const getFontColor = (buttonType: ButtonType) => {
 const getBorderColor = (buttonType: ButtonType) => {
   switch (buttonType) {
     case 'primary':
-      return '#0af5cb';
+      return '#3941FF';
     case 'secondary':
       return '#0af5cb';
     case 'tertiary':
@@ -73,7 +73,7 @@ const getBorderColor = (buttonType: ButtonType) => {
 const StyledButton = styled.button<StyledProps>`
   width: 84px;
   height: 40px;
-  border-radius: 50px;
+  border-radius: 2px;
   border: 1px solid ${({ buttonType }) => getBorderColor(buttonType)};
   background: ${({ buttonType }) => getBackgroundColor(buttonType)};
   color: ${({ buttonType }) => getFontColor(buttonType)};

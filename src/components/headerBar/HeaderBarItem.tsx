@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 interface Props {
   isActive: boolean;
@@ -10,9 +11,9 @@ interface Props {
 
 export const HeaderBarItem = ({ isActive, path, title, name }: Props) => {
   return (
-    <Link href={path} title={title} isActive={isActive}>
+    <StyledLink href={path} title={title} isActive={isActive}>
       <Item>{name}</Item>
-    </Link>
+    </StyledLink>
   );
 };
 
@@ -20,7 +21,7 @@ interface StyleProps {
   isActive: boolean;
 }
 
-const Link = styled.a<StyleProps>`
+const StyledLink = styled(Link)<StyleProps>`
   cursor: pointer;
   text-decoration-line: none;
   display: flex;
