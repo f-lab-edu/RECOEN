@@ -39,7 +39,7 @@ const StyledLink = styled(Link)<StyleProps>`
   }`}
 `;
 
-const Item = styled.li`
+const Item = styled.a`
   color: #ffffff;
   cursor: pointer;
 `;
