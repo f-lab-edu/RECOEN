@@ -30,9 +30,9 @@ describe('CreateArticleModal', () => {
 
     it('가이드 문구가 보여야한다.', () => {
       renderCreateArticleModal();
-      const imageGuide = screen.getByText(/대표이미지 선택/);
-      const tagGuide = screen.getByText(/태그를 선택하세요./);
-      const descGuide = screen.getByText(/설명글을 작성해주세요./);
+      const imageGuide = screen.getByText('대표이미지');
+      const tagGuide = screen.getByText('태그(최대 3개)');
+      const descGuide = screen.getByText('설명글');
       expect(imageGuide).toBeInTheDocument();
       expect(tagGuide).toBeInTheDocument();
       expect(descGuide).toBeInTheDocument();
