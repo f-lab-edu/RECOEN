@@ -35,11 +35,12 @@ export const ImageUpload = ({ setImgUrl }: Props) => {
 const UploadBox = styled.button`
   width: 350px;
   height: 220px;
-  border: 1px solid #494c56;
-  background-color: #303236;
+  border: 1px solid #3c3e44;
+  background-color: #292b2e;
   color: #494c56;
   cursor: pointer;
   margin-bottom: 64px;
+  border-radius: 4px;
 `;
 
 const Img = styled.img`

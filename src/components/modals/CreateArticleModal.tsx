@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { ImageUpload, Modal, Button, TagInput } from 'src/components';
+import {
+  ImageUpload,
+  Modal,
+  Button,
+  TagInput,
+  DescInput,
+} from 'src/components';
 import { createArticle } from 'src/utils';
 import styled from '@emotion/styled';
 import { useSetRecoilState } from 'recoil';
@@ -49,7 +55,7 @@ export const CreateArticleModal = ({ articleElements }: Props) => {
         <Guide>태그(최대 3개)</Guide>
         <TagInput values={tags!} onChange={setTags} />
         <Guide>설명글</Guide>
-        <input onChange={(e) => setDescription(e.target.value)} />
+        <DescInput onChange={setDescription} />
       </>
     </Modal>
   );
