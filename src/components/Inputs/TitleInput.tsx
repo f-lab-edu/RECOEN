@@ -1,5 +1,5 @@
 import React from 'react';
-import TextField from '@mui/material/TextField';
+import styled from '@emotion/styled';
 
 interface Props {
   onChange: (value: string) => void;
@@ -47,3 +47,19 @@ export const TitleInput = ({ onChange }: Props) => {
     />
   );
 };
+
+const StyledInput = styled.input`
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  outline: none;
+  background: #232428;
+  padding: 0px 20px;
+  color: #ffffff;
+  border: 1px solid #373a3f;
+  border-left: none;
+  box-sizing: border-box;
+  ::placeholder {
+    color: #4a4c55;
+  }
+`;
