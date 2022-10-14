@@ -67,18 +67,18 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
 
   return (
     <Container>
-      {values &&
-        values.map((tag) => (
-          <Tag key={tag} onClick={() => onRemove(tag)}>
-            {tag}
-          </Tag>
-        ))}
       <Input
         value={value}
         onKeyDown={onKeyDown}
         placeholder="#태그입력"
         {...eventProps}
       />
+      {values &&
+        values.map((tag) => (
+          <Tag key={tag} onClick={() => onRemove(tag)}>
+            {tag}
+          </Tag>
+        ))}
     </Container>
   );
 };
@@ -101,11 +101,15 @@ const Tag = styled.div`
 `;
 
 const Input = styled.input`
-  background: transparent;
-  border: none;
+  background: #292b2e;
+  border-radius: 4px;
+  padding: 0px 10px;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #3c3e44;
   outline: none;
-  color: #494c56;
-  font-size: 14px;
+  color: #9499a1;
+  font-size: 16px;
   ::placeholder {
     color: #494c56;
   }

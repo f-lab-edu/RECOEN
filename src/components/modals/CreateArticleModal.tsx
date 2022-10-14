@@ -44,11 +44,11 @@ export const CreateArticleModal = ({ articleElements }: Props) => {
             }
           />
         </ButtonWrapper>
-        <Guide>대표이미지 선택</Guide>
+        <Guide>대표이미지</Guide>
         <ImageUpload setImgUrl={setImgUrl} />
-        <Guide>태그를 선택하세요.</Guide>
+        <Guide>태그(최대 3개)</Guide>
         <TagInput values={tags!} onChange={setTags} />
-        <Guide>설명글을 작성해주세요.</Guide>
+        <Guide>설명글</Guide>
         <input onChange={(e) => setDescription(e.target.value)} />
       </>
     </Modal>
@@ -57,10 +57,8 @@ export const CreateArticleModal = ({ articleElements }: Props) => {
 
 const Guide = styled.h3`
   font-size: 16px;
-  font-weight: 200;
-  color: #494c56;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #494c56;
+  font-weight: 600;
+  color: #9499a1;
   text-align: left;
   width: 350px;
 `;
