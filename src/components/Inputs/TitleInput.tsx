@@ -38,6 +38,7 @@ export const TitleInput = ({ onChange }: Props) => {
   };
   return (
     <TextField
+      data-testid="titleInput"
       onChange={handleChange}
       label="제목을 입력해주세요"
       variant="outlined"
