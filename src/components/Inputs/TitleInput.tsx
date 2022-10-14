@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import TextField from '@mui/material/TextField';
 
 interface Props {
   onChange: (value: string) => void;
@@ -9,23 +9,38 @@ export const TitleInput = ({ onChange }: Props) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
   };
+
+  const textFieldStyle = {
+    '& .MuiOutlinedInput-notchedOutline': {
+      border: '1px solid #4a4c54',
+      borderLeft: 'none',
+    },
+    '& :hover .MuiOutlinedInput-notchedOutline': {
+      border: '1px solid #4a4c54',
+      borderLeft: 'none',
+    },
+    '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+      border: '1px solid #4a4c54',
+      borderLeft: 'none',
+    },
+    '& label': {
+      color: '#4a4c54',
+    },
+    '& .MuiInputBase-input': {
+      color: '#ffffff',
+    },
+    '& .MuiInputBase-root': {
+      borderRadius: '0px',
+      height: '100%',
+    },
+  };
   return (
-    <StyledInput onChange={handleChange} placeholder="제목을 입력하세요." />
+    <TextField
+      onChange={handleChange}
+      label="제목을 입력하세요."
+      variant="outlined"
+      fullWidth
+      sx={textFieldStyle}
+    />
   );
 };
-
-const StyledInput = styled.input`
-  width: 100%;
-  height: 100%;
-  font-size: 18px;
-  outline: none;
-  background: #232428;
-  padding: 0px 40px;
-  color: #ffffff;
-  border: 1px solid #4a4c55;
-  border-left: none;
-  box-sizing: border-box;
-  :placeholder {
-    color: #c9c9c9;
-  }
-`;

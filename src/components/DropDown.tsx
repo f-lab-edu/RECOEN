@@ -53,10 +53,9 @@ const StyledFormControl = styled(FormControl)`
     color: #4a4c54;
   }
   & .MuiOutlinedInput-notchedOutline {
-    border-color: #4a4c54;
+    border: 1px solid #4a4c54;
   }
   & :hover .MuiOutlinedInput-notchedOutline {
-    border-color: white;
     border: 1px solid #4a4c54;
   }
 `;
