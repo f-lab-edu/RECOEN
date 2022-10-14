@@ -39,7 +39,7 @@ export const TitleInput = ({ onChange }: Props) => {
   return (
     <TextField
       onChange={handleChange}
-      label="Please enter title of this article"
+      label="제목을 입력해주세요"
       variant="outlined"
       fullWidth
       sx={textFieldStyle}
