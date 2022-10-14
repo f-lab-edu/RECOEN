@@ -31,7 +31,7 @@ const Overlay = styled.div`
   left: 0;
   top: 0;
   background: #161718;
-  opacity: 50%;
+  opacity: 70%;
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   position: fixed;
@@ -42,7 +42,7 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #24262a;
+  background-color: #252628;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: fixed;
   right: 0%;

@@ -39,7 +39,7 @@ const UploadBox = styled.button`
   background-color: #303236;
   color: #494c56;
   cursor: pointer;
-  margin-bottom: 128px;
+  margin-bottom: 64px;
 `;
 
 const Img = styled.img`
