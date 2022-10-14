@@ -32,23 +32,26 @@ export const CreateArticleModal = ({ articleElements }: Props) => {
     <Modal handleOpenModal={handleModalClose}>
       <>
         <ButtonWrapper data-testid="createArticleModal">
-          <Button
-            label="취소"
-            buttonType="secondary"
-            onClick={handleModalClose}
-          />
-          <Button
-            label="저장"
-            buttonType="primary"
-            onClick={() =>
-              createArticle({
-                ...articleElements,
-                imgUrl,
-                description,
-                tags,
-              })
-            }
-          />
+          <H2>글 설정</H2>
+          <div>
+            <Button
+              label="취소"
+              buttonType="normal"
+              onClick={handleModalClose}
+            />
+            <Button
+              label="저장"
+              buttonType="primary"
+              onClick={() =>
+                createArticle({
+                  ...articleElements,
+                  imgUrl,
+                  description,
+                  tags,
+                })
+              }
+            />
+          </div>
         </ButtonWrapper>
         <Guide>대표이미지</Guide>
         <ImageUpload setImgUrl={setImgUrl} />
@@ -72,7 +75,16 @@ const Guide = styled.h3`
 const ButtonWrapper = styled.div`
   width: 350px;
   display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-  margin-top: 50px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 42px;
+  border-bottom: 1px solid #494c56;
+  margin-bottom: 15px;
+`;
+
+const H2 = styled.h2`
+  color: #e3e3e3;
+  margin: 0px;
+  font-weight: 400;
 `;

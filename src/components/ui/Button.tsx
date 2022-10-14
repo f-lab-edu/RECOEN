@@ -71,12 +71,11 @@ const getBorderColor = (buttonType: ButtonType) => {
 };
 
 const StyledButton = styled.button<StyledProps>`
-  width: 84px;
-  height: 40px;
-  border-radius: 2px;
   border: 1px solid ${({ buttonType }) => getBorderColor(buttonType)};
   background: ${({ buttonType }) => getBackgroundColor(buttonType)};
   color: ${({ buttonType }) => getFontColor(buttonType)};
   font-size: 16px;
   cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 2px;
 `;
