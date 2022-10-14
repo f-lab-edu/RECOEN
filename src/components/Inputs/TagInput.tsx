@@ -14,6 +14,7 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
   const [value, setValue] = useState('');
   const [tags, setTags] = useState<string[]>(emptyArray);
   const [isOnComposition, setIsOnComposition] = useState(false);
+  const [isError, setError] = useState<boolean>(false);
 
   useEffect(() => {
     if (tags) onChange(tags);
@@ -47,10 +48,13 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
     const keys = [',', 'Enter'];
     if (e.key === 'Backspace' && e.target.selectionEnd === 0) {
       handleBackspaceRemove();
+      setError(false);
     }
 
     if (!isOnComposition && keys.includes(e.key)) {
       e.preventDefault();
+      if (values.length == 3) return setError(true);
+
       if (!checkDuplicatedTag(value)) setTags(values.concat(value));
       setValue('');
     }
@@ -74,6 +78,8 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
         onKeyDown={onKeyDown}
         placeholder="#태그입력"
         {...eventProps}
+        isError={isError}
+        onBlur={() => setError(false)}
       />
       {values &&
         values.map((tag) => (
@@ -91,6 +97,10 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
     </Container>
   );
 };
+
+interface StyleProps {
+  isError?: boolean;
+}
 
 const Container = styled.div`
   width: 350px;
@@ -115,7 +125,7 @@ const Tag = styled.div`
   transition: 0.2s ease-in-out;
 `;
 
-const Input = styled.input`
+const Input = styled.input<StyleProps>`
   background: #292b2e;
   border-radius: 4px;
   padding: 0px 10px;
@@ -128,4 +138,8 @@ const Input = styled.input`
   ::placeholder {
     color: #494c56;
   }
+  ${(props) =>
+    props.isError &&
+    'border: 1px solid #c4001d; color:#c4001d; ::placeholder{color:#c4001d;}'}
+  transition:0.2s ease-in-out;
 `;
