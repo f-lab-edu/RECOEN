@@ -16,7 +16,7 @@
     "@aws-sdk/util-middleware": "^3.186.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@next/bundle-analyzer": "^12.3.1",
+    "@mui/material": "^5.10.9",
     "@testing-library/user-event": "^14.4.3",
     "@toast-ui/editor": "^3.2.1",
     "@toast-ui/react-editor": "^3.2.2",

@@ -1,33 +1,62 @@
-// import * as React from 'react';
-// import InputLabel from '@mui/material/InputLabel';
-// import MenuItem from '@mui/material/MenuItem';
-// import FormControl from '@mui/material/FormControl';
-// import Select, { SelectChangeEvent } from '@mui/material/Select';
+import * as React from 'react';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import styled from '@emotion/styled';
 
-// export default function SelectSmall() {
-//   const [age, setAge] = React.useState('');
+export function DropDown() {
+  const [category, setCategory] = React.useState('');
 
-//   const handleChange = (event: SelectChangeEvent) => {
-//     setAge(event.target.value);
-//   };
+  const handleChange = (event: SelectChangeEvent) => {
+    setCategory(event.target.value);
+  };
 
-//   return (
-//     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-//       <InputLabel id="demo-select-small">Age</InputLabel>
-//       <Select
-//         labelId="demo-select-small"
-//         id="demo-select-small"
-//         value={age}
-//         label="Age"
-//         onChange={handleChange}
-//       >
-//         <MenuItem value="">
-//           <em>None</em>
-//         </MenuItem>
-//         <MenuItem value={10}>Ten</MenuItem>
-//         <MenuItem value={20}>Twenty</MenuItem>
-//         <MenuItem value={30}>Thirty</MenuItem>
-//       </Select>
-//     </FormControl>
-//   );
-// }
+  const categories = ['Article', 'Book', 'Essay'];
+
+  return (
+    <StyledFormControl
+      sx={{
+        width: '200px',
+        borderRadius: '0px',
+      }}
+    >
+      <InputLabel sx={{ color: '#4a4c54', fontSize: '18px' }}>
+        Category
+      </InputLabel>
+      <Select
+        labelId="category-select"
+        id="category-select-id"
+        value={category}
+        label="Category"
+        sx={{
+          borderRadius: '0px',
+          height: '50px',
+          color: '#4a4c54',
+        }}
+        onChange={handleChange}
+      >
+        {categories.map((category) => {
+          return (
+            <MenuItem key={category} value={category}>
+              {category}
+            </MenuItem>
+          );
+        })}
+      </Select>
+    </StyledFormControl>
+  );
+}
+
+const StyledFormControl = styled(FormControl)`
+  & .MuiSvgIcon-root {
+    color: #4a4c54;
+  }
+  & .MuiOutlinedInput-notchedOutline {
+    border-color: #4a4c54;
+  }
+  & :hover .MuiOutlinedInput-notchedOutline {
+    border-color: white;
+    border: 1px solid #4a4c54;
+  }
+`;

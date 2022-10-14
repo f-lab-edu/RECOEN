@@ -9,4 +9,5 @@ export * from './modals';
 export * from './ui';
 export * from './Inputs';
 export * from './quoteSlider';
+export * from './DropDown';
 export * from './hero';
