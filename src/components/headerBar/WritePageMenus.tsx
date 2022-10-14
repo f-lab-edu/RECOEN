@@ -2,17 +2,20 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Button } from 'src/components';
 import Link from 'next/link';
+import { useSetRecoilState } from 'recoil';
+import { openCreateModalStates } from 'src/recoil/permit';
 
 export const WritePageMenus = () => {
-  const handleOnClick = () => {
-    console.log('게시하기를 클릭하면 모달창이 열린다.');
+  const setOpen = useSetRecoilState(openCreateModalStates);
+  const handleModalOpen = () => {
+    setOpen(true);
   };
   return (
     <Wrapper>
       <Link href="/" title="메인페이지로 돌아갑니다">
         <A>나가기</A>
       </Link>
-      <Button buttonType="primary" label="게시하기" onClick={handleOnClick} />
+      <Button buttonType="primary" label="게시하기" onClick={handleModalOpen} />
     </Wrapper>
   );
 };

@@ -2,31 +2,34 @@ import React, { useState } from 'react';
 import { ImageUpload, Modal, Button, TagInput } from 'src/components';
 import { createArticle } from 'src/utils';
 import styled from '@emotion/styled';
+import { useSetRecoilState } from 'recoil';
+import { openCreateModalStates } from 'src/recoil/permit';
 
 interface Props {
   articleElements: {
     title?: string;
     content?: string;
   };
-  handleOpenModal: () => void;
 }
 
-export const CreateArticleModal = ({
-  articleElements,
-  handleOpenModal,
-}: Props) => {
+export const CreateArticleModal = ({ articleElements }: Props) => {
   const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
+  const setClose = useSetRecoilState(openCreateModalStates);
+
+  const handleModalClose = () => {
+    setClose(false);
+  };
 
   return (
-    <Modal handleOpenModal={handleOpenModal}>
+    <Modal handleOpenModal={handleModalClose}>
       <>
         <ButtonWrapper data-testid="createArticleModal">
           <Button
             label="취소"
             buttonType="secondary"
-            onClick={handleOpenModal}
+            onClick={handleModalClose}
           />
           <Button
             label="저장"

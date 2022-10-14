@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import { openCreateModalStates } from 'src/recoil/permit';
 import {
   TextEditor,
   CreateArticleModal,
@@ -8,22 +10,14 @@ import {
 import styled from '@emotion/styled';
 
 const WritePage = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [isOpen, setOpen] = useState<boolean>(false);
+  const [title, setTitle] = useState<string>('');
+  const [content, setContent] = useState<string>('');
+  const isOpen = useRecoilValue(openCreateModalStates);
   const articleElements = { title, content };
 
-  const handleOpenModal = () => {
-    setOpen(!isOpen);
-  };
   return (
     <>
-      {isOpen && (
-        <CreateArticleModal
-          handleOpenModal={handleOpenModal}
-          articleElements={articleElements}
-        />
-      )}
+      {isOpen && <CreateArticleModal articleElements={articleElements} />}
       <TitleWrapper>
         <DropDown />
         <TitleInput onChange={setTitle} />
