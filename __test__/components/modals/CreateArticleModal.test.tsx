@@ -1,20 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CreateArticleModal } from 'src/components/modals/CreateArticleModal';
 import { createArticle } from 'src/utils';
+import { RecoilRoot } from 'recoil';
 jest.mock('src/utils');
 
-describe('Modal', () => {
-  const handleOpenModal = jest.fn();
+describe('CreateArticleModal', () => {
   const articleElements = {};
   const renderCreateArticleModal = () =>
     render(
-      <>
+      <RecoilRoot>
         <div id="modal_root" />
-        <CreateArticleModal
-          handleOpenModal={handleOpenModal}
-          articleElements={articleElements}
-        />
-      </>,
+        <CreateArticleModal articleElements={articleElements} />
+      </RecoilRoot>,
     );
   describe('rendering', () => {
     it('modal_root에 render되어야 한다.', () => {
@@ -47,7 +44,7 @@ describe('Modal', () => {
       renderCreateArticleModal();
       const cancel = screen.getByText(/취소/);
       fireEvent.click(cancel);
-      expect(handleOpenModal).toBeCalled();
+      // NOTE : recoil 호출한 내용 테스트하기
     });
   });
 
