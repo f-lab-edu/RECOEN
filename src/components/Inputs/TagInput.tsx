@@ -108,6 +108,7 @@ const Container = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 10px;
+  margin-bottom: 20px;
 `;
 
 const Tag = styled.div`
@@ -128,7 +129,7 @@ const Tag = styled.div`
 const Input = styled.input<StyleProps>`
   background: #292b2e;
   border-radius: 4px;
-  padding: 0px 10px;
+  padding: 0px 15px;
   height: 40px;
   width: 100%;
   border: 1px solid #3c3e44;
@@ -138,8 +139,16 @@ const Input = styled.input<StyleProps>`
   ::placeholder {
     color: #494c56;
   }
+  :focus {
+    border: 1px solid #3941ff;
+    ${(props) => props.isError && `border: 1px solid #c4001d;`}
+  }
   ${(props) =>
     props.isError &&
-    'border: 1px solid #c4001d; color:#c4001d; ::placeholder{color:#c4001d;}'}
+    `border: 1px solid #c4001d; 
+     color:#c4001d; 
+     ::placeholder{
+       color:#c4001d;
+      }`}
   transition:0.2s ease-in-out;
 `;
