@@ -1,5 +1,7 @@
 import React, { useState, CompositionEvent, useEffect } from 'react';
 import styled from '@emotion/styled';
+import XIcon from '../../../public/x.png';
+import Image from 'next/image';
 
 export interface Props {
   onChange: (args: string[]) => void;
@@ -77,6 +79,13 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
         values.map((tag) => (
           <Tag key={tag} onClick={() => onRemove(tag)}>
             {tag}
+            <Image
+              src={XIcon}
+              alt="x-icon"
+              width={18}
+              height={18}
+              layout="fixed"
+            />
           </Tag>
         ))}
     </Container>
@@ -92,12 +101,18 @@ const Container = styled.div`
 `;
 
 const Tag = styled.div`
-  color: #9499a1;
+  color: #f9f9f9;
   cursor: pointer;
   font-size: 14px;
+  background: #3941ff;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  gap: 8px;
   &:hover {
-    opacity: 0.6;
+    background: #2d31fa;
   }
+  transition: 0.2s ease-in-out;
 `;
 
 const Input = styled.input`
