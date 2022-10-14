@@ -30,7 +30,7 @@ export function DropDown() {
   return (
     <FormControl sx={formStyles}>
       <InputLabel sx={{ color: '#4a4c54', fontSize: '18px' }}>
-        Category
+        카테고리
       </InputLabel>
       <Select
         labelId="category-select"
