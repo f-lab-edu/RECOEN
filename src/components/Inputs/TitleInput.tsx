@@ -23,6 +23,7 @@ const StyledInput = styled.input`
   padding: 0px 40px;
   color: #ffffff;
   border: 1px solid #4a4c55;
+  border-left: none;
   box-sizing: border-box;
   :placeholder {
     color: #c9c9c9;

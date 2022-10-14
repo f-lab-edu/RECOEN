@@ -1,6 +1,10 @@
 import { useState } from 'react';
-import { TextEditor, CreateArticleModal } from 'src/components';
-import { TitleInput } from 'src/components';
+import {
+  TextEditor,
+  CreateArticleModal,
+  DropDown,
+  TitleInput,
+} from 'src/components';
 import styled from '@emotion/styled';
 
 const WritePage = () => {
@@ -21,6 +25,7 @@ const WritePage = () => {
         />
       )}
       <TitleWrapper>
+        <DropDown />
         <TitleInput onChange={setTitle} />
       </TitleWrapper>
 
@@ -36,4 +41,5 @@ const TitleWrapper = styled.div`
   box-sizing: border-box;
   height: 50px;
   margin-bottom: 10px;
+  display: flex;
 `;
