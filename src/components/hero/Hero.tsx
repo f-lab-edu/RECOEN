@@ -7,7 +7,7 @@ interface Props {
   listLength: number;
 }
 
-export const ListHero = ({ heroText, listLength }: Props) => {
+export const Hero = ({ heroText, listLength }: Props) => {
   return (
     <>
       <Layout>
