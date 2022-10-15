@@ -35,6 +35,7 @@ export const Article = ({
           <Wrapper>
             <Title>{title}</Title>
             <Desc>{description}</Desc>
+            <Date>2022.10.23 7min read</Date>
           </Wrapper>
         </Container>
       </Anchor>
@@ -43,9 +44,8 @@ export const Article = ({
 };
 
 const Container = styled.article`
-  background-color: #2d2f35;
   width: 350px;
-  height: 450px;
+  height: 400px;
   border-radius: 16px;
   padding: 10px;
   box-sizing: border-box;
@@ -65,7 +65,6 @@ const ImageWrapper = styled.div`
 `;
 
 const CustomImage = styled(Image)`
-  border-radius: 16px;
   :hover {
     transform: scale(1.09);
     border-radius: 16px;
@@ -75,6 +74,26 @@ const CustomImage = styled(Image)`
 
 const Wrapper = styled.article``;
 
-const Title = styled.h3``;
+const Title = styled.h3`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 
-const Desc = styled.p``;
+const Desc = styled.p`
+  font-weight: 200;
+  font-size: 14px;
+  color: #9599a0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 30px;
+`;
+
+const Date = styled.span`
+  font-weight: 200;
+  font-size: 14px;
+  color: #9599a0;
+`;
