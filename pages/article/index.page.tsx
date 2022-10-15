@@ -3,11 +3,10 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
 
-import { Article, SideTab } from 'src/components';
-import { Layout, Grid } from 'src/components/ui';
+import { ArticleList } from 'src/components';
 import { getPlaiceholder } from 'plaiceholder';
 
-type ArticleT = {
+export type ArticleT = {
   _id: string;
   title: string;
   description: string;
@@ -20,24 +19,7 @@ type ArticleT = {
 const ArticlePage = ({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return (
-    <Layout>
-      <Grid>
-        <>
-          {articles.map((article: ArticleT) => (
-            <Article
-              key={article._id}
-              path={encodeURI(article._id)}
-              title={article.title}
-              imgUrl={article.imgUrl}
-              description={article.description}
-              blurDataURL={article.blurDataURL}
-            />
-          ))}
-        </>
-      </Grid>
-    </Layout>
-  );
+  return <ArticleList articles={articles} />;
 };
 
 export default ArticlePage;
