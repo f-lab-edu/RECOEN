@@ -11,7 +11,9 @@ export const Grid = ({ children }: Props) => {
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 50%;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  gap: 20px;
+  justify-items: center;
+  box-sizing: border-box;
 `;
