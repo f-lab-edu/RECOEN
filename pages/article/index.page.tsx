@@ -22,23 +22,20 @@ const ArticlePage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
-      <>
-        <SideTab />
-        <Grid>
-          <>
-            {articles.map((article: ArticleT) => (
-              <Article
-                key={article._id}
-                path={encodeURI(article._id)}
-                title={article.title}
-                imgUrl={article.imgUrl}
-                description={article.description}
-                blurDataURL={article.blurDataURL}
-              />
-            ))}
-          </>
-        </Grid>
-      </>
+      <Grid>
+        <>
+          {articles.map((article: ArticleT) => (
+            <Article
+              key={article._id}
+              path={encodeURI(article._id)}
+              title={article.title}
+              imgUrl={article.imgUrl}
+              description={article.description}
+              blurDataURL={article.blurDataURL}
+            />
+          ))}
+        </>
+      </Grid>
     </Layout>
   );
 };
