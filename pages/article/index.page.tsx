@@ -3,7 +3,7 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
 
-import { ArticleList, ListHero } from 'src/components';
+import { ArticleList, Hero } from 'src/components';
 import { getPlaiceholder } from 'plaiceholder';
 
 export type ArticleT = {
@@ -21,7 +21,7 @@ const ArticlePage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <ListHero heroText="Article" listLength={articles.length} />
+      <Hero heroText="Article" listLength={articles.length} />
       <ArticleList articles={articles} />
     </>
   );
