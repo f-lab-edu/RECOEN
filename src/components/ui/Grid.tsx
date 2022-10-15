@@ -17,4 +17,5 @@ const Container = styled.div`
   justify-items: center;
   box-sizing: border-box;
   margin: 0 auto;
+  margin-top: 60px;
 `;
