@@ -6,10 +6,11 @@ import {
   TagInput,
   DescInput,
 } from 'src/components';
-import { createArticle } from 'src/utils';
+import { createArticle } from 'src/apis';
 import styled from '@emotion/styled';
 import { useSetRecoilState } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
+import { useRouter } from 'next/router';
 
 interface Props {
   articleElements: {
@@ -23,9 +24,29 @@ export const CreateArticleModal = ({ articleElements }: Props) => {
   const [description, setDescription] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
   const setClose = useSetRecoilState(openCreateModalStates);
+  const router = useRouter();
 
   const handleModalClose = () => {
     setClose(false);
+  };
+
+  const checkValidation = () => {
+    if (!articleElements.title) return false;
+    if (!articleElements.content) return false;
+    if (!imgUrl) return false;
+    if (description == '') return false;
+    return true;
+  };
+
+  const handleOnClickSave = async () => {
+    if (!checkValidation()) return;
+    const res = await createArticle({
+      ...articleElements,
+      imgUrl,
+      description,
+      tags,
+    });
+    if (res.status == 200) router.push('/article');
   };
 
   return (
@@ -42,14 +63,7 @@ export const CreateArticleModal = ({ articleElements }: Props) => {
             <Button
               label="저장"
               buttonType="primary"
-              onClick={() =>
-                createArticle({
-                  ...articleElements,
-                  imgUrl,
-                  description,
-                  tags,
-                })
-              }
+              onClick={handleOnClickSave}
             />
           </div>
         </ButtonWrapper>
