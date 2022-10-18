@@ -3,43 +3,18 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
 
-import { Article, SideTab } from 'src/components';
-import { Layout, Grid } from 'src/components/ui';
+import { ArticleList, Hero } from 'src/components';
 import { getPlaiceholder } from 'plaiceholder';
-
-type ArticleT = {
-  _id: string;
-  title: string;
-  description: string;
-  tags: string[];
-  content: string;
-  imgUrl: string;
-  blurDataURL: string;
-};
+import { ArticleElementsType } from 'src/types/article';
 
 const ArticlePage = ({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <Layout>
-      <>
-        <SideTab />
-        <Grid>
-          <>
-            {articles.map((article: ArticleT) => (
-              <Article
-                key={article._id}
-                path={encodeURI(article._id)}
-                title={article.title}
-                imgUrl={article.imgUrl}
-                description={article.description}
-                blurDataURL={article.blurDataURL}
-              />
-            ))}
-          </>
-        </Grid>
-      </>
-    </Layout>
+    <>
+      <Hero text="Article" listLength={articles.length} />
+      <ArticleList articles={articles} />
+    </>
   );
 };
 
@@ -58,7 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const articles = JSON.parse(JSON.stringify(res));
 
     const articlesWithBlurURL = await Promise.all(
-      articles.map(async (article: ArticleT) => {
+      articles.map(async (article: ArticleElementsType) => {
         const { base64 } = await getPlaiceholder(article.imgUrl);
         return { ...article, blurDataURL: base64 };
       }),
