@@ -12,7 +12,7 @@ const ArticlePage = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <Hero heroText="Article" listLength={articles.length} />
+      <Hero text="Article" listLength={articles.length} />
       <ArticleList articles={articles} />
     </>
   );
