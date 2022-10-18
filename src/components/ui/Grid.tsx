@@ -11,7 +11,11 @@ export const Grid = ({ children }: Props) => {
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 50%;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 1200px;
+  gap: 20px;
+  justify-items: center;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 60px;
 `;

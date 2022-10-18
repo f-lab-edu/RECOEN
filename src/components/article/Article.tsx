@@ -33,8 +33,11 @@ export const Article = ({
             />
           </ImageWrapper>
           <Wrapper>
-            <Title>{title}</Title>
-            <Desc>{description}</Desc>
+            <div>
+              <Title>{title}</Title>
+              <Desc>{description}</Desc>
+            </div>
+            <Date>2022.10.23 7min read</Date>
           </Wrapper>
         </Container>
       </Anchor>
@@ -43,15 +46,14 @@ export const Article = ({
 };
 
 const Container = styled.article`
-  background-color: #2d2f35;
-  width: 350px;
-  height: 450px;
+  width: 380px;
+  height: 400px;
   border-radius: 16px;
-  padding: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  margin: 0;
 `;
 
 const Anchor = styled.a`
@@ -59,13 +61,12 @@ const Anchor = styled.a`
 `;
 
 const ImageWrapper = styled.div`
-  width: 320px;
-  height: 200px;
+  width: 380px;
+  height: 220px;
   position: relative;
 `;
 
 const CustomImage = styled(Image)`
-  border-radius: 16px;
   :hover {
     transform: scale(1.09);
     border-radius: 16px;
@@ -73,8 +74,35 @@ const CustomImage = styled(Image)`
   transition: all 0.3s ease-in-out;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  box-sizing: border-box;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
-const Title = styled.h3``;
+const Title = styled.h3`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 
-const Desc = styled.p``;
+const Desc = styled.p`
+  font-weight: 200;
+  font-size: 14px;
+  color: #9599a0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+`;
+
+const Date = styled.time`
+  font-weight: 200;
+  font-size: 14px;
+  color: #9599a0;
+`;
