@@ -2491,6 +2491,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/bundle-analyzer@npm:^12.3.1":
+  version: 12.3.1
+  resolution: "@next/bundle-analyzer@npm:12.3.1"
+  dependencies:
+    webpack-bundle-analyzer: 4.3.0
+  checksum: 2bf2bf9aff9e0fc9fbeefae83be3f12e4c3aa8a689b49ba33d1931d42768b317d1da5d45a91835a8cb0bc615afc5e5b48aba5ce63a74089779531648749fe9d7
+  languageName: node
+  linkType: hard
+
 "@next/env@npm:12.2.5":
   version: 12.2.5
   resolution: "@next/env@npm:12.2.5"
@@ -2642,6 +2651,13 @@ __metadata:
     mkdirp: ^1.0.4
     rimraf: ^3.0.2
   checksum: 52dc02259d98da517fae4cb3a0a3850227bdae4939dda1980b788a7670636ca2b4a01b58df03dd5f65c1e3cb70c50fa8ce5762b582b3f499ec30ee5ce1fd9380
+  languageName: node
+  linkType: hard
+
+"@polka/url@npm:^1.0.0-next.20":
+  version: 1.0.0-next.21
+  resolution: "@polka/url@npm:1.0.0-next.21"
+  checksum: c7654046d38984257dd639eab3dc770d1b0340916097b2fac03ce5d23506ada684e05574a69b255c32ea6a144a957c8cd84264159b545fca031c772289d88788
   languageName: node
   linkType: hard
 
@@ -3677,6 +3693,7 @@ __metadata:
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
     "@mui/material": ^5.10.9
+    "@next/bundle-analyzer": ^12.3.1
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
     "@testing-library/react-hooks": ^8.0.1

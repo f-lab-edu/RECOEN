@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/react", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.4"],\
             ["@emotion/styled", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.4"],\
             ["@mui/material", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:5.10.9"],\
+            ["@next/bundle-analyzer", "npm:12.3.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:13.4.0"],\
             ["@testing-library/react-hooks", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:8.0.1"],\
@@ -3273,6 +3274,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@next/bundle-analyzer", [\
+        ["npm:12.3.1", {\
+          "packageLocation": "./.yarn/cache/@next-bundle-analyzer-npm-12.3.1-e454458e25-2bf2bf9aff.zip/node_modules/@next/bundle-analyzer/",\
+          "packageDependencies": [\
+            ["@next/bundle-analyzer", "npm:12.3.1"],\
+            ["webpack-bundle-analyzer", "npm:4.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@next/env", [\
         ["npm:12.2.5", {\
           "packageLocation": "./.yarn/cache/@next-env-npm-12.2.5-9062f604b7-a44939e59b.zip/node_modules/@next/env/",\
@@ -3458,6 +3469,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@npmcli/move-file", "npm:2.0.1"],\
             ["mkdirp", "npm:1.0.4"],\
             ["rimraf", "npm:3.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@polka/url", [\
+        ["npm:1.0.0-next.21", {\
+          "packageLocation": "./.yarn/cache/@polka-url-npm-1.0.0-next.21-02342f3d90-c7654046d3.zip/node_modules/@polka/url/",\
+          "packageDependencies": [\
+            ["@polka/url", "npm:1.0.0-next.21"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4726,6 +4746,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/react", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.4"],\
             ["@emotion/styled", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.4"],\
             ["@mui/material", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:5.10.9"],\
+            ["@next/bundle-analyzer", "npm:12.3.1"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:13.4.0"],\
             ["@testing-library/react-hooks", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:8.0.1"],\
