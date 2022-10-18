@@ -1,17 +1,17 @@
 import React from 'react';
 import { Grid } from 'src/components';
 import { Article } from './Article';
-import { ArticleT } from '../../../pages/article/index.page';
+import { ArticleElementsType } from 'src/types/article';
 
 interface Props {
-  articles: ArticleT[];
+  articles: ArticleElementsType[];
 }
 
 export const ArticleList = ({ articles }: Props) => {
   return (
     <Grid>
       <>
-        {articles.map((article: ArticleT) => (
+        {articles.map((article: ArticleElementsType) => (
           <Article
             key={article._id}
             path={encodeURI(article._id)}

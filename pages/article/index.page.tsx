@@ -5,16 +5,7 @@ import ArticleModel from 'pages/api/models/articleModel';
 
 import { ArticleList, Hero } from 'src/components';
 import { getPlaiceholder } from 'plaiceholder';
-
-export type ArticleT = {
-  _id: string;
-  title: string;
-  description: string;
-  tags: string[];
-  content: string;
-  imgUrl: string;
-  blurDataURL: string;
-};
+import { ArticleElementsType } from 'src/types/article';
 
 const ArticlePage = ({
   articles,
@@ -42,7 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const articles = JSON.parse(JSON.stringify(res));
 
     const articlesWithBlurURL = await Promise.all(
-      articles.map(async (article: ArticleT) => {
+      articles.map(async (article: ArticleElementsType) => {
         const { base64 } = await getPlaiceholder(article.imgUrl);
         return { ...article, blurDataURL: base64 };
       }),
