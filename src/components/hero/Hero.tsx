@@ -3,15 +3,15 @@ import styled from '@emotion/styled';
 import { HeroText } from './HeroText';
 
 interface Props {
-  heroText: string;
+  text: string;
   listLength: number;
 }
 
-export const Hero = ({ heroText, listLength }: Props) => {
+export const Hero = ({ text, listLength }: Props) => {
   return (
     <>
       <Layout>
-        <HeroText text={heroText} listLength={listLength} />
+        <HeroText text={text} listLength={listLength} />
       </Layout>
       <Hr />
     </>
