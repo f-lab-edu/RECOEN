@@ -101,7 +101,7 @@ const Desc = styled.p`
   letter-spacing: 0.3px;
 `;
 
-const Date = styled.span`
+const Date = styled.time`
   font-weight: 200;
   font-size: 14px;
   color: #9599a0;
