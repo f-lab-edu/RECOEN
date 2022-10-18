@@ -4,18 +4,19 @@ import { Global } from '@emotion/react';
 import { globalStyles } from 'src/shared';
 import { HeaderBar } from 'src/components';
 import { useRouter } from 'next/router';
+import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
-    <div>
+    <RecoilRoot>
       <Global styles={globalStyles} />
       <HeaderBar />
       <Container location={router.pathname}>
         <Component {...pageProps} />
       </Container>
       <div id="modal_root"></div>
-    </div>
+    </RecoilRoot>
   );
 }
 
@@ -26,6 +27,8 @@ interface StyleProps {
 }
 
 const Container = styled.div<StyleProps>`
-  ${(props) => props.location !== '/write' && `padding-top: 90px;`}
+  padding-top: 90px;
+  ${(props) => props.location == '/write' && 'padding: 30px 50px 0px 50px'};
   height: calc(100vh - 90px);
+  box-sizing: border-box;
 `;

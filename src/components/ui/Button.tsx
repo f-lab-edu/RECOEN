@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-type ButtonType = 'primary' | 'secondary' | 'tertiary';
+type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'normal';
 
 interface Props {
   label: string;
@@ -28,10 +28,12 @@ interface StyledProps {
 const getBackgroundColor = (buttonType: ButtonType) => {
   switch (buttonType) {
     case 'primary':
-      return '#0af5cb';
+      return '#3941FF';
     case 'secondary':
       return 'transparent';
     case 'tertiary':
+      return 'transparent';
+    case 'normal':
       return 'transparent';
     default:
       return null;
@@ -41,10 +43,12 @@ const getBackgroundColor = (buttonType: ButtonType) => {
 const getFontColor = (buttonType: ButtonType) => {
   switch (buttonType) {
     case 'primary':
-      return '#000000';
+      return '#ffffff';
     case 'secondary':
       return '#0af5cb';
     case 'tertiary':
+      return '#494c56';
+    case 'normal':
       return '#494c56';
     default:
       return null;
@@ -54,11 +58,13 @@ const getFontColor = (buttonType: ButtonType) => {
 const getBorderColor = (buttonType: ButtonType) => {
   switch (buttonType) {
     case 'primary':
-      return '#0af5cb';
+      return '#3941FF';
     case 'secondary':
       return '#0af5cb';
     case 'tertiary':
       return '#494c56';
+    case 'normal':
+      return 'transparent';
     default:
       return null;
   }
@@ -67,7 +73,7 @@ const getBorderColor = (buttonType: ButtonType) => {
 const StyledButton = styled.button<StyledProps>`
   width: 84px;
   height: 40px;
-  border-radius: 50px;
+  border-radius: 2px;
   border: 1px solid ${({ buttonType }) => getBorderColor(buttonType)};
   background: ${({ buttonType }) => getBackgroundColor(buttonType)};
   color: ${({ buttonType }) => getFontColor(buttonType)};
