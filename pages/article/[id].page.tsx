@@ -7,6 +7,9 @@ import {
 import { ParsedUrlQuery } from 'querystring';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
+import { ArticleElementsType } from 'src/types/article';
+import Image from 'src/components/ui/Image';
+import { getPlaiceholder } from 'plaiceholder';
 
 interface IPrams extends ParsedUrlQuery {
   id: string;
@@ -17,6 +20,13 @@ const Article = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
+      <Image
+        fullWidth
+        height={300}
+        src={article.imgUrl}
+        alt="Hero Image"
+        blurDataURL={article.blurDataURL}
+      />
       <div>{article.title}</div>
       <div>{article.description}</div>
       <div>{article.content}</div>
@@ -39,7 +49,7 @@ export const getStaticPaths = async () => {
     const articles = JSON.parse(JSON.stringify(res));
 
     // NOTE : any 수정할 것
-    const paths = articles.map((article: any) => {
+    const paths = articles.map((article: ArticleElementsType) => {
       return { params: { id: article._id.toString() } };
     });
 
@@ -64,10 +74,15 @@ export const getStaticProps: GetStaticProps = async (
     const { id } = context.params as IPrams;
 
     const res = await ArticleModel.findById(id);
+    const article = JSON.parse(JSON.stringify(res));
+
+    const { base64 } = await getPlaiceholder(article.imgUrl);
+
+    const articleWithBlurDataURL = { ...article, blurDataURL: base64 };
 
     return {
       props: {
-        article: JSON.parse(JSON.stringify(res)),
+        article: articleWithBlurDataURL,
       },
     };
   } catch (err) {

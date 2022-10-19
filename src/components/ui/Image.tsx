@@ -6,13 +6,21 @@ interface Props {
   src: string;
   blurDataURL: string;
   alt: string;
-  width: number;
+  width?: number;
   height: number;
+  fullWidth?: boolean;
 }
 
-const Image: React.FC<Props> = ({ src, blurDataURL, alt, width, height }) => {
+const Image: React.FC<Props> = ({
+  src,
+  blurDataURL,
+  alt,
+  width,
+  height,
+  fullWidth,
+}) => {
   return (
-    <ImageWrapper width={width} height={height}>
+    <ImageWrapper width={width} height={height} fullWidth={fullWidth}>
       <CustomImage
         src={src}
         alt={alt}
@@ -28,12 +36,14 @@ const Image: React.FC<Props> = ({ src, blurDataURL, alt, width, height }) => {
 export default Image;
 
 interface StyleProps {
-  width: number;
+  width?: number;
   height: number;
+  fullWidth?: boolean;
 }
 
 const ImageWrapper = styled.div<StyleProps>`
   width: ${(props) => props.width}px;
+  width: ${(props) => props.fullWidth && '100%'};
   height: ${(props) => props.height}px;
   position: relative;
 `;
