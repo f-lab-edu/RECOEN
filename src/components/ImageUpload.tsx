@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { useS3Upload } from 'next-s3-upload';
-import { compressImage } from 'src/utils';
 import { usePreview } from 'src/hooks';
 import styled from '@emotion/styled';
 
@@ -15,8 +14,7 @@ export const ImageUpload = ({ setImgUrl }: Props) => {
 
   const handleFileChange = async (file: File) => {
     setPreview(file);
-    const compressedImage = await compressImage(file);
-    const { url } = await uploadToS3(compressedImage);
+    const { url } = await uploadToS3(file);
     setImgUrl(url);
   };
 
