@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import styled from '@emotion/styled';
 import { Global } from '@emotion/react';
 import { globalStyles } from 'src/shared';
-import { HeaderBar } from 'src/components';
+import NavBar from 'src/components/navigation/NavBar';
 import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
 
@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       <Global styles={globalStyles} />
-      <HeaderBar />
+      <NavBar />
       <Container location={router.pathname}>
         <Component {...pageProps} />
       </Container>

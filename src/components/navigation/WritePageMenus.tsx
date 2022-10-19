@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
 
-export const WritePageMenus = () => {
+const WritePageMenus = () => {
   const setOpen = useSetRecoilState(openCreateModalStates);
   const handleModalOpen = () => {
     setOpen(true);
@@ -19,6 +19,8 @@ export const WritePageMenus = () => {
     </Wrapper>
   );
 };
+
+export default WritePageMenus;
 
 const Wrapper = styled.div`
   display: flex;
