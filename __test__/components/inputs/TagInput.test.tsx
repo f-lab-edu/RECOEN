@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import { TagInput, Props } from '../../../src/components/Inputs/TagInput';
 import { matchers } from '@emotion/jest';
 
@@ -18,10 +18,21 @@ describe('TagInput', () => {
   });
 
   describe('태그를 입력하면', () => {
-    it('태그가 화면에 보인다.', () => {
-      const tagInput = renderTagInput(tags);
-      expect(tagInput.getByText('태그1')).toBeInTheDocument();
-      expect(tagInput.getByText('태그2')).toBeInTheDocument();
+    it('태그가 화면에 보인다.', async () => {
+      const { getByRole, getByText } = renderTagInput({
+        values: ['태그1'],
+      });
+
+      const input = getByRole('textbox');
+
+      expect(getByText('태그1')).toBeInTheDocument();
+
+      await fireEvent.change(input, { target: { value: '태그2' } });
+      await fireEvent.keyDown(input, { key: 'Enter' });
+
+      screen.debug();
+
+      expect(onChange).toBeCalledWith(['태그1', '태그2']);
     });
   });
 
