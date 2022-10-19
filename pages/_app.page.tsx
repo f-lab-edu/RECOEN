@@ -8,7 +8,6 @@ import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  console.log(router.pathname);
   return (
     <RecoilRoot>
       <Global styles={globalStyles} />
@@ -35,4 +34,5 @@ const Container = styled.div<StyleProps>`
   }};
   height: calc(100vh - 90px);
   box-sizing: border-box;
+  position: relative;
 `;
