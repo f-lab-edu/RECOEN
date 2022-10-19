@@ -10,6 +10,7 @@ import ArticleModel from 'pages/api/models/articleModel';
 import { ArticleElementsType } from 'src/types/article';
 import Image from 'src/components/ui/Image';
 import { getPlaiceholder } from 'plaiceholder';
+import DetailMDX from 'src/components/DetailMDX';
 
 interface IPrams extends ParsedUrlQuery {
   id: string;
@@ -27,9 +28,7 @@ const Article = ({
         alt="Hero Image"
         blurDataURL={article.blurDataURL}
       />
-      <div>{article.title}</div>
-      <div>{article.description}</div>
-      <div>{article.content}</div>
+      <DetailMDX title={article.title} content={article.content} />
     </>
   );
 };
