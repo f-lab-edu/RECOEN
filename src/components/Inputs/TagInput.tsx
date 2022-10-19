@@ -39,7 +39,6 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
   };
 
   const checkDuplicatedTag = (value: string) => {
-    console.log('확인');
     return values.includes(value);
   };
 
