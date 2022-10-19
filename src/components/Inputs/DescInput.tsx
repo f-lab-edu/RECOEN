@@ -5,7 +5,7 @@ interface Props {
   onChange: (e: string) => void;
 }
 
-export const DescInput = ({ onChange }: Props) => {
+const DescInput = ({ onChange }: Props) => {
   const [currentLength, setCurrentLength] = useState<number>(0);
   const [isError, setError] = useState<boolean>(false);
 
@@ -44,6 +44,7 @@ export const DescInput = ({ onChange }: Props) => {
   );
 };
 
+export default DescInput;
 interface StyledProps {
   isError: boolean;
 }
@@ -78,13 +79,6 @@ const TextArea = styled.textarea<StyledProps>`
     color: #494c56;
     font-size: 16px;
   }
-  :focus {
-    border: 1px solid #3941ff;
-    ${(props) => props.isError && `border: 1px solid #c4001d;`}
-  }
-  transition: 0.2s ease-in-out;
-  resize: none;
-  position: relative;
   :after {
     content: '0/200';
     position: absolute;
@@ -92,4 +86,11 @@ const TextArea = styled.textarea<StyledProps>`
     right: 0;
     top: 0;
   }
+  :focus {
+    border: 1px solid #3941ff;
+    ${(props) => props.isError && `border: 1px solid #c4001d;`}
+  }
+  transition: 0.2s ease-in-out;
+  resize: none;
+  position: relative;
 `;

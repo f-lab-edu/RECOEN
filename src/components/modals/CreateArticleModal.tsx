@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import {
-  ImageUpload,
-  Modal,
-  Button,
-  TagInput,
-  DescInput,
-} from 'src/components';
+import { ImageUpload, Modal, Button, TagInput } from 'src/components';
+import DescInput from 'src/components/inputs/DescInput';
 import { createArticle } from 'src/apis';
 import styled from '@emotion/styled';
 import { useSetRecoilState } from 'recoil';
