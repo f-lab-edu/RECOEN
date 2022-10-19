@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import { Menus } from './Menus';
-import { WritePageMenus } from './WritePageMenus';
+import WritePageMenus from './WritePageMenus';
 
-export const HeaderBar = () => {
+const NavBar = () => {
   const router = useRouter();
 
   return (
@@ -17,6 +17,9 @@ export const HeaderBar = () => {
     </Container>
   );
 };
+
+export default NavBar;
+
 interface StyleProps {
   isWritePage: boolean;
 }

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { HeaderBar } from 'src/components/headerBar';
+import NavBar from 'src/components/navigation/NavBar';
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter');
 useRouter.mockImplementation(() => ({
@@ -8,13 +8,13 @@ useRouter.mockImplementation(() => ({
 
 describe('HeaderBar', () => {
   it('should render title correctly', () => {
-    render(<HeaderBar />);
+    render(<NavBar />);
     const title = screen.getByText(/recoen./);
     expect(title).toBeInTheDocument();
   });
 
   it('should render all link correctly', () => {
-    render(<HeaderBar />);
+    render(<NavBar />);
     const article = screen.getByText(/Article/);
     const book = screen.getByText(/Book/);
     const essay = screen.getByText(/Essay/);
