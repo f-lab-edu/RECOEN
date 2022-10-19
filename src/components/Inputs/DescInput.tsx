@@ -73,6 +73,7 @@ const TextArea = styled.textarea<StyledProps>`
   color: #9499a1;
   outline: none;
   font-size: 16px;
+  overflow: hidden;
   ::placeholder {
     color: #494c56;
     font-size: 16px;
