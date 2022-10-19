@@ -84,4 +84,20 @@ describe('TagInput', () => {
       expect(getAllByText(/태그/)).toHaveLength(2);
     });
   });
+
+  describe('태그인풋에 blur 이벤트가 발생하면', () => {
+    it('에러 라인이 사라진다', () => {
+      const { getByRole } = renderTagInput(tags);
+      const input = getByRole('textbox');
+
+      expect(input).toBeInTheDocument();
+      fireEvent.keyDown(input, { key: 'Enter' });
+
+      expect(input).toHaveStyleRule('border', '1px solid #c4001d');
+
+      fireEvent.blur(input);
+
+      expect(input).toHaveStyleRule('border', '1px solid #3c3e44');
+    });
+  });
 });
