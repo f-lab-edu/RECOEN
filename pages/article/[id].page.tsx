@@ -22,7 +22,7 @@ const Article = ({
     <>
       <Image
         fullWidth
-        height={300}
+        height={400}
         src={article.imgUrl}
         alt="Hero Image"
         blurDataURL={article.blurDataURL}
