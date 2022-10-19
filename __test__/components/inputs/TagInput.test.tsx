@@ -1,5 +1,5 @@
-import { render, fireEvent, screen } from '@testing-library/react';
-import { TagInput, Props } from '../../../src/components/Inputs/TagInput';
+import { render, fireEvent } from '@testing-library/react';
+import { TagInput, Props } from 'src/components/Inputs/TagInput';
 import { matchers } from '@emotion/jest';
 
 expect.extend(matchers);
@@ -8,8 +8,7 @@ describe('TagInput', () => {
   const onChange = jest.fn();
   const renderTagInput = (props: Partial<Props> = {}) => {
     const initialProps: Props = { values: [], onChange };
-    const utils = render(<TagInput {...initialProps} {...props} />);
-    return { ...utils };
+    return render(<TagInput {...initialProps} {...props} />);
   };
   const tags = { values: ['태그1', '태그2', '태그3'] };
 
@@ -30,8 +29,6 @@ describe('TagInput', () => {
       await fireEvent.change(input, { target: { value: '태그2' } });
       await fireEvent.keyDown(input, { key: 'Enter' });
 
-      screen.debug();
-
       expect(onChange).toBeCalledWith(['태그1', '태그2']);
     });
   });
@@ -51,6 +48,8 @@ describe('TagInput', () => {
     it('인풋의 아웃라인 스타일이 빨간색으로 변한다', () => {
       const { getByRole } = renderTagInput(tags);
       const input = getByRole('textbox');
+
+      expect(input).toHaveStyleRule('border', '1px solid #3c3e44');
 
       expect(input).toBeInTheDocument();
       fireEvent.keyDown(input, { key: 'Enter' });
