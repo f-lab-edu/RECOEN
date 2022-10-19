@@ -39,6 +39,7 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
   };
 
   const checkDuplicatedTag = (value: string) => {
+    console.log('확인');
     return values.includes(value);
   };
 
@@ -54,6 +55,7 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
     if (!isOnComposition && keys.includes(e.key)) {
       e.preventDefault();
       if (values.length == 3) return setError(true);
+      if (value == '') return;
 
       if (!checkDuplicatedTag(value)) setTags(values.concat(value));
       setValue('');
