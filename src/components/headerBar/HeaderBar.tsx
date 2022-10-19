@@ -9,7 +9,7 @@ export const HeaderBar = () => {
   const router = useRouter();
 
   return (
-    <Container>
+    <Container isWritePage={router.pathname == '/write'}>
       <Link href="/">
         <Title>recoen.</Title>
       </Link>
@@ -17,8 +17,11 @@ export const HeaderBar = () => {
     </Container>
   );
 };
+interface StyleProps {
+  isWritePage: boolean;
+}
 
-const Container = styled.div`
+const Container = styled.div<StyleProps>`
   width: 100%;
   height: 80px;
   padding: 0 50px;
@@ -26,7 +29,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
+  ${(props) => !props.isWritePage && 'position: fixed;'}
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   z-index: 99;
