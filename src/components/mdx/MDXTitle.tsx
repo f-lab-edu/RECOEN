@@ -1,0 +1,70 @@
+import React from 'react';
+import styled from '@emotion/styled';
+import { Button } from 'src/components/ui/Button';
+
+interface Props {
+  title: string;
+  time: string;
+}
+
+const DetailTitle: React.FC<Props> = ({ title, time }) => {
+  return (
+    <Container>
+      <Title>{title}</Title>
+      <Wrapper>
+        <Date>{time}</Date>
+        <ButtonsWrapper>
+          <Button
+            buttonType="normal"
+            label="수정"
+            onClick={() => {
+              console.log('수정버튼');
+            }}
+          />
+          ·
+          <Button
+            buttonType="normal"
+            label="삭제"
+            onClick={() => {
+              console.log('삭제버튼');
+            }}
+          />
+        </ButtonsWrapper>
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default DetailTitle;
+
+const Container = styled.div`
+  width: 100%;
+  border-bottom: 1px solid #4a4c55;
+  margin-bottom: 60px;
+`;
+
+const Title = styled.h1`
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 65px;
+  margin-bottom: 60px;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  color: #494c56;
+`;
+
+const Date = styled.time`
+  font-weight: 200;
+  font-size: 16px;
+  color: #494c56;
+`;
