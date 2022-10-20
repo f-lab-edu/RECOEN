@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import NextHead from 'next/head';
 import { useRouter } from 'next/router';
 import { ArticleElementsType } from 'src/types/article';
@@ -23,7 +23,7 @@ const Head: React.FC<Props> = ({ article }) => {
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="recoen." />
       <meta property="og:title" content={article.title} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={article.imgUrl} />
     </NextHead>
   );
 };
