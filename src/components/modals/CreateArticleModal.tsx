@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import DescInput from 'src/components/inputs/DescInput';
 import { createArticle } from 'src/apis';
 import styled from '@emotion/styled';
 import { useSetRecoilState } from 'recoil';
@@ -7,6 +6,8 @@ import { openCreateModalStates } from 'src/recoil/permit';
 import { useRouter } from 'next/router';
 
 import { ImageUpload, Modal, Button } from 'src/components';
+
+import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
 interface Props {
