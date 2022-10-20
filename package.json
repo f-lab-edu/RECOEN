@@ -25,6 +25,7 @@
     "mongoose": "^6.6.1",
     "next": "12.2.5",
     "next-connect": "^0.13.0",
+    "next-mdx-remote": "^4.1.0",
     "next-s3-upload": "^0.2.3",
     "plaiceholder": "^2.5.0",
     "prosemirror-transform": "^1.7.0",

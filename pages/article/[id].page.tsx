@@ -10,7 +10,8 @@ import ArticleModel from 'pages/api/models/articleModel';
 import { ArticleElementsType } from 'src/types/article';
 import Image from 'src/components/ui/Image';
 import { getPlaiceholder } from 'plaiceholder';
-import DetailMDX from 'src/components/DetailMDX';
+import DetailMDX from 'src/components/mdx/DetailMDX';
+import { serialize } from 'next-mdx-remote/serialize';
 
 interface IPrams extends ParsedUrlQuery {
   id: string;
@@ -76,12 +77,13 @@ export const getStaticProps: GetStaticProps = async (
     const article = JSON.parse(JSON.stringify(res));
 
     const { base64 } = await getPlaiceholder(article.imgUrl);
+    const content = await serialize(article.content);
 
-    const articleWithBlurDataURL = { ...article, blurDataURL: base64 };
+    const assembledArticle = { ...article, blurDataURL: base64, content };
 
     return {
       props: {
-        article: articleWithBlurDataURL,
+        article: assembledArticle,
       },
     };
   } catch (err) {
