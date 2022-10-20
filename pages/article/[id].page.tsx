@@ -10,7 +10,7 @@ import ArticleModel from 'pages/api/models/articleModel';
 import { ArticleElementsType } from 'src/types/article';
 import Image from 'src/components/ui/Image';
 import { getPlaiceholder } from 'plaiceholder';
-import DetailMDX from 'src/components/mdx/DetailMDX';
+import MDXDetail from 'src/components/mdx/MDXDetail';
 import { serialize } from 'next-mdx-remote/serialize';
 
 interface IPrams extends ParsedUrlQuery {
@@ -29,7 +29,11 @@ const Article = ({
         alt="Hero Image"
         blurDataURL={article.blurDataURL}
       />
-      <DetailMDX title={article.title} content={article.content} />
+      <MDXDetail
+        title={article.title}
+        content={article.content}
+        time="2022.10.23 · 7min read"
+      />
     </>
   );
 };
