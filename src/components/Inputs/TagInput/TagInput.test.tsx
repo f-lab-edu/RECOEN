@@ -112,4 +112,23 @@ describe('TagInput', () => {
       expect(input).toHaveStyleRule('border', '1px solid #3c3e44');
     });
   });
+
+  describe('빈 값을 입력하고 엔터를 누르면', () => {
+    it('태그가 추가되지 않는다', () => {
+      const tags = { values: ['태그1', '태그2'] };
+      const { getByRole, getByText, getAllByText } = renderTagInput(tags);
+      tags.values.forEach((tag) => {
+        expect(getByText(tag)).toBeInTheDocument();
+      });
+
+      const input = getByRole('textbox');
+
+      expect(getAllByText(/태그/)).toHaveLength(2);
+
+      fireEvent.change(input, { target: { value: '' } });
+      fireEvent.keyDown(input, { key: 'Enter' });
+
+      expect(getAllByText(/태그/)).toHaveLength(2);
+    });
+  });
 });
