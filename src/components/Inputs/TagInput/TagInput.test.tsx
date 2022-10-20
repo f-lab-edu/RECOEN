@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
-import { TagInput, Props } from 'src/components/Inputs/TagInput';
+import TagInput, { Props } from './TagInput';
 import { matchers } from '@emotion/jest';
 
 expect.extend(matchers);
@@ -28,6 +28,8 @@ describe('TagInput', () => {
 
       await fireEvent.change(input, { target: { value: '태그2' } });
       await fireEvent.keyDown(input, { key: 'Enter' });
+      await fireEvent.compositionStart(input, { key: 'Enter' });
+      await fireEvent.compositionEnd(input, { key: 'Enter' });
 
       expect(onChange).toBeCalledWith(['태그1', '태그2']);
     });

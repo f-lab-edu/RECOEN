@@ -10,7 +10,7 @@ export interface Props {
 
 const emptyArray: string[] = [];
 
-export const TagInput = ({ onChange, values = emptyArray }: Props) => {
+const TagInput = ({ onChange, values = emptyArray }: Props) => {
   const [value, setValue] = useState('');
   const [tags, setTags] = useState<string[]>(emptyArray);
   const [isOnComposition, setIsOnComposition] = useState(false);
@@ -98,6 +98,8 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
     </Container>
   );
 };
+
+export default TagInput;
 
 interface StyleProps {
   isError?: boolean;
