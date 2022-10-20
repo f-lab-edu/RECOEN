@@ -11,8 +11,8 @@ const DescInput = ({ onChange }: Props) => {
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textLength = e.target.value.length;
-    if (textLength === 200) return setError(true);
     setCurrentLength(textLength);
+    if (textLength === 200) return setError(true);
     onChange(e.target.value);
   };
 
@@ -45,6 +45,7 @@ const DescInput = ({ onChange }: Props) => {
 };
 
 export default DescInput;
+
 interface StyledProps {
   isError: boolean;
 }

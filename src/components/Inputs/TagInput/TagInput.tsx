@@ -1,6 +1,6 @@
 import React, { useState, CompositionEvent, useEffect } from 'react';
 import styled from '@emotion/styled';
-import XIcon from '../../../public/x.png';
+import XIcon from '../../../../public/x.png';
 import Image from 'next/image';
 
 export interface Props {
