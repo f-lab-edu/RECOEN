@@ -4,24 +4,13 @@ import styled from '@emotion/styled';
 export interface Props {
   label: string;
   primary?: boolean;
+  disabled?: boolean;
   onClick: () => void;
 }
 
-const Button = ({ label, primary, onClick }: Props) => {
-  const handleOnClick = () => {
-    if (!onClick) return;
-    onClick();
-  };
-
+const Button = ({ label, primary, disabled = false, onClick }: Props) => {
   return (
-    <StyledButton
-      primary={primary}
-      onClick={handleOnClick}
-      onMouseOver={() => {
-        console.log('호버');
-      }}
-      disabled
-    >
+    <StyledButton primary={primary} onClick={onClick} disabled={disabled}>
       {label}
     </StyledButton>
   );
@@ -39,7 +28,27 @@ const StyledButton = styled.button<StyledProps>`
   padding: 10px 12px;
   border-radius: 2px;
   color: #4a4c55;
+  border: none;
+  background: transparent;
   :hover {
     color: #9599a0;
   }
+  :disabled {
+    cursor: not-allowed;
+  }
+  ${({ primary }) =>
+    primary &&
+    `
+  color: #ffffff;
+  background: #3941FF;
+  :hover{
+    background: #2B31C7;
+    color: #ffffff;
+  }
+  :disabled {
+    background: #4a4c55;
+    color:#9599a0;
+  }
+  `}
+  transition:0.2s ease-in-out;
 `;

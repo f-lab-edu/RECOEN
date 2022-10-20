@@ -54,16 +54,8 @@ export const CreateArticleModal = ({ articleElements }: Props) => {
         <ButtonWrapper data-testid="createArticleModal">
           <H2>글 설정</H2>
           <div>
-            <Button
-              label="취소"
-              buttonType="normal"
-              onClick={handleModalClose}
-            />
-            <Button
-              label="저장"
-              buttonType="primary"
-              onClick={handleOnClickSave}
-            />
+            <Button label="취소" onClick={handleModalClose} />
+            <Button label="저장" primary onClick={handleOnClickSave} />
           </div>
         </ButtonWrapper>
         <Guide>대표이미지</Guide>
