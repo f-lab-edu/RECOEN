@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import Button, { Props } from './Button';
 import { matchers } from '@emotion/jest';
 
@@ -47,6 +47,7 @@ describe('Button', () => {
     describe('disable 상태이면', () => {
       it('cursor가 not-allowed처리된다', () => {
         const { getByText } = renderButton(props(false, true));
+        screen.debug();
         expect(getByText('버튼')).toHaveStyleRule('cursor', 'not-allowed');
       });
     });
@@ -66,13 +67,13 @@ describe('Button', () => {
     });
 
     describe('호버를 하면', () => {
-      it('배경색은 #4E75FF이다', () => {
+      it('배경색은 #2B31C7이다', () => {
         const { getByText } = renderButton(props(true, false));
         const button = getByText('버튼');
 
         fireEvent.mouseOver(button);
 
-        expect(button).toHaveStyleRule('background', '#4E75FF');
+        expect(button).toHaveStyleRule('background', '#2B31C7');
       });
     });
 
@@ -80,6 +81,14 @@ describe('Button', () => {
       it('cursor가 not-allowed처리된다', () => {
         const { getByText } = renderButton(props(true, true));
         expect(getByText('버튼')).toHaveStyleRule('cursor', 'not-allowed');
+      });
+      it('폰트색은 #9599a0이다', () => {
+        const { getByText } = renderButton(props(true, true));
+        expect(getByText('버튼')).toHaveStyleRule('color', '#9599a0');
+      });
+      it('배경색은 #4a4c55이다', () => {
+        const { getByText } = renderButton(props(true, true));
+        expect(getByText('버튼')).toHaveStyleRule('background', '#4a4c55');
       });
     });
   });
