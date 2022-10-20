@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Button } from 'src/components';
 import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
+
+import Button from 'src/components/ui/Button/Button';
 
 const WritePageMenus = () => {
   const setOpen = useSetRecoilState(openCreateModalStates);
