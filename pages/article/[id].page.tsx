@@ -6,13 +6,15 @@ import {
 } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
-import ArticleModel from 'pages/api/models/articleModel';
-import { ArticleElementsType } from 'src/types/article';
-import Image from 'src/components/ui/Image';
 import { getPlaiceholder } from 'plaiceholder';
-import MDXDetail from 'src/components/mdx/MDXDetail';
 import { serialize } from 'next-mdx-remote/serialize';
 
+import ArticleModel from 'pages/api/models/articleModel';
+import Image from 'src/components/ui/Image';
+import MDXDetail from 'src/components/mdx/MDXDetail';
+import Head from 'src/components/Head';
+
+import { ArticleElementsType } from 'src/types/article';
 interface IPrams extends ParsedUrlQuery {
   id: string;
 }
@@ -22,6 +24,7 @@ const Article = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
+      <Head article={article} />
       <Image
         fullWidth
         height={400}
