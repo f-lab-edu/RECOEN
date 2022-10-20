@@ -5,8 +5,9 @@ import { useSetRecoilState } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
 import { useRouter } from 'next/router';
 
-import { ImageUpload, Modal, Button } from 'src/components';
+import { ImageUpload, Modal } from 'src/components';
 
+import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 

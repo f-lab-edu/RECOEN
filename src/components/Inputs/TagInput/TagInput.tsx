@@ -8,11 +8,9 @@ export interface Props {
   values: string[];
 }
 
-const emptyArray: string[] = [];
-
-const TagInput = ({ onChange, values = emptyArray }: Props) => {
+const TagInput = ({ onChange, values }: Props) => {
   const [value, setValue] = useState('');
-  const [tags, setTags] = useState<string[]>(emptyArray);
+  const [tags, setTags] = useState<string[]>();
   const [isOnComposition, setIsOnComposition] = useState(false);
   const [isError, setError] = useState<boolean>(false);
 

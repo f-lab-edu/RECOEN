@@ -1,25 +1,27 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'normal';
+export type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'normal';
 
-interface Props {
+export interface Props {
   label: string;
   buttonType: ButtonType;
   onClick: () => void;
 }
 
-export const Button = ({ label, buttonType, onClick }: Props) => {
+const Button = ({ label, buttonType, onClick }: Props) => {
   const handleOnClick = () => {
     if (!onClick) return;
     onClick();
   };
   return (
-    <StyledButton buttonType={buttonType} onClick={handleOnClick}>
+    <StyledButton buttonType={buttonType} onClick={handleOnClick} disabled>
       {label}
     </StyledButton>
   );
 };
+
+export default Button;
 
 interface StyledProps {
   buttonType: ButtonType;
