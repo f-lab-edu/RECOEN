@@ -1,17 +1,21 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import MDXComponent from 'src/components/mdx/MDXComponent';
+import Typography from '@mui/material/Typography';
+
 interface Props {
   title: string;
-  content: string;
+  content: MDXRemoteSerializeResult;
   time?: string;
 }
 
 const DetailMDX: React.FC<Props> = ({ title, content, time }) => {
   return (
     <Container>
-      <Title>{title}</Title>
-      <div>{content}</div>
+      <Typography variant="h1">{title}</Typography>
+      <MDXRemote {...content} components={MDXComponent} />
     </Container>
   );
 };
