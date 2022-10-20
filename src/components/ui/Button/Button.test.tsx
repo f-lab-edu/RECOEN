@@ -36,7 +36,10 @@ describe('Button', () => {
     describe('호버를 하면', () => {
       it('폰트색은 #9599a0이다', () => {
         const { getByText } = renderButton(propsWithPrimary(false));
-        expect(getByText('버튼')).toHaveStyleRule('color', '#9599a0');
+        const button = getByText('버튼');
+        fireEvent.mouseOver(button);
+
+        expect(button).toHaveStyleRule('color', '#9599a0');
       });
     });
 
