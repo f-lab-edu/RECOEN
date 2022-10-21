@@ -35,7 +35,7 @@ const Head: React.FC<Props> = ({ article }) => {
       <meta property="og:site_name" content="recoen." />
       <meta property="og:type" content={meta.type} />
       <meta property="og:title" content={article?.title} />
-      <meta property="og:image" content={article?.imgUrl || meta.image} />
+      <meta property="og:image" content={article?.imgUrl} />
     </NextHead>
   );
 };

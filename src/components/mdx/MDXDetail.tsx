@@ -26,7 +26,7 @@ const Container = styled.main`
   width: 1200px;
   padding: 100px 200px;
   margin: 0 auto;
-  background-color: #252628;
+  background-color: #1f2027;
   margin-left: auto;
   margin-right: auto;
   left: 0;
