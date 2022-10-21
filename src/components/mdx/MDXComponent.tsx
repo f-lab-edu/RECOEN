@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { makeTitleFragment } from 'src/utils/makeTitleFragment';
 
 const MDXComponent = {
   h1: (props: any) => <H1 {...props} />,
@@ -17,22 +18,58 @@ const MDXComponent = {
 
 export default MDXComponent;
 
-const H1 = styled.h1`
+const H1 = (props: any) => {
+  const fragment = makeTitleFragment(props.children);
+  return (
+    <CustomH1 id={fragment}>
+      <a href={`#${fragment}`} {...props} />
+    </CustomH1>
+  );
+};
+
+const CustomH1 = styled.h1`
   font-weight: 400;
   font-size: 42px;
-  color: #57a1f8;
+  & a {
+    color: #57a1f8;
+    text-decoration: none;
+  }
 `;
 
-const H2 = styled.h2`
+const H2 = (props: any) => {
+  const fragment = makeTitleFragment(props.children);
+  return (
+    <CustomH2 id={fragment}>
+      <a href={`#${fragment}`} {...props} />
+    </CustomH2>
+  );
+};
+
+const CustomH2 = styled.h2`
   font-weight: 400;
   font-size: 35px;
-  color: #57a1f8;
+  & a {
+    color: #57a1f8;
+    text-decoration: none;
+  }
 `;
 
-const H3 = styled.h3`
+const H3 = (props: any) => {
+  const fragment = makeTitleFragment(props.children);
+  return (
+    <CustomH3 id={fragment}>
+      <a href={`#${fragment}`} {...props} />
+    </CustomH3>
+  );
+};
+
+const CustomH3 = styled.h3`
   font-weight: 400;
   font-size: 25px;
-  color: #57a1f8;
+  & a {
+    color: #57a1f8;
+    text-decoration: none;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -58,7 +95,7 @@ const Strong = styled.strong`
 `;
 
 const Anchor = styled.a`
-  color: #3941ff;
+  color: #6064f6;
   font-weight: bold;
 `;
 
@@ -96,5 +133,5 @@ const Code = styled.code``;
 
 const Pre = styled.pre`
   width: 100%;
-  overflow-y: scroll;
+  overflow-x: scroll hidden;
 `;
