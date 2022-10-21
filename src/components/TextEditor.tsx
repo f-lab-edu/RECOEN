@@ -14,7 +14,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
 
   const handleChange = () => {
     if (!editorRef.current) return;
-    const markDownData = editorRef.current.getInstance().getMarkdown();
+    const markDownData = editorRef.current.getInstance().getHTML();
     onChange(markDownData);
   };
 
