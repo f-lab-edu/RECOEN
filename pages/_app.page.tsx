@@ -5,11 +5,13 @@ import { globalStyles } from 'src/shared';
 import NavBar from 'src/components/navigation/NavBar';
 import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
+import Head from 'src/components/Head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
     <RecoilRoot>
+      <Head />
       <Global styles={globalStyles} />
       <NavBar />
       <Container location={router.pathname}>
