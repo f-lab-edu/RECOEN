@@ -88,7 +88,7 @@ const Item = styled.a<StyleProps>`
       position: absolute;
       bottom: -10px;
       left: 0;
-      animation: ${entrance} 0.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+      animation: ${entrance} 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
     }
   }
 `;

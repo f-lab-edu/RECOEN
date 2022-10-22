@@ -61,4 +61,6 @@ const Wrapper = styled.ul`
   display: flex;
   gap: 40px;
   list-style: none;
+  width: 1024px;
+  padding-left: 0;
 `;

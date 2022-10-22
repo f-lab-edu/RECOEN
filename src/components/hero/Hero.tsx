@@ -19,7 +19,7 @@ export const Hero = ({ text, listLength }: Props) => {
 };
 
 const Layout = styled.div`
-  width: 1200px;
+  width: 1024px;
   margin: 0px auto;
 `;
 

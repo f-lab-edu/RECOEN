@@ -81,8 +81,8 @@ interface StyleProps {
 }
 
 const Container = styled.div`
-  width: 1200px;
-  height: 600px;
+  width: 1024px;
+  height: 100%;
   box-sizing: border-box;
   margin: 0 auto;
 `;
