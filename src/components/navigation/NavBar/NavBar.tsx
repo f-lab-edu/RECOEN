@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import { Menus } from '../Menus';
-import WritePageMenus from '../WritePageMenus';
+import WritePageMenus from '../WritePageMenus/WritePageMenus';
 
 const NavBar = () => {
   const router = useRouter();
