@@ -39,7 +39,7 @@ const Container = styled.div<StyleProps>`
 `;
 
 const Title = styled.a`
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 600;
   color: #ffffff;
   cursor: pointer;
