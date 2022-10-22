@@ -13,7 +13,7 @@ const WritePageMenus = () => {
   };
   return (
     <Wrapper>
-      <Link href="/" title="메인페이지로 돌아갑니다">
+      <Link href="/" title="메인페이지로 돌아갑니다" passHref>
         <Anchor>나가기</Anchor>
       </Link>
       <Button primary label="게시하기" onClick={handleModalOpen} />
@@ -37,5 +37,3 @@ const Anchor = styled.a`
   }
   transition: 0.2s ease-in-out;
 `;
-
-
