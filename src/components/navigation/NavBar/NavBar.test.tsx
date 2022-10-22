@@ -1,12 +1,17 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import NavBar from 'src/components/navigation/NavBar';
+import NavBar from './NavBar';
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter');
 useRouter.mockImplementation(() => ({
   pathname: '/article',
 }));
 
-describe('HeaderBar', () => {
+// jest.spyOn(React, 'useRef').mockReturnValue({
+//   current: { clientWidth: 1200 },
+// });
+
+describe('NavBar', () => {
   it('should render title correctly', () => {
     render(<NavBar />);
     const title = screen.getByText(/recoen./);

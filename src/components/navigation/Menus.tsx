@@ -60,7 +60,9 @@ export const Menus = () => {
       <ButtonWrapper>
         <Button label="로그인" onClick={() => console.log('로그인')} />
         <Link href="/write" title="작성하기 페이지입니다.">
-          <Button label="+ 글쓰기" primary />
+          <a>
+            <Button label="+ 글쓰기" primary />
+          </a>
         </Link>
       </ButtonWrapper>
     </>
