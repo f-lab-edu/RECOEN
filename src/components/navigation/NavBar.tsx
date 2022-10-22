@@ -8,8 +8,15 @@ import WritePageMenus from './WritePageMenus';
 const NavBar = () => {
   const router = useRouter();
 
+  const resolvePosition = () => {
+    const pathname = router.pathname;
+    if (pathname == '/aricle/[id]') return 'position: absolute';
+    else if (pathname == '/write') return 'position: relative';
+    else return 'position:fixed';
+  };
+
   return (
-    <FixedContainer isWritePage={router.pathname == '/write'}>
+    <FixedContainer position={resolvePosition()}>
       <Container>
         <Link href="/">
           <Title>recoen.</Title>
@@ -23,12 +30,12 @@ const NavBar = () => {
 export default NavBar;
 
 interface StyleProps {
-  isWritePage: boolean;
+  position: string;
 }
 
 const FixedContainer = styled.div<StyleProps>`
   width: 100%;
-  ${(props) => !props.isWritePage && 'position: fixed;'}
+  ${({ position }) => position};
   z-index: 99;
 `;
 

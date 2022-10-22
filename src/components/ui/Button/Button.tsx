@@ -5,7 +5,7 @@ export interface Props {
   label: string;
   primary?: boolean;
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button = ({ label, primary, disabled = false, onClick }: Props) => {
