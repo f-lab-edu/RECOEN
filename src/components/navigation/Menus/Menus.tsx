@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import NavBarItem from './NavBarItem';
+import NavBarItem from '../NavBarItem';
 import { useRouter } from 'next/router';
 import Button from 'src/components/ui/Button/Button';
 import Link from 'next/link';
 
-export const Menus = () => {
+const Menus = () => {
   const router = useRouter();
   const items = [
     {
@@ -18,25 +18,25 @@ export const Menus = () => {
       id: 'book',
       name: 'Book',
       title: '독후감 아티클 리스트 페이지입니다.',
-      path: '/dev',
+      path: '/book',
     },
     {
       id: 'essay',
       name: 'Essay',
       title: '에세이 리스트 페이지입니다.',
-      path: '/dev',
+      path: '/essay',
     },
     {
       id: 'quotes',
       name: 'Quotes',
       title: '인용구 리스트 페이지입니다.',
-      path: '/dev',
+      path: '/quotes',
     },
     {
       id: 'about',
       name: 'About',
       title: '소개페이지입니다.',
-      path: '/dev',
+      path: '/about',
     },
   ];
 
@@ -58,8 +58,8 @@ export const Menus = () => {
         </Wrapper>
       </Nav>
       <ButtonWrapper>
-        <Button label="로그인" onClick={() => console.log('로그인')} />
-        <Link href="/write" title="작성하기 페이지입니다.">
+        <Button label="로그인" />
+        <Link href="/write" title="작성하기 페이지입니다." passHref>
           <a>
             <Button label="+ 글쓰기" primary />
           </a>
@@ -68,6 +68,8 @@ export const Menus = () => {
     </>
   );
 };
+
+export default Menus;
 
 const Nav = styled.nav`
   position: absolute;
