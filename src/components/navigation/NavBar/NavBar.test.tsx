@@ -7,10 +7,6 @@ useRouter.mockImplementation(() => ({
   pathname: '/article',
 }));
 
-// jest.spyOn(React, 'useRef').mockReturnValue({
-//   current: { clientWidth: 1200 },
-// });
-
 describe('NavBar', () => {
   it('should render title correctly', () => {
     render(<NavBar />);

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
-import { Menus } from '../Menus';
+import Menus from '../Menus/Menus';
 import WritePageMenus from '../WritePageMenus/WritePageMenus';
 
 const NavBar = () => {
