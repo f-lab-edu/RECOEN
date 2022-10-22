@@ -14,6 +14,7 @@ const NavBar = () => {
         <Title>recoen.</Title>
       </Link>
       {router.pathname == '/write' ? <WritePageMenus /> : <Menus />}
+      <WriteButton />
     </Container>
   );
 };
@@ -27,10 +28,10 @@ interface StyleProps {
 const Container = styled.div<StyleProps>`
   width: 100%;
   height: 80px;
-  padding: 0 50px;
+  padding: 0px;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   ${(props) => !props.isWritePage && 'position: fixed;'}
   backdrop-filter: saturate(180%) blur(20px);
@@ -43,4 +44,8 @@ const Title = styled.a`
   font-weight: 600;
   color: #ffffff;
   cursor: pointer;
+`;
+
+const WriteButton = styled.div`
+  width: 100px;
 `;
