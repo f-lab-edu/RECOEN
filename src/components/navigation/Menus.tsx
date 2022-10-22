@@ -2,6 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import NavBarItem from './NavBarItem';
 import { useRouter } from 'next/router';
+import Button from 'src/components/ui/Button/Button';
+import Link from 'next/link';
 
 export const Menus = () => {
   const router = useRouter();
@@ -39,28 +41,50 @@ export const Menus = () => {
   ];
 
   return (
-    <nav>
-      <Wrapper>
-        {items.map((item) => {
-          return (
-            <NavBarItem
-              key={item.id}
-              title={item.title}
-              name={item.name}
-              path={item.path}
-              isActive={router.pathname.includes(item.path)}
-            />
-          );
-        })}
-      </Wrapper>
-    </nav>
+    <>
+      <Nav>
+        <Wrapper>
+          {items.map((item) => {
+            return (
+              <NavBarItem
+                key={item.id}
+                title={item.title}
+                name={item.name}
+                path={item.path}
+                isActive={router.pathname.includes(item.path)}
+              />
+            );
+          })}
+        </Wrapper>
+      </Nav>
+      <ButtonWrapper>
+        <Button label="로그인" onClick={() => console.log('로그인')} />
+        <Link href="/write" title="작성하기 페이지입니다.">
+          <Button label="+ 글쓰기" primary />
+        </Link>
+      </ButtonWrapper>
+    </>
   );
 };
 
+const Nav = styled.nav`
+  position: absolute;
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+`;
+
 const Wrapper = styled.ul`
+  width: 100%;
   display: flex;
   gap: 40px;
   list-style: none;
-  width: 1024px;
   padding-left: 0;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 10px;
 `;
