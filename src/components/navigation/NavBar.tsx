@@ -9,13 +9,14 @@ const NavBar = () => {
   const router = useRouter();
 
   return (
-    <Container isWritePage={router.pathname == '/write'}>
-      <Link href="/">
-        <Title>recoen.</Title>
-      </Link>
-      {router.pathname == '/write' ? <WritePageMenus /> : <Menus />}
-      <WriteButton />
-    </Container>
+    <FixedContainer isWritePage={router.pathname == '/write'}>
+      <Container>
+        <Link href="/">
+          <Title>recoen.</Title>
+        </Link>
+        {router.pathname == '/write' ? <WritePageMenus /> : <Menus />}
+      </Container>
+    </FixedContainer>
   );
 };
 
@@ -25,18 +26,23 @@ interface StyleProps {
   isWritePage: boolean;
 }
 
-const Container = styled.div<StyleProps>`
+const FixedContainer = styled.div<StyleProps>`
   width: 100%;
-  height: 80px;
-  padding: 0px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
   ${(props) => !props.isWritePage && 'position: fixed;'}
+  z-index: 99;
+`;
+
+const Container = styled.div`
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  z-index: 99;
+  width: 100%;
+  height: 80px;
+  padding: 0 50px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
 `;
 
 const Title = styled.a`
@@ -44,8 +50,4 @@ const Title = styled.a`
   font-weight: 600;
   color: #ffffff;
   cursor: pointer;
-`;
-
-const WriteButton = styled.div`
-  width: 100px;
 `;
