@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'src/components/ui/Image';
 
 interface Props {
   title: string;
@@ -22,16 +22,13 @@ export const Article = ({
     <Link href={`/article/${path}`}>
       <Anchor>
         <Container>
-          <ImageWrapper>
-            <CustomImage
-              src={imgUrl}
-              alt="Thumbnail of article"
-              layout="fill"
-              objectFit="cover"
-              placeholder="blur"
-              blurDataURL={blurDataURL}
-            />
-          </ImageWrapper>
+          <Image
+            width={380}
+            height={220}
+            src={imgUrl}
+            blurDataURL={blurDataURL}
+            alt="Thumbnail of article"
+          />
           <Wrapper>
             <div>
               <Title>{title}</Title>
