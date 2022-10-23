@@ -26,7 +26,6 @@ describe('DescInput', () => {
     it('onChange에 값이 들어간다', async () => {
       const { getByRole } = renderDescInput();
       const descInput = getByRole('textbox');
-      expect(descInput).toBeInTheDocument();
 
       await fireEvent.change(descInput, { target: { value: '입력' } });
 
@@ -38,7 +37,6 @@ describe('DescInput', () => {
     it('인풋라인이 빨간색으로 바뀐다', async () => {
       const { getByRole } = renderDescInput();
       const descInput = getByRole('textbox');
-      expect(descInput).toBeInTheDocument();
 
       expect(descInput).toHaveStyle('border : 1px solid #3c3e44');
 
@@ -77,6 +75,7 @@ describe('DescInput', () => {
         };
 
         fireEvent.keyDown(descInput, backspaceOptions);
+        fireEvent.keyDown(descInput, backspaceOptions);
 
         expect(descInput).toHaveStyle('border : 1px solid #3941ff');
       });
@@ -86,7 +85,6 @@ describe('DescInput', () => {
       it('인풋라인에 빨간색이 사라진다', async () => {
         const { getByRole } = renderDescInput();
         const descInput = getByRole('textbox');
-        expect(descInput).toBeInTheDocument();
 
         descInput.focus();
 
@@ -103,6 +101,31 @@ describe('DescInput', () => {
 
         expect(descInput).toHaveStyle('border : 1px solid #3c3e44');
       });
+    });
+  });
+
+  describe('글자가 199 글자 이하일 때', () => {
+    it('Backspace를 하면 그대로 파란색이다', async () => {
+      const { getByRole } = renderDescInput();
+      const descInput = getByRole('textbox');
+
+      descInput.focus();
+
+      fireEvent.change(descInput, {
+        target: {
+          value: 'value',
+        },
+      });
+
+      const backspaceOptions = {
+        key: 'Backspace',
+        keyCode: 8,
+        charCode: 8,
+      };
+
+      fireEvent.keyDown(descInput, backspaceOptions);
+
+      expect(descInput).toHaveStyle('border : 1px solid #3941ff;');
     });
   });
 });
