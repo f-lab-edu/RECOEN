@@ -32,7 +32,7 @@ const Container = styled.div<StyleProps>`
   padding-top: 90px;
   ${(props) => {
     if (props.location == '/write') return 'padding: 30px 50px 0px 50px';
-    else if (props.location == '/article/[id]') return 'padding: 0px';
+    if (props.location == '/article/[id]') return 'padding: 0px';
   }};
   height: calc(100vh - 90px);
   box-sizing: border-box;
