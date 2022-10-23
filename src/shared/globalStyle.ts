@@ -9,7 +9,7 @@ export const globalStyles = css`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #252628;
+    background-color: #1f2027;
     font-family: 'Pretendard';
     color: #ffffff;
   }

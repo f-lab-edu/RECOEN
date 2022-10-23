@@ -5,11 +5,13 @@ import { globalStyles } from 'src/shared';
 import NavBar from 'src/components/navigation/NavBar';
 import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
+import Head from 'src/components/Head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   return (
     <RecoilRoot>
+      <Head />
       <Global styles={globalStyles} />
       <NavBar />
       <Container location={router.pathname}>
@@ -28,7 +30,11 @@ interface StyleProps {
 
 const Container = styled.div<StyleProps>`
   padding-top: 90px;
-  ${(props) => props.location == '/write' && 'padding: 30px 50px 0px 50px'};
+  ${(props) => {
+    if (props.location == '/write') return 'padding: 30px 50px 0px 50px';
+    if (props.location == '/article/[id]') return 'padding: 0px';
+  }};
   height: calc(100vh - 90px);
   box-sizing: border-box;
+  position: relative;
 `;
