@@ -1,11 +1,11 @@
-import { getArticle, client } from 'src/utils';
+import { getArticle, axiosInstance } from 'src/apis';
 
 jest.mock('axios');
 
 describe('apiHandler', () => {
   describe('getArticle', () => {
     beforeEach(() => {
-      (client.get as jest.Mock).mockImplementation(() => ({
+      (axiosInstance.get as jest.Mock).mockImplementation(() => ({
         _id: '1',
         title: 'title',
         description: 'description',
@@ -17,7 +17,7 @@ describe('apiHandler', () => {
       const id = '1';
       const response = await getArticle(id);
 
-      expect(client.get).toHaveBeenCalledWith('/api/article', {
+      expect(axiosInstance.get).toHaveBeenCalledWith('/api/article', {
         data: id,
       });
       expect(response).toStrictEqual({

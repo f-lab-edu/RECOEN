@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { HeaderBarItem } from './HeaderBarItem';
+import NavBarItem from './NavBarItem';
 import { useRouter } from 'next/router';
 
 export const Menus = () => {
@@ -43,7 +43,7 @@ export const Menus = () => {
       <Wrapper>
         {items.map((item) => {
           return (
-            <HeaderBarItem
+            <NavBarItem
               key={item.id}
               title={item.title}
               name={item.name}
