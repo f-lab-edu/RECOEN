@@ -18,7 +18,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
     onChange(markDownData);
   };
 
-  const addImageBolb = async (
+  const uploadImage = async (
     blob: any,
     callback: (url: string, text: string) => void,
   ) => {
@@ -37,8 +37,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
       useCommandShortcut={true}
       theme="dark"
       hooks={{
-        addImageBlobHook: async (blob, callback) =>
-          addImageBolb(blob, callback),
+        addImageBlobHook: async (blob, callback) => uploadImage(blob, callback),
       }}
     />
   );
