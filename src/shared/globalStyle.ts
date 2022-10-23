@@ -13,4 +13,7 @@ export const globalStyles = css`
     font-family: 'Pretendard';
     color: #ffffff;
   }
+  a {
+    text-decoration: none;
+  }
 `;
