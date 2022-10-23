@@ -1,27 +1,29 @@
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import Button, { Props } from './Button';
 import { matchers } from '@emotion/jest';
 
 expect.extend(matchers);
 
 describe('Button', () => {
-  const onClick = jest.fn();
   const renderButton = (props: Props) => {
     return render(<Button {...props} />);
   };
+  const onClick = jest.fn();
 
-  const props = (primary: boolean, disabled: boolean) => {
-    return {
-      label: '버튼',
-      onClick,
-      primary,
-      disabled,
+  const buttonProps = (buttonType: 'primary' | 'normal') => {
+    return (isActive: 'active' | 'deactivate') => {
+      return {
+        label: '버튼',
+        onClick,
+        primary: buttonType === 'primary' ? true : false,
+        disabled: isActive === 'active' ? false : true,
+      };
     };
   };
 
   describe('label에 넘겨준 글자가', () => {
     it('화면에 보인다', () => {
-      const { getByText } = renderButton(props(false, false));
+      const { getByText } = renderButton(buttonProps('normal')('active'));
       expect(getByText('버튼')).toBeInTheDocument();
     });
   });
@@ -29,25 +31,25 @@ describe('Button', () => {
   describe('normal type에서', () => {
     describe('가만히 있으면', () => {
       it('폰트색은 #4a4c55이다', () => {
-        const { getByText } = renderButton(props(false, false));
+        const { getByText } = renderButton(buttonProps('normal')('active'));
         expect(getByText('버튼')).toHaveStyleRule('color', '#4a4c55');
       });
     });
 
     describe('호버를 하면', () => {
       it('폰트색은 #9599a0이다', () => {
-        const { getByText } = renderButton(props(false, false));
+        const { getByText } = renderButton(buttonProps('normal')('active'));
         const button = getByText('버튼');
-        fireEvent.mouseOver(button);
+        fireEvent.mouseEnter(button);
 
-        // expect(button).toHaveStyleRule('color', '#9599a0');
+        waitFor(() => expect(button).toHaveStyle('color : #9599a0'));
       });
     });
 
     describe('disable 상태이면', () => {
       it('cursor가 not-allowed처리된다', () => {
-        const { getByText } = renderButton(props(false, true));
-        // expect(getByText('버튼')).toHaveStyleRule('cursor', 'not-allowed');
+        const { getByText } = renderButton(buttonProps('normal')('deactivate'));
+        expect(getByText('버튼')).toHaveStyle('cursor : not-allowed');
       });
     });
   });
@@ -55,39 +57,45 @@ describe('Button', () => {
   describe('primary type에서', () => {
     describe('가만히 있으면', () => {
       it('폰트색은 #ffffff이다', () => {
-        const { getByText } = renderButton(props(true, false));
-        expect(getByText('버튼')).toHaveStyleRule('color', '#ffffff');
+        const { getByText } = renderButton(buttonProps('primary')('active'));
+        expect(getByText('버튼')).toHaveStyle('color : #ffffff');
       });
 
       it('배경색은 #3941FF이다', () => {
-        const { getByText } = renderButton(props(true, false));
-        expect(getByText('버튼')).toHaveStyleRule('background', '#3941FF');
+        const { getByText } = renderButton(buttonProps('primary')('active'));
+        expect(getByText('버튼')).toHaveStyle('background : #3941FF');
       });
     });
 
     describe('호버를 하면', () => {
       it('배경색은 #2B31C7이다', () => {
-        const { getByText } = renderButton(props(true, false));
+        const { getByText } = renderButton(buttonProps('primary')('active'));
         const button = getByText('버튼');
 
         fireEvent.mouseOver(button);
 
-        // expect(button).toHaveStyleRule('background', '#2B31C7');
+        waitFor(() => expect(button).toHaveStyle('background : #2B31C7'));
       });
     });
 
     describe('disable 상태이면', () => {
       it('cursor가 not-allowed처리된다', () => {
-        const { getByText } = renderButton(props(true, true));
-        // expect(getByText('버튼')).toHaveStyleRule('cursor', 'not-allowed');
+        const { getByText } = renderButton(
+          buttonProps('primary')('deactivate'),
+        );
+        expect(getByText('버튼')).toHaveStyle('cursor : not-allowed');
       });
       it('폰트색은 #9599a0이다', () => {
-        const { getByText } = renderButton(props(true, true));
-        // expect(getByText('버튼')).toHaveStyleRule('color', '#9599a0');
+        const { getByText } = renderButton(
+          buttonProps('primary')('deactivate'),
+        );
+        expect(getByText('버튼')).toHaveStyle('color : #9599a0');
       });
       it('배경색은 #4a4c55이다', () => {
-        const { getByText } = renderButton(props(true, true));
-        // expect(getByText('버튼')).toHaveStyleRule('background', '#4a4c55');
+        const { getByText } = renderButton(
+          buttonProps('primary')('deactivate'),
+        );
+        expect(getByText('버튼')).toHaveStyle('background : #4a4c55');
       });
     });
   });
