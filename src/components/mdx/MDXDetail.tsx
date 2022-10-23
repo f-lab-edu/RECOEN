@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import MDXComponent from 'src/components/mdx/MDXComponent';
+import MDXTag from 'src/components/mdx/MDXComponent';
 import MDXTitle from 'src/components/mdx/MDXTitle';
 
 interface Props {
@@ -14,7 +14,7 @@ const DetailMDX: React.FC<Props> = ({ title, content, time }) => {
   return (
     <Container>
       <MDXTitle title={title} time={time} />
-      <MDXRemote {...content} components={MDXComponent} />
+      <MDXRemote {...content} components={MDXTag} />
     </Container>
   );
 };

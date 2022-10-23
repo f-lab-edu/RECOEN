@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { makeTitleFragment } from 'src/utils/makeTitleFragment';
+import MDXFirstHead from 'src/components/mdx/MDXFirstHead';
+import MDXSecondHead from 'src/components/mdx/MDXSecondHead';
+import MDXThirdHead from 'src/components/mdx/MDXThirdHead';
 
-const MDXComponent = {
-  h1: (props: any) => <H1 {...props} />,
-  h2: (props: any) => <H2 {...props} />,
-  h3: (props: any) => <H3 {...props} />,
+const MDXTag = {
+  h1: (props: any) => <MDXFirstHead {...props} />,
+  h2: (props: any) => <MDXSecondHead {...props} />,
+  h3: (props: any) => <MDXThirdHead {...props} />,
   p: (props: any) => <Paragraph {...props} />,
   pre: (props: any) => <CodeBlock {...props} />,
   img: (props: any) => <Image {...props} />,
@@ -16,61 +18,7 @@ const MDXComponent = {
   li: (props: any) => <List {...props} />,
 };
 
-export default MDXComponent;
-
-const H1 = (props: any) => {
-  const fragment = makeTitleFragment(props.children);
-  return (
-    <CustomH1 id={fragment}>
-      <a href={`#${fragment}`} {...props} />
-    </CustomH1>
-  );
-};
-
-const CustomH1 = styled.h1`
-  font-weight: 400;
-  font-size: 42px;
-  & a {
-    color: #57a1f8;
-    text-decoration: none;
-  }
-`;
-
-const H2 = (props: any) => {
-  const fragment = makeTitleFragment(props.children);
-  return (
-    <CustomH2 id={fragment}>
-      <a href={`#${fragment}`} {...props} />
-    </CustomH2>
-  );
-};
-
-const CustomH2 = styled.h2`
-  font-weight: 400;
-  font-size: 35px;
-  & a {
-    color: #57a1f8;
-    text-decoration: none;
-  }
-`;
-
-const H3 = (props: any) => {
-  const fragment = makeTitleFragment(props.children);
-  return (
-    <CustomH3 id={fragment}>
-      <a href={`#${fragment}`} {...props} />
-    </CustomH3>
-  );
-};
-
-const CustomH3 = styled.h3`
-  font-weight: 400;
-  font-size: 25px;
-  & a {
-    color: #57a1f8;
-    text-decoration: none;
-  }
-`;
+export default MDXTag;
 
 const Paragraph = styled.p`
   color: #aaadbf;
