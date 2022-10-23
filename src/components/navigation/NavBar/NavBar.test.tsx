@@ -1,29 +1,57 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import NavBar from './NavBar';
-
-const useRouter = jest.spyOn(require('next/router'), 'useRouter');
-useRouter.mockImplementation(() => ({
-  pathname: '/article',
-}));
+import { matchers } from '@emotion/jest';
+import { mockRouter } from '__mocks__/mockRouter';
+expect.extend(matchers);
 
 describe('NavBar', () => {
-  it('should render title correctly', () => {
-    render(<NavBar />);
-    const title = screen.getByText(/recoen./);
-    expect(title).toBeInTheDocument();
+  const renderNavBar = (pathname: string) =>
+    render(
+      mockRouter(<NavBar />, {
+        pathname,
+      }),
+    );
+
+  describe('recoen. 을 클릭하면', () => {
+    it('메인 페이지로 이동한다', () => {
+      const { getByText } = renderNavBar('/');
+      const recoen = getByText(/recoen./);
+      expect(recoen).toHaveAttribute('href', '/');
+    });
   });
 
-  it('should render all link correctly', () => {
-    render(<NavBar />);
-    const article = screen.getByText(/Article/);
-    const book = screen.getByText(/Book/);
-    const essay = screen.getByText(/Essay/);
-    const quotes = screen.getByText(/About/);
+  describe('detail 페이지에 있으면', () => {
+    it('position이 absolute로 바뀐다', () => {
+      const { getByTestId } = renderNavBar('/article/[id]');
+      const fixedContainer = getByTestId('fixedContainer');
 
-    expect(article).toBeInTheDocument();
-    expect(book).toBeInTheDocument();
-    expect(essay).toBeInTheDocument();
-    expect(quotes).toBeInTheDocument();
+      expect(fixedContainer).toHaveStyleRule('position', 'absolute');
+    });
+  });
+
+  describe('메인 페이지에 있을 때', () => {
+    it('카테고리 목록이 나와야 한다', () => {
+      const { getByText } = renderNavBar('/');
+      expect(getByText('Article')).toBeInTheDocument();
+      expect(getByText('Book')).toBeInTheDocument();
+      expect(getByText('Essay')).toBeInTheDocument();
+      expect(getByText('About')).toBeInTheDocument();
+    });
+  });
+
+  describe('/write 페이지에 있으면 ', () => {
+    it('position이 relative로 바뀐다', () => {
+      const { getByTestId } = renderNavBar('/write');
+      const fixedContainer = getByTestId('fixedContainer');
+
+      expect(fixedContainer).toHaveStyleRule('position', 'relative');
+    });
+
+    it('write 관련 메뉴들이 나와야 한다', () => {
+      const { getByText } = renderNavBar('/write');
+      expect(getByText('나가기')).toBeInTheDocument();
+      expect(getByText('게시하기')).toBeInTheDocument();
+    });
   });
 });
