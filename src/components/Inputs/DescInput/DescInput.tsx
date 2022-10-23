@@ -13,6 +13,7 @@ const DescInput = ({ onChange }: Props) => {
     const textLength = e.target.value.length;
     setCurrentLength(textLength);
     if (textLength === 200) return setError(true);
+
     onChange(e.target.value);
   };
 
@@ -25,9 +26,7 @@ const DescInput = ({ onChange }: Props) => {
     }
   };
 
-  const onBlur = () => {
-    setError(false);
-  };
+  const onBlur = () => setError(false);
 
   return (
     <Wrapper>
