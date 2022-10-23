@@ -10,15 +10,15 @@ const NavBar = () => {
 
   const resolvePosition = () => {
     const pathname = router.pathname;
-    if (pathname == '/aricle/[id]') return 'position: absolute';
+    if (pathname == '/article/[id]') return 'position: absolute';
     else if (pathname == '/write') return 'position: relative';
     else return 'position:fixed';
   };
 
   return (
-    <FixedContainer position={resolvePosition()}>
+    <FixedContainer data-testid="fixedContainer" position={resolvePosition()}>
       <Container>
-        <Link href="/">
+        <Link href="/" passHref>
           <Title>recoen.</Title>
         </Link>
         {router.pathname == '/write' ? <WritePageMenus /> : <Menus />}
