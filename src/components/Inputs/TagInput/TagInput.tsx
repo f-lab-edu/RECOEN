@@ -1,17 +1,18 @@
 import React, { useState, CompositionEvent, useEffect } from 'react';
 import styled from '@emotion/styled';
+import XIcon from '../../../../public/x.png';
+import Image from 'next/image';
 
 export interface Props {
   onChange: (args: string[]) => void;
   values: string[];
 }
 
-const emptyArray: string[] = [];
-
-export const TagInput = ({ onChange, values = emptyArray }: Props) => {
+const TagInput = ({ onChange, values }: Props) => {
   const [value, setValue] = useState('');
-  const [tags, setTags] = useState<string[]>(emptyArray);
+  const [tags, setTags] = useState<string[]>();
   const [isOnComposition, setIsOnComposition] = useState(false);
+  const [isError, setError] = useState<boolean>(false);
 
   useEffect(() => {
     if (tags) onChange(tags);
@@ -45,10 +46,14 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
     const keys = [',', 'Enter'];
     if (e.key === 'Backspace' && e.target.selectionEnd === 0) {
       handleBackspaceRemove();
+      setError(false);
     }
 
     if (!isOnComposition && keys.includes(e.key)) {
       e.preventDefault();
+      if (values.length == 3) return setError(true);
+      if (value == '') return;
+
       if (!checkDuplicatedTag(value)) setTags(values.concat(value));
       setValue('');
     }
@@ -67,21 +72,36 @@ export const TagInput = ({ onChange, values = emptyArray }: Props) => {
 
   return (
     <Container>
-      {values &&
-        values.map((tag) => (
-          <Tag key={tag} onClick={() => onRemove(tag)}>
-            {tag}
-          </Tag>
-        ))}
       <Input
         value={value}
         onKeyDown={onKeyDown}
         placeholder="#태그입력"
         {...eventProps}
+        isError={isError}
+        onBlur={() => setError(false)}
       />
+      {values &&
+        values.map((tag) => (
+          <Tag key={tag} onClick={() => onRemove(tag)}>
+            {tag}
+            <Image
+              src={XIcon}
+              alt="x-icon"
+              width={18}
+              height={18}
+              layout="fixed"
+            />
+          </Tag>
+        ))}
     </Container>
   );
 };
+
+export default TagInput;
+
+interface StyleProps {
+  isError?: boolean;
+}
 
 const Container = styled.div`
   width: 350px;
@@ -89,24 +109,47 @@ const Container = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 10px;
+  margin-bottom: 20px;
 `;
 
 const Tag = styled.div`
-  color: #9499a1;
+  color: #f9f9f9;
   cursor: pointer;
   font-size: 14px;
+  background: #3941ff;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  gap: 8px;
   &:hover {
-    opacity: 0.6;
+    background: #2d31fa;
   }
+  transition: 0.2s ease-in-out;
 `;
 
-const Input = styled.input`
-  background: transparent;
-  border: none;
+const Input = styled.input<StyleProps>`
+  background: #292b2e;
+  border-radius: 4px;
+  padding: 0px 15px;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #3c3e44;
   outline: none;
-  color: #494c56;
-  font-size: 14px;
+  color: #9499a1;
+  font-size: 16px;
   ::placeholder {
     color: #494c56;
   }
+  :focus {
+    border: 1px solid #3941ff;
+    ${(props) => props.isError && `border: 1px solid #c4001d;`}
+  }
+  ${(props) =>
+    props.isError &&
+    `border: 1px solid #c4001d; 
+     color:#c4001d; 
+     ::placeholder{
+       color:#c4001d;
+      }`}
+  transition:0.2s ease-in-out;
 `;

@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Button } from 'src/components';
 import Link from 'next/link';
 import { useSetRecoilState } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
 
-export const WritePageMenus = () => {
+import Button from 'src/components/ui/Button/Button';
+
+const WritePageMenus = () => {
   const setOpen = useSetRecoilState(openCreateModalStates);
   const handleModalOpen = () => {
     setOpen(true);
@@ -15,10 +16,12 @@ export const WritePageMenus = () => {
       <Link href="/" title="메인페이지로 돌아갑니다">
         <A>나가기</A>
       </Link>
-      <Button buttonType="primary" label="게시하기" onClick={handleModalOpen} />
+      <Button primary label="게시하기" onClick={handleModalOpen} />
     </Wrapper>
   );
 };
+
+export default WritePageMenus;
 
 const Wrapper = styled.div`
   display: flex;

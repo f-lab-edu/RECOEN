@@ -24,7 +24,13 @@ export const ImageUpload = ({ setImgUrl }: Props) => {
     <div>
       <FileInput data-testid="fileinput" onChange={handleFileChange} />
       {preview ? (
-        <Img src={preview} alt="preview image" width="200" height="200" />
+        <Img
+          src={preview}
+          alt="preview image"
+          width="200"
+          height="200"
+          onClick={openFileDialog}
+        />
       ) : (
         <UploadBox onClick={openFileDialog}>이미지 추가</UploadBox>
       )}
@@ -35,14 +41,17 @@ export const ImageUpload = ({ setImgUrl }: Props) => {
 const UploadBox = styled.button`
   width: 350px;
   height: 220px;
-  border: 1px solid #494c56;
-  background-color: #303236;
+  border: 1px solid #3c3e44;
+  background-color: #292b2e;
   color: #494c56;
   cursor: pointer;
-  margin-bottom: 128px;
+  margin-bottom: 40px;
+  border-radius: 4px;
 `;
 
 const Img = styled.img`
   width: 350px;
   height: 220px;
+  object-fit: cover;
+  cursor: pointer;
 `;

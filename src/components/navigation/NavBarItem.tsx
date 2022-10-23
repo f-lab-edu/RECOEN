@@ -9,13 +9,15 @@ interface Props {
   name: string;
 }
 
-export const HeaderBarItem = ({ isActive, path, title, name }: Props) => {
+const NavBarItem = ({ isActive, path, title, name }: Props) => {
   return (
     <StyledLink href={path} title={title} isActive={isActive}>
       <Item>{name}</Item>
     </StyledLink>
   );
 };
+
+export default NavBarItem;
 
 interface StyleProps {
   isActive: boolean;
