@@ -43,7 +43,7 @@ export const Article = ({
 };
 
 const Container = styled.article`
-  width: 380px;
+  width: 23vw;
   height: 400px;
   border-radius: 16px;
   box-sizing: border-box;
@@ -58,7 +58,7 @@ const Anchor = styled.a`
 `;
 
 const ImageWrapper = styled.div`
-  width: 380px;
+  width: 23vw;
   height: 220px;
   position: relative;
 `;

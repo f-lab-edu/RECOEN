@@ -12,7 +12,7 @@ export const Grid = ({ children }: Props) => {
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 1200px;
+  width: 1024px;
   gap: 20px;
   justify-items: center;
   box-sizing: border-box;
