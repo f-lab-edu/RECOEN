@@ -1,9 +1,11 @@
 import { render } from '@testing-library/react';
 import Menus from './Menus';
 
-const useRouter = jest.spyOn(require('next/router'), 'useRouter');
-useRouter.mockImplementation(() => ({
-  pathname: '/article',
+jest.mock('next/router', () => ({
+  ...jest.requireActual('next/router'),
+  useRouter: jest.fn(() => ({
+    pathname: '/article',
+  })),
 }));
 
 const menus = [
@@ -27,12 +29,15 @@ const menus = [
 
 describe('Menus', () => {
   const renderMenus = () => render(<Menus />);
+
   describe('렌더링', () => {
     it('잘 된다', () => {
       const { getByText } = renderMenus();
+
       menus.forEach((item) => {
         expect(getByText(item.name)).toBeInTheDocument();
       });
+
       expect(getByText('로그인')).toBeInTheDocument();
       expect(getByText('+ 글쓰기')).toBeInTheDocument();
     });

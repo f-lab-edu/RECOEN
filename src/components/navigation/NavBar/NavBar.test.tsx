@@ -17,6 +17,7 @@ describe('NavBar', () => {
     it('메인 페이지로 이동한다', () => {
       const { getByText } = renderNavBar('/');
       const recoen = getByText(/recoen./);
+
       expect(recoen).toHaveAttribute('href', '/');
     });
   });
@@ -33,6 +34,7 @@ describe('NavBar', () => {
   describe('메인 페이지에 있을 때', () => {
     it('카테고리 목록이 나와야 한다', () => {
       const { getByText } = renderNavBar('/');
+
       expect(getByText('Article')).toBeInTheDocument();
       expect(getByText('Book')).toBeInTheDocument();
       expect(getByText('Essay')).toBeInTheDocument();
@@ -50,6 +52,7 @@ describe('NavBar', () => {
 
     it('write 관련 메뉴들이 나와야 한다', () => {
       const { getByText } = renderNavBar('/write');
+
       expect(getByText('나가기')).toBeInTheDocument();
       expect(getByText('게시하기')).toBeInTheDocument();
     });

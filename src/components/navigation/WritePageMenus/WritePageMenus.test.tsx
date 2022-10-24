@@ -13,6 +13,7 @@ describe('WritePageMenus', () => {
         <WritePageMenus />
       </RecoilRoot>,
     );
+
   describe('나가기 버튼을 누르면', () => {
     it('메인 페이지로 이동한다', () => {
       const { getByText } = renderMenus();
