@@ -38,7 +38,7 @@ const Head: React.FC<Props> = ({ article }) => {
       <meta property="og:image" content={article?.imgUrl} />
       <meta
         name="google-site-verification"
-        content={`${process.env.GOOGLE_SITE_VERIFICATION}`}
+        content="orYhBuIgm1ECBqAfSSGkNahD7NVVmpzAG84MKVYVIUQ"
       />
     </NextHead>
   );
