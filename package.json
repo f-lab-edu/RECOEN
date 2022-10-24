@@ -17,6 +17,7 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.9",
+    "@sentry/nextjs": "^7.16.0",
     "@toast-ui/editor": "^3.2.1",
     "@toast-ui/react-editor": "^3.2.2",
     "axios": "^0.27.2",
@@ -40,7 +41,6 @@
   "devDependencies": {
     "@babel/core": "^7.19.1",
     "@emotion/jest": "^11.10.0",
-    "@next/bundle-analyzer": "^12.3.1",
     "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

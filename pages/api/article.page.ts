@@ -2,6 +2,7 @@ import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import nc from 'next-connect';
 import ArticleModel from 'pages/api/models/articleModel';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { withSentry } from '@sentry/nextjs';
 
 const handler = nc<NextApiRequest, NextApiResponse>({
   onError(error, req, res) {
@@ -28,4 +29,4 @@ handler
     }
   });
 
-export default handler;
+export default withSentry(handler);
