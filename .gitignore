@@ -45,3 +45,4 @@ next-env.d.ts
 !.yarn/versions
 # Sentry
 .sentryclirc
+.env
