@@ -36,6 +36,10 @@ const Head: React.FC<Props> = ({ article }) => {
       <meta property="og:type" content={meta.type} />
       <meta property="og:title" content={article?.title} />
       <meta property="og:image" content={article?.imgUrl} />
+      <meta
+        name="google-site-verification"
+        content={`${process.env.GOOGLE_SITE_VERIFICATION}`}
+      />
     </NextHead>
   );
 };
