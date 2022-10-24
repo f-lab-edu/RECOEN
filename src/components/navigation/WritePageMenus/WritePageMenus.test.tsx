@@ -29,10 +29,7 @@ describe('WritePageMenus', () => {
 
       fireEvent.click(button);
 
-      expect(onChange).toHaveBeenCalledTimes(3);
-      expect(onChange).toHaveBeenCalledWith(false);
-      expect(onChange).toHaveBeenCalledWith(false);
-      expect(onChange).toHaveBeenCalledWith(true);
+      expect(onChange).toHaveBeenNthCalledWith(3, true);
     });
   });
 });
