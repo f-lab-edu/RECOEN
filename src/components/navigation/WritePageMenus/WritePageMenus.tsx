@@ -13,8 +13,8 @@ const WritePageMenus = () => {
   };
   return (
     <Wrapper>
-      <Link href="/" title="메인페이지로 돌아갑니다">
-        <A>나가기</A>
+      <Link href="/" title="메인페이지로 돌아갑니다" passHref>
+        <Anchor>나가기</Anchor>
       </Link>
       <Button primary label="게시하기" onClick={handleModalOpen} />
     </Wrapper>
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const A = styled.a`
+const Anchor = styled.a`
   color: #494c56;
   cursor: pointer;
   :hover {

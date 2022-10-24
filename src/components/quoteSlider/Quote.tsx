@@ -31,11 +31,10 @@ const QuoteBox = styled.article`
 `;
 
 const UpperWrapper = styled.div`
-  width: 1200px;
+  width: 1024px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-bottom: 80px;
 `;
 
 const EnglishQuote = styled.blockquote`
@@ -62,7 +61,7 @@ const EnglishCite = styled.cite`
 `;
 
 const DownWrapper = styled.div`
-  width: 1200px;
+  width: 1024px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
