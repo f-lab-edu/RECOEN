@@ -16,13 +16,7 @@ const WritePageMenus = () => {
       <Link href="/" title="메인페이지로 돌아갑니다">
         <A>나가기</A>
       </Link>
-      <Button
-        primary
-        label="게시하기"
-        onClick={() => {
-          throw new Error('Sentry Frontend Error');
-        }}
-      />
+      <Button primary label="게시하기" onClick={handleModalOpen} />
     </Wrapper>
   );
 };
