@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 
 import Tag, { Props } from './Tag';
 
@@ -22,10 +22,12 @@ describe('Tag', () => {
       const { getByText } = renderTag({ label: '태그' });
       const tag = getByText('태그');
 
-      fireEvent.mouseEnter(tag);
+      fireEvent.mouseOver(tag);
 
-      expect(tag).toHaveStyle('border : solid 1px #5C62F3');
-      expect(tag).toHaveStyle('color : solid 1px #5C62F3');
+      waitFor(() => {
+        expect(tag).toHaveStyle('border : solid 1px #5C62F3');
+        expect(tag).toHaveStyle('color : solid 1px #5C62F3');
+      });
     });
   });
 
