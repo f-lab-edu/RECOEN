@@ -5,8 +5,10 @@ import Tag, { Props } from './Tag';
 describe('Tag', () => {
   const onClick = jest.fn();
 
-  const renderTag = ({ label, deletable }: Props) => {
-    return render(<Tag label={label} deletable={deletable} />);
+  const renderTag = ({ label, deletable, onClick }: Props) => {
+    return render(
+      <Tag label={label} deletable={deletable} onClick={onClick} />,
+    );
   };
 
   describe('받아온 텍스트가', () => {
@@ -47,10 +49,8 @@ describe('Tag', () => {
     it('x버튼이 생긴다', () => {
       const { getByRole } = renderTag({
         label: '태그',
-        deletable: {
-          isDeletable: true,
-          onClick,
-        },
+        deletable: true,
+        onClick,
       });
       const xButton = getByRole('img');
 
@@ -61,10 +61,8 @@ describe('Tag', () => {
       it('삭제된다', () => {
         const { getByText } = renderTag({
           label: '태그',
-          deletable: {
-            isDeletable: true,
-            onClick,
-          },
+          deletable: true,
+          onClick,
         });
         const tag = getByText('태그');
 
