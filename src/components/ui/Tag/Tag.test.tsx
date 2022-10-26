@@ -40,8 +40,10 @@ describe('Tag', () => {
 
       fireEvent.click(tag);
 
-      expect(tag).toHaveStyle('border : solid 1px #5C62F3');
-      expect(tag).toHaveStyle('color : solid 1px #5C62F3');
+      waitFor(() => {
+        expect(tag).toHaveStyle('border : solid 1px #5C62F3');
+        expect(tag).toHaveStyle('color : solid 1px #5C62F3');
+      });
     });
   });
 
