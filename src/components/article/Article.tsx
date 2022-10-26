@@ -20,24 +20,22 @@ export const Article = ({
 }: Props) => {
   return (
     <Link href={`/article/${path}`}>
-      <Anchor>
-        <Container>
-          <Image
-            width={380}
-            height={220}
-            src={imgUrl}
-            blurDataURL={blurDataURL}
-            alt="Thumbnail of article"
-          />
-          <Wrapper>
-            <div>
-              <Title>{title}</Title>
-              <Desc>{description}</Desc>
-            </div>
-            <Date>2022.10.23 7min read</Date>
-          </Wrapper>
-        </Container>
-      </Anchor>
+      <Container>
+        <Image
+          width={380}
+          height={220}
+          src={imgUrl}
+          blurDataURL={blurDataURL}
+          alt="Thumbnail of article"
+        />
+        <Wrapper>
+          <div>
+            <Title>{title}</Title>
+            <Desc>{description}</Desc>
+          </div>
+          <Date>2022.10.23 7min read</Date>
+        </Wrapper>
+      </Container>
     </Link>
   );
 };
@@ -51,10 +49,6 @@ const Container = styled.article`
   flex-direction: column;
   cursor: pointer;
   margin: 0;
-`;
-
-const Anchor = styled.a`
-  text-decoration-line: none;
 `;
 
 const ImageWrapper = styled.div`

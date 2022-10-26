@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import LeftArrow from '../../../public/leftArrow.png';
 import RigthArrow from '../../../public/rightArrow.png';
 import { Quote } from './Quote';

@@ -59,10 +59,8 @@ const Menus = () => {
       </Nav>
       <ButtonWrapper>
         <Button label="로그인" />
-        <Link href="/write" title="작성하기 페이지입니다." passHref>
-          <a>
-            <Button label="+ 글쓰기" primary />
-          </a>
+        <Link href="/write" title="작성하기 페이지입니다.">
+          <Button label="+ 글쓰기" primary />
         </Link>
       </ButtonWrapper>
     </>

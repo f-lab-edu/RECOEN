@@ -1,7 +1,7 @@
 import React, { useState, CompositionEvent, useEffect } from 'react';
 import styled from '@emotion/styled';
 import XIcon from '../../../../public/x.png';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 
 export interface Props {
   onChange: (args: string[]) => void;

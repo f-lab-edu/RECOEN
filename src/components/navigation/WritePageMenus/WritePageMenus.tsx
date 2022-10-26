@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Anchor = styled.a`
+const Anchor = styled.span`
   color: #494c56;
   cursor: pointer;
   :hover {

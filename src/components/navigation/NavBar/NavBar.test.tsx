@@ -16,7 +16,7 @@ describe('NavBar', () => {
   describe('recoen. 을 클릭하면', () => {
     it('메인 페이지로 이동한다', () => {
       const { getByText } = renderNavBar('/');
-      const recoen = getByText(/recoen./);
+      const recoen = getByText(/recoen./).closest('a');
 
       expect(recoen).toHaveAttribute('href', '/');
     });
