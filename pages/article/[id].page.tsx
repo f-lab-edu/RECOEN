@@ -10,9 +10,10 @@ import { getPlaiceholder } from 'plaiceholder';
 import { serialize } from 'next-mdx-remote/serialize';
 
 import ArticleModel from 'pages/api/models/articleModel';
-import Image from 'src/components/ui/Image';
+// import Image from 'src/components/ui/Image';
 import MDXDetail from 'src/components/mdx/MDXDetail';
 import Head from 'src/components/Head';
+import Image from 'next/image';
 
 import { ArticleElementsType } from 'src/types/article';
 interface IPrams extends ParsedUrlQuery {
@@ -26,11 +27,11 @@ const Article = ({
     <>
       <Head article={article} />
       <Image
-        fullWidth
-        height={400}
         src={article.imgUrl}
+        sizes="100vw"
         alt="Hero Image"
         blurDataURL={article.blurDataURL}
+        fill
       />
       <MDXDetail
         title={article.title}
@@ -42,6 +43,11 @@ const Article = ({
 };
 
 export default Article;
+
+const ImageStyle = {
+  width: '100%',
+  height: 400,
+};
 
 export const getStaticPaths = async () => {
   try {

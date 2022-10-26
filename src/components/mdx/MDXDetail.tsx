@@ -31,7 +31,7 @@ const Container = styled.main`
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 340px;
+  top: 400px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   box-sizing: border-box;
 `;

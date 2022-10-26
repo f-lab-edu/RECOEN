@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import LeftArrow from '../../../public/leftArrow.png';
 import RigthArrow from '../../../public/rightArrow.png';
 import { Quote } from './Quote';
@@ -19,7 +19,7 @@ export const QuoteSlider = ({ quotes }: Props) => {
   const slideRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const TOTAL_SLIDES = quotes.length - 1;
-  const SLIDE_BOX_WIDTH = 1024 * TOTAL_SLIDES;
+  const SLIDE_BOX_WIDTH = 1200 * TOTAL_SLIDES;
 
   const NextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) return;
@@ -34,7 +34,7 @@ export const QuoteSlider = ({ quotes }: Props) => {
   useEffect(() => {
     if (!slideRef.current) return;
 
-    const moveX = 1024 * currentSlide;
+    const moveX = 1200 * currentSlide;
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${moveX}px)`;
   }, [currentSlide]);
@@ -81,7 +81,7 @@ interface StyleProps {
 }
 
 const Container = styled.div`
-  width: 1024px;
+  width: 1200px;
   height: 100%;
   box-sizing: border-box;
   margin: 0 auto;

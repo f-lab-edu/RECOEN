@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import Image from 'src/components/ui/Image';
+// import Image from 'src/components/ui/Image';
+import Image from 'next/image';
 
 interface Props {
   title: string;
@@ -22,11 +23,12 @@ export const Article = ({
     <Link href={`/article/${path}`}>
       <Container>
         <Image
+          src={imgUrl}
+          alt="Thumbnail of article"
           width={380}
           height={220}
-          src={imgUrl}
+          placeholder="blur"
           blurDataURL={blurDataURL}
-          alt="Thumbnail of article"
         />
         <Wrapper>
           <div>
@@ -41,7 +43,7 @@ export const Article = ({
 };
 
 const Container = styled.article`
-  width: 23vw;
+  width: 380px;
   height: 400px;
   border-radius: 16px;
   box-sizing: border-box;
@@ -57,14 +59,6 @@ const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const CustomImage = styled(Image)`
-  :hover {
-    transform: scale(1.09);
-    border-radius: 16px;
-  }
-  transition: all 0.3s ease-in-out;
-`;
-
 const Wrapper = styled.article`
   box-sizing: border-box;
   height: 180px;
@@ -77,6 +71,7 @@ const Title = styled.h3`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #f3f3f3;
 `;
 
 const Desc = styled.p`

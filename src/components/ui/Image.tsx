@@ -1,5 +1,5 @@
 import React from 'react';
-import NextImage from 'next/legacy/image';
+import NextImage from 'next/image';
 import styled from '@emotion/styled';
 
 interface Props {
@@ -24,8 +24,7 @@ const Image: React.FC<Props> = ({
       <CustomImage
         src={src}
         alt={alt}
-        layout="fill"
-        objectFit="cover"
+        fill
         placeholder="blur"
         blurDataURL={blurDataURL}
       />
@@ -46,6 +45,7 @@ const ImageWrapper = styled.div<StyleProps>`
   width: ${(props) => props.fullWidth && '100%'};
   height: ${(props) => props.height}px;
   position: relative;
+  overflow: hidden;
 `;
 
 const CustomImage = styled(NextImage)`

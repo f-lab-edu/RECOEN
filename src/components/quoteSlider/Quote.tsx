@@ -31,7 +31,7 @@ const QuoteBox = styled.article`
 `;
 
 const UpperWrapper = styled.div`
-  width: 1024px;
+  width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -61,7 +61,7 @@ const EnglishCite = styled.cite`
 `;
 
 const DownWrapper = styled.div`
-  width: 1024px;
+  width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
