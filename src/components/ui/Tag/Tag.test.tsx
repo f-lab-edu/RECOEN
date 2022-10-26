@@ -1,16 +1,10 @@
 import { render, fireEvent } from '@testing-library/react';
 
-import Tag from './Tag';
+import Tag, { Props } from './Tag';
 
 describe('Tag', () => {
   const onClick = jest.fn();
-  interface Props {
-    label: string;
-    deletable?: {
-      isDeletable: boolean;
-      onClick: () => void;
-    };
-  }
+
   const renderTag = ({ label, deletable }: Props) => {
     return render(<Tag label={label} deletable={deletable} />);
   };
