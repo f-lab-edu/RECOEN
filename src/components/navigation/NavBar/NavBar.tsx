@@ -39,7 +39,7 @@ const FixedContainer = styled.div<StyleProps>`
   z-index: 99;
 `;
 
-const Container = styled.div`
+const Container = styled.header`
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   width: 100%;
