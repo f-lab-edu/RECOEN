@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import Image from 'next/image';
+import XImage from '../../../../public/x.png';
 
 export interface Props {
   label: string;
@@ -21,6 +23,15 @@ const Tag = ({ label, deletable, onClick }: Props) => {
       onClick={handleOnClick}
     >
       {label}
+      {deletable && (
+        <Image
+          src={XImage}
+          alt="취소이미지"
+          width={10}
+          height={10}
+          layout="fixed"
+        />
+      )}
     </StyledTag>
   );
 };
