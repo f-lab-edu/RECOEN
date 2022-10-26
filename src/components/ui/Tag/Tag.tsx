@@ -27,8 +27,8 @@ const Tag = ({ label, deletable, onClick }: Props) => {
         <Image
           src={XImage}
           alt="취소이미지"
-          width={10}
-          height={10}
+          width={8}
+          height={8}
           layout="fixed"
         />
       )}
@@ -44,6 +44,17 @@ interface StyleProps {
 }
 
 const StyledTag = styled.div<StyleProps>`
+  padding: 12px;
+  background: #32363d;
+  border: 1px solid #32363d;
+  border-radius: 8px;
+  transition: 0.1s ease-in-out;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 12px;
+  color: ${({ deletable }) => deletable && `#5c62f3`};
   :hover {
     border: 1px solid #5c62f3;
     color: #5c62f3;
