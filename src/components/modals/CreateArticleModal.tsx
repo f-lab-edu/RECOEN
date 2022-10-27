@@ -18,7 +18,7 @@ interface Props {
   };
 }
 
-export const CreateArticleModal = ({ articleElements }: Props) => {
+const CreateArticleModal = ({ articleElements }: Props) => {
   const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
@@ -68,6 +68,8 @@ export const CreateArticleModal = ({ articleElements }: Props) => {
     </Modal>
   );
 };
+
+export default CreateArticleModal;
 
 const Guide = styled.h3`
   font-size: 16px;

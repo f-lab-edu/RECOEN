@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-export function DropDown() {
+const Category = () => {
   const [category, setCategory] = React.useState('');
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -54,4 +54,6 @@ export function DropDown() {
       </Select>
     </FormControl>
   );
-}
+};
+
+export default Category;
