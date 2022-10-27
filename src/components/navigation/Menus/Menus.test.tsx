@@ -48,15 +48,18 @@ describe('Menus', () => {
       const { getByText } = renderMenus();
 
       menus.forEach((item) => {
-        expect(getByText(item.name)).toHaveAttribute('href', item.href);
+        expect(getByText(item.name).closest('a')).toHaveAttribute(
+          'href',
+          item.href,
+        );
       });
     });
   });
 
   describe('글쓰기 버튼을 클릭하면', () => {
     it('/write 페이지로 이동한다', () => {
-      const { getByRole } = renderMenus();
-      const writeLink = getByRole('link', { name: '+ 글쓰기' });
+      const { getByText } = renderMenus();
+      const writeLink = getByText('+ 글쓰기').closest('a');
 
       expect(writeLink).toHaveAttribute('href', '/write');
     });

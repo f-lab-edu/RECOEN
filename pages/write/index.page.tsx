@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
-import {
-  TextEditor,
-  CreateArticleModal,
-  DropDown,
-  TitleInput,
-} from 'src/components';
+import { TextEditor } from 'src/components';
+
+import Category from 'src/components/Category';
+import CreateArticleModal from 'src/components/modals/CreateArticleModal/CreateArticleModal';
+import TitleInput from 'src/components/Inputs/TitleInput';
 import styled from '@emotion/styled';
 
 const WritePage = () => {
@@ -19,7 +18,7 @@ const WritePage = () => {
     <>
       {isOpen && <CreateArticleModal articleElements={articleElements} />}
       <TitleWrapper>
-        <DropDown />
+        <Category />
         <TitleInput onChange={setTitle} />
       </TitleWrapper>
 

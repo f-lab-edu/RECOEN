@@ -5,7 +5,7 @@ interface Props {
   onChange: (value: string) => void;
 }
 
-export const TitleInput = ({ onChange }: Props) => {
+const TitleInput = ({ onChange }: Props) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
   };
@@ -47,3 +47,5 @@ export const TitleInput = ({ onChange }: Props) => {
     />
   );
 };
+
+export default TitleInput;

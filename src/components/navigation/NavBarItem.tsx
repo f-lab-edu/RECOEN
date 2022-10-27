@@ -21,8 +21,8 @@ const NavBarItem = ({ isActive, path, title, name }: Props) => {
   }, [ref]);
 
   return (
-    <StyledLink href={path} title={title} isActive={isActive} passHref>
-      <Item ref={ref} barWidth={barWidth}>
+    <StyledLink href={path} title={title} passHref legacyBehavior>
+      <Item ref={ref} barWidth={barWidth} isActive={isActive}>
         {name}
       </Item>
     </StyledLink>
@@ -41,17 +41,6 @@ const StyledLink = styled(Link)<StyleProps>`
   display: flex;
   align-items: center;
   position: relative;
-  ${(props) =>
-    props.isActive &&
-    `:before {
-        content: '';
-        position: absolute;
-        left: -15px;
-        background-color: #0af5cb;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-  }`}
 `;
 
 const entrance = keyframes`

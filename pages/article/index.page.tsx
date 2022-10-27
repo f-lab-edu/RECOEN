@@ -3,9 +3,11 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
 
-import { ArticleList, Hero } from 'src/components';
 import { getPlaiceholder } from 'plaiceholder';
 import { ArticleElementsType } from 'src/types/article';
+
+import Hero from 'src/components/hero/Hero/Hero';
+import ArticleList from 'src/components/article/ArticleList';
 
 const ArticlePage = ({
   articles,

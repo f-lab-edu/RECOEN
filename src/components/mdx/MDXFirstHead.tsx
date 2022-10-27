@@ -15,7 +15,8 @@ export default MDXFirstHead;
 
 const H1 = styled.h1`
   font-weight: 400;
-  font-size: 35px;
+  font-size: 42px;
+  margin: 40px 0px;
   & a {
     color: #57a1f8;
     text-decoration: none;

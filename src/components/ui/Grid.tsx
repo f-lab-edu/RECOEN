@@ -5,14 +5,16 @@ interface Props {
   children: React.ReactElement;
 }
 
-export const Grid = ({ children }: Props) => {
+const Grid = ({ children }: Props) => {
   return <Container>{children}</Container>;
 };
+
+export default Grid;
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 1024px;
+  width: 1200px;
   gap: 20px;
   justify-items: center;
   box-sizing: border-box;

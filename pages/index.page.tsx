@@ -1,11 +1,11 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
-import { QuoteSlider } from 'src/components';
+import QuoteCarousel from 'src/components/quoteCarousel/QuoteCarousel/QuoteCarousel';
 
 const Home: NextPage = ({
   quotesData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { quotes } = quotesData;
-  return <QuoteSlider quotes={quotes} />;
+  return <QuoteCarousel quotes={quotes} />;
 };
 
 export default Home;

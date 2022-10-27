@@ -18,7 +18,7 @@ const NavBar = () => {
   return (
     <FixedContainer data-testid="fixedContainer" position={resolvePosition()}>
       <Container>
-        <Link href="/" passHref>
+        <Link href="/">
           <Title>recoen.</Title>
         </Link>
         {router.pathname == '/write' ? <WritePageMenus /> : <Menus />}
@@ -52,7 +52,7 @@ const Container = styled.div`
   box-sizing: border-box;
 `;
 
-const Title = styled.a`
+const Title = styled.span`
   font-size: 28px;
   font-weight: 600;
   color: #ffffff;

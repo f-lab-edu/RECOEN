@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import MDXTag from 'src/components/mdx/MDXComponent';
 import MDXTitle from 'src/components/mdx/MDXTitle';
+import MDXTag from 'src/components/mdx/MDXComponent';
 
 interface Props {
   title: string;
@@ -31,12 +31,7 @@ const Container = styled.main`
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 340px;
+  top: 400px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   box-sizing: border-box;
-`;
-
-const Title = styled.h1`
-  font-size: 45px;
-  line-height: 65px;
 `;

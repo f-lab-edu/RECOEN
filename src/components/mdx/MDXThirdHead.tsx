@@ -5,17 +5,19 @@ import styled from '@emotion/styled';
 const MDXThirdHead: React.FC<any> = (props) => {
   const fragment = makeTitleFragment(props.children);
   return (
-    <H1 id={fragment}>
+    <H3 id={fragment}>
       <a href={`#${fragment}`} {...props} />
-    </H1>
+    </H3>
   );
 };
 
 export default MDXThirdHead;
 
-const H1 = styled.h1`
+const H3 = styled.h3`
   font-weight: 400;
   font-size: 25px;
+  margin: 20px 0px;
+
   & a {
     color: #57a1f8;
     text-decoration: none;

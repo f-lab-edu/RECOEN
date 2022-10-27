@@ -84,13 +84,7 @@ const TagInput = ({ onChange, values }: Props) => {
         values.map((tag) => (
           <Tag key={tag} onClick={() => onRemove(tag)}>
             {tag}
-            <Image
-              src={XIcon}
-              alt="x-icon"
-              width={18}
-              height={18}
-              layout="fixed"
-            />
+            <Image src={XIcon} alt="x-icon" width={18} height={18} />
           </Tag>
         ))}
     </Container>
