@@ -5029,6 +5029,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["acorn", "npm:8.8.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:8.8.1", {\
+          "packageLocation": "./.yarn/cache/acorn-npm-8.8.1-20e4aea981-4079b67283.zip/node_modules/acorn/",\
+          "packageDependencies": [\
+            ["acorn", "npm:8.8.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["acorn-globals", [\
@@ -5056,6 +5063,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["acorn-jsx", "virtual:0371ef3614c1182c8fcb05e5954a5fd9c124be4b821bd43f5ef7bdb1bf9603ab5ec16aa2a2a1de93fa397b424774f98f00c5e66d99eec56be0bd9f2a1ab2c75f#npm:5.3.2"],\
             ["@types/acorn", null],\
             ["acorn", "npm:8.8.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/acorn",\
+            "acorn"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:d2b6b69e4a86f479183c7c24e726ebb07b2adf019e73c3ee44b5c51c4519b3b44a070cd3580c7823538318b5d47957272570c2dcb641ccc36a49788925113ab2#npm:5.3.2", {\
+          "packageLocation": "./.yarn/__virtual__/acorn-jsx-virtual-72c18c2401/0/cache/acorn-jsx-npm-5.3.2-d7594599ea-c3d3b2a89c.zip/node_modules/acorn-jsx/",\
+          "packageDependencies": [\
+            ["acorn-jsx", "virtual:d2b6b69e4a86f479183c7c24e726ebb07b2adf019e73c3ee44b5c51c4519b3b44a070cd3580c7823538318b5d47957272570c2dcb641ccc36a49788925113ab2#npm:5.3.2"],\
+            ["@types/acorn", null],\
+            ["acorn", "npm:8.8.1"]\
           ],\
           "packagePeers": [\
             "@types/acorn",\
@@ -10766,8 +10786,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/micromark-extension-mdxjs-npm-1.0.0-d2b6b69e4a-ba836c6d2d.zip/node_modules/micromark-extension-mdxjs/",\
           "packageDependencies": [\
             ["micromark-extension-mdxjs", "npm:1.0.0"],\
-            ["acorn", "npm:8.8.0"],\
-            ["acorn-jsx", "virtual:0371ef3614c1182c8fcb05e5954a5fd9c124be4b821bd43f5ef7bdb1bf9603ab5ec16aa2a2a1de93fa397b424774f98f00c5e66d99eec56be0bd9f2a1ab2c75f#npm:5.3.2"],\
+            ["acorn", "npm:8.8.1"],\
+            ["acorn-jsx", "virtual:d2b6b69e4a86f479183c7c24e726ebb07b2adf019e73c3ee44b5c51c4519b3b44a070cd3580c7823538318b5d47957272570c2dcb641ccc36a49788925113ab2#npm:5.3.2"],\
             ["micromark-extension-mdx-expression", "npm:1.0.3"],\
             ["micromark-extension-mdx-jsx", "npm:1.0.3"],\
             ["micromark-extension-mdx-md", "npm:1.0.0"],\

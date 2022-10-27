@@ -3247,7 +3247,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:>=16, @types/react@npm:^18.0.21":
+"@types/react@npm:>=16":
+  version: 18.0.24
+  resolution: "@types/react@npm:18.0.24"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: 7d06125bac61e1c6661e5dfbeeeb56d5b6d1d4c743292faebaa6b0f30f8414c7af3cadf674923fd86e4ca14e82566ff9156cd40c56786be024600c31b97d6c03
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.0.21":
   version: 18.0.21
   resolution: "@types/react@npm:18.0.21"
   dependencies:
@@ -3961,7 +3972,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.0.0, acorn@npm:^8.0.4, acorn@npm:^8.6.0, acorn@npm:^8.7.1, acorn@npm:^8.8.0":
+"acorn@npm:^8.0.0":
+  version: 8.8.1
+  resolution: "acorn@npm:8.8.1"
+  bin:
+    acorn: bin/acorn
+  checksum: 4079b67283b94935157698831967642f24a075c52ce3feaaaafe095776dfbe15d86a1b33b1e53860fc0d062ed6c83f4284a5c87c85b9ad51853a01173da6097f
+  languageName: node
+  linkType: hard
+
+"acorn@npm:^8.0.4, acorn@npm:^8.6.0, acorn@npm:^8.7.1, acorn@npm:^8.8.0":
   version: 8.8.0
   resolution: "acorn@npm:8.8.0"
   bin:

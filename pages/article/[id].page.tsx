@@ -43,11 +43,6 @@ const Article = ({
 
 export default Article;
 
-const ImageStyle = {
-  width: '100%',
-  height: 400,
-};
-
 export const getStaticPaths = async () => {
   try {
     console.log('CONNECTING TO MONGO IN DETAIL PATH');
