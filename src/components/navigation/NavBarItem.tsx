@@ -21,8 +21,8 @@ const NavBarItem = ({ isActive, path, title, name }: Props) => {
   }, [ref]);
 
   return (
-    <StyledLink href={path} title={title} active={isActive} passHref legacyBehavior>
-      <Item ref={ref} barWidth={barWidth}>
+    <StyledLink href={path} title={title} passHref legacyBehavior>
+      <Item ref={ref} barWidth={barWidth} isActive={isActive}>
         {name}
       </Item>
     </StyledLink>
@@ -32,7 +32,7 @@ const NavBarItem = ({ isActive, path, title, name }: Props) => {
 export default NavBarItem;
 
 interface StyleProps {
-  active?: boolean;
+  isActive?: boolean;
   barWidth?: number;
 }
 
