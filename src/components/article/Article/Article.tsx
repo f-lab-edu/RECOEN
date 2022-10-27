@@ -15,14 +15,16 @@ const Article = ({ title, description, path, imgUrl, blurDataURL }: Props) => {
   return (
     <Link href={`/article/${path}`}>
       <Container>
-        <Image
-          src={imgUrl}
-          alt="Thumbnail of article"
-          width={380}
-          height={220}
-          placeholder="blur"
-          blurDataURL={blurDataURL}
-        />
+        <ImageWrapper>
+          <Image
+            src={imgUrl}
+            alt="Thumbnail of article"
+            placeholder="blur"
+            blurDataURL={blurDataURL}
+            fill
+            style={{ objectFit: 'cover' }}
+          />
+        </ImageWrapper>
         <Wrapper>
           <div>
             <Title>{title}</Title>
@@ -49,9 +51,10 @@ const Container = styled.article`
 `;
 
 const ImageWrapper = styled.div`
-  width: 23vw;
+  width: 380px;
   height: 220px;
   position: relative;
+  object-fit: cover;
 `;
 
 const Wrapper = styled.article`
