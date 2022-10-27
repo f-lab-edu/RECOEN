@@ -1,4 +1,4 @@
-import { getArticle, axiosInstance } from 'src/apis';
+import { getArticle, axiosInstance } from '..';
 
 jest.mock('axios');
 

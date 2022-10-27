@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import LeftArrow from '../../../public/leftArrow.png';
-import RigthArrow from '../../../public/rightArrow.png';
-import Quote from './Quote';
+import LeftArrow from '../../../../public/leftArrow.png';
+import RigthArrow from '../../../../public/rightArrow.png';
+import Quote from '../Quote';
 
 export type QuoteT = {
   englishQuote: string;

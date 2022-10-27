@@ -8,7 +8,7 @@ interface Props {
   setImgUrl: (e: string) => void;
 }
 
-export const ImageUpload = ({ setImgUrl }: Props) => {
+const ImageUpload = ({ setImgUrl }: Props) => {
   const [preview, setPreview] = usePreview();
   const { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
 
@@ -35,6 +35,8 @@ export const ImageUpload = ({ setImgUrl }: Props) => {
     </div>
   );
 };
+
+export default ImageUpload;
 
 const UploadBox = styled.button`
   width: 350px;

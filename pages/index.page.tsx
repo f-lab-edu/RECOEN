@@ -1,5 +1,5 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
-import QuoteCarousel from 'src/components/quoteCarousel/QuoteCarousel';
+import QuoteCarousel from 'src/components/quoteCarousel/QuoteCarousel/QuoteCarousel';
 
 const Home: NextPage = ({
   quotesData,

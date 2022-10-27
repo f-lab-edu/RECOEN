@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import HeroText from './HeroText';
+import HeroText from '../HeroText';
 
 interface Props {
   text: string;

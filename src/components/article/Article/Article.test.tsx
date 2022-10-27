@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Article } from 'src/components/article/Article';
+import Article from './Article';
 
 describe('<Article/>', () => {
   it('should render correctly', () => {

@@ -6,7 +6,7 @@ import ArticleModel from 'pages/api/models/articleModel';
 import { getPlaiceholder } from 'plaiceholder';
 import { ArticleElementsType } from 'src/types/article';
 
-import Hero from 'src/components/hero/Hero';
+import Hero from 'src/components/hero/Hero/Hero';
 import ArticleList from 'src/components/article/ArticleList';
 
 const ArticlePage = ({

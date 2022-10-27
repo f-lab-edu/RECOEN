@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { CreateArticleModal } from 'src/components/modals/CreateArticleModal';
+import CreateArticleModal from './CreateArticleModal';
 import { createArticle } from 'src/apis';
 import { RecoilRoot } from 'recoil';
 jest.mock('src/apis');

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Article from './Article';
+import Article from './Article/Article';
 import Grid from 'src/components/ui/Grid';
 
 import { ArticleElementsType } from 'src/types/article';

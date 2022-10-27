@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Modal } from 'src/components/modals/Modal';
+import Modal from './Modal';
 import { RecoilRoot } from 'recoil';
 
 describe('Modal', () => {

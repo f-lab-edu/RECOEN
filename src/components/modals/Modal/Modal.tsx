@@ -7,7 +7,7 @@ interface ModalProps {
   handleOpenModal: () => void;
 }
 
-export const Modal = ({ children, handleOpenModal }: ModalProps) => {
+const Modal = ({ children, handleOpenModal }: ModalProps) => {
   const [container, setContainer] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -24,6 +24,8 @@ export const Modal = ({ children, handleOpenModal }: ModalProps) => {
     container,
   );
 };
+
+export default Modal;
 
 const Overlay = styled.div`
   height: 100vh;

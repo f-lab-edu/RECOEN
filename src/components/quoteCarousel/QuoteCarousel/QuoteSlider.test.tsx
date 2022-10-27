@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, within } from '@testing-library/react';
-import { QuoteSlider } from 'src/components';
+import QuoteSlider from './QuoteCarousel';
 
 const quotesData = [
   {

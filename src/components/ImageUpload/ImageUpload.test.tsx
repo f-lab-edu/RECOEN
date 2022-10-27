@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { ImageUpload } from 'src/components';
+import ImageUpload from './ImageUpload';
 
 describe('ImageUpload', () => {
   const setImageUrl = jest.fn();
   const renderImageUpload = () =>
-    render(<ImageUpload setImageUrl={setImageUrl} />);
+    render(<ImageUpload setImgUrl={setImageUrl} />);
 
   it('렌더링되어야한다', () => {
     renderImageUpload();
