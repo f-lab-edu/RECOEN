@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { QuoteT } from './';
+import { QuoteT } from './QuoteCarousel';
 
 interface QuoteProps {
   quote: QuoteT;
 }
 
-export const Quote = ({ quote }: QuoteProps) => {
+const Quote = ({ quote }: QuoteProps) => {
   return (
     <QuoteBox>
       <UpperWrapper>
@@ -23,6 +23,8 @@ export const Quote = ({ quote }: QuoteProps) => {
     </QuoteBox>
   );
 };
+
+export default Quote;
 
 const QuoteBox = styled.article`
   display: flex;

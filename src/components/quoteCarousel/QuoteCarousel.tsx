@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Image from 'next/image';
 import LeftArrow from '../../../public/leftArrow.png';
 import RigthArrow from '../../../public/rightArrow.png';
-import { Quote } from './Quote';
+import Quote from './Quote';
 
 export type QuoteT = {
   englishQuote: string;
@@ -15,7 +15,7 @@ interface Props {
   quotes: QuoteT[];
 }
 
-export const QuoteSlider = ({ quotes }: Props) => {
+const QuoteCarousel = ({ quotes }: Props) => {
   const slideRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const TOTAL_SLIDES = quotes.length - 1;
@@ -73,6 +73,8 @@ export const QuoteSlider = ({ quotes }: Props) => {
     </Container>
   );
 };
+
+export default QuoteCarousel;
 
 interface StyleProps {
   currentLineWidth?: number;

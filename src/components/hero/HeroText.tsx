@@ -6,7 +6,7 @@ interface Props {
   listLength: number;
 }
 
-export const HeroText = ({ text, listLength }: Props) => {
+const HeroText = ({ text, listLength }: Props) => {
   return <Text listLength={listLength}>{text}</Text>;
 };
 
@@ -24,3 +24,5 @@ const Text = styled.h1<StyleProps>`
     top: 0;
   }
 `;
+
+export default HeroText;

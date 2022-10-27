@@ -10,7 +10,6 @@ import { getPlaiceholder } from 'plaiceholder';
 import { serialize } from 'next-mdx-remote/serialize';
 
 import ArticleModel from 'pages/api/models/articleModel';
-// import Image from 'src/components/ui/Image';
 import MDXDetail from 'src/components/mdx/MDXDetail';
 import Head from 'src/components/Head';
 import Image from 'next/image';
@@ -61,7 +60,6 @@ export const getStaticPaths = async () => {
 
     const articles = JSON.parse(JSON.stringify(res));
 
-    // NOTE : any 수정할 것
     const paths = articles.map((article: ArticleElementsType) => {
       return { params: { id: article._id.toString() } };
     });

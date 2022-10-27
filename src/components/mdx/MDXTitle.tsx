@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Button } from 'src/components/ui/Button';
+import Button from 'src/components/ui/Button/Button';
 
 interface Props {
   title: string;
@@ -15,7 +15,6 @@ const DetailTitle: React.FC<Props> = ({ title, time }) => {
         <Date>{time}</Date>
         <ButtonsWrapper>
           <Button
-            buttonType="normal"
             label="수정"
             onClick={() => {
               console.log('수정버튼');
@@ -23,7 +22,6 @@ const DetailTitle: React.FC<Props> = ({ title, time }) => {
           />
           ·
           <Button
-            buttonType="normal"
             label="삭제"
             onClick={() => {
               console.log('삭제버튼');

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { HeroText } from './HeroText';
+import HeroText from './HeroText';
 
 interface Props {
   text: string;
   listLength: number;
 }
 
-export const Hero = ({ text, listLength }: Props) => {
+const Hero = ({ text, listLength }: Props) => {
   return (
     <>
       <Layout>
@@ -17,6 +17,8 @@ export const Hero = ({ text, listLength }: Props) => {
     </>
   );
 };
+
+export default Hero;
 
 const Layout = styled.div`
   width: 1200px;

@@ -12,13 +12,7 @@ interface Props {
   blurDataURL: string;
 }
 
-export const Article = ({
-  title,
-  description,
-  path,
-  imgUrl,
-  blurDataURL,
-}: Props) => {
+const Article = ({ title, description, path, imgUrl, blurDataURL }: Props) => {
   return (
     <Link href={`/article/${path}`}>
       <Container>
@@ -41,6 +35,8 @@ export const Article = ({
     </Link>
   );
 };
+
+export default Article;
 
 const Container = styled.article`
   width: 380px;

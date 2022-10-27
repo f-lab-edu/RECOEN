@@ -1,13 +1,14 @@
 import React from 'react';
-import { Grid } from 'src/components';
-import { Article } from './Article';
-import { ArticleElementsType } from 'src/types/article';
 
+import Article from './Article';
+import Grid from 'src/components/ui/Grid';
+
+import { ArticleElementsType } from 'src/types/article';
 interface Props {
   articles: ArticleElementsType[];
 }
 
-export const ArticleList = ({ articles }: Props) => {
+const ArticleList = ({ articles }: Props) => {
   return (
     <Grid>
       <>
@@ -25,3 +26,5 @@ export const ArticleList = ({ articles }: Props) => {
     </Grid>
   );
 };
+
+export default ArticleList;
