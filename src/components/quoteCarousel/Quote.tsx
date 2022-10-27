@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { QuoteT } from './QuoteCarousel';
+import { QuoteT } from './QuoteCarousel/QuoteCarousel';
 
 interface QuoteProps {
   quote: QuoteT;
