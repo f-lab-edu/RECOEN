@@ -6,10 +6,11 @@ import XImage from '../../../../public/x.png';
 export interface Props {
   label: string;
   deletable?: boolean;
+  readOnly?: boolean;
   onClick?: () => void;
 }
 
-const Tag = ({ label, deletable, onClick }: Props) => {
+const Chip = ({ label, deletable, readOnly, onClick }: Props) => {
   const [isClicked, setIsClicked] = useState(false);
   const handleOnClick = () => {
     if (!onClick) return;
@@ -17,33 +18,29 @@ const Tag = ({ label, deletable, onClick }: Props) => {
     onClick();
   };
   return (
-    <StyledTag
+    <StyledChip
       deletable={deletable}
+      readOnly={readOnly}
       isClicked={isClicked}
       onClick={handleOnClick}
     >
       {label}
       {deletable && (
-        <Image
-          src={XImage}
-          alt="취소이미지"
-          width={8}
-          height={8}
-          layout="fixed"
-        />
+        <Image src={XImage} alt="취소이미지" width={8} height={8} />
       )}
-    </StyledTag>
+    </StyledChip>
   );
 };
 
-export default Tag;
+export default Chip;
 
 interface StyleProps {
   deletable?: boolean;
+  readOnly?: boolean;
   isClicked?: boolean;
 }
 
-const StyledTag = styled.div<StyleProps>`
+const StyledChip = styled.div<StyleProps>`
   padding: 12px;
   background: #32363d;
   border: 1px solid #32363d;
@@ -55,10 +52,14 @@ const StyledTag = styled.div<StyleProps>`
   cursor: pointer;
   font-size: 12px;
   color: ${({ deletable }) => deletable && `#5c62f3`};
-  :hover {
+  ${({ readOnly }) =>
+    !readOnly &&
+    `
+    :hover {
     border: 1px solid #5c62f3;
     color: #5c62f3;
   }
+  `}
   ${({ deletable, isClicked }) =>
     !deletable &&
     isClicked &&
@@ -66,4 +67,10 @@ const StyledTag = styled.div<StyleProps>`
     border: 1px solid #5c62f3;
     color: #5c62f3;
     `}
+
+  ${({ readOnly }) =>
+    readOnly &&
+    `
+  color: #5c62f3;
+  `}
 `;

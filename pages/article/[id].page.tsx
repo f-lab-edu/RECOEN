@@ -35,6 +35,7 @@ const Article = ({
       <MDXDetail
         title={article.title}
         content={article.content}
+        tags={article.tags}
         time="2022.10.23 · 7min read"
       />
     </>

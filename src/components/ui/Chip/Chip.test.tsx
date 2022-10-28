@@ -1,19 +1,24 @@
 import { render, fireEvent, waitFor } from '@testing-library/react';
 
-import Tag, { Props } from './Tag';
+import Chip, { Props } from './Chip';
 
-describe('Tag', () => {
+describe('Chip', () => {
   const onClick = jest.fn();
 
-  const renderTag = ({ label, deletable, onClick }: Props) => {
+  const renderChip = ({ label, deletable, readOnly, onClick }: Props) => {
     return render(
-      <Tag label={label} deletable={deletable} onClick={onClick} />,
+      <Chip
+        label={label}
+        deletable={deletable}
+        readOnly={readOnly}
+        onClick={onClick}
+      />,
     );
   };
 
   describe('받아온 텍스트가', () => {
     it('화면에 보인다', () => {
-      const { getByText } = renderTag({ label: '태그' });
+      const { getByText } = renderChip({ label: '태그' });
 
       expect(getByText('태그')).toBeInTheDocument();
     });
@@ -21,7 +26,7 @@ describe('Tag', () => {
 
   describe('호버를 하면', () => {
     it('테두리와 글자의 색이 #5C62F3로 변한다', () => {
-      const { getByText } = renderTag({ label: '태그' });
+      const { getByText } = renderChip({ label: '태그' });
       const tag = getByText('태그');
 
       fireEvent.mouseOver(tag);
@@ -35,7 +40,7 @@ describe('Tag', () => {
 
   describe('deletable이 false일 때', () => {
     it('클릭하면 테두리와 글자의 색이 #5C62F3로 변한다', () => {
-      const { getByText } = renderTag({ label: '태그' });
+      const { getByText } = renderChip({ label: '태그' });
       const tag = getByText('태그');
 
       fireEvent.click(tag);
@@ -49,7 +54,7 @@ describe('Tag', () => {
 
   describe('deletable이 true일 때', () => {
     it('x버튼이 생긴다', () => {
-      const { getByRole } = renderTag({
+      const { getByRole } = renderChip({
         label: '태그',
         deletable: true,
         onClick,
@@ -61,7 +66,7 @@ describe('Tag', () => {
 
     describe('클릭하면', () => {
       it('삭제된다', () => {
-        const { getByText } = renderTag({
+        const { getByText } = renderChip({
           label: '태그',
           deletable: true,
           onClick,
@@ -72,6 +77,36 @@ describe('Tag', () => {
 
         expect(onClick).toBeCalled();
       });
+    });
+  });
+
+  describe('readOnly 상태이면', () => {
+    it('hover했을 때 border색이 변경되지 않는다', () => {
+      const { getByText } = renderChip({
+        label: '태그',
+        readOnly: true,
+        onClick,
+      });
+
+      const chip = getByText('태그');
+
+      expect(chip).toHaveStyle('border: 1px solid #32363d');
+
+      fireEvent.mouseOver(chip);
+
+      waitFor(() => {
+        expect(chip).toHaveStyle('border: 1px solid #32363d');
+      });
+    });
+    it('글자색이 #5C62F3로 바뀐다', () => {
+      const { getByText } = renderChip({
+        label: '태그',
+        readOnly: true,
+        onClick,
+      });
+
+      const chip = getByText('태그');
+      expect(chip).toHaveStyle('color: #5c62f3');
     });
   });
 });
