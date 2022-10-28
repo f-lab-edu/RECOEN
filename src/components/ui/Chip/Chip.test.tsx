@@ -108,5 +108,15 @@ describe('Chip', () => {
       const chip = getByText('태그');
       expect(chip).toHaveStyle('color: #5c62f3');
     });
+    it('cursor가 default로 바뀐다', () => {
+      const { getByText } = renderChip({
+        label: '태그',
+        readOnly: true,
+        onClick,
+      });
+
+      const chip = getByText('태그');
+      expect(chip).toHaveStyle('cursor: default');
+    });
   });
 });

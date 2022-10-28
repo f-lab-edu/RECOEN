@@ -72,5 +72,6 @@ const StyledChip = styled.div<StyleProps>`
     readOnly &&
     `
   color: #5c62f3;
+  cursor:default;
   `}
 `;
