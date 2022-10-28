@@ -14,7 +14,7 @@ const Chip = ({ label, deletable, readOnly, onClick }: Props) => {
   const [isClicked, setIsClicked] = useState(false);
   const handleOnClick = () => {
     if (!onClick) return;
-    setIsClicked(isClicked);
+    setIsClicked(!isClicked);
     onClick();
   };
   return (
