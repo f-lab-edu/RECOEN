@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createArticle } from 'src/apis';
 import styled from '@emotion/styled';
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
+import { articleStates } from 'src/recoil/article';
 import { useRouter } from 'next/router';
 
 import Modal from '../Modal/Modal';
@@ -12,8 +13,7 @@ import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
 const CreateArticleModal = () => {
-  const [imgUrl, setImgUrl] = useState<string>();
-  const [description, setDescription] = useState<string>('');
+  const articleElements = useRecoilValue(articleStates);
   const setClose = useSetRecoilState(openCreateModalStates);
   const router = useRouter();
 
@@ -21,18 +21,8 @@ const CreateArticleModal = () => {
     setClose(false);
   };
 
-  const checkValidation = () => {
-    if (!imgUrl) return false;
-    if (description == '') return false;
-    return true;
-  };
-
   const handleOnClickSave = async () => {
-    if (!checkValidation()) return;
-    const res = await createArticle({
-      imgUrl,
-      description,
-    });
+    const res = await createArticle(articleElements);
     if (res.status == 200) router.push('/article');
   };
 
@@ -47,11 +37,11 @@ const CreateArticleModal = () => {
           </ButtonWrapper>
         </Wrapper>
         <Guide>대표이미지</Guide>
-        <ImageUpload setImgUrl={setImgUrl} />
+        <ImageUpload />
         <Guide>태그(최대 3개)</Guide>
         <TagInput />
         <Guide>설명글</Guide>
-        <DescInput onChange={setDescription} />
+        <DescInput />
       </>
     </Modal>
   );

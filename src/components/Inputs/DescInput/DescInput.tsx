@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import { useDescription } from 'src/hooks/useCreatArticle';
 
-interface Props {
-  onChange: (e: string) => void;
-}
-
-const DescInput = ({ onChange }: Props) => {
+const DescInput = () => {
   const [currentLength, setCurrentLength] = useState<number>(0);
   const [isError, setError] = useState<boolean>(false);
+  const { setDesc } = useDescription();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textLength = e.target.value.length;
     setCurrentLength(textLength);
     if (textLength === 200) return setError(true);
 
-    onChange(e.target.value);
+    setDesc(e.target.value);
   };
 
   const onKeyDown = (

@@ -3,19 +3,17 @@ import React from 'react';
 import { useS3Upload } from 'next-s3-upload';
 import { usePreview } from 'src/hooks';
 import styled from '@emotion/styled';
+import { useImageUrl } from 'src/hooks/useCreatArticle';
 
-interface Props {
-  setImgUrl: (e: string) => void;
-}
-
-const ImageUpload = ({ setImgUrl }: Props) => {
+const ImageUpload = () => {
   const [preview, setPreview] = usePreview();
   const { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
+  const { setUrl } = useImageUrl();
 
   const handleFileChange = async (file: File) => {
     setPreview(file);
     const { url } = await uploadToS3(file);
-    setImgUrl(url);
+    setUrl(url);
   };
 
   return (
