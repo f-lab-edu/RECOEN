@@ -42,3 +42,12 @@ next-env.d.ts
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+
+# Sitemap file
+sitemap.xml
+sitemap-0.xml
+
+
+# Robots.txt
+robots.txt

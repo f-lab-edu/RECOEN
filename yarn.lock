@@ -1706,6 +1706,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@corex/deepmerge@npm:^4.0.29":
+  version: 4.0.29
+  resolution: "@corex/deepmerge@npm:4.0.29"
+  checksum: 78626fd29cb9cbd2953ce5a06f963132c9b4837bb76397982d255131533b61c3ef447f0d295f300aa6b2c3ead182a6fe2e4763181e06a2124df28c08205de1d2
+  languageName: node
+  linkType: hard
+
 "@edge-runtime/format@npm:^1.1.0-beta.32":
   version: 1.1.0-beta.33
   resolution: "@edge-runtime/format@npm:1.1.0-beta.33"
@@ -2568,7 +2575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:13.0.0":
+"@next/env@npm:13.0.0, @next/env@npm:^13.0.0":
   version: 13.0.0
   resolution: "@next/env@npm:13.0.0"
   checksum: 3146f10324366283c22bce0b700a8ae6c7dffad63cb81d698300c1795e7121d1fa0c2b6e0cbf7f7614117b0c3aa15556e88a7727a7b0e59aed054c2dfecb7d58
@@ -3877,6 +3884,7 @@ __metadata:
     "@emotion/styled": ^11.10.4
     "@mui/material": ^5.10.9
     "@next/bundle-analyzer": ^12.3.1
+    "@next/env": ^13.0.0
     "@testing-library/dom": ^8.19.0
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^13.4.0
@@ -3909,6 +3917,7 @@ __metadata:
     next-connect: ^0.13.0
     next-mdx-remote: ^4.1.0
     next-s3-upload: ^0.2.3
+    next-sitemap: ^3.1.29
     plaiceholder: ^2.5.0
     prettier: ^2.7.1
     prosemirror-transform: ^1.7.0
@@ -9436,6 +9445,22 @@ __metadata:
     next: ">=9.4"
     react: ">=16"
   checksum: 94ba3a2ffdf2f08272aa61a475e710ee825e1d9ba51beb1392528a606c3d4ce016c1377fdd15c3152ef7d789e6644e5d80458f8b2a8ca4e89066ca25b2782f7a
+  languageName: node
+  linkType: hard
+
+"next-sitemap@npm:^3.1.29":
+  version: 3.1.29
+  resolution: "next-sitemap@npm:3.1.29"
+  dependencies:
+    "@corex/deepmerge": ^4.0.29
+    minimist: ^1.2.6
+  peerDependencies:
+    "@next/env": "*"
+    next: "*"
+  bin:
+    next-sitemap: bin/next-sitemap.mjs
+    next-sitemap-cjs: bin/next-sitemap.cjs
+  checksum: e5f922bd96783ba9548041a26bd5248abf6d433e3b856f5fa5cf7106ddae382c696163a268d068061c0041a46dfdea64cd3654772b587f2958903980a744f330
   languageName: node
   linkType: hard
 
