@@ -11,14 +11,7 @@ import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
-interface Props {
-  articleElements: {
-    title?: string;
-    content?: string;
-  };
-}
-
-const CreateArticleModal = ({ articleElements }: Props) => {
+const CreateArticleModal = () => {
   const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
@@ -30,8 +23,6 @@ const CreateArticleModal = ({ articleElements }: Props) => {
   };
 
   const checkValidation = () => {
-    if (!articleElements.title) return false;
-    if (!articleElements.content) return false;
     if (!imgUrl) return false;
     if (description == '') return false;
     return true;
@@ -40,7 +31,6 @@ const CreateArticleModal = ({ articleElements }: Props) => {
   const handleOnClickSave = async () => {
     if (!checkValidation()) return;
     const res = await createArticle({
-      ...articleElements,
       imgUrl,
       description,
       tags,

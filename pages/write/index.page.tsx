@@ -9,19 +9,17 @@ import TitleInput from 'src/components/Inputs/TitleInput';
 import styled from '@emotion/styled';
 
 const WritePage = () => {
-  const [content, setContent] = useState<string>('');
   const isOpen = useRecoilValue(openCreateModalStates);
-  const articleElements = { content };
 
   return (
     <>
-      {isOpen && <CreateArticleModal articleElements={articleElements} />}
+      {isOpen && <CreateArticleModal />}
       <TitleWrapper>
         <Category />
         <TitleInput />
       </TitleWrapper>
 
-      <TextEditor onChange={setContent} />
+      <TextEditor />
     </>
   );
 };

@@ -1,21 +1,20 @@
 import React, { useRef } from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
-import { Editor, EditorProps } from '@toast-ui/react-editor';
+import { Editor } from '@toast-ui/react-editor';
 import { useS3Upload } from 'next-s3-upload';
+import { ArticleStates } from 'src/recoil/article';
+import { useRecoilState } from 'recoil';
 
-export interface TextEditorProps extends EditorProps {
-  onChange(value: string): void;
-}
-
-const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
+const TextEditor = () => {
   const editorRef = useRef<Editor>();
   const { uploadToS3 } = useS3Upload();
+  const [articleElements, setArticleElements] = useRecoilState(ArticleStates);
 
   const handleChange = () => {
     if (!editorRef.current) return;
     const markDownData = editorRef.current.getInstance().getMarkdown();
-    onChange(markDownData);
+    setArticleElements({ ...articleElements, content: markDownData });
   };
 
   const uploadImage = async (
