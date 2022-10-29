@@ -17,3 +17,11 @@ export const useContent = () => {
   };
   return { setMarkDown };
 };
+
+export const useTags = () => {
+  const [articleElements, setArticleElements] = useRecoilState(ArticleStates);
+  const setTags = (tags: string[]) => {
+    setArticleElements({ ...articleElements, tags });
+  };
+  return { tags: articleElements.tags, setTags };
+};

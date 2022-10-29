@@ -1,23 +1,14 @@
-import React, { useState, CompositionEvent, useEffect } from 'react';
+import React, { useState, CompositionEvent } from 'react';
 import styled from '@emotion/styled';
-import XIcon from '../../../../public/x.png';
-import Image from 'next/image';
 import Chip from 'src/components/ui/Chip/Chip';
+import { useTags } from 'src/hooks/useCreatArticle';
 
-export interface Props {
-  onChange: (args: string[]) => void;
-  values: string[];
-}
-
-const TagInput = ({ onChange, values }: Props) => {
+const TagInput = () => {
   const [value, setValue] = useState('');
-  const [tags, setTags] = useState<string[]>();
+  // const [tags, setTags] = useState<string[]>();
   const [isOnComposition, setIsOnComposition] = useState(false);
   const [isError, setError] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (tags) onChange(tags);
-  }, [tags, onChange]);
+  const { tags, setTags } = useTags();
 
   const composition = (e: CompositionEvent<HTMLInputElement>) => {
     if (e.type === 'compositionend') {
@@ -28,17 +19,17 @@ const TagInput = ({ onChange, values }: Props) => {
   };
 
   const onRemove = (tag: string) => {
-    const nextTags = values.filter((t) => t !== tag);
+    const nextTags = tags.filter((t) => t !== tag);
     setTags(nextTags);
   };
 
   const handleBackspaceRemove = () => {
-    const nextTags = values.filter((t, i) => i !== values.length - 1);
+    const nextTags = tags.filter((t, i) => i !== tags.length - 1);
     setTags(nextTags);
   };
 
   const checkDuplicatedTag = (value: string) => {
-    return values.includes(value);
+    return tags.includes(value);
   };
 
   const onKeyDown = (
@@ -52,10 +43,10 @@ const TagInput = ({ onChange, values }: Props) => {
 
     if (!isOnComposition && keys.includes(e.key)) {
       e.preventDefault();
-      if (values.length == 3) return setError(true);
+      if (tags.length == 3) return setError(true);
       if (value == '') return;
 
-      if (!checkDuplicatedTag(value)) setTags(values.concat(value));
+      if (!checkDuplicatedTag(value)) setTags(tags.concat(value));
       setValue('');
     }
   };
@@ -81,7 +72,7 @@ const TagInput = ({ onChange, values }: Props) => {
         isError={isError}
         onBlur={() => setError(false)}
       />
-      {values?.map((tag) => (
+      {tags?.map((tag) => (
         <Chip key={tag} onClick={() => onRemove(tag)} label={tag} deletable />
       ))}
     </Container>
@@ -102,21 +93,6 @@ const Container = styled.div`
   gap: 10px;
   margin-bottom: 20px;
 `;
-
-// const Tag = styled.div`
-//   color: #f9f9f9;
-//   cursor: pointer;
-//   font-size: 14px;
-//   background: #3941ff;
-//   padding: 8px;
-//   border-radius: 4px;
-//   display: flex;
-//   gap: 8px;
-//   &:hover {
-//     background: #2d31fa;
-//   }
-//   transition: 0.2s ease-in-out;
-// `;
 
 const Input = styled.input<StyleProps>`
   background: #292b2e;

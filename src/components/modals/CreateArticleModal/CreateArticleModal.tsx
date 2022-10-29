@@ -11,17 +11,11 @@ import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
-import { ArticleStates } from 'src/recoil/article';
-import { useRecoilState } from 'recoil';
-
 const CreateArticleModal = () => {
   const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>('');
-  const [tags, setTags] = useState<string[]>([]);
   const setClose = useSetRecoilState(openCreateModalStates);
   const router = useRouter();
-
-  const [articleElements, setArticleElements] = useRecoilState(ArticleStates);
 
   const handleModalClose = () => {
     setClose(false);
@@ -38,7 +32,6 @@ const CreateArticleModal = () => {
     const res = await createArticle({
       imgUrl,
       description,
-      tags,
     });
     if (res.status == 200) router.push('/article');
   };
@@ -56,7 +49,7 @@ const CreateArticleModal = () => {
         <Guide>대표이미지</Guide>
         <ImageUpload setImgUrl={setImgUrl} />
         <Guide>태그(최대 3개)</Guide>
-        <TagInput values={tags!} onChange={setTags} />
+        <TagInput />
         <Guide>설명글</Guide>
         <DescInput onChange={setDescription} />
       </>

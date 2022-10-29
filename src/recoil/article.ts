@@ -5,7 +5,7 @@ export const ArticleStates = atom({
   default: {
     title: '',
     content: '',
-    tags: [],
+    tags: [''],
     description: '',
     imgUrl: '',
   },
