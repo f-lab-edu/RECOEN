@@ -1,15 +1,22 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Button from 'src/components/ui/Button/Button';
+import Chip from 'src/components/ui/Chip/Chip';
 
 interface Props {
   title: string;
   time: string;
+  tags: string[];
 }
 
-const DetailTitle: React.FC<Props> = ({ title, time }) => {
+const DetailTitle: React.FC<Props> = ({ title, time, tags }) => {
   return (
     <Container>
+      <ChipWrapper>
+        {tags.map((tag) => {
+          return <Chip key={tag} label={tag} readOnly />;
+        })}
+      </ChipWrapper>
       <Title>{title}</Title>
       <Wrapper>
         <Date>{time}</Date>
@@ -46,6 +53,11 @@ const Title = styled.h1`
   font-weight: 600;
   line-height: 65px;
   margin-bottom: 60px;
+`;
+
+const ChipWrapper = styled.div`
+  display: flex;
+  gap: 8px;
 `;
 
 const Wrapper = styled.div`

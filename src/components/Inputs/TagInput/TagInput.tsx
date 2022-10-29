@@ -2,6 +2,7 @@ import React, { useState, CompositionEvent, useEffect } from 'react';
 import styled from '@emotion/styled';
 import XIcon from '../../../../public/x.png';
 import Image from 'next/image';
+import Chip from 'src/components/ui/Chip/Chip';
 
 export interface Props {
   onChange: (args: string[]) => void;
@@ -80,13 +81,9 @@ const TagInput = ({ onChange, values }: Props) => {
         isError={isError}
         onBlur={() => setError(false)}
       />
-      {values &&
-        values.map((tag) => (
-          <Tag key={tag} onClick={() => onRemove(tag)}>
-            {tag}
-            <Image src={XIcon} alt="x-icon" width={18} height={18} />
-          </Tag>
-        ))}
+      {values?.map((tag) => (
+        <Chip key={tag} onClick={() => onRemove(tag)} label={tag} deletable />
+      ))}
     </Container>
   );
 };
@@ -106,20 +103,20 @@ const Container = styled.div`
   margin-bottom: 20px;
 `;
 
-const Tag = styled.div`
-  color: #f9f9f9;
-  cursor: pointer;
-  font-size: 14px;
-  background: #3941ff;
-  padding: 8px;
-  border-radius: 4px;
-  display: flex;
-  gap: 8px;
-  &:hover {
-    background: #2d31fa;
-  }
-  transition: 0.2s ease-in-out;
-`;
+// const Tag = styled.div`
+//   color: #f9f9f9;
+//   cursor: pointer;
+//   font-size: 14px;
+//   background: #3941ff;
+//   padding: 8px;
+//   border-radius: 4px;
+//   display: flex;
+//   gap: 8px;
+//   &:hover {
+//     background: #2d31fa;
+//   }
+//   transition: 0.2s ease-in-out;
+// `;
 
 const Input = styled.input<StyleProps>`
   background: #292b2e;
