@@ -5,7 +5,7 @@ import { useDescription } from 'src/hooks/useCreatArticle';
 const DescInput = () => {
   const [currentLength, setCurrentLength] = useState<number>(0);
   const [isError, setError] = useState<boolean>(false);
-  const { setDesc } = useDescription();
+  const { desc, setDesc } = useDescription();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textLength = e.target.value.length;
@@ -36,6 +36,7 @@ const DescInput = () => {
         isError={isError}
         onBlur={onBlur}
         onKeyDown={onKeyDown}
+        value={desc}
       />
     </Wrapper>
   );

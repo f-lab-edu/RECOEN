@@ -31,7 +31,7 @@ export const useDescription = () => {
   const setDesc = (description: string) => {
     setArticleElements({ ...articleElements, description });
   };
-  return { setDesc };
+  return { desc: articleElements.description, setDesc };
 };
 
 export const useImageUrl = () => {
