@@ -105,7 +105,7 @@ export const useContent = () => {
   const setMarkDown = (markdown: string) => {
     setArticleElements({ ...articleElements, content: markdown });
   };
-  return { setMarkDown };
+  return { content: articleElements.content, setMarkDown };
 };
 
 export const useTags = () => {
