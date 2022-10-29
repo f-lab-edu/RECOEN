@@ -16,8 +16,6 @@ const CreateArticleModal = () => {
   const setClose = useSetRecoilState(openCreateModalStates);
   const handleSaveArticle = useResolveSaveFunction();
 
-  const [articleElements, setArticleElements] = useRecoilState(ArticleStates);
-
   const handleModalClose = () => {
     setClose(false);
   };

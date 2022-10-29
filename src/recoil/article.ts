@@ -18,7 +18,7 @@ export const detailPageState = atom<ArticleElements>({
     _id: '',
     title: '',
     content: '',
-    tags: [],
+    tags: [''],
     description: '',
     imgUrl: '',
     time: '2022.10.23 · 7min read',
