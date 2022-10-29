@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { Editor } from '@toast-ui/react-editor';
@@ -8,7 +8,7 @@ import { useContent } from 'src/hooks/useCreatArticle';
 const TextEditor = () => {
   const editorRef = useRef<Editor>();
   const { uploadToS3 } = useS3Upload();
-  const { setMarkDown } = useContent();
+  const { content, setMarkDown } = useContent();
 
   const handleChange = () => {
     if (!editorRef.current) return;
@@ -23,6 +23,11 @@ const TextEditor = () => {
     const { url } = await uploadToS3(blob);
     callback(url, 'alt text');
   };
+
+  useEffect(() => {
+    if (!editorRef.current) return;
+    editorRef.current.getInstance().setMarkdown(content);
+  }, [content]);
 
   return (
     <Editor
