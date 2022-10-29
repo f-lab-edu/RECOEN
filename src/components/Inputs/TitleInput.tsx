@@ -1,13 +1,13 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
+import { ArticleStates } from 'src/recoil/article';
+import { useRecoilState } from 'recoil';
 
-interface Props {
-  onChange: (value: string) => void;
-}
+const TitleInput = () => {
+  const [articleElements, setArticleElements] = useRecoilState(ArticleStates);
 
-const TitleInput = ({ onChange }: Props) => {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value);
+  const setArticleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setArticleElements({ ...articleElements, title: event.target.value });
   };
 
   const textFieldStyle = {
@@ -39,7 +39,8 @@ const TitleInput = ({ onChange }: Props) => {
   return (
     <TextField
       data-testid="titleInput"
-      onChange={handleChange}
+      onChange={setArticleTitle}
+      value={articleElements.title}
       label="제목을 입력해주세요"
       variant="outlined"
       fullWidth
