@@ -1,11 +1,11 @@
 import { atom } from 'recoil';
-
-export const ArticleStates = atom({
+import { CreateArticleElements } from 'src/types/article';
+export const ArticleStates = atom<CreateArticleElements>({
   key: 'articleStates',
   default: {
     title: '',
     content: '',
-    tags: [''],
+    tags: [],
     description: '',
     imgUrl: '',
   },
