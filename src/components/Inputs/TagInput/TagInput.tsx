@@ -81,10 +81,9 @@ const TagInput = ({ onChange, values }: Props) => {
         isError={isError}
         onBlur={() => setError(false)}
       />
-      {values &&
-        values.map((tag) => (
-          <Chip key={tag} onClick={() => onRemove(tag)} label={tag} deletable />
-        ))}
+      {values?.map((tag) => (
+        <Chip key={tag} onClick={() => onRemove(tag)} label={tag} deletable />
+      ))}
     </Container>
   );
 };

@@ -13,9 +13,8 @@ export interface Props {
 const Chip = ({ label, deletable, readOnly, onClick }: Props) => {
   const [isClicked, setIsClicked] = useState(false);
   const handleOnClick = () => {
-    if (!onClick) return;
     setIsClicked(!isClicked);
-    onClick();
+    onClick?.();
   };
   return (
     <StyledChip
@@ -25,9 +24,7 @@ const Chip = ({ label, deletable, readOnly, onClick }: Props) => {
       onClick={handleOnClick}
     >
       {label}
-      {deletable && (
-        <Image src={XImage} alt="취소이미지" width={8} height={8} />
-      )}
+      {deletable && <Image src={XImage} alt="삭제" width={8} height={8} />}
     </StyledChip>
   );
 };
@@ -56,9 +53,9 @@ const StyledChip = styled.div<StyleProps>`
     !readOnly &&
     `
     :hover {
-    border: 1px solid #5c62f3;
-    color: #5c62f3;
-  }
+      border: 1px solid #5c62f3;
+      color: #5c62f3;
+    }
   `}
   ${({ deletable, isClicked }) =>
     !deletable &&
@@ -71,7 +68,7 @@ const StyledChip = styled.div<StyleProps>`
   ${({ readOnly }) =>
     readOnly &&
     `
-  color: #5c62f3;
-  cursor:default;
+    color: #5c62f3;
+    cursor:default;
   `}
 `;
