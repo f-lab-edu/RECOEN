@@ -9,3 +9,11 @@ export const useTitle = () => {
   };
   return { articleElements, setArticleTitle };
 };
+
+export const useContent = () => {
+  const [articleElements, setArticleElements] = useRecoilState(ArticleStates);
+  const setMarkDown = (markdown: string) => {
+    setArticleElements({ ...articleElements, content: markdown });
+  };
+  return { setMarkDown };
+};

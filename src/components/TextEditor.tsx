@@ -3,18 +3,17 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { Editor } from '@toast-ui/react-editor';
 import { useS3Upload } from 'next-s3-upload';
-import { ArticleStates } from 'src/recoil/article';
-import { useRecoilState } from 'recoil';
+import { useContent } from 'src/hooks/useCreatArticle';
 
 const TextEditor = () => {
   const editorRef = useRef<Editor>();
   const { uploadToS3 } = useS3Upload();
-  const [articleElements, setArticleElements] = useRecoilState(ArticleStates);
+  const { setMarkDown } = useContent();
 
   const handleChange = () => {
     if (!editorRef.current) return;
     const markDownData = editorRef.current.getInstance().getMarkdown();
-    setArticleElements({ ...articleElements, content: markDownData });
+    setMarkDown(markDownData);
   };
 
   const uploadImage = async (
