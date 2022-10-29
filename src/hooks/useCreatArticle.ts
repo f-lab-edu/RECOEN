@@ -99,3 +99,11 @@ export const useResolveSaveFunction = () => {
 
   return handleSaveArticle;
 };
+
+export const useContent = () => {
+  const [articleElements, setArticleElements] = useRecoilState(ArticleStates);
+  const setMarkDown = (markdown: string) => {
+    setArticleElements({ ...articleElements, content: markdown });
+  };
+  return { setMarkDown };
+};
