@@ -11,12 +11,17 @@ import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
+import { ArticleStates } from 'src/recoil/article';
+import { useRecoilState } from 'recoil';
+
 const CreateArticleModal = () => {
   const [imgUrl, setImgUrl] = useState<string>();
   const [description, setDescription] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
   const setClose = useSetRecoilState(openCreateModalStates);
   const router = useRouter();
+
+  const [articleElements, setArticleElements] = useRecoilState(ArticleStates);
 
   const handleModalClose = () => {
     setClose(false);
