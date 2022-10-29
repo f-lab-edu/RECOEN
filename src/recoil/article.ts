@@ -7,6 +7,6 @@ export const articleStates = atom<CreateArticleElements>({
     content: '',
     tags: [],
     description: '',
-    imgUrl: '',
+    imgUrl: null,
   },
 });

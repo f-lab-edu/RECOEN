@@ -1,27 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { useS3Upload } from 'next-s3-upload';
-import { usePreview } from 'src/hooks';
 import styled from '@emotion/styled';
 import { useImageUrl } from 'src/hooks/useCreatArticle';
 
 const ImageUpload = () => {
-  const [preview, setPreview] = usePreview();
   const { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
-  const { setUrl } = useImageUrl();
+  const { imgUrl, setUrl } = useImageUrl();
 
   const handleFileChange = async (file: File) => {
-    setPreview(file);
     const { url } = await uploadToS3(file);
     setUrl(url);
   };
-
   return (
     <div>
       <FileInput data-testid="fileinput" onChange={handleFileChange} />
-      {preview ? (
+      {imgUrl ? (
         <Img
-          src={preview}
+          src={imgUrl}
           alt="preview image"
           width="200"
           height="200"

@@ -39,5 +39,5 @@ export const useImageUrl = () => {
   const setUrl = (imgUrl: string) => {
     setArticleElements({ ...articleElements, imgUrl });
   };
-  return { setUrl };
+  return { imgUrl: articleElements.imgUrl, setUrl };
 };
