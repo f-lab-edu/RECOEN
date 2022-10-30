@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { useSetRecoilState } from 'recoil';
+
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
+import { writeStates } from 'src/recoil/article';
 
 import Modal from '../Modal/Modal';
 import ImageUpload from 'src/components/ImageUpload/ImageUpload';
@@ -10,13 +12,20 @@ import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
 import { useSaveArticle } from 'src/hooks/useCreatArticle';
+import { createArticle, updateArticle } from 'src/apis';
 
 const CreateArticleModal = () => {
   const setClose = useSetRecoilState(openCreateModalStates);
-  const handleCreateArticle = useSaveArticle();
+  const writeState = useRecoilValue(writeStates);
+  const saveArticle = useSaveArticle();
 
   const handleModalClose = () => {
     setClose(false);
+  };
+
+  const handleSaveArticle = () => {
+    if (writeState == 'create') saveArticle(createArticle);
+    if (writeState == 'update') saveArticle(updateArticle);
   };
 
   return (

@@ -1,18 +1,20 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { AxiosResponse } from 'axios';
 
-export interface CreateArticleElements {
+export interface ArticleElements {
+  status?: number;
+  _id?: string;
   title: string;
   description: string;
   tags: string[];
   imgUrl: string | null;
   content: string | MDXRemoteSerializeResult;
 }
-export interface ArticleElementsType extends CreateArticleElements {
-  _id: string;
+export interface ArticleElementsType extends ArticleElements {
   blurDataURL: string;
   time: string;
 }
 
-export interface UpdateArticleElements extends CreateArticleElements {
-  _id: string;
-}
+export type SaveArticleFunction = (
+  data: ArticleElements,
+) => Promise<AxiosResponse<any, any>>;

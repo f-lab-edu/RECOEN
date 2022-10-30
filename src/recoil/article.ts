@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
-import { CreateArticleElements } from 'src/types/article';
-export const articleStates = atom<CreateArticleElements>({
+import { ArticleElements } from 'src/types/article';
+export const articleStates = atom<ArticleElements>({
   key: 'articleStates',
   default: {
     title: '',
@@ -9,4 +9,9 @@ export const articleStates = atom<CreateArticleElements>({
     description: '',
     imgUrl: null,
   },
+});
+
+export const writeStates = atom<'create' | 'update'>({
+  key: 'writeStates',
+  default: 'create',
 });

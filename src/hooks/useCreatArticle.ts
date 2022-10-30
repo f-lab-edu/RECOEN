@@ -1,10 +1,11 @@
 import React from 'react';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
-import { createArticle } from 'src/apis';
 
 import { articleStates } from 'src/recoil/article';
 import { openCreateModalStates } from 'src/recoil/permit';
+
+import { SaveArticleFunction } from 'src/types/article';
 
 export const useTitle = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleStates);
@@ -59,8 +60,10 @@ export const useSaveArticle = () => {
   const resetModalState = useResetRecoilState(openCreateModalStates);
   const router = useRouter();
 
-  const handleCreateArticle = async () => {
-    const res = await createArticle(articleElements);
+  const handleSaveArticle = async (
+    saveArticleFunction: SaveArticleFunction,
+  ) => {
+    const res = await saveArticleFunction(articleElements);
 
     if (res.status == 200) {
       router.push('/article');
@@ -69,5 +72,5 @@ export const useSaveArticle = () => {
     }
   };
 
-  return handleCreateArticle;
+  return handleSaveArticle;
 };
