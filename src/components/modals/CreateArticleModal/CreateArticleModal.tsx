@@ -1,10 +1,7 @@
 import React from 'react';
-import { createArticle } from 'src/apis';
 import styled from '@emotion/styled';
-import { useSetRecoilState, useRecoilValue } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
-import { articleStates } from 'src/recoil/article';
-import { useRouter } from 'next/router';
 
 import Modal from '../Modal/Modal';
 import ImageUpload from 'src/components/ImageUpload/ImageUpload';
@@ -12,18 +9,14 @@ import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
+import { useSaveArticle } from 'src/hooks/useCreatArticle';
+
 const CreateArticleModal = () => {
-  const articleElements = useRecoilValue(articleStates);
   const setClose = useSetRecoilState(openCreateModalStates);
-  const router = useRouter();
+  const handleCreateArticle = useSaveArticle();
 
   const handleModalClose = () => {
     setClose(false);
-  };
-
-  const handleOnClickSave = async () => {
-    const res = await createArticle(articleElements);
-    if (res.status == 200) router.push('/article');
   };
 
   return (

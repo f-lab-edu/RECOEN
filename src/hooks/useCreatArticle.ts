@@ -1,6 +1,8 @@
 import React from 'react';
 import { articleStates } from 'src/recoil/article';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRouter } from 'next/router';
+import { createArticle } from 'src/apis';
 
 export const useTitle = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleStates);
@@ -40,4 +42,14 @@ export const useImageUrl = () => {
     setArticleElements({ ...articleElements, imgUrl });
   };
   return { imgUrl: articleElements.imgUrl, setUrl };
+};
+
+export const useSaveArticle = () => {
+  const articleElements = useRecoilValue(articleStates);
+  const router = useRouter();
+  const handleCreateArticle = async () => {
+    const res = await createArticle(articleElements);
+    if (res.status == 200) router.push('/article');
+  };
+  return handleCreateArticle;
 };
