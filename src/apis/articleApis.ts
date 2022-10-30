@@ -1,5 +1,8 @@
 import { axiosInstance } from './index';
-import { CreateArticleElements } from 'src/types/article';
+import {
+  CreateArticleElements,
+  UpdateArticleElements,
+} from 'src/types/article';
 const ARTICLE_URI = '/api/article';
 const ARTICLES_URI = '/api/articles';
 
@@ -13,4 +16,8 @@ export const getArticles = async () => {
 
 export const createArticle = async (data: CreateArticleElements) => {
   return await axiosInstance.post(ARTICLE_URI, data);
+};
+
+export const updateArticle = async (data: UpdateArticleElements) => {
+  return await axiosInstance.put(ARTICLE_URI, data);
 };

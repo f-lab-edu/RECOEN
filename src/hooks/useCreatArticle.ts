@@ -8,17 +8,21 @@ import { openCreateModalStates } from 'src/recoil/permit';
 
 export const useTitle = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleStates);
+
   const setArticleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setArticleElements({ ...articleElements, title: event.target.value });
   };
+
   return { articleElements, setArticleTitle };
 };
 
 export const useContent = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleStates);
+
   const setMarkDown = (markdown: string) => {
     setArticleElements({ ...articleElements, content: markdown });
   };
+
   return { content: articleElements.content, setMarkDown };
 };
 
@@ -32,6 +36,7 @@ export const useTags = () => {
 
 export const useDescription = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleStates);
+
   const setDesc = (description: string) => {
     setArticleElements({ ...articleElements, description });
   };
@@ -40,9 +45,11 @@ export const useDescription = () => {
 
 export const useImageUrl = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleStates);
+
   const setUrl = (imgUrl: string) => {
     setArticleElements({ ...articleElements, imgUrl });
   };
+
   return { imgUrl: articleElements.imgUrl, setUrl };
 };
 
@@ -51,13 +58,16 @@ export const useSaveArticle = () => {
   const resetArticle = useResetRecoilState(articleStates);
   const resetModalState = useResetRecoilState(openCreateModalStates);
   const router = useRouter();
+
   const handleCreateArticle = async () => {
     const res = await createArticle(articleElements);
+
     if (res.status == 200) {
       router.push('/article');
       resetArticle();
       resetModalState();
     }
   };
+
   return handleCreateArticle;
 };
