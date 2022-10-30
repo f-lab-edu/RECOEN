@@ -9,6 +9,9 @@ import { SaveArticleFunction, ArticleElements } from 'src/types/article';
 
 import { createArticle, updateArticle } from 'src/apis';
 
+import { articleStates } from 'src/recoil/article';
+import { openCreateModalStates } from 'src/recoil/permit';
+
 export const useTitle = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleState);
 
@@ -134,10 +137,16 @@ export const useImageUrl = () => {
 
 export const useSaveArticle = () => {
   const articleElements = useRecoilValue(articleStates);
+  const resetArticle = useResetRecoilState(articleStates);
+  const resetModalState = useResetRecoilState(openCreateModalStates);
   const router = useRouter();
   const handleCreateArticle = async () => {
     const res = await createArticle(articleElements);
-    if (res.status == 200) router.push('/article');
+    if (res.status == 200) {
+      router.push('/article');
+      resetArticle();
+      resetModalState();
+    }
   };
   return handleCreateArticle;
 };
