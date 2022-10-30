@@ -121,6 +121,7 @@ export const useTags = () => {
 
 export const useDescription = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleStates);
+
   const setDesc = (description: string) => {
     setArticleElements({ ...articleElements, description });
   };
@@ -129,9 +130,11 @@ export const useDescription = () => {
 
 export const useImageUrl = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleStates);
+
   const setUrl = (imgUrl: string) => {
     setArticleElements({ ...articleElements, imgUrl });
   };
+
   return { imgUrl: articleElements.imgUrl, setUrl };
 };
 
@@ -140,13 +143,16 @@ export const useSaveArticle = () => {
   const resetArticle = useResetRecoilState(articleStates);
   const resetModalState = useResetRecoilState(openCreateModalStates);
   const router = useRouter();
+
   const handleCreateArticle = async () => {
     const res = await createArticle(articleElements);
+
     if (res.status == 200) {
       router.push('/article');
       resetArticle();
       resetModalState();
     }
   };
+
   return handleCreateArticle;
 };
