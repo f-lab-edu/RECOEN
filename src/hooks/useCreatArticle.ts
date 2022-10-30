@@ -131,3 +131,13 @@ export const useImageUrl = () => {
   };
   return { imgUrl: articleElements.imgUrl, setUrl };
 };
+
+export const useSaveArticle = () => {
+  const articleElements = useRecoilValue(articleStates);
+  const router = useRouter();
+  const handleCreateArticle = async () => {
+    const res = await createArticle(articleElements);
+    if (res.status == 200) router.push('/article');
+  };
+  return handleCreateArticle;
+};
