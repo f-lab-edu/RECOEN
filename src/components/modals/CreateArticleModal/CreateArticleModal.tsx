@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import { useSetRecoilState } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
+import { writeStates } from 'src/recoil/article';
 
 import Modal from '../Modal/Modal';
 import ImageUpload from 'src/components/ImageUpload/ImageUpload';
@@ -18,6 +19,11 @@ const CreateArticleModal = () => {
 
   const handleModalClose = () => {
     setClose(false);
+  };
+
+  const handleSaveArticle = () => {
+    if (writeState == 'create') saveArticle(createArticle);
+    if (writeState == 'update') saveArticle(updateArticle);
   };
 
   return (
