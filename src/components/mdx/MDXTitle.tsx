@@ -3,23 +3,22 @@ import styled from '@emotion/styled';
 import Button from 'src/components/ui/Button/Button';
 import Chip from 'src/components/ui/Chip/Chip';
 
-interface Props {
-  title: string;
-  time: string;
-  tags: string[];
-}
+import { useRecoilValue } from 'recoil';
+import { articleStates } from 'src/recoil/article';
 
-const DetailTitle: React.FC<Props> = ({ title, time, tags }) => {
+const DetailTitle = () => {
+  const article = useRecoilValue(articleStates);
+
   return (
     <Container>
       <ChipWrapper>
-        {tags.map((tag) => {
+        {article.tags.map((tag) => {
           return <Chip key={tag} label={tag} readOnly />;
         })}
       </ChipWrapper>
-      <Title>{title}</Title>
+      <Title>{article.title}</Title>
       <Wrapper>
-        <Date>{time}</Date>
+        <Date>{article.time}</Date>
         <ButtonsWrapper>
           <Button
             label="수정"

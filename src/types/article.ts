@@ -7,8 +7,9 @@ export interface ArticleElements {
   title: string;
   description: string;
   tags: string[];
-  imgUrl: string | null;
+  imgUrl: string | undefined;
   content: string | MDXRemoteSerializeResult;
+  time?: string;
 }
 export interface ArticleElementsType extends ArticleElements {
   blurDataURL: string;

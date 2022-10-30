@@ -5,16 +5,13 @@ import MDXTitle from 'src/components/mdx/MDXTitle';
 import MDXTag from 'src/components/mdx/MDXComponent';
 
 interface Props {
-  title: string;
   content: MDXRemoteSerializeResult;
-  time: string;
-  tags: string[];
 }
 
-const DetailMDX: React.FC<Props> = ({ title, content, time, tags }) => {
+const DetailMDX: React.FC<Props> = ({ content }) => {
   return (
     <Container>
-      <MDXTitle title={title} time={time} tags={tags} />
+      <MDXTitle />
       <MDXRemote {...content} components={MDXTag} />
     </Container>
   );

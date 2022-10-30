@@ -7,7 +7,8 @@ export const articleStates = atom<ArticleElements>({
     content: '',
     tags: [],
     description: '',
-    imgUrl: null,
+    imgUrl: undefined,
+    time: '2022.10.23 · 7min read',
   },
 });
 
