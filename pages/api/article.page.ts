@@ -30,11 +30,20 @@ handler
   .put(async (req, res) => {
     try {
       console.log('UPDATING ARTICLE');
+      const body = req.body;
       const id = req.body._id;
-      const updateContent = req.body.data;
-      const article = await ArticleModel.findOneAndUpdate(id, updateContent, {
-        new: true,
-      });
+      const updateContent = {
+        title: body.title,
+        content: body.content,
+        imgUrl: body.imgUrl,
+        description: body.description,
+        tags: body.tags,
+      };
+
+      const article = await ArticleModel.findOneAndUpdate(
+        { _id: id },
+        updateContent,
+      );
       console.log('UPDATED ARTICLE');
       res.status(200).json({ article });
     } catch (err) {

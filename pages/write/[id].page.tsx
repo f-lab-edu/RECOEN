@@ -4,7 +4,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 
-import { useSetRecoilState, useResetRecoilState, useRecoilValue } from 'recoil';
+import { useSetRecoilState, useResetRecoilState } from 'recoil';
 import { articleStates } from 'src/recoil/article';
 
 import ArticleModel from 'pages/api/models/articleModel';
@@ -12,10 +12,8 @@ import ArticleModel from 'pages/api/models/articleModel';
 const UpdatePage = ({
   article,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const recoilArticle = useRecoilValue(articleStates);
   const setArticle = useSetRecoilState(articleStates);
   const resetDetailStates = useResetRecoilState(articleStates);
-  console.log('recoilArticle :', recoilArticle);
 
   useEffect(() => {
     const articleState = {

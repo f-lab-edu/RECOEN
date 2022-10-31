@@ -47,7 +47,6 @@ const Article = ({
   useEffect(() => {
     return () => {
       router.beforePopState(() => {
-        console.log('recoil 비우기');
         resetDetailStates();
         return true;
       });
