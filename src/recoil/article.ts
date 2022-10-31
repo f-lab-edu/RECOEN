@@ -33,7 +33,7 @@ export const detailPageStates = atom<ArticleElements>({
     content: '',
     tags: [],
     description: '',
-    imgUrl: undefined,
+    imgUrl: '',
     time: '2022.10.23 · 7min read',
   },
 });
