@@ -36,7 +36,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
     const articlesWithBlurURL = await Promise.all(
       articles.map(async (article: ArticleElementsType) => {
-        if (!article.imgUrl) return;
         const { base64 } = await getPlaiceholder(article.imgUrl);
         return { ...article, blurDataURL: base64 };
       }),
