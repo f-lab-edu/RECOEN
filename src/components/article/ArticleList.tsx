@@ -12,7 +12,8 @@ const ArticleList = ({ articles }: Props) => {
   return (
     <Grid>
       <>
-        {articles.map((article: ArticleElementsType) => (
+        {articles.map((article: ArticleElementsType) => {
+          if (!article._id) return;
           <Article
             key={article._id}
             path={encodeURI(article._id)}
@@ -20,8 +21,8 @@ const ArticleList = ({ articles }: Props) => {
             imgUrl={article.imgUrl}
             description={article.description}
             blurDataURL={article.blurDataURL}
-          />
-        ))}
+          />;
+        })}
       </>
     </Grid>
   );

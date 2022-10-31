@@ -1,4 +1,3 @@
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { AxiosResponse } from 'axios';
 
 export interface ArticleElements {
@@ -7,8 +6,8 @@ export interface ArticleElements {
   title: string;
   description: string;
   tags: string[];
-  imgUrl: string | undefined;
-  content: string | MDXRemoteSerializeResult;
+  imgUrl: string;
+  content: string;
   time?: string;
 }
 export interface ArticleElementsType extends ArticleElements {
