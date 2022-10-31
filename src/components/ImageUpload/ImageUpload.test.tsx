@@ -1,10 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import ImageUpload from './ImageUpload';
 
+import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilRoot } from 'recoil';
+import { articleStates } from 'src/recoil/article';
+
 describe('ImageUpload', () => {
-  const setImageUrl = jest.fn();
+  const onChange = jest.fn();
   const renderImageUpload = () =>
-    render(<ImageUpload setImgUrl={setImageUrl} />);
+    render(
+      <RecoilRoot>
+        <RecoilObserver node={articleStates} onChange={onChange} />
+        <ImageUpload />
+      </RecoilRoot>,
+    );
 
   it('렌더링되어야한다', () => {
     renderImageUpload();
