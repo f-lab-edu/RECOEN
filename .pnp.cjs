@@ -42,7 +42,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/dom", "npm:8.19.0"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:13.4.0"],\
-            ["@testing-library/react-hooks", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:8.0.1"],\
             ["@testing-library/user-event", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:14.4.3"],\
             ["@toast-ui/editor", "npm:3.2.1"],\
             ["@toast-ui/react-editor", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:3.2.2"],\
@@ -3755,38 +3754,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@testing-library/react-hooks", [\
-        ["npm:8.0.1", {\
-          "packageLocation": "./.yarn/cache/@testing-library-react-hooks-npm-8.0.1-e0c7be6ffb-7fe44352e9.zip/node_modules/@testing-library/react-hooks/",\
-          "packageDependencies": [\
-            ["@testing-library/react-hooks", "npm:8.0.1"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:8.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/@testing-library-react-hooks-virtual-8479beccab/0/cache/@testing-library-react-hooks-npm-8.0.1-e0c7be6ffb-7fe44352e9.zip/node_modules/@testing-library/react-hooks/",\
-          "packageDependencies": [\
-            ["@testing-library/react-hooks", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:8.0.1"],\
-            ["@babel/runtime", "npm:7.19.0"],\
-            ["@types/react", "npm:18.0.21"],\
-            ["@types/react-dom", "npm:18.0.6"],\
-            ["@types/react-test-renderer", null],\
-            ["react", "npm:18.2.0"],\
-            ["react-dom", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:18.2.0"],\
-            ["react-error-boundary", "virtual:8479beccab98c1944f67059461f774e3df89687434c65e942e023f372cec10f3e6b06fa7424dc920f38c6261a065606273ac8c37d55ca920972fb33941bf369d#npm:3.1.4"],\
-            ["react-test-renderer", null]\
-          ],\
-          "packagePeers": [\
-            "@types/react-dom",\
-            "@types/react-test-renderer",\
-            "@types/react",\
-            "react-dom",\
-            "react-test-renderer",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@testing-library/user-event", [\
         ["npm:14.4.3", {\
           "packageLocation": "./.yarn/cache/@testing-library-user-event-npm-14.4.3-2d1a75355f-852c48ea6d.zip/node_modules/@testing-library/user-event/",\
@@ -4975,7 +4942,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@testing-library/dom", "npm:8.19.0"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:13.4.0"],\
-            ["@testing-library/react-hooks", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:8.0.1"],\
             ["@testing-library/user-event", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:14.4.3"],\
             ["@toast-ui/editor", "npm:3.2.1"],\
             ["@toast-ui/react-editor", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:3.2.2"],\
@@ -12691,29 +12657,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["loose-envify", "npm:1.4.0"],\
             ["react", "npm:18.2.0"],\
             ["scheduler", "npm:0.23.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/react",\
-            "react"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["react-error-boundary", [\
-        ["npm:3.1.4", {\
-          "packageLocation": "./.yarn/cache/react-error-boundary-npm-3.1.4-2310dba89e-f36270a5d7.zip/node_modules/react-error-boundary/",\
-          "packageDependencies": [\
-            ["react-error-boundary", "npm:3.1.4"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:8479beccab98c1944f67059461f774e3df89687434c65e942e023f372cec10f3e6b06fa7424dc920f38c6261a065606273ac8c37d55ca920972fb33941bf369d#npm:3.1.4", {\
-          "packageLocation": "./.yarn/__virtual__/react-error-boundary-virtual-44cd168a5d/0/cache/react-error-boundary-npm-3.1.4-2310dba89e-f36270a5d7.zip/node_modules/react-error-boundary/",\
-          "packageDependencies": [\
-            ["react-error-boundary", "virtual:8479beccab98c1944f67059461f774e3df89687434c65e942e023f372cec10f3e6b06fa7424dc920f38c6261a065606273ac8c37d55ca920972fb33941bf369d#npm:3.1.4"],\
-            ["@babel/runtime", "npm:7.19.0"],\
-            ["@types/react", "npm:18.0.21"],\
-            ["react", "npm:18.2.0"]\
           ],\
           "packagePeers": [\
             "@types/react",\
