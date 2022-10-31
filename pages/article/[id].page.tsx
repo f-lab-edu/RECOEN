@@ -9,8 +9,8 @@ import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import { getPlaiceholder } from 'plaiceholder';
 import { serialize } from 'next-mdx-remote/serialize';
 
-import { useSetRecoilState, useResetRecoilState, useRecoilValue } from 'recoil';
-import { articleStates, writeStates } from 'src/recoil/article';
+import { useSetRecoilState, useResetRecoilState } from 'recoil';
+import { detailPageStates } from 'src/recoil/article';
 
 import ArticleModel from 'pages/api/models/articleModel';
 import MDXDetail from 'src/components/mdx/MDXDetail';
@@ -19,6 +19,8 @@ import Image from 'next/image';
 
 import { ArticleElementsType } from 'src/types/article';
 
+import { useRouter } from 'next/router';
+
 interface IPrams extends ParsedUrlQuery {
   id: string;
 }
@@ -26,12 +28,12 @@ interface IPrams extends ParsedUrlQuery {
 const Article = ({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const setArticle = useSetRecoilState(articleStates);
-  const resetArticleState = useResetRecoilState(articleStates);
-  const writeState = useRecoilValue(writeStates);
+  const setDetailStates = useSetRecoilState(detailPageStates);
+  const resetDetailStates = useResetRecoilState(detailPageStates);
+  const router = useRouter();
 
   useEffect(() => {
-    const recoilArticle = {
+    const detailStates = {
       _id: article._id,
       title: article.title,
       content: article.content,
@@ -39,10 +41,16 @@ const Article = ({
       description: article.description,
       tags: article.tags,
     };
-    setArticle(recoilArticle);
+    setDetailStates(detailStates);
+  }, []);
 
+  useEffect(() => {
     return () => {
-      if (writeState !== 'update') resetArticleState();
+      router.beforePopState(() => {
+        console.log('recoil 비우기');
+        resetDetailStates();
+        return true;
+      });
     };
   }, []);
 
@@ -56,7 +64,7 @@ const Article = ({
         blurDataURL={article.blurDataURL}
         fill
       />
-      <MDXDetail content={article.content} />
+      <MDXDetail content={article.MDXcontent} />
     </>
   );
 };
@@ -103,9 +111,9 @@ export const getStaticProps: GetStaticProps = async (
     const article = JSON.parse(JSON.stringify(res));
 
     const { base64 } = await getPlaiceholder(article.imgUrl);
-    const content = await serialize(article.content);
+    const MDXcontent = await serialize(article.content);
 
-    const assembledArticle = { ...article, blurDataURL: base64, content };
+    const assembledArticle = { ...article, blurDataURL: base64, MDXcontent };
 
     return {
       props: {

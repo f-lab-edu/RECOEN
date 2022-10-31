@@ -12,6 +12,19 @@ export const articleStates = atom<ArticleElements>({
   },
 });
 
+export const detailPageStates = atom<ArticleElements>({
+  key: 'detailPageStates',
+  default: {
+    _id: '',
+    title: '',
+    content: '',
+    tags: [],
+    description: '',
+    imgUrl: undefined,
+    time: '2022.10.23 · 7min read',
+  },
+});
+
 export const writeStates = atom<'create' | 'update'>({
   key: 'writeStates',
   default: 'create',
