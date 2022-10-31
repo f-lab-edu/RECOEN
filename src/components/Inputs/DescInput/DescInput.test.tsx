@@ -1,14 +1,32 @@
 import { render, fireEvent, act } from '@testing-library/react';
 import DescInput from './DescInput';
 import { matchers } from '@emotion/jest';
+import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilRoot } from 'recoil';
+import { articleStates } from 'src/recoil/article';
 
 expect.extend(matchers);
 
 describe('DescInput', () => {
   const onChange = jest.fn();
   const renderDescInput = () => {
-    const initialProps = { onChange };
-    return render(<DescInput {...initialProps} />);
+    return render(
+      <RecoilRoot>
+        <RecoilObserver node={articleStates} onChange={onChange} />
+        <DescInput />
+      </RecoilRoot>,
+    );
+  };
+
+  const expectedState = (description: string) => {
+    return {
+      content: '',
+      description: description,
+      imgUrl: '',
+      tags: [],
+      title: '',
+      time: '2022.10.23 · 7min read',
+    };
   };
 
   describe('focus되면', () => {
@@ -29,7 +47,7 @@ describe('DescInput', () => {
 
       await fireEvent.change(descInput, { target: { value: '입력' } });
 
-      expect(onChange).toBeCalledWith('입력');
+      expect(onChange).toHaveBeenNthCalledWith(3, expectedState('입력'));
     });
   });
 
