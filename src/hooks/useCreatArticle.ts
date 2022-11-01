@@ -16,6 +16,11 @@ import { SaveArticleFunction } from 'src/types/article';
 
 import { createArticle, updateArticle } from 'src/apis';
 
+export const useArticleElements = () => {
+  const [articleElements, setArticleElements] = useRecoilState(articleStates);
+  return { articleElements, setArticleElements };
+};
+
 export const useTitle = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleState);
 
