@@ -61,20 +61,26 @@ export const useImageUrl = () => {
   return { imgUrl: articleElements.imgUrl, setUrl };
 };
 
-export const useSaveArticle = () => {
-  const articleElements = useRecoilValue(articleStates);
+const useHandleSuccess = () => {
   const resetArticle = useResetRecoilState(articleStates);
   const resetModalState = useResetRecoilState(openCreateModalStates);
   const router = useRouter();
 
+  return () => {
+    router.push('/article');
+    resetArticle();
+    resetModalState();
+  };
+};
+
+export const useSaveArticle = () => {
+  const articleElements = useRecoilValue(articleStates);
+  const handleSuccess = useHandleSuccess();
+
   const saveArticle = async (saveArticleFunction: SaveArticleFunction) => {
     const res = await saveArticleFunction(articleElements);
 
-    if (res.status == 200) {
-      router.push('/article');
-      resetArticle();
-      resetModalState();
-    }
+    if (res.status == 200) handleSuccess();
   };
 
   return saveArticle;
