@@ -12,14 +12,9 @@ import { createArticle, updateArticle } from 'src/apis';
 import { articleStates } from 'src/recoil/article';
 import { openCreateModalStates } from 'src/recoil/permit';
 
-import { SaveArticleFunction } from 'src/types/article';
+import { SaveArticleFunction, ArticleElements } from 'src/types/article';
 
 import { createArticle, updateArticle } from 'src/apis';
-
-export const useArticleElements = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleStates);
-  return { articleElements, setArticleElements };
-};
 
 export const useTitle = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleState);
@@ -150,26 +145,33 @@ export const useImageUrl = () => {
 const useHandleSuccess = () => {
   const resetArticle = useResetRecoilState(articleStates);
   const resetModalState = useResetRecoilState(openCreateModalStates);
+
   const router = useRouter();
 
   return () => {
     router.push('/article');
+
     resetArticle();
     resetModalState();
   };
 };
 
-export const useSaveArticle = () => {
-  const articleElements = useRecoilValue(articleStates);
-  const handleSuccess = useHandleSuccess();
-
-  const saveArticle = async (saveArticleFunction: SaveArticleFunction) => {
+const saveArticle =
+  (articleElements: ArticleElements) =>
+  (handleSuccess: () => void) =>
+  async (saveArticleFunction: SaveArticleFunction) => {
     const res = await saveArticleFunction(articleElements);
 
     if (res.status == 200) handleSuccess();
   };
 
-  return saveArticle;
+export const useSaveArticle = () => {
+  const articleElements = useRecoilValue(articleStates);
+  const handleSuccess = useHandleSuccess();
+
+  const handleSaveArticle = saveArticle(articleElements)(handleSuccess);
+
+  return handleSaveArticle;
 };
 
 export const useResolveSaveFunction = () => {
