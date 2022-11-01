@@ -3,13 +3,13 @@ import TextField from '@mui/material/TextField';
 import { useTitle } from 'src/hooks/useCreatArticle';
 
 const TitleInput = () => {
-  const { articleElements, setArticleTitle } = useTitle();
+  const { title, setArticleTitle } = useTitle();
 
   return (
     <TextField
       data-testid="titleInput"
       onChange={setArticleTitle}
-      value={articleElements.title}
+      value={title}
       label="제목을 입력해주세요"
       variant="outlined"
       fullWidth

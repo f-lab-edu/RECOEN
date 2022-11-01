@@ -6,7 +6,7 @@ describe('useTitle', () => {
   describe('초기값은', () => {
     it('빈 값이다', () => {
       const { result } = renderHook(() => useTitle(), { wrapper: RecoilRoot });
-      expect(result.current.articleElements.title).toBe('');
+      expect(result.current.title).toBe('');
     });
   });
 
@@ -23,7 +23,7 @@ describe('useTitle', () => {
         } as React.ChangeEvent<HTMLInputElement>);
       });
 
-      expect(result.current.articleElements.title).toBe('제목');
+      expect(result.current.title).toBe('제목');
     });
   });
 });
