@@ -18,3 +18,8 @@ export const createArticle = async (data: ArticleElements) => {
 export const updateArticle = async (data: ArticleElements) => {
   return await axiosInstance.put(ARTICLE_URI, data);
 };
+
+export const deleteArticle = async (id: string) => {
+  const config = { data: { id } };
+  return await axiosInstance.delete(ARTICLE_URI, config);
+};
