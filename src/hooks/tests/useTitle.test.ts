@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useTitle } from '../useCreatArticle';
+import { useTitle } from '../useHandleArticle';
 import { RecoilRoot } from 'recoil';
 
 describe('useTitle', () => {

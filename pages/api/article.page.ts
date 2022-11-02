@@ -53,7 +53,6 @@ handler
   .delete(async (req, res) => {
     try {
       console.log('DELETING ARTICLE');
-      console.log('id : ', req.body.id);
       const id = req.body.id;
       const article = await ArticleModel.findByIdAndDelete(id);
 

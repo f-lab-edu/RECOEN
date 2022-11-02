@@ -1,7 +1,7 @@
 import React, { useState, CompositionEvent } from 'react';
 import styled from '@emotion/styled';
 import Chip from 'src/components/ui/Chip/Chip';
-import { useTags } from 'src/hooks/useCreatArticle';
+import { useTags } from 'src/hooks/useHandleArticle';
 
 const TagInput = () => {
   const [value, setValue] = useState('');

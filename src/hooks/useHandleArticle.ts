@@ -14,7 +14,7 @@ import { openCreateModalStates } from 'src/recoil/permit';
 
 import { SaveArticleFunction, ArticleElements } from 'src/types/article';
 
-import { createArticle, updateArticle } from 'src/apis';
+import { createArticle, updateArticle, deleteArticle } from 'src/apis';
 
 export const useTitle = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleState);
@@ -184,4 +184,18 @@ export const useResolveSaveFunction = () => {
   };
 
   return handleSaveArticle;
+};
+
+export const useHandleDelete = () => {
+  const articleElements = useRecoilValue(articleStates);
+  const router = useRouter();
+
+  const handleDelete = async () => {
+    if (!articleElements._id) return;
+
+    await deleteArticle(articleElements._id);
+    return router.push('/article');
+  };
+
+  return handleDelete;
 };

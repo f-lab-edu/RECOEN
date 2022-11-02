@@ -8,21 +8,17 @@ import Chip from 'src/components/ui/Chip/Chip';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { writeStates, detailPageState } from 'src/recoil/article';
 
-import { deleteArticle } from 'src/apis/articleApis';
+import { useHandleDelete } from 'src/hooks/useHandleArticle';
 
 const DetailTitle = () => {
   const router = useRouter();
   const article = useRecoilValue(detailPageState);
   const setWriteState = useSetRecoilState(writeStates);
+  const handleDelete = useHandleDelete();
 
   const handleEdit = () => {
     setWriteState('update');
     router.push(`/write/${article._id}`);
-  };
-
-  const handleDelete = () => {
-    if (!article._id) return;
-    deleteArticle(article._id);
   };
 
   return (

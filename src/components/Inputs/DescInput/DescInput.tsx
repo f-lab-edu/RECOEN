@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { useDescription } from 'src/hooks/useCreatArticle';
+import { useDescription } from 'src/hooks/useHandleArticle';
 
 const DescInput = () => {
   const [currentLength, setCurrentLength] = useState<number>(0);

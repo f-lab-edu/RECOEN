@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useImageUrl } from '../useCreatArticle';
+import { useImageUrl } from '../useHandleArticle';
 import { RecoilRoot } from 'recoil';
 
 describe('useImageUrl', () => {

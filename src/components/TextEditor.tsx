@@ -3,7 +3,7 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { Editor } from '@toast-ui/react-editor';
 import { useS3Upload } from 'next-s3-upload';
-import { useContent } from 'src/hooks/useCreatArticle';
+import { useContent } from 'src/hooks/useHandleArticle';
 
 const TextEditor = () => {
   const editorRef = useRef<Editor>();

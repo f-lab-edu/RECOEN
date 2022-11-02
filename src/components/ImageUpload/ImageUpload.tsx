@@ -2,7 +2,7 @@
 import React from 'react';
 import { useS3Upload } from 'next-s3-upload';
 import styled from '@emotion/styled';
-import { useImageUrl } from 'src/hooks/useCreatArticle';
+import { useImageUrl } from 'src/hooks/useHandleArticle';
 
 const ImageUpload = () => {
   const { FileInput, openFileDialog, uploadToS3 } = useS3Upload();

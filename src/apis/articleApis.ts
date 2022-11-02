@@ -1,6 +1,6 @@
 import { axiosInstance } from './index';
 import { ArticleElements } from 'src/types/article';
-const ARTICLE_URI = '/api/article';
+export const ARTICLE_URI = '/api/article';
 const ARTICLES_URI = '/api/articles';
 
 export const getArticle = async (id: string) => {
@@ -17,9 +17,4 @@ export const createArticle = async (data: ArticleElements) => {
 
 export const updateArticle = async (data: ArticleElements) => {
   return await axiosInstance.put(ARTICLE_URI, data);
-};
-
-export const deleteArticle = async (id: string) => {
-  const config = { data: { id } };
-  return await axiosInstance.delete(ARTICLE_URI, config);
 };

@@ -10,7 +10,7 @@ import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
-import { useResolveSaveFunction } from 'src/hooks/useCreatArticle';
+import { useResolveSaveFunction } from 'src/hooks/useHandleArticle';
 
 const CreateArticleModal = () => {
   const setClose = useSetRecoilState(openCreateModalStates);
