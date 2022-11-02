@@ -187,13 +187,13 @@ export const useResolveSaveFunction = () => {
 };
 
 export const useHandleDelete = () => {
-  const articleElements = useRecoilValue(articleStates);
+  const detailArticle = useRecoilValue(detailPageStates);
   const router = useRouter();
 
   const handleDelete = async () => {
-    if (!articleElements._id) return;
+    if (!detailArticle._id) return;
 
-    await deleteArticle(articleElements._id);
+    await deleteArticle(detailArticle._id);
     return router.push('/article');
   };
 
