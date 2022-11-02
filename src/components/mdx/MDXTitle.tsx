@@ -8,14 +8,21 @@ import Chip from 'src/components/ui/Chip/Chip';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { writeStates, detailPageState } from 'src/recoil/article';
 
+import { deleteArticle } from 'src/apis/articleApis';
+
 const DetailTitle = () => {
   const router = useRouter();
   const article = useRecoilValue(detailPageState);
   const setWriteState = useSetRecoilState(writeStates);
 
-  const onClickEdit = () => {
+  const handleEdit = () => {
     setWriteState('update');
     router.push(`/write/${article._id}`);
+  };
+
+  const handleDelete = () => {
+    if (!article._id) return;
+    deleteArticle(article._id);
   };
 
   return (
@@ -29,14 +36,9 @@ const DetailTitle = () => {
       <Wrapper>
         <Date>{article.time}</Date>
         <ButtonsWrapper>
-          <Button label="수정" onClick={onClickEdit} />
+          <Button label="수정" onClick={handleEdit} />
           ·
-          <Button
-            label="삭제"
-            onClick={() => {
-              console.log('삭제버튼');
-            }}
-          />
+          <Button label="삭제" onClick={handleDelete} />
         </ButtonsWrapper>
       </Wrapper>
     </Container>
