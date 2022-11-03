@@ -68,7 +68,7 @@ const writePageStyle = 'padding-top: 30px; width : 1200px';
 
 const Container = styled.div<StyleProps>`
   padding-top: 90px;
-
+  margin: 0 auto;
   ${(props) => {
     if (props.location == '/write') return writePageStyle;
     if (props.location == '/article/[id]') return 'padding: 0px';

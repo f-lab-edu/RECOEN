@@ -28,13 +28,13 @@ const StyledButton = styled.button<StyledProps>`
   cursor: pointer;
   padding: 10px 22px;
   border-radius: 12px;
-  color: #4a4c55;
+  color: ${theme.color.mainText};
   border: none;
   background: transparent;
   display: flex;
   align-items: center;
   :hover {
-    color: #9599a0;
+    color: ${theme.color.white};
   }
   :disabled {
     cursor: not-allowed;
