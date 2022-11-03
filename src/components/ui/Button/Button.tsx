@@ -26,8 +26,8 @@ interface StyledProps {
 const StyledButton = styled.button<StyledProps>`
   font-size: 14px;
   cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 16px;
+  padding: 10px 22px;
+  border-radius: 12px;
   color: #4a4c55;
   border: none;
   background: transparent;
@@ -45,7 +45,7 @@ const StyledButton = styled.button<StyledProps>`
   color: #ffffff;
   background: ${theme.color.primary};
   :hover{
-    background: #2B31C7;
+    background: ${theme.color.secondary};
     color: #ffffff;
   }
   :disabled {
