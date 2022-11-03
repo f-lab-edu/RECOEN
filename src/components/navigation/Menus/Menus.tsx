@@ -5,8 +5,12 @@ import { useRouter } from 'next/router';
 import Button from 'src/components/ui/Button/Button';
 import Link from 'next/link';
 
+import { useSession, signIn, signOut } from 'next-auth/react';
+
 const Menus = () => {
   const router = useRouter();
+  const { data: session } = useSession();
+
   const items = [
     {
       id: 'article',
@@ -57,10 +61,16 @@ const Menus = () => {
       </Wrapper>
 
       <ButtonWrapper>
-        <Button label="로그인" />
-        <Link href="/write" title="작성하기 페이지입니다.">
-          <Button label="+ 글쓰기" primary />
-        </Link>
+        {session ? (
+          <>
+            <Button label="로그아웃" onClick={signOut} />
+            <Link href="/write" title="작성하기 페이지입니다.">
+              <Button label="+ 글쓰기" primary />
+            </Link>
+          </>
+        ) : (
+          <Button label="로그인" onClick={signIn} primary />
+        )}
       </ButtonWrapper>
     </Nav>
   );

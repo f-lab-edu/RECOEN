@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
+import * as gtag from 'src/lib/gtag';
+import { SessionProvider } from 'next-auth/react';
 
-import styled from '@emotion/styled';
 import { Global } from '@emotion/react';
 import { globalStyles } from 'src/style';
+import styled from '@emotion/styled';
 
-import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
 
 import NavBar from 'src/components/navigation/NavBar/NavBar';
@@ -13,7 +16,7 @@ import Head from 'src/components/Head';
 
 import * as gtag from 'src/lib/gtag';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
@@ -39,6 +42,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Container>
         <div id="modal_root"></div>
       </RecoilRoot>
+      <SessionProvider session={session}>
+      </SessionProvider>
     </>
   );
 }
