@@ -10,7 +10,7 @@ import { getPlaiceholder } from 'plaiceholder';
 import { serialize } from 'next-mdx-remote/serialize';
 
 import { useSetRecoilState, useResetRecoilState } from 'recoil';
-import { detailPageStates } from 'src/recoil/article';
+import { detailPageState } from 'src/recoil/article';
 
 import ArticleModel from 'pages/api/models/articleModel';
 import MDXDetail from 'src/components/mdx/MDXDetail';
@@ -28,8 +28,8 @@ interface IPrams extends ParsedUrlQuery {
 const Article = ({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const setDetailStates = useSetRecoilState(detailPageStates);
-  const resetDetailStates = useResetRecoilState(detailPageStates);
+  const setDetailStates = useSetRecoilState(detailPageState);
+  const resetDetailStates = useResetRecoilState(detailPageState);
   const router = useRouter();
 
   useEffect(() => {

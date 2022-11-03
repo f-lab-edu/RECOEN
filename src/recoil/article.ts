@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 import { ArticleElements } from 'src/types/article';
-export const articleStates = atom<ArticleElements>({
-  key: 'articleStates',
+export const articleState = atom<ArticleElements>({
+  key: 'articleState',
   default: {
     title: '',
     content: '',
@@ -12,8 +12,8 @@ export const articleStates = atom<ArticleElements>({
   },
 });
 
-export const detailPageStates = atom<ArticleElements>({
-  key: 'detailPageStates',
+export const detailPageState = atom<ArticleElements>({
+  key: 'detailPageState',
   default: {
     _id: '',
     title: '',

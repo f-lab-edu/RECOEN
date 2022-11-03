@@ -2,7 +2,7 @@ import React from 'react';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 
-import { articleStates, writeStates } from 'src/recoil/article';
+import { articleState, writeStates } from 'src/recoil/article';
 import { openCreateModalStates } from 'src/recoil/permit';
 
 import { SaveArticleFunction, ArticleElements } from 'src/types/article';
@@ -10,7 +10,7 @@ import { SaveArticleFunction, ArticleElements } from 'src/types/article';
 import { createArticle, updateArticle } from 'src/apis';
 
 export const useTitle = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleStates);
+  const [articleElements, setArticleElements] = useRecoilState(articleState);
 
   const setArticleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setArticleElements({ ...articleElements, title: event.target.value });
@@ -20,7 +20,7 @@ export const useTitle = () => {
 };
 
 export const useContent = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleStates);
+  const [articleElements, setArticleElements] = useRecoilState(articleState);
 
   const setMarkDown = (markdown: string) => {
     setArticleElements({ ...articleElements, content: markdown });
@@ -30,7 +30,7 @@ export const useContent = () => {
 };
 
 export const useTags = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleStates);
+  const [articleElements, setArticleElements] = useRecoilState(articleState);
   const setTags = (tags: string[]) => {
     setArticleElements({ ...articleElements, tags });
   };
@@ -38,7 +38,7 @@ export const useTags = () => {
 };
 
 export const useDescription = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleStates);
+  const [articleElements, setArticleElements] = useRecoilState(articleState);
 
   const setDesc = (description: string) => {
     setArticleElements({ ...articleElements, description });
@@ -47,7 +47,7 @@ export const useDescription = () => {
 };
 
 export const useImageUrl = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleStates);
+  const [articleElements, setArticleElements] = useRecoilState(articleState);
 
   const setUrl = (imgUrl: string) => {
     setArticleElements({ ...articleElements, imgUrl });
@@ -57,7 +57,7 @@ export const useImageUrl = () => {
 };
 
 const useHandleSuccess = () => {
-  const resetArticle = useResetRecoilState(articleStates);
+  const resetArticle = useResetRecoilState(articleState);
   const resetModalState = useResetRecoilState(openCreateModalStates);
 
   const router = useRouter();
@@ -80,7 +80,7 @@ const saveArticle =
   };
 
 export const useSaveArticle = () => {
-  const articleElements = useRecoilValue(articleStates);
+  const articleElements = useRecoilValue(articleState);
   const handleSuccess = useHandleSuccess();
 
   const handleSaveArticle = saveArticle(articleElements)(handleSuccess);

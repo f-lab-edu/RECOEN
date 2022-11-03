@@ -3,7 +3,7 @@ import TagInput from './TagInput';
 import { matchers } from '@emotion/jest';
 import RecoilObserver from 'src/components/RecoilObserver';
 import { RecoilRoot } from 'recoil';
-import { articleStates } from 'src/recoil/article';
+import { articleState } from 'src/recoil/article';
 
 expect.extend(matchers);
 
@@ -12,7 +12,7 @@ describe('TagInput', () => {
   const renderTagInput = () =>
     render(
       <RecoilRoot>
-        <RecoilObserver node={articleStates} onChange={onChange} />
+        <RecoilObserver node={articleState} onChange={onChange} />
         <TagInput />
       </RecoilRoot>,
     );

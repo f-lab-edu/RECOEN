@@ -3,14 +3,14 @@ import ImageUpload from './ImageUpload';
 
 import RecoilObserver from 'src/components/RecoilObserver';
 import { RecoilRoot } from 'recoil';
-import { articleStates } from 'src/recoil/article';
+import { articleState } from 'src/recoil/article';
 
 describe('ImageUpload', () => {
   const onChange = jest.fn();
   const renderImageUpload = () =>
     render(
       <RecoilRoot>
-        <RecoilObserver node={articleStates} onChange={onChange} />
+        <RecoilObserver node={articleState} onChange={onChange} />
         <ImageUpload />
       </RecoilRoot>,
     );

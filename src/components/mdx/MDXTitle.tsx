@@ -6,11 +6,11 @@ import Button from 'src/components/ui/Button/Button';
 import Chip from 'src/components/ui/Chip/Chip';
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { writeStates, detailPageStates } from 'src/recoil/article';
+import { writeStates, detailPageState } from 'src/recoil/article';
 
 const DetailTitle = () => {
   const router = useRouter();
-  const article = useRecoilValue(detailPageStates);
+  const article = useRecoilValue(detailPageState);
   const setWriteState = useSetRecoilState(writeStates);
 
   const onClickEdit = () => {

@@ -5,15 +5,15 @@ import { ParsedUrlQuery } from 'querystring';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 
 import { useSetRecoilState, useResetRecoilState } from 'recoil';
-import { articleStates } from 'src/recoil/article';
+import { articleState } from 'src/recoil/article';
 
 import ArticleModel from 'pages/api/models/articleModel';
 
 const UpdatePage = ({
   article,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const setArticle = useSetRecoilState(articleStates);
-  const resetDetailStates = useResetRecoilState(articleStates);
+  const setArticle = useSetRecoilState(articleState);
+  const resetDetailStates = useResetRecoilState(articleState);
 
   useEffect(() => {
     const articleState = {
