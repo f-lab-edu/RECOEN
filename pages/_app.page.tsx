@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import styled from '@emotion/styled';
 import { Global } from '@emotion/react';
-import { globalStyles } from 'src/shared';
+import { globalStyles } from 'src/style';
 import NavBar from 'src/components/navigation/NavBar/NavBar';
 import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
