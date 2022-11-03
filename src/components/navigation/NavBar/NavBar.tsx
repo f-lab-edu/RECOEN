@@ -1,7 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+
 import styled from '@emotion/styled';
+import { theme } from 'src/style';
+
 import Menus from '../Menus/Menus';
 import WritePageMenus from '../WritePageMenus/WritePageMenus';
 
@@ -15,8 +18,19 @@ const NavBar = () => {
     return 'position:fixed';
   };
 
+  const resolveBackground = () => {
+    const pathname = router.pathname;
+    if (pathname == '/article/[id]')
+      return `background: ${theme.color.bluredBlack};`;
+    return null;
+  };
+
   return (
-    <FixedContainer data-testid="fixedContainer" position={resolvePosition()}>
+    <FixedContainer
+      data-testid="fixedContainer"
+      position={resolvePosition()}
+      background={resolveBackground()}
+    >
       <Container>
         <Link href="/">
           <Title>recoen.</Title>
@@ -31,11 +45,13 @@ export default NavBar;
 
 interface StyleProps {
   position: string;
+  background: string | null;
 }
 
 const FixedContainer = styled.div<StyleProps>`
-  width: 100%;
   ${({ position }) => position};
+  ${({ background }) => background};
+  width: 100%;
   z-index: 99;
   border-bottom: 1px solid rgba(74, 76, 85, 0.3);
 `;

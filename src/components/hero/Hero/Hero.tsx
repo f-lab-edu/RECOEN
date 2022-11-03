@@ -23,6 +23,7 @@ export default Hero;
 const Layout = styled.div`
   width: 1200px;
   margin: 0px auto;
+  margin-top: 120px;
 `;
 
 const Hr = styled.hr`
