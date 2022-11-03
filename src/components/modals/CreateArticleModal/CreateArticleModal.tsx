@@ -27,7 +27,7 @@ const CreateArticleModal = () => {
           <H2>글 설정</H2>
           <ButtonWrapper>
             <Button label="취소" onClick={handleModalClose} />
-            <Button label="저장" primary onClick={handleOnClickSave} />
+            <Button label="저장" primary onClick={handleSaveArticle} />
           </ButtonWrapper>
         </Wrapper>
         <Guide>대표이미지</Guide>
