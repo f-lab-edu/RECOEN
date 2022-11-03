@@ -37,23 +37,22 @@ const FixedContainer = styled.div<StyleProps>`
   width: 100%;
   ${({ position }) => position};
   z-index: 99;
+  border-bottom: 1px solid rgba(74, 76, 85, 0.3);
 `;
 
 const Container = styled.header`
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  width: 100%;
-  height: 80px;
-  padding: 0 50px;
+  width: 1200px;
+  height: 70px;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  margin: 0 auto;
 `;
 
 const Title = styled.span`
-  font-size: 28px;
+  font-size: 25px;
   font-weight: 600;
   color: #ffffff;
   cursor: pointer;

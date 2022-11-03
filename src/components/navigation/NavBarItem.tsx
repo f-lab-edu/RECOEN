@@ -75,7 +75,7 @@ const Item = styled.a<StyleProps>`
       border: 1px solid #3941ff;
       width: ${({ barWidth }) => barWidth}px;
       position: absolute;
-      bottom: -10px;
+      bottom: -26px;
       left: 0;
       animation: ${entrance} 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
     }
