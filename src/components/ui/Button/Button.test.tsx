@@ -1,4 +1,4 @@
-import { render, fireEvent, screen, waitFor } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import Button, { Props } from './Button';
 import { matchers } from '@emotion/jest';
 
@@ -32,7 +32,7 @@ describe('Button', () => {
     describe('가만히 있으면', () => {
       it('폰트색은 #4a4c55이다', () => {
         const { getByText } = renderButton(buttonProps('normal')('active'));
-        expect(getByText('버튼')).toHaveStyleRule('color', '#4a4c55');
+        expect(getByText('버튼')).toHaveStyleRule('color', '#9599a0');
       });
     });
 
@@ -61,9 +61,9 @@ describe('Button', () => {
         expect(getByText('버튼')).toHaveStyle('color : #ffffff');
       });
 
-      it('배경색은 #3941FF이다', () => {
+      it('배경색은 #5C62F3이다', () => {
         const { getByText } = renderButton(buttonProps('primary')('active'));
-        expect(getByText('버튼')).toHaveStyle('background : #3941FF');
+        expect(getByText('버튼')).toHaveStyle('background : #5C62F3');
       });
     });
 

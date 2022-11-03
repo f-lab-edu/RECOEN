@@ -41,49 +41,46 @@ const Menus = () => {
   ];
 
   return (
-    <>
-      <Nav>
-        <Wrapper>
-          {items.map((item) => {
-            return (
-              <NavBarItem
-                key={item.id}
-                title={item.title}
-                name={item.name}
-                path={item.path}
-                isActive={router.pathname.includes(item.path)}
-              />
-            );
-          })}
-        </Wrapper>
-      </Nav>
+    <Nav>
+      <Wrapper>
+        {items.map((item) => {
+          return (
+            <NavBarItem
+              key={item.id}
+              title={item.title}
+              name={item.name}
+              path={item.path}
+              isActive={router.pathname.includes(item.path)}
+            />
+          );
+        })}
+      </Wrapper>
+
       <ButtonWrapper>
         <Button label="로그인" />
         <Link href="/write" title="작성하기 페이지입니다.">
           <Button label="+ 글쓰기" primary />
         </Link>
       </ButtonWrapper>
-    </>
+    </Nav>
   );
 };
 
 export default Menus;
 
 const Nav = styled.nav`
-  position: absolute;
-  width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const Wrapper = styled.ul`
-  width: 100%;
   display: flex;
   gap: 40px;
   list-style: none;
-  padding-left: 0;
+  padding-left: 70px;
 `;
 
 const ButtonWrapper = styled.div`

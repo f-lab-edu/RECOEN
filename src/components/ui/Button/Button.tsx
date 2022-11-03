@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { theme } from 'src/style';
 
 export interface Props {
   label: string;
@@ -23,15 +24,17 @@ interface StyledProps {
 }
 
 const StyledButton = styled.button<StyledProps>`
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
-  padding: 10px 12px;
-  border-radius: 2px;
-  color: #4a4c55;
+  padding: 10px 22px;
+  border-radius: 12px;
+  color: ${theme.color.mainText};
   border: none;
   background: transparent;
+  display: flex;
+  align-items: center;
   :hover {
-    color: #9599a0;
+    color: ${theme.color.white};
   }
   :disabled {
     cursor: not-allowed;
@@ -40,13 +43,13 @@ const StyledButton = styled.button<StyledProps>`
     primary &&
     `
   color: #ffffff;
-  background: #3941FF;
+  background: ${theme.color.primary};
   :hover{
-    background: #2B31C7;
+    background: ${theme.color.secondary};
     color: #ffffff;
   }
   :disabled {
-    background: #4a4c55;
+    background: ${theme.color.disabled};
     color:#9599a0;
   }
   `}

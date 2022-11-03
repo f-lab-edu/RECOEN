@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import Link from 'next/link';
 
+import { theme } from 'src/style';
+
 interface Props {
   isActive: boolean;
   path: string;
@@ -69,13 +71,13 @@ const Item = styled.a<StyleProps>`
   cursor: pointer;
   position: relative;
   :hover {
-    color: #3941ff;
+    color: ${theme.color.primary};
     ::after {
       content: '';
-      border: 1px solid #3941ff;
+      border: 1px solid ${theme.color.primary};
       width: ${({ barWidth }) => barWidth}px;
       position: absolute;
-      bottom: -10px;
+      bottom: -26px;
       left: 0;
       animation: ${entrance} 0.4s cubic-bezier(0.23, 1, 0.32, 1) both;
     }

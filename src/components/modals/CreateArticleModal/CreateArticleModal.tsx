@@ -51,13 +51,13 @@ const CreateArticleModal = ({ articleElements }: Props) => {
   return (
     <Modal handleOpenModal={handleModalClose}>
       <>
-        <ButtonWrapper data-testid="createArticleModal">
+        <Wrapper data-testid="createArticleModal">
           <H2>글 설정</H2>
-          <div>
+          <ButtonWrapper>
             <Button label="취소" onClick={handleModalClose} />
             <Button label="저장" primary onClick={handleOnClickSave} />
-          </div>
-        </ButtonWrapper>
+          </ButtonWrapper>
+        </Wrapper>
         <Guide>대표이미지</Guide>
         <ImageUpload setImgUrl={setImgUrl} />
         <Guide>태그(최대 3개)</Guide>
@@ -79,7 +79,7 @@ const Guide = styled.h3`
   width: 350px;
 `;
 
-const ButtonWrapper = styled.div`
+const Wrapper = styled.div`
   width: 350px;
   display: flex;
   justify-content: space-between;
@@ -88,6 +88,10 @@ const ButtonWrapper = styled.div`
   padding: 24px 42px;
   border-bottom: 1px solid #494c56;
   margin-bottom: 15px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
 `;
 
 const H2 = styled.h2`
