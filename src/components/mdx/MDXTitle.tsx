@@ -1,32 +1,35 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+
 import styled from '@emotion/styled';
 import Button from 'src/components/ui/Button/Button';
 import Chip from 'src/components/ui/Chip/Chip';
 
-interface Props {
-  title: string;
-  time: string;
-  tags: string[];
-}
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { writeStates, detailPageState } from 'src/recoil/article';
 
-const DetailTitle: React.FC<Props> = ({ title, time, tags }) => {
+const DetailTitle = () => {
+  const router = useRouter();
+  const article = useRecoilValue(detailPageState);
+  const setWriteState = useSetRecoilState(writeStates);
+
+  const onClickEdit = () => {
+    setWriteState('update');
+    router.push(`/write/${article._id}`);
+  };
+
   return (
     <Container>
       <ChipWrapper>
-        {tags.map((tag) => {
+        {article.tags.map((tag) => {
           return <Chip key={tag} label={tag} readOnly />;
         })}
       </ChipWrapper>
-      <Title>{title}</Title>
+      <Title>{article.title}</Title>
       <Wrapper>
-        <Date>{time}</Date>
+        <Date>{article.time}</Date>
         <ButtonsWrapper>
-          <Button
-            label="수정"
-            onClick={() => {
-              console.log('수정버튼');
-            }}
-          />
+          <Button label="수정" onClick={onClickEdit} />
           ·
           <Button
             label="삭제"

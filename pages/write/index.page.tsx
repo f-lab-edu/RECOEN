@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import React from 'react';
+
 import { useRecoilValue } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
+
 import { TextEditor } from 'src/components';
 
 import Category from 'src/components/Category';
@@ -9,20 +11,17 @@ import TitleInput from 'src/components/Inputs/TitleInput';
 import styled from '@emotion/styled';
 
 const WritePage = () => {
-  const [title, setTitle] = useState<string>('');
-  const [content, setContent] = useState<string>('');
   const isOpen = useRecoilValue(openCreateModalStates);
-  const articleElements = { title, content };
 
   return (
     <>
-      {isOpen && <CreateArticleModal articleElements={articleElements} />}
+      {isOpen && <CreateArticleModal />}
       <TitleWrapper>
         <Category />
-        <TitleInput onChange={setTitle} />
+        <TitleInput />
       </TitleWrapper>
 
-      <TextEditor onChange={setContent} />
+      <TextEditor />
     </>
   );
 };

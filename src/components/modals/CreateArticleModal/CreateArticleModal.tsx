@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { createArticle } from 'src/apis';
+import React from 'react';
 import styled from '@emotion/styled';
+
 import { useSetRecoilState } from 'recoil';
 import { openCreateModalStates } from 'src/recoil/permit';
-import { useRouter } from 'next/router';
 
 import Modal from '../Modal/Modal';
 import ImageUpload from 'src/components/ImageUpload/ImageUpload';
@@ -11,41 +10,14 @@ import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
-interface Props {
-  articleElements: {
-    title?: string;
-    content?: string;
-  };
-}
+import { useResolveSaveFunction } from 'src/hooks/useCreatArticle';
 
-const CreateArticleModal = ({ articleElements }: Props) => {
-  const [imgUrl, setImgUrl] = useState<string>();
-  const [description, setDescription] = useState<string>('');
-  const [tags, setTags] = useState<string[]>([]);
+const CreateArticleModal = () => {
   const setClose = useSetRecoilState(openCreateModalStates);
-  const router = useRouter();
+  const handleSaveArticle = useResolveSaveFunction();
 
   const handleModalClose = () => {
     setClose(false);
-  };
-
-  const checkValidation = () => {
-    if (!articleElements.title) return false;
-    if (!articleElements.content) return false;
-    if (!imgUrl) return false;
-    if (description == '') return false;
-    return true;
-  };
-
-  const handleOnClickSave = async () => {
-    if (!checkValidation()) return;
-    const res = await createArticle({
-      ...articleElements,
-      imgUrl,
-      description,
-      tags,
-    });
-    if (res.status == 200) router.push('/article');
   };
 
   return (
@@ -55,15 +27,15 @@ const CreateArticleModal = ({ articleElements }: Props) => {
           <H2>글 설정</H2>
           <ButtonWrapper>
             <Button label="취소" onClick={handleModalClose} />
-            <Button label="저장" primary onClick={handleOnClickSave} />
+            <Button label="저장" primary onClick={handleSaveArticle} />
           </ButtonWrapper>
         </Wrapper>
         <Guide>대표이미지</Guide>
-        <ImageUpload setImgUrl={setImgUrl} />
+        <ImageUpload />
         <Guide>태그(최대 3개)</Guide>
-        <TagInput values={tags!} onChange={setTags} />
+        <TagInput />
         <Guide>설명글</Guide>
-        <DescInput onChange={setDescription} />
+        <DescInput />
       </>
     </Modal>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   GetStaticProps,
   GetStaticPropsContext,
@@ -9,12 +9,18 @@ import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import { getPlaiceholder } from 'plaiceholder';
 import { serialize } from 'next-mdx-remote/serialize';
 
+import { useSetRecoilState, useResetRecoilState } from 'recoil';
+import { detailPageState } from 'src/recoil/article';
+
 import ArticleModel from 'pages/api/models/articleModel';
 import MDXDetail from 'src/components/mdx/MDXDetail';
 import Head from 'src/components/Head';
 import Image from 'next/image';
 
 import { ArticleElementsType } from 'src/types/article';
+
+import { useRouter } from 'next/router';
+
 interface IPrams extends ParsedUrlQuery {
   id: string;
 }
@@ -22,6 +28,31 @@ interface IPrams extends ParsedUrlQuery {
 const Article = ({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const setDetailStates = useSetRecoilState(detailPageState);
+  const resetDetailStates = useResetRecoilState(detailPageState);
+  const router = useRouter();
+
+  useEffect(() => {
+    const detailStates = {
+      _id: article._id,
+      title: article.title,
+      content: article.content,
+      imgUrl: article.imgUrl,
+      description: article.description,
+      tags: article.tags,
+    };
+    setDetailStates(detailStates);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      router.beforePopState(() => {
+        resetDetailStates();
+        return true;
+      });
+    };
+  }, []);
+
   return (
     <>
       <Head article={article} />
@@ -32,12 +63,7 @@ const Article = ({
         blurDataURL={article.blurDataURL}
         fill
       />
-      <MDXDetail
-        title={article.title}
-        content={article.content}
-        tags={article.tags}
-        time="2022.10.23 · 7min read"
-      />
+      <MDXDetail content={article.MDXcontent} />
     </>
   );
 };
@@ -57,7 +83,7 @@ export const getStaticPaths = async () => {
     const articles = JSON.parse(JSON.stringify(res));
 
     const paths = articles.map((article: ArticleElementsType) => {
-      return { params: { id: article._id.toString() } };
+      if (article._id) return { params: { id: article._id.toString() } };
     });
 
     return {
@@ -84,9 +110,9 @@ export const getStaticProps: GetStaticProps = async (
     const article = JSON.parse(JSON.stringify(res));
 
     const { base64 } = await getPlaiceholder(article.imgUrl);
-    const content = await serialize(article.content);
+    const MDXcontent = await serialize(article.content);
 
-    const assembledArticle = { ...article, blurDataURL: base64, content };
+    const assembledArticle = { ...article, blurDataURL: base64, MDXcontent };
 
     return {
       props: {

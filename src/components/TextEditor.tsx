@@ -1,21 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
-import { Editor, EditorProps } from '@toast-ui/react-editor';
+import { Editor } from '@toast-ui/react-editor';
 import { useS3Upload } from 'next-s3-upload';
+import { useContent } from 'src/hooks/useCreatArticle';
 
-export interface TextEditorProps extends EditorProps {
-  onChange(value: string): void;
-}
-
-const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
+const TextEditor = () => {
   const editorRef = useRef<Editor>();
   const { uploadToS3 } = useS3Upload();
+  const { content, setMarkDown } = useContent();
 
   const handleChange = () => {
     if (!editorRef.current) return;
     const markDownData = editorRef.current.getInstance().getMarkdown();
-    onChange(markDownData);
+    setMarkDown(markDownData);
   };
 
   const uploadImage = async (
@@ -25,6 +23,11 @@ const TextEditor: React.FC<TextEditorProps> = ({ onChange }) => {
     const { url } = await uploadToS3(blob);
     callback(url, 'alt text');
   };
+
+  useEffect(() => {
+    if (!editorRef.current) return;
+    editorRef.current.getInstance().setMarkdown(content);
+  }, [content]);
 
   return (
     <Editor

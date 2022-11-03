@@ -19,9 +19,32 @@ handler
   })
   .post(async (req, res) => {
     try {
-      console.log('CREATING DOCUMENT');
+      console.log('CREATING ARTICLE');
       const article = await ArticleModel.create(req.body);
-      console.log('CREATED DOCUMENT');
+      console.log('CREATED ARTICLE');
+      res.status(200).json({ article });
+    } catch (err) {
+      console.log(err);
+    }
+  })
+  .put(async (req, res) => {
+    try {
+      console.log('UPDATING ARTICLE');
+      const body = req.body;
+      const id = req.body._id;
+      const updateContent = {
+        title: body.title,
+        content: body.content,
+        imgUrl: body.imgUrl,
+        description: body.description,
+        tags: body.tags,
+      };
+
+      const article = await ArticleModel.findOneAndUpdate(
+        { _id: id },
+        updateContent,
+      );
+      console.log('UPDATED ARTICLE');
       res.status(200).json({ article });
     } catch (err) {
       console.log(err);
