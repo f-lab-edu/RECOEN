@@ -1,11 +1,20 @@
 import type { NextPage, GetStaticProps, InferGetStaticPropsType } from 'next';
 import QuoteCarousel from 'src/components/quoteCarousel/QuoteCarousel/QuoteCarousel';
+import LoginModal from 'src/components/modals/LoginModal/LoginModal';
+import { useRouter } from 'next/router';
 
 const Home: NextPage = ({
   quotesData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { quotes } = quotesData;
-  return <QuoteCarousel quotes={quotes} />;
+  const router = useRouter();
+
+  return (
+    <>
+      {router.asPath == '/signin' && <LoginModal />}
+      <QuoteCarousel quotes={quotes} />
+    </>
+  );
 };
 
 export default Home;

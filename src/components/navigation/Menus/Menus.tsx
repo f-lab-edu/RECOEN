@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import Button from 'src/components/ui/Button/Button';
 import Link from 'next/link';
 
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 
 const Menus = () => {
   const router = useRouter();
@@ -69,7 +69,9 @@ const Menus = () => {
             </Link>
           </>
         ) : (
-          <Button label="로그인" onClick={signIn} primary />
+          <Link href="/" as="/signin">
+            <Button label="로그인" primary />
+          </Link>
         )}
       </ButtonWrapper>
     </Nav>
