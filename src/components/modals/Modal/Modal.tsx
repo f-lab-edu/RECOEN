@@ -5,9 +5,10 @@ import styled from '@emotion/styled';
 interface ModalProps {
   children: React.ReactElement;
   handleOpenModal: () => void;
+  right?: boolean;
 }
 
-const Modal = ({ children, handleOpenModal }: ModalProps) => {
+const Modal = ({ children, handleOpenModal, right }: ModalProps) => {
   const [container, setContainer] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -19,13 +20,19 @@ const Modal = ({ children, handleOpenModal }: ModalProps) => {
   return ReactDOM.createPortal(
     <>
       <Overlay onClick={handleOpenModal} />
-      <Box data-testid="modal">{children}</Box>
+      <Box data-testid="modal" right={right}>
+        {children}
+      </Box>
     </>,
     container,
   );
 };
 
 export default Modal;
+
+interface StyleProps {
+  right?: boolean;
+}
 
 const Overlay = styled.div`
   height: 100vh;
@@ -40,18 +47,26 @@ const Overlay = styled.div`
   z-index: 100;
 `;
 
-const Box = styled.div`
+const rightStyle = `
+right: 0%;
+top: 50%;
+transform: translate(0%, -50%);
+`;
+
+const centerStyle = `
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+`;
+
+const Box = styled.div<StyleProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #252628;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: fixed;
-  right: 0%;
-  top: 50%;
-  transform: translate(0%, -50%);
-  width: 432px;
-  height: 100vh;
   z-index: 101;
   box-sizing: border-box;
+  ${({ right }) => (right ? rightStyle : centerStyle)}
 `;
