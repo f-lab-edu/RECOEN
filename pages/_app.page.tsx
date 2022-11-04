@@ -11,6 +11,7 @@ import { RecoilRoot } from 'recoil';
 import NavBar from 'src/components/navigation/NavBar/NavBar';
 import Head from 'src/components/Head';
 
+import Script from 'next/script';
 import * as gtag from 'src/lib/gtag';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -30,6 +31,24 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', ${gtag.GA_MEASUREMENT_ID}, {
+                    page_path: window.location.pathname,
+                  });
+                `,
+        }}
+      />
       <RecoilRoot>
         <Head />
         <Global styles={globalStyles} />
