@@ -1,6 +1,11 @@
 import { atom } from 'recoil';
 
-export const openCreateModalStates = atom({
-  key: 'openCreateModalStates',
+export const openCreateModalState = atom({
+  key: 'openCreateModalState',
+  default: false,
+});
+
+export const openLoginModalState = atom({
+  key: 'openLoginModalState',
   default: false,
 });

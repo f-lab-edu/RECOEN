@@ -2,13 +2,14 @@ import React from 'react';
 import Modal from '../Modal/Modal';
 import styled from '@emotion/styled';
 import { theme } from 'src/style';
-import { useRouter } from 'next/router';
 
-const LoginModal = () => {
-  const router = useRouter();
+interface Props {
+  handleOpenModal: () => void;
+}
 
+const LoginModal: React.FC<Props> = ({ handleOpenModal }) => {
   return (
-    <Modal handleOpenModal={() => router.push('/')}>
+    <Modal handleOpenModal={handleOpenModal}>
       <Container>모달입니다</Container>
     </Modal>
   );

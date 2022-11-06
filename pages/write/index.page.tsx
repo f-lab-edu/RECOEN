@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useRecoilValue } from 'recoil';
-import { openCreateModalStates } from 'src/recoil/permit';
+import { openCreateModalState } from 'src/recoil/permit';
 
 import { TextEditor } from 'src/components';
 
@@ -11,7 +11,7 @@ import TitleInput from 'src/components/Inputs/TitleInput';
 import styled from '@emotion/styled';
 
 const WritePage = () => {
-  const isOpen = useRecoilValue(openCreateModalStates);
+  const isOpen = useRecoilValue(openCreateModalState);
 
   return (
     <>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { useSetRecoilState } from 'recoil';
-import { openCreateModalStates } from 'src/recoil/permit';
+import { openCreateModalState } from 'src/recoil/permit';
 
 import Modal from '../Modal/Modal';
 import ImageUpload from 'src/components/ImageUpload/ImageUpload';
@@ -13,7 +13,7 @@ import TagInput from 'src/components/Inputs/TagInput/TagInput';
 import { useResolveSaveFunction } from 'src/hooks/useHandleArticle';
 
 const CreateArticleModal = () => {
-  const setClose = useSetRecoilState(openCreateModalStates);
+  const setClose = useSetRecoilState(openCreateModalState);
   const handleSaveArticle = useResolveSaveFunction();
 
   const handleModalClose = () => {

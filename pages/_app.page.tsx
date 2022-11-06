@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import Script from 'next/script';
-import * as gtag from 'src/lib/gtag';
 import { SessionProvider } from 'next-auth/react';
 
 import { Global } from '@emotion/react';

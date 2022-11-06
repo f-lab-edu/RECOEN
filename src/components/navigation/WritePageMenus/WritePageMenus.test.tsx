@@ -2,14 +2,14 @@ import { render, fireEvent } from '@testing-library/react';
 import WritePageMenus from './WritePageMenus';
 import RecoilObserver from 'src/components/RecoilObserver';
 import { RecoilRoot } from 'recoil';
-import { openCreateModalStates } from 'src/recoil/permit';
+import { openCreateModalState } from 'src/recoil/permit';
 
 describe('WritePageMenus', () => {
   const onChange = jest.fn();
   const renderMenus = () =>
     render(
       <RecoilRoot>
-        <RecoilObserver node={openCreateModalStates} onChange={onChange} />
+        <RecoilObserver node={openCreateModalState} onChange={onChange} />
         <WritePageMenus />
       </RecoilRoot>,
     );
