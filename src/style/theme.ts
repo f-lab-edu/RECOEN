@@ -5,6 +5,7 @@ export const theme = {
     secondary: '#4662EA',
     disabled: '#4a4c55',
     bluredBlack: 'rgba(0, 0, 0, 0.4)',
+    black: '#000000',
     white: '#ffffff',
     background: '#1f2027',
     gray100: '#9499a1',
