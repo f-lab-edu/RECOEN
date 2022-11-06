@@ -25,19 +25,6 @@ export const detailPageState = atom<ArticleElements>({
   },
 });
 
-export const detailPageStates = atom<ArticleElements>({
-  key: 'detailPageStates',
-  default: {
-    _id: '',
-    title: '',
-    content: '',
-    tags: [],
-    description: '',
-    imgUrl: '',
-    time: '2022.10.23 · 7min read',
-  },
-});
-
 export const writeStates = atom<'create' | 'update'>({
   key: 'writeStates',
   default: 'create',

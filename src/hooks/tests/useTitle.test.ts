@@ -40,7 +40,7 @@ describe('useTitle', () => {
         } as React.ChangeEvent<HTMLInputElement>);
       });
 
-      expect(result.current.articleElements.title).toBe('제목');
+      expect(result.current.title).toBe('제목');
     });
   });
 });
