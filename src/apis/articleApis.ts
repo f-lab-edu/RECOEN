@@ -1,6 +1,6 @@
 import { axiosInstance } from './index';
 import { ArticleElements } from 'src/types/article';
-const ARTICLE_URI = '/api/article';
+export const ARTICLE_URI = '/api/article';
 const ARTICLES_URI = '/api/articles';
 
 export const getArticle = async (id: string) => {

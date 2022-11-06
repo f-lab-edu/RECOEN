@@ -49,6 +49,19 @@ handler
     } catch (err) {
       console.log(err);
     }
-  });
+  })
+  .delete(async (req, res) => {
+    try {
+      console.log('DELETING ARTICLE');
+      const id = req.body.id;
+      const article = await ArticleModel.findByIdAndDelete(id);
 
+      if (!article) return res.status(404);
+      console.log('DELETED ARTICLE');
+
+      res.status(200).json({ article });
+    } catch (err) {
+      console.log(err);
+    }
+  });
 export default handler;

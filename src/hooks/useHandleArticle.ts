@@ -2,12 +2,12 @@ import React from 'react';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 
-import { articleState, writeStates } from 'src/recoil/article';
+import { articleState, writeStates, detailPageState } from 'src/recoil/article';
 import { openCreateModalStates } from 'src/recoil/permit';
 
 import { SaveArticleFunction, ArticleElements } from 'src/types/article';
 
-import { createArticle, updateArticle } from 'src/apis';
+import { createArticle, updateArticle, deleteArticle } from 'src/apis';
 
 export const useTitle = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleState);
@@ -98,4 +98,18 @@ export const useResolveSaveFunction = () => {
   };
 
   return handleSaveArticle;
+};
+
+export const useHandleDelete = () => {
+  const detailArticle = useRecoilValue(detailPageState);
+  const router = useRouter();
+
+  const handleDelete = async () => {
+    if (!detailArticle._id) return;
+
+    await deleteArticle(detailArticle._id);
+    return router.push('/article');
+  };
+
+  return handleDelete;
 };
