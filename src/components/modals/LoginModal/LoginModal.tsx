@@ -9,6 +9,8 @@ import Button from 'src/components/ui/Button/Button';
 import GoogleLogo from '../../../../public/google-logo.png';
 import GithubLogo from '../../../../public/github-logo.png';
 
+import { signIn } from 'next-auth/react';
+
 interface Props {
   handleOpenModal: () => void;
 }
@@ -18,7 +20,7 @@ const LoginModal: React.FC<Props> = ({ handleOpenModal }) => {
     <Modal handleOpenModal={handleOpenModal}>
       <Container>
         <Text>로그인</Text>
-        <GoogleButton>
+        <GoogleButton onClick={() => signIn('google')}>
           <Image
             src={GoogleLogo}
             alt="google-logo"
