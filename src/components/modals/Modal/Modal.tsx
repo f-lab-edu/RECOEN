@@ -19,7 +19,7 @@ const Modal = ({ children, handleOpenModal, right }: ModalProps) => {
 
   return ReactDOM.createPortal(
     <>
-      <Overlay onClick={handleOpenModal} />
+      <Overlay onClick={handleOpenModal} data-testid="overlay" />
       <Box data-testid="modal" right={right}>
         {children}
       </Box>
