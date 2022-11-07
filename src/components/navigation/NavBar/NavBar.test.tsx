@@ -5,6 +5,8 @@ import { matchers } from '@emotion/jest';
 import { mockRouter } from '__mocks__/mockRouter';
 expect.extend(matchers);
 
+jest.mock('next-auth/react');
+
 describe('NavBar', () => {
   const renderNavBar = (pathname: string) =>
     render(

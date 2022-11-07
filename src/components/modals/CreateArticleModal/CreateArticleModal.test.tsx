@@ -1,16 +1,14 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import CreateArticleModal from './CreateArticleModal';
-import { createArticle } from 'src/apis';
 import { RecoilRoot } from 'recoil';
 jest.mock('src/apis');
 
 describe('CreateArticleModal', () => {
-  const articleElements = {};
   const renderCreateArticleModal = () =>
     render(
       <RecoilRoot>
         <div id="modal_root" />
-        <CreateArticleModal articleElements={articleElements} />
+        <CreateArticleModal />
       </RecoilRoot>,
     );
   describe('rendering', () => {

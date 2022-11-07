@@ -8,6 +8,8 @@ jest.mock('next/router', () => ({
   })),
 }));
 
+jest.mock('next-auth/react');
+
 const menus = [
   {
     name: 'Article',
