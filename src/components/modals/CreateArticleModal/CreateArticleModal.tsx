@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { theme } from 'src/style';
 
 import { useSetRecoilState } from 'recoil';
 import { openCreateModalState } from 'src/recoil/permit';
@@ -21,8 +22,8 @@ const CreateArticleModal = () => {
   };
 
   return (
-    <Modal handleOpenModal={handleModalClose}>
-      <>
+    <Modal handleOpenModal={handleModalClose} right>
+      <Container>
         <Wrapper data-testid="createArticleModal">
           <H2>글 설정</H2>
           <ButtonWrapper>
@@ -36,12 +37,22 @@ const CreateArticleModal = () => {
         <TagInput />
         <Guide>설명글</Guide>
         <DescInput />
-      </>
+      </Container>
     </Modal>
   );
 };
 
 export default CreateArticleModal;
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${theme.color.nero};
+`;
 
 const Guide = styled.h3`
   font-size: 16px;

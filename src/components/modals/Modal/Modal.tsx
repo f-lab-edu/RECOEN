@@ -45,6 +45,7 @@ const Overlay = styled.div`
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   position: fixed;
   z-index: 100;
+  cursor: pointer;
 `;
 
 const rightStyle = `
