@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, act, waitFor } from '@testing-library/react';
 import Menus from './Menus';
 import { useSession } from 'next-auth/react';
 import { RecoilRoot } from 'recoil';
@@ -40,9 +40,11 @@ const menus = [
 ];
 
 describe('Menus', () => {
+  const handleOpenModal = jest.fn();
   const renderMenus = () =>
     render(
       <RecoilRoot>
+        <div id="modal_root" />
         <Menus />
       </RecoilRoot>,
     );
@@ -91,8 +93,19 @@ describe('Menus', () => {
   });
 
   describe('로그인 버튼을 클릭하면', () => {
-    it('로그인 모달이 나온다', () => {
-      // NOTE : 로그인 기능 개발할 때 다시 작성하기
+    it('로그인 모달이 나온다', async () => {
+      const { getByText, queryByText } = renderMenus();
+      const loginButton = getByText('로그인');
+
+      expect(queryByText('Google로 로그인하기')).not.toBeInTheDocument();
+
+      await act(() => {
+        loginButton.click();
+      });
+
+      await waitFor(() =>
+        expect(queryByText('Google로 로그인하기')).toBeInTheDocument(),
+      );
     });
   });
 });
