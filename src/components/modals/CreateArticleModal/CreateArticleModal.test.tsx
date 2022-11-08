@@ -7,7 +7,6 @@ describe('CreateArticleModal', () => {
   const renderCreateArticleModal = () =>
     render(
       <RecoilRoot>
-        <div id="modal_root" />
         <CreateArticleModal />
       </RecoilRoot>,
     );

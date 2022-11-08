@@ -1,18 +1,22 @@
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import LoginModal from 'src/components/modals/LoginModal/LoginModal';
 import { signIn } from 'next-auth/react';
+
+import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilRoot } from 'recoil';
+import { modalState } from 'src/recoil/modal';
 
 jest.mock('next-auth/react');
 
 describe('LoginModal', () => {
-  const handleOpenModal = jest.fn();
+  const onChange = jest.fn();
 
   const renderLoginModal = () => {
     return render(
-      <>
-        <div id="modal_root" />
-        <LoginModal handleOpenModal={handleOpenModal} />
-      </>,
+      <RecoilRoot>
+        <RecoilObserver node={modalState} onChange={onChange} />
+        <LoginModal />
+      </RecoilRoot>,
     );
   };
 
@@ -28,9 +32,9 @@ describe('LoginModal', () => {
       const { getByText } = renderLoginModal();
       const closeButton = getByText('다음에 할게요');
 
-      closeButton.click();
+      act(() => closeButton.click());
 
-      expect(handleOpenModal).toBeCalled();
+      expect(onChange).toHaveBeenNthCalledWith(2, null);
     });
   });
 
