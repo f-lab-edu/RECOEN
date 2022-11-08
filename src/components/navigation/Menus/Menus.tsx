@@ -3,21 +3,16 @@ import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import { useSession, signOut } from 'next-auth/react';
 
-import { useRecoilState } from 'recoil';
-import { openLoginModalState } from 'src/recoil/permit';
-
 import Link from 'next/link';
 import NavBarItem from '../NavBarItem';
-import LoginModal from 'src/components/modals/LoginModal/LoginModal';
 import Button from 'src/components/ui/Button/Button';
+
+import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
 
 const Menus = () => {
   const router = useRouter();
   const { data: session } = useSession();
-  const [isOpen, setIsOpen] = useRecoilState(openLoginModalState);
-  const handleOpenModal = () => {
-    setIsOpen(!isOpen);
-  };
+  const handleOpenModal = useHandleOpenModal();
 
   const items = [
     {
@@ -53,37 +48,38 @@ const Menus = () => {
   ];
 
   return (
-    <>
-      {isOpen && <LoginModal handleOpenModal={handleOpenModal} />}
-      <Nav>
-        <Wrapper>
-          {items.map((item) => {
-            return (
-              <NavBarItem
-                key={item.id}
-                title={item.title}
-                name={item.name}
-                path={item.path}
-                isActive={router.pathname.includes(item.path)}
-              />
-            );
-          })}
-        </Wrapper>
+    <Nav>
+      <Wrapper>
+        {items.map((item) => {
+          return (
+            <NavBarItem
+              key={item.id}
+              title={item.title}
+              name={item.name}
+              path={item.path}
+              isActive={router.pathname.includes(item.path)}
+            />
+          );
+        })}
+      </Wrapper>
 
-        <ButtonWrapper>
-          {session ? (
-            <>
-              <Button label="로그아웃" onClick={signOut} />
-              <Link href="/write" title="작성하기 페이지입니다.">
-                <Button label="+ 글쓰기" primary />
-              </Link>
-            </>
-          ) : (
-            <Button label="로그인" primary onClick={handleOpenModal} />
-          )}
-        </ButtonWrapper>
-      </Nav>
-    </>
+      <ButtonWrapper>
+        {session ? (
+          <>
+            <Button label="로그아웃" onClick={signOut} />
+            <Link href="/write" title="작성하기 페이지입니다.">
+              <Button label="+ 글쓰기" primary />
+            </Link>
+          </>
+        ) : (
+          <Button
+            label="로그인"
+            primary
+            onClick={() => handleOpenModal('LOGIN')}
+          />
+        )}
+      </ButtonWrapper>
+    </Nav>
   );
 };
 
