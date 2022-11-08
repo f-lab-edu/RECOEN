@@ -5,7 +5,7 @@ import { theme } from 'src/style';
 import { useSetRecoilState } from 'recoil';
 import { openCreateModalState } from 'src/recoil/permit';
 
-import Modal from '../Modal/Modal';
+import BaseModal from '../BaseModal/BaseModal';
 import ImageUpload from 'src/components/ImageUpload/ImageUpload';
 import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
@@ -22,7 +22,7 @@ const CreateArticleModal = () => {
   };
 
   return (
-    <Modal handleOpenModal={handleModalClose} right>
+    <BaseModal handleOpenModal={handleModalClose} right>
       <Container>
         <Wrapper data-testid="createArticleModal">
           <H2>글 설정</H2>
@@ -38,7 +38,7 @@ const CreateArticleModal = () => {
         <Guide>설명글</Guide>
         <DescInput />
       </Container>
-    </Modal>
+    </BaseModal>
   );
 };
 

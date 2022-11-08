@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from '../Modal/Modal';
+import BaseModal from '../BaseModal/BaseModal';
 import styled from '@emotion/styled';
 import { theme } from 'src/style';
 
@@ -10,14 +10,12 @@ import GoogleLogo from '../../../../public/google-logo.png';
 import GithubLogo from '../../../../public/github-logo.png';
 
 import { signIn } from 'next-auth/react';
+import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
 
-interface Props {
-  handleOpenModal: () => void;
-}
-
-const LoginModal: React.FC<Props> = ({ handleOpenModal }) => {
+const LoginModal = () => {
+  const handleOpenModal = useHandleOpenModal();
   return (
-    <Modal handleOpenModal={handleOpenModal}>
+    <BaseModal handleOpenModal={() => handleOpenModal(null)}>
       <Container>
         <Text>로그인</Text>
         <GoogleButton onClick={() => signIn('google')}>
@@ -41,10 +39,10 @@ const LoginModal: React.FC<Props> = ({ handleOpenModal }) => {
           Github으로 로그인하기
         </GitHubButton>
         <ButtonWrapper>
-          <Button label="다음에 할게요" onClick={handleOpenModal} />
+          <Button label="다음에 할게요" onClick={() => handleOpenModal(null)} />
         </ButtonWrapper>
       </Container>
-    </Modal>
+    </BaseModal>
   );
 };
 

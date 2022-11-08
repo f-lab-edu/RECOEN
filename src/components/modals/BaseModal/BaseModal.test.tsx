@@ -1,16 +1,16 @@
 import { render, screen } from '@testing-library/react';
-import Modal from './Modal';
+import BaseModal from './BaseModal';
 import { RecoilRoot } from 'recoil';
 
-describe('Modal', () => {
+describe('BaseModal', () => {
   const handleOpenModal = jest.fn();
   const renderModal = (right: boolean) => {
     return render(
       <RecoilRoot>
         <div id="modal_root">
-          <Modal handleOpenModal={handleOpenModal} right={right}>
+          <BaseModal handleOpenModal={handleOpenModal} right={right}>
             <div>child</div>
-          </Modal>
+          </BaseModal>
         </div>
       </RecoilRoot>,
     );
