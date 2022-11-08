@@ -2,9 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { theme } from 'src/style';
 
-import { useSetRecoilState } from 'recoil';
-import { openCreateModalState } from 'src/recoil/permit';
-
 import BaseModal from '../BaseModal/BaseModal';
 import ImageUpload from 'src/components/ImageUpload/ImageUpload';
 import Button from 'src/components/ui/Button/Button';
@@ -12,22 +9,19 @@ import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
 import { useResolveSaveFunction } from 'src/hooks/useHandleArticle';
+import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
 
 const CreateArticleModal = () => {
-  const setClose = useSetRecoilState(openCreateModalState);
   const handleSaveArticle = useResolveSaveFunction();
-
-  const handleModalClose = () => {
-    setClose(false);
-  };
+  const handleOpenModal = useHandleOpenModal();
 
   return (
-    <BaseModal handleOpenModal={handleModalClose} right>
+    <BaseModal handleOpenModal={() => handleOpenModal(null)} right>
       <Container>
         <Wrapper data-testid="createArticleModal">
           <H2>글 설정</H2>
           <ButtonWrapper>
-            <Button label="취소" onClick={handleModalClose} />
+            <Button label="취소" onClick={() => handleOpenModal(null)} />
             <Button label="저장" primary onClick={handleSaveArticle} />
           </ButtonWrapper>
         </Wrapper>
