@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mui/material", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:5.10.9"],\
             ["@next/bundle-analyzer", "npm:12.3.1"],\
             ["@next/env", "npm:13.0.0"],\
+            ["@sentry/cli", "npm:2.8.1"],\
             ["@sentry/nextjs", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:7.18.0"],\
             ["@testing-library/dom", "npm:8.19.0"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -3086,7 +3087,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["detect-libc", "npm:2.0.1"],\
             ["https-proxy-agent", "npm:5.0.1"],\
             ["make-dir", "npm:3.1.0"],\
-            ["node-fetch", "virtual:b1803ed7f1884aa5f106dd540700d2cfdb7ea7e72eec42945a1ccdd39acab854b04068e86cdecafbc55974240bff4287bb08c504f562bf5534f8b48241298cad#npm:2.6.7"],\
+            ["node-fetch", "virtual:006ae2f74554f1dd6770f437a20931f8c2820a2b968f51acecc1f8cd87a94308c912ddf8f4cde2c94fa02860e282666747656fc921258500df4f1b9a3ba43229#npm:2.6.7"],\
             ["nopt", "npm:5.0.0"],\
             ["npmlog", "npm:5.0.1"],\
             ["rimraf", "npm:3.0.2"],\
@@ -3681,8 +3682,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@sentry/cli", "npm:1.74.6"],\
             ["https-proxy-agent", "npm:5.0.1"],\
             ["mkdirp", "npm:0.5.6"],\
-            ["node-fetch", "virtual:b1803ed7f1884aa5f106dd540700d2cfdb7ea7e72eec42945a1ccdd39acab854b04068e86cdecafbc55974240bff4287bb08c504f562bf5534f8b48241298cad#npm:2.6.7"],\
+            ["node-fetch", "virtual:006ae2f74554f1dd6770f437a20931f8c2820a2b968f51acecc1f8cd87a94308c912ddf8f4cde2c94fa02860e282666747656fc921258500df4f1b9a3ba43229#npm:2.6.7"],\
             ["npmlog", "npm:4.1.2"],\
+            ["progress", "npm:2.0.3"],\
+            ["proxy-from-env", "npm:1.1.0"],\
+            ["which", "npm:2.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.8.1", {\
+          "packageLocation": "./.yarn/unplugged/@sentry-cli-npm-2.8.1-006ae2f745/node_modules/@sentry/cli/",\
+          "packageDependencies": [\
+            ["@sentry/cli", "npm:2.8.1"],\
+            ["https-proxy-agent", "npm:5.0.1"],\
+            ["node-fetch", "virtual:006ae2f74554f1dd6770f437a20931f8c2820a2b968f51acecc1f8cd87a94308c912ddf8f4cde2c94fa02860e282666747656fc921258500df4f1b9a3ba43229#npm:2.6.7"],\
+            ["npmlog", "npm:6.0.2"],\
             ["progress", "npm:2.0.3"],\
             ["proxy-from-env", "npm:1.1.0"],\
             ["which", "npm:2.0.2"]\
@@ -4834,7 +4848,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["edge-runtime", "npm:1.1.0-beta.32"],\
             ["esbuild", "npm:0.14.47"],\
             ["exit-hook", "npm:2.2.1"],\
-            ["node-fetch", "virtual:b1803ed7f1884aa5f106dd540700d2cfdb7ea7e72eec42945a1ccdd39acab854b04068e86cdecafbc55974240bff4287bb08c504f562bf5534f8b48241298cad#npm:2.6.7"],\
+            ["node-fetch", "virtual:006ae2f74554f1dd6770f437a20931f8c2820a2b968f51acecc1f8cd87a94308c912ddf8f4cde2c94fa02860e282666747656fc921258500df4f1b9a3ba43229#npm:2.6.7"],\
             ["ts-node", "virtual:b1803ed7f1884aa5f106dd540700d2cfdb7ea7e72eec42945a1ccdd39acab854b04068e86cdecafbc55974240bff4287bb08c504f562bf5534f8b48241298cad#npm:8.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.3.4#~builtin<compat/typescript>::version=4.3.4&hash=701156"]\
           ],\
@@ -5181,6 +5195,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@mui/material", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:5.10.9"],\
             ["@next/bundle-analyzer", "npm:12.3.1"],\
             ["@next/env", "npm:13.0.0"],\
+            ["@sentry/cli", "npm:2.8.1"],\
             ["@sentry/nextjs", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:7.18.0"],\
             ["@testing-library/dom", "npm:8.19.0"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
@@ -11983,10 +11998,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:b1803ed7f1884aa5f106dd540700d2cfdb7ea7e72eec42945a1ccdd39acab854b04068e86cdecafbc55974240bff4287bb08c504f562bf5534f8b48241298cad#npm:2.6.7", {\
-          "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-374ed245e7/0/cache/node-fetch-npm-2.6.7-777aa2a6df-8d816ffd1e.zip/node_modules/node-fetch/",\
+        ["virtual:006ae2f74554f1dd6770f437a20931f8c2820a2b968f51acecc1f8cd87a94308c912ddf8f4cde2c94fa02860e282666747656fc921258500df4f1b9a3ba43229#npm:2.6.7", {\
+          "packageLocation": "./.yarn/__virtual__/node-fetch-virtual-f56fa31547/0/cache/node-fetch-npm-2.6.7-777aa2a6df-8d816ffd1e.zip/node_modules/node-fetch/",\
           "packageDependencies": [\
-            ["node-fetch", "virtual:b1803ed7f1884aa5f106dd540700d2cfdb7ea7e72eec42945a1ccdd39acab854b04068e86cdecafbc55974240bff4287bb08c504f562bf5534f8b48241298cad#npm:2.6.7"],\
+            ["node-fetch", "virtual:006ae2f74554f1dd6770f437a20931f8c2820a2b968f51acecc1f8cd87a94308c912ddf8f4cde2c94fa02860e282666747656fc921258500df4f1b9a3ba43229#npm:2.6.7"],\
             ["@types/encoding", null],\
             ["encoding", null],\
             ["whatwg-url", "npm:5.0.0"]\

@@ -2813,6 +2813,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sentry/cli@npm:^2.8.1":
+  version: 2.8.1
+  resolution: "@sentry/cli@npm:2.8.1"
+  dependencies:
+    https-proxy-agent: ^5.0.0
+    node-fetch: ^2.6.7
+    npmlog: ^6.0.1
+    progress: ^2.0.3
+    proxy-from-env: ^1.1.0
+    which: ^2.0.2
+  bin:
+    sentry-cli: bin/sentry-cli
+  checksum: 2500f53e554d0ecb93f57c7dae475b425b654e010c02524e87496bf7ccbb45852cd8c82e15a4975572ccb556053adf5a7a32925995ec956a6d46d324c96e0fe0
+  languageName: node
+  linkType: hard
+
 "@sentry/core@npm:7.18.0":
   version: 7.18.0
   resolution: "@sentry/core@npm:7.18.0"
@@ -4046,6 +4062,7 @@ __metadata:
     "@mui/material": ^5.10.9
     "@next/bundle-analyzer": ^12.3.1
     "@next/env": ^13.0.0
+    "@sentry/cli": ^2.8.1
     "@sentry/nextjs": ^7.18.0
     "@testing-library/dom": ^8.19.0
     "@testing-library/jest-dom": ^5.16.5
@@ -10000,7 +10017,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npmlog@npm:^6.0.0":
+"npmlog@npm:^6.0.0, npmlog@npm:^6.0.1":
   version: 6.0.2
   resolution: "npmlog@npm:6.0.2"
   dependencies:
