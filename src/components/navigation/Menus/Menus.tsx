@@ -40,10 +40,6 @@ const Menus = () => {
     },
   ];
 
-  const errorTest = () => {
-    throw new Error('헤더바 에러');
-  };
-
   return (
     <Nav>
       <Wrapper>
@@ -61,7 +57,7 @@ const Menus = () => {
       </Wrapper>
 
       <ButtonWrapper>
-        <Button label="로그인" onClick={errorTest} />
+        <Button label="로그인" />
         <Link href="/write" title="작성하기 페이지입니다.">
           <Button label="+ 글쓰기" primary />
         </Link>
