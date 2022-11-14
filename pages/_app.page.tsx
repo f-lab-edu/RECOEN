@@ -31,6 +31,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head />
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
@@ -50,7 +51,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <RecoilRoot>
-        <Head />
         <Global styles={globalStyles} />
         <NavBar />
         <Container location={router.pathname}>
