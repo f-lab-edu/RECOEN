@@ -13,10 +13,6 @@ import styled from '@emotion/styled';
 const WritePage = () => {
   const isOpen = useRecoilValue(openCreateModalStates);
 
-  React.useEffect(() => {
-    throw new Error('작성하기 페이지에서의 에러');
-  }, []);
-
   return (
     <>
       {isOpen && <CreateArticleModal />}
