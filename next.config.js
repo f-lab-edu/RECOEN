@@ -12,9 +12,6 @@ const nextConfig = {
   sentry: {
     hideSourceMaps: false,
   },
-  env: {
-    NEXT_PUBLIC_GA_TRACKING_ID: 'G-F2EXZXK0SY',
-  },
 };
 
 const sentryWebpackPluginOptions = {

@@ -2575,10 +2575,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/env@npm:13.0.0, @next/env@npm:^13.0.0":
+"@next/env@npm:13.0.0":
   version: 13.0.0
   resolution: "@next/env@npm:13.0.0"
   checksum: 3146f10324366283c22bce0b700a8ae6c7dffad63cb81d698300c1795e7121d1fa0c2b6e0cbf7f7614117b0c3aa15556e88a7727a7b0e59aed054c2dfecb7d58
+  languageName: node
+  linkType: hard
+
+"@next/env@npm:^13.0.3":
+  version: 13.0.3
+  resolution: "@next/env@npm:13.0.3"
+  checksum: ba9cbc710c266db16f299193ac52da7ab344f3df5d9666f7010bed62d35627ba6324da896e5fdb539042787d7dddf613cf2ea499d69a614506afdb5fd4013e32
   languageName: node
   linkType: hard
 
@@ -4061,7 +4068,7 @@ __metadata:
     "@emotion/styled": ^11.10.4
     "@mui/material": ^5.10.9
     "@next/bundle-analyzer": ^12.3.1
-    "@next/env": ^13.0.0
+    "@next/env": ^13.0.3
     "@sentry/cli": ^2.8.1
     "@sentry/nextjs": ^7.19.0
     "@testing-library/dom": ^8.19.0
@@ -4083,7 +4090,7 @@ __metadata:
     axios: ^0.27.2
     babel-loader: ^8.2.5
     browser-image-compression: ^2.0.0
-    dotenv: ^16.0.2
+    dotenv: ^16.0.3
     eslint: 8.23.0
     eslint-config-next: latest
     eslint-config-prettier: ^8.5.0
@@ -5688,10 +5695,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.0.2":
-  version: 16.0.2
-  resolution: "dotenv@npm:16.0.2"
-  checksum: ca8f9ca2d67929c7771069f4c31b4e46b9932621009e658e5afd655dde2d69b77642bf36dbc9e72bc170523dfd908a9ee41c26f034c1fdc605ace3b1b4b10faf
+"dotenv@npm:^16.0.3":
+  version: 16.0.3
+  resolution: "dotenv@npm:16.0.3"
+  checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
   languageName: node
   linkType: hard
 
