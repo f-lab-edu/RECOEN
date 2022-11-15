@@ -14,4 +14,8 @@ const nextConfig = {
   },
 };
 
-module.exports = withSentryConfig(nextConfig);
+const sentryWebpackPluginOptions = {
+  silent: true,
+};
+
+module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);

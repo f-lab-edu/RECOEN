@@ -47,7 +47,7 @@ const Head: React.FC<Props> = ({ article }) => {
       </NextHead>
       <Script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_MEASUREMENT_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
       />
       <Script
         id="google-analytics"
@@ -57,7 +57,7 @@ const Head: React.FC<Props> = ({ article }) => {
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
-                  gtag('config', ${gtag.GA_MEASUREMENT_ID}, {
+                  gtag('config', '${gtag.GA_TRACKING_ID}', {
                     page_path: window.location.pathname,
                   });
                 `,
