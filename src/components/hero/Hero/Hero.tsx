@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+
 import HeroText from '../HeroText';
+import TagSearch from 'src/components/TagSearch/TagSearch';
 
 interface Props {
   text: string;
@@ -12,6 +14,7 @@ const Hero = ({ text, listLength }: Props) => {
     <>
       <Layout>
         <HeroText text={text} listLength={listLength} />
+        <TagSearch tags={['태그1', '태그2']} />
       </Layout>
       <Hr />
     </>
