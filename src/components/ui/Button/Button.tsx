@@ -45,7 +45,7 @@ const StyledButton = styled.button<StyledProps>`
   color: #ffffff;
   background: ${theme.color.primary};
   :hover{
-    background: ${theme.color.secondary};
+    opacity:0.9;
     color: #ffffff;
   }
   :disabled {

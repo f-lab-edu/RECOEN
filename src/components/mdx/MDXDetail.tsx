@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { theme } from 'src/style/theme';
+
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import MDXTitle from 'src/components/mdx/MDXTitle';
 import MDXTag from 'src/components/mdx/MDXComponent';
@@ -24,7 +26,7 @@ const Container = styled.main`
   width: 1200px;
   padding: 100px 200px;
   margin: 0 auto;
-  background-color: #1f2027;
+  background-color: ${theme.color.background};
   margin-left: auto;
   margin-right: auto;
   left: 0;
