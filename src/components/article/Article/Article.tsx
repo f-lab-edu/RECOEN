@@ -65,7 +65,7 @@ const Wrapper = styled.article`
   justify-content: space-between;
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
