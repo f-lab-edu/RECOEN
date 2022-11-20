@@ -90,12 +90,12 @@ describe('Chip', () => {
 
       const chip = getByText('태그');
 
-      expect(chip).toHaveStyle('border: 1px solid #32363d');
+      expect(chip).toHaveStyle('border: 1px solid #292b33;');
 
       fireEvent.mouseOver(chip);
 
       waitFor(() => {
-        expect(chip).toHaveStyle('border: 1px solid #32363d');
+        expect(chip).toHaveStyle('border: 1px solid #292b33;');
       });
     });
     it('글자색이 #5C62F3로 바뀐다', () => {

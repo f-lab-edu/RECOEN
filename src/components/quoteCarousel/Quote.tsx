@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { QuoteT } from './QuoteCarousel/QuoteCarousel';
+import { theme } from 'src/style/theme';
 
 interface QuoteProps {
   quote: QuoteT;
@@ -45,7 +46,7 @@ const EnglishQuote = styled.blockquote`
   margin-right: 0;
   margin-left: 0;
   padding: 0;
-  color: #9499a1;
+  color: ${theme.color.gray100};
   white-space: pre;
   font-family: 'PT Serif', serif;
 `;
@@ -56,7 +57,7 @@ const EnglishParagraph = styled.p`
 
 const EnglishCite = styled.cite`
   text-align: right;
-  color: #9499a1;
+  color: ${theme.color.gray100};
   font-size: 18px;
   font-family: 'PT Serif', serif;
   font-style: none;
@@ -71,13 +72,13 @@ const DownWrapper = styled.div`
 
 const KoreanQuote = styled.blockquote`
   margin: 0;
-  color: #494c56;
+  color: ${theme.color.gray100};
   display: inline;
   white-space: pre;
   position: relative;
   :before {
     content: '';
-    background-color: #494c56;
+    background-color: ${theme.color.gray100};
     width: 50px;
     height: 1px;
     position: absolute;

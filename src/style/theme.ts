@@ -6,5 +6,8 @@ export const theme = {
     disabled: '#4a4c55',
     bluredBlack: 'rgba(0, 0, 0, 0.4)',
     white: '#ffffff',
+    background: '#1f2027',
+    gray100: '#9499a1',
+    gray200: '#292b33',
   },
 };

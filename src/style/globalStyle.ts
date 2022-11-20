@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { theme } from 'src/style/theme';
 
 export const globalStyles = css`
   html {
@@ -9,7 +10,7 @@ export const globalStyles = css`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #1f2027;
+    background-color: ${theme.color.background};
     font-family: 'Pretendard';
     color: #ffffff;
   }

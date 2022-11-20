@@ -23,11 +23,13 @@ const NavBarItem = ({ isActive, path, title, name }: Props) => {
   }, [ref]);
 
   return (
-    <StyledLink href={path} title={title} passHref legacyBehavior>
-      <Item ref={ref} barWidth={barWidth} isActive={isActive}>
-        {name}
-      </Item>
-    </StyledLink>
+    <li>
+      <StyledLink href={path} title={title} passHref legacyBehavior>
+        <Item ref={ref} barWidth={barWidth} isActive={isActive}>
+          {name}
+        </Item>
+      </StyledLink>
+    </li>
   );
 };
 

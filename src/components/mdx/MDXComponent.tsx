@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { theme } from 'src/style/theme';
+
 import MDXFirstHead from 'src/components/mdx/MDXFirstHead';
 import MDXSecondHead from 'src/components/mdx/MDXSecondHead';
 import MDXThirdHead from 'src/components/mdx/MDXThirdHead';
@@ -43,7 +45,7 @@ const Strong = styled.strong`
 `;
 
 const Anchor = styled.a`
-  color: #6064f6;
+  color: ${theme.color.primary};
   font-weight: bold;
 `;
 

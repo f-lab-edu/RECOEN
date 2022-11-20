@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import XImage from '../../../../public/x.png';
+import { theme } from 'src/style/theme';
 
 export interface Props {
   label: string;
@@ -39,8 +40,8 @@ interface StyleProps {
 
 const StyledChip = styled.div<StyleProps>`
   padding: 12px;
-  background: #32363d;
-  border: 1px solid #32363d;
+  background: ${theme.color.gray200};
+  border: 1px solid ${theme.color.gray200};
   border-radius: 8px;
   transition: 0.1s ease-in-out;
   display: flex;
@@ -48,27 +49,27 @@ const StyledChip = styled.div<StyleProps>`
   align-items: center;
   cursor: pointer;
   font-size: 12px;
-  color: ${({ deletable }) => deletable && `#5c62f3`};
+  color: ${({ deletable }) => deletable && `${theme.color.primary}`};
   ${({ readOnly }) =>
     !readOnly &&
     `
     :hover {
-      border: 1px solid #5c62f3;
-      color: #5c62f3;
+      border: 1px solid ${theme.color.primary};
+      color: ${theme.color.primary};
     }
   `}
   ${({ deletable, isClicked }) =>
     !deletable &&
     isClicked &&
     `    
-    border: 1px solid #5c62f3;
-    color: #5c62f3;
+    border: 1px solid ${theme.color.primary};
+    color: ${theme.color.primary};
     `}
 
   ${({ readOnly }) =>
     readOnly &&
     `
-    color: #5c62f3;
+    color: ${theme.color.primary};
     cursor:default;
   `}
 `;
