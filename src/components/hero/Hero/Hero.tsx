@@ -14,7 +14,7 @@ const Hero = ({ text, listLength }: Props) => {
     <>
       <Layout>
         <HeroText text={text} listLength={listLength} />
-        <TagSearch tags={['태그1', '태그2']} />
+        <TagSearch tags={['javascript', 'react']} />
       </Layout>
       <Hr />
     </>
@@ -27,6 +27,7 @@ const Layout = styled.div`
   width: 1200px;
   margin: 0px auto;
   margin-top: 120px;
+  margin-bottom: 50px;
 `;
 
 const Hr = styled.hr`

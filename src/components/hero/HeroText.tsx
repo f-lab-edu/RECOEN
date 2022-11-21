@@ -17,6 +17,7 @@ interface StyleProps {
 const Text = styled.h1<StyleProps>`
   font-size: 80px;
   position: relative;
+  margin-bottom: 30px;
   :after {
     content: '${(props) => props.listLength}';
     font-size: 40px;
