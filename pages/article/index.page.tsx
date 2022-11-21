@@ -9,9 +9,17 @@ import { ViewArticleElement } from 'src/types/article';
 import Hero from 'src/components/hero/Hero/Hero';
 import ArticleList from 'src/components/article/ArticleList';
 
+import { getTags } from 'src/utils';
+import { useSetRecoilState } from 'recoil';
+import { tagStates } from 'src/recoil/article';
+
 const ArticlePage = ({
   articles,
+  tags,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const setTags = useSetRecoilState(tagStates);
+
+  setTags(tags);
   return (
     <>
       <Hero text="Article" listLength={articles.length} />
@@ -33,6 +41,7 @@ export const getStaticProps: GetStaticProps = async () => {
     console.log('FETCHED DATA IN ARTICLE PAGE');
 
     const articles = JSON.parse(JSON.stringify(res));
+    const tags = getTags(articles);
 
     const articlesWithBlurURL = await Promise.all(
       articles.map(async (article: ViewArticleElement) => {
@@ -43,6 +52,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       props: {
         articles: articlesWithBlurURL,
+        tags,
       },
     };
   } catch (error) {

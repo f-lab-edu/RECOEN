@@ -4,12 +4,12 @@ import { v4 as uuidv4 } from 'uuid';
 
 import Chip from 'src/components/ui/Chip/Chip';
 
-interface Props {
-  tags: string[];
-}
+import { useRecoilValue } from 'recoil';
+import { tagStates } from 'src/recoil/article';
 
-const TagSearch = ({ tags }: Props) => {
+const TagSearch = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const tags = useRecoilValue(tagStates);
 
   const handleOnClick = (tag: string) => {
     if (tag === selectedTag) return setSelectedTag(null);

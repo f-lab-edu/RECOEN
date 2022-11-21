@@ -29,3 +29,8 @@ export const writeStates = atom<'create' | 'update'>({
   key: 'writeStates',
   default: 'create',
 });
+
+export const tagStates = atom<string[]>({
+  key: 'tagState',
+  default: [],
+});
