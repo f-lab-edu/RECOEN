@@ -3,10 +3,6 @@ import styled from '@emotion/styled';
 import { v4 as uuidv4 } from 'uuid';
 
 import Chip from 'src/components/ui/Chip/Chip';
-import Image from 'next/image';
-
-import LeftArrow from '../../../public/leftArrow.png';
-import RigthArrow from '../../../public/rightArrow.png';
 
 interface Props {
   tags: string[];
@@ -22,7 +18,6 @@ const TagSearch = ({ tags }: Props) => {
 
   return (
     <Container>
-      {/* <StyleImage src={LeftArrow} width={30} height={30} alt="Left Arrow" /> */}
       {tags.map((tag) => {
         return (
           <Chip
@@ -34,7 +29,6 @@ const TagSearch = ({ tags }: Props) => {
           />
         );
       })}
-      {/* <StyleImage src={RigthArrow} width={30} height={30} alt="Rigth Arrow" /> */}
     </Container>
   );
 };
@@ -44,12 +38,7 @@ export default TagSearch;
 const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
-`;
-
-const StyleImage = styled(Image)`
-  cursor: pointer;
-  :hover {
-    opacity: 0.5;
-  }
+  max-width: 1000px;
 `;

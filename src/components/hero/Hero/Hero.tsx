@@ -14,7 +14,18 @@ const Hero = ({ text, listLength }: Props) => {
     <>
       <Layout>
         <HeroText text={text} listLength={listLength} />
-        <TagSearch tags={['javascript', 'react']} />
+        <TagSearch
+          tags={[
+            'javascript',
+            'react',
+            'test-code',
+            'network',
+            'HTTP',
+            'OS',
+            'career',
+            'performance',
+          ]}
+        />
       </Layout>
       <Hr />
     </>

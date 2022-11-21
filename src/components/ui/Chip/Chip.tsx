@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import XImage from '../../../../public/x.png';
