@@ -7,13 +7,21 @@ import Chip from 'src/components/ui/Chip/Chip';
 import { useRecoilValue } from 'recoil';
 import { tagStates } from 'src/recoil/article';
 
+import { useFilterArticle } from 'src/hooks/useFilterArticle';
+
 const TagSearch = () => {
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const tags = useRecoilValue(tagStates);
+  const filterArticle = useFilterArticle();
 
   const handleOnClick = (tag: string) => {
-    if (tag === selectedTag) return setSelectedTag(null);
+    if (tag === selectedTag) {
+      setSelectedTag(null);
+      filterArticle(null);
+      return;
+    }
     setSelectedTag(tag);
+    filterArticle(tag);
   };
 
   return (

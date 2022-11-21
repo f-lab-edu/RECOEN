@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
@@ -11,15 +11,20 @@ import ArticleList from 'src/components/article/ArticleList';
 
 import { getTags } from 'src/utils';
 import { useSetRecoilState } from 'recoil';
-import { tagStates } from 'src/recoil/article';
+import { tagStates, articleListStates } from 'src/recoil/article';
 
 const ArticlePage = ({
   articles,
   tags,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const setTags = useSetRecoilState(tagStates);
+  const setArticleList = useSetRecoilState(articleListStates);
 
-  setTags(tags);
+  useEffect(() => {
+    setArticleList(articles);
+    setTags(tags);
+  }, []);
+
   return (
     <>
       <Hero text="Article" listLength={articles.length} />

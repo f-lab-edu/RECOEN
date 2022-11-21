@@ -12,6 +12,10 @@ export const articleState = atom<ArticleElement>({
   },
 });
 
+export const filteredArticleStates = atom<ArticleElementsType[]>({
+  key: 'filteredArticleStates',
+  default: [],
+});
 export const detailPageState = atom<ArticleElement>({
   key: 'detailPageState',
   default: {
