@@ -2,6 +2,9 @@ const { withSentryConfig } = require('@sentry/nextjs');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  api: {
+    externalResolver: true,
+  },
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
@@ -15,7 +18,7 @@ const nextConfig = {
 };
 
 const sentryWebpackPluginOptions = {
-  silent: true,
+  silent: false,
 };
 
 module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);

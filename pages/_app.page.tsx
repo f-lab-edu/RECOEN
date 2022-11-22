@@ -9,14 +9,11 @@ import styled from '@emotion/styled';
 
 import { RecoilRoot } from 'recoil';
 
-import Script from 'next/script';
 import * as gtag from 'src/lib/gtag';
 
 import NavBar from 'src/components/navigation/NavBar/NavBar';
 import Head from 'src/components/Head';
 import Modal from 'src/components/modals/Modal/Modal';
-
-import * as gtag from 'src/lib/gtag';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
@@ -36,16 +33,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <>
       <Head />
-      <RecoilRoot>
-        <Global styles={globalStyles} />
-        <NavBar />
-        <Container location={router.pathname}>
-          <Component {...pageProps} />
-        </Container>
-        <div id="modal_root"></div>
-      </RecoilRoot>
       <SessionProvider session={session}>
+        <RecoilRoot>
+          <Global styles={globalStyles} />
+          <NavBar />
+          <Container location={router.pathname}>
+            <Component {...pageProps} />
+          </Container>
           <Modal />
+        </RecoilRoot>
       </SessionProvider>
     </>
   );
