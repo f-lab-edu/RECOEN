@@ -2,9 +2,6 @@ const { withSentryConfig } = require('@sentry/nextjs');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  api: {
-    externalResolver: true,
-  },
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
@@ -13,12 +10,12 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   sentry: {
-    hideSourceMaps: false,
+    hideSourceMaps: true,
   },
 };
 
 const sentryWebpackPluginOptions = {
-  silent: false,
+  silent: true,
 };
 
 module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
