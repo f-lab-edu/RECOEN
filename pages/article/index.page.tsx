@@ -8,28 +8,29 @@ import { ViewArticleElement } from 'src/types/article';
 
 import Hero from 'src/components/hero/Hero/Hero';
 import ArticleList from 'src/components/article/ArticleList';
-import UpperLayout from 'src/components/ui/UpperLayout';
+import UpperLayout from 'src/components/hero/UpperLayout';
+import TagSearch from 'src/components/ui/TagSearch/TagSearch';
 
 import { getTags } from 'src/utils';
 import { useSetRecoilState } from 'recoil';
-import { tagStates, articleListStates } from 'src/recoil/article';
+import { articleListStates } from 'src/recoil/article';
 
 const ArticlePage = ({
   articles,
   tags,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const setTags = useSetRecoilState(tagStates);
   const setArticleList = useSetRecoilState(articleListStates);
 
   useEffect(() => {
     setArticleList(articles);
-    setTags(tags);
   }, []);
 
   return (
     <>
-      <UpperLayout />
-      <Hero text="Article" listLength={articles.length} />
+      <UpperLayout
+        hero={<Hero text="Article" listLength={articles.length} />}
+        tagSearch={<TagSearch tags={tags} />}
+      />
       <ArticleList articles={articles} />
     </>
   );
