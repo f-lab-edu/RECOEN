@@ -68,18 +68,18 @@ const Container = styled.div`
 `;
 
 const commonStyle = `
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-width:100%;
-height:60px;
-border:none;
-margin-bottom:10px;
-font-weight:600;
-font-size:15px;
-border-radius:8px;
-cursor:pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height:60px;
+  border:none;
+  margin-bottom:10px;
+  font-weight:600;
+  font-size:15px;
+  border-radius:8px;
+  cursor:pointer;
 `;
 
 const GoogleButton = styled.button`

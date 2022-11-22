@@ -16,14 +16,6 @@ jest.mock('next/router', () => ({
 
 jest.mock('next-auth/react');
 
-const mockUseSession = (data: boolean) => {
-  (useSession as jest.Mock).mockImplementation(() => {
-    return { data };
-  });
-};
-
-mockUseSession(false);
-
 const menus = [
   {
     name: 'Article',
@@ -42,6 +34,12 @@ const menus = [
     href: '/about',
   },
 ];
+
+const mockUseSession = (data: boolean) => {
+  (useSession as jest.Mock).mockImplementation(() => {
+    return { data };
+  });
+};
 
 describe('Menus', () => {
   const onChange = jest.fn();

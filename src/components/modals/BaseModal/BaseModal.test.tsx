@@ -2,13 +2,17 @@ import { render, screen } from '@testing-library/react';
 import BaseModal from './BaseModal';
 import { RecoilRoot } from 'recoil';
 
+interface Props {
+  position?: 'right';
+}
+
 describe('BaseModal', () => {
   const handleOpenModal = jest.fn();
-  const renderModal = (right: boolean) => {
+  const renderModal = ({ position }: Props) => {
     return render(
       <RecoilRoot>
         <div id="modal_root">
-          <BaseModal handleOpenModal={handleOpenModal} right={right}>
+          <BaseModal handleOpenModal={handleOpenModal} right={!!position}>
             <div>child</div>
           </BaseModal>
         </div>
@@ -17,7 +21,7 @@ describe('BaseModal', () => {
   };
   describe('modal_root에 ', () => {
     it('렌더링된다', () => {
-      renderModal(false);
+      renderModal({});
       const modal = screen.getByTestId('modal');
 
       expect(modal).toBeInTheDocument();
@@ -26,7 +30,7 @@ describe('BaseModal', () => {
 
   describe('overlay를 클릭하면', () => {
     it('handleOpenModal이 호출된다', () => {
-      renderModal(false);
+      renderModal({});
       const overlay = screen.getByTestId('overlay');
 
       overlay.click();
@@ -37,12 +41,14 @@ describe('BaseModal', () => {
 
   describe('props에 right을 넘겨주면', () => {
     it('모달이 오른쪽에 위치한 스타일로 변경된다', () => {
-      renderModal(true);
+      renderModal({ position: 'right' });
       const modal = screen.getByTestId('modal');
 
-      expect(modal).toHaveStyle('right: 0%');
-      expect(modal).toHaveStyle('top: 50%');
-      expect(modal).toHaveStyle('transform: translate(0%, -50%)');
+      expect(modal).toHaveStyle({
+        right: '0%',
+        top: '50%',
+        transform: 'translate(0%, -50%)',
+      });
     });
   });
 });
