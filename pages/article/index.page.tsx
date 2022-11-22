@@ -8,6 +8,7 @@ import { ViewArticleElement } from 'src/types/article';
 
 import Hero from 'src/components/hero/Hero/Hero';
 import ArticleList from 'src/components/article/ArticleList';
+import UpperLayout from 'src/components/ui/UpperLayout';
 
 import { getTags } from 'src/utils';
 import { useSetRecoilState } from 'recoil';
@@ -27,6 +28,7 @@ const ArticlePage = ({
 
   return (
     <>
+      <UpperLayout />
       <Hero text="Article" listLength={articles.length} />
       <ArticleList articles={articles} />
     </>
