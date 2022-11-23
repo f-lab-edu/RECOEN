@@ -1,4 +1,5 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
+import { isObjectEmpty } from 'src/utils/isObjectEmpty';
 import { ArticleElement, ViewArticleElement } from 'src/types/article';
 export const articleState = atom<ArticleElement>({
   key: 'articleState',
@@ -41,6 +42,15 @@ export const detailPageState = atom<ViewArticleElement>({
 export const writeStates = atom<'create' | 'update'>({
   key: 'writeStates',
   default: 'create',
+});
+
+export const articleValidationState = selector<boolean>({
+  key: 'articleValidationState',
+  get: ({ get }) => {
+    const article = get(articleState);
+    const isEmpty = isObjectEmpty<ArticleElements>(article);
+    return isEmpty;
+  },
 });
 
 export const tagStates = atom<string[]>({
