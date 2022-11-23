@@ -2,6 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { theme } from 'src/style';
 
+import { useRecoilValue } from 'recoil';
+import { articleValidationState } from 'src/recoil/article';
+
 import BaseModal from '../BaseModal/BaseModal';
 import ImageUpload from 'src/components/ImageUpload/ImageUpload';
 import Button from 'src/components/ui/Button/Button';
@@ -17,6 +20,7 @@ import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
 const CreateArticleModal = () => {
   const handleSaveArticle = useResolveSaveFunction();
   const handleOpenModal = useHandleOpenModal();
+  const isArticleEmpty = useRecoilValue(articleValidationState);
 
   return (
     <BaseModal handleOpenModal={() => handleOpenModal(null)} right>
@@ -25,7 +29,12 @@ const CreateArticleModal = () => {
           <H2>글 설정</H2>
           <ButtonWrapper>
             <Button label="취소" onClick={() => handleOpenModal(null)} />
-            <Button label="저장" primary onClick={handleSaveArticle} />
+            <Button
+              label="저장"
+              primary
+              onClick={handleSaveArticle}
+              disabled={isArticleEmpty}
+            />
           </ButtonWrapper>
         </Wrapper>
         <Guide>대표이미지</Guide>
