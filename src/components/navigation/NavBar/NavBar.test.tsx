@@ -3,14 +3,27 @@ import { render } from '@testing-library/react';
 import NavBar from './NavBar';
 import { matchers } from '@emotion/jest';
 import { mockRouter } from '__mocks__/mockRouter';
+import { useSession } from 'next-auth/react';
+import { RecoilRoot } from 'recoil';
 expect.extend(matchers);
+
+jest.mock('next-auth/react');
+
+(useSession as jest.Mock).mockImplementation(() => {
+  return { data: null };
+});
 
 describe('NavBar', () => {
   const renderNavBar = (pathname: string) =>
     render(
-      mockRouter(<NavBar />, {
-        pathname,
-      }),
+      mockRouter(
+        <RecoilRoot>
+          <NavBar />
+        </RecoilRoot>,
+        {
+          pathname,
+        },
+      ),
     );
 
   describe('recoen. 을 클릭하면', () => {

@@ -5,6 +5,7 @@ const Home: NextPage = ({
   quotesData,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { quotes } = quotesData;
+
   return <QuoteCarousel quotes={quotes} />;
 };
 

@@ -10,7 +10,7 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   sentry: {
-    hideSourceMaps: false,
+    hideSourceMaps: true,
   },
 };
 

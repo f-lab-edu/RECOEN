@@ -2,14 +2,14 @@ import { render, fireEvent } from '@testing-library/react';
 import WritePageMenus from './WritePageMenus';
 import RecoilObserver from 'src/components/RecoilObserver';
 import { RecoilRoot } from 'recoil';
-import { openCreateModalStates } from 'src/recoil/permit';
+import { modalState } from 'src/recoil/modal';
 
 describe('WritePageMenus', () => {
   const onChange = jest.fn();
   const renderMenus = () =>
     render(
       <RecoilRoot>
-        <RecoilObserver node={openCreateModalStates} onChange={onChange} />
+        <RecoilObserver node={modalState} onChange={onChange} />
         <WritePageMenus />
       </RecoilRoot>,
     );
@@ -30,7 +30,7 @@ describe('WritePageMenus', () => {
 
       fireEvent.click(button);
 
-      expect(onChange).toHaveBeenNthCalledWith(3, true);
+      expect(onChange).toHaveBeenNthCalledWith(3, 'CREATE_ARTICLE');
     });
   });
 });

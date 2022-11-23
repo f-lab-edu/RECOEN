@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+import { SessionProvider } from 'next-auth/react';
 
-import styled from '@emotion/styled';
 import { Global } from '@emotion/react';
 import { globalStyles } from 'src/style';
+import styled from '@emotion/styled';
 
-import { useRouter } from 'next/router';
 import { RecoilRoot } from 'recoil';
-
-import NavBar from 'src/components/navigation/NavBar/NavBar';
-import Head from 'src/components/Head';
 
 import * as gtag from 'src/lib/gtag';
 
-function MyApp({ Component, pageProps }: AppProps) {
+import NavBar from 'src/components/navigation/NavBar/NavBar';
+import Head from 'src/components/Head';
+import Modal from 'src/components/modals/Modal/Modal';
+
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
@@ -31,14 +33,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head />
-      <RecoilRoot>
-        <Global styles={globalStyles} />
-        <NavBar />
-        <Container location={router.pathname}>
-          <Component {...pageProps} />
-        </Container>
-        <div id="modal_root"></div>
-      </RecoilRoot>
+      <SessionProvider session={session}>
+        <RecoilRoot>
+          <Global styles={globalStyles} />
+          <NavBar />
+          <Container location={router.pathname}>
+            <Component {...pageProps} />
+          </Container>
+          <Modal />
+        </RecoilRoot>
+      </SessionProvider>
     </>
   );
 }

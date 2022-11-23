@@ -1,5 +1,11 @@
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import Menus from './Menus';
+
+import { useSession } from 'next-auth/react';
+
+import { RecoilRoot } from 'recoil';
+import RecoilObserver from 'src/components/RecoilObserver';
+import { modalState } from 'src/recoil/modal';
 
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),
@@ -7,6 +13,8 @@ jest.mock('next/router', () => ({
     pathname: '/article',
   })),
 }));
+
+jest.mock('next-auth/react');
 
 const menus = [
   {
@@ -27,18 +35,38 @@ const menus = [
   },
 ];
 
-describe('Menus', () => {
-  const renderMenus = () => render(<Menus />);
+const mockUseSession = (data: boolean) => {
+  (useSession as jest.Mock).mockImplementation(() => {
+    return { data };
+  });
+};
 
-  describe('렌더링', () => {
-    it('잘 된다', () => {
+describe('Menus', () => {
+  const onChange = jest.fn();
+  const renderMenus = () =>
+    render(
+      <RecoilRoot>
+        <RecoilObserver node={modalState} onChange={onChange} />
+        <Menus />
+      </RecoilRoot>,
+    );
+
+  beforeEach(() => mockUseSession(false));
+
+  describe('로그아웃 상태이면', () => {
+    it('로그인 버튼이 나온다', () => {
       const { getByText } = renderMenus();
 
-      menus.forEach((item) => {
-        expect(getByText(item.name)).toBeInTheDocument();
-      });
-
       expect(getByText('로그인')).toBeInTheDocument();
+    });
+  });
+
+  describe('로그인 상태이면', () => {
+    it('로그아웃, + 글쓰기 버튼이 나온다', () => {
+      mockUseSession(true);
+      const { getByText } = renderMenus();
+
+      expect(getByText('로그아웃')).toBeInTheDocument();
       expect(getByText('+ 글쓰기')).toBeInTheDocument();
     });
   });
@@ -58,6 +86,7 @@ describe('Menus', () => {
 
   describe('글쓰기 버튼을 클릭하면', () => {
     it('/write 페이지로 이동한다', () => {
+      mockUseSession(true);
       const { getByText } = renderMenus();
       const writeLink = getByText('+ 글쓰기').closest('a');
 
@@ -66,8 +95,15 @@ describe('Menus', () => {
   });
 
   describe('로그인 버튼을 클릭하면', () => {
-    it('로그인 모달이 나온다', () => {
-      // NOTE : 로그인 기능 개발할 때 다시 작성하기
+    it('로그인 모달이 나온다', async () => {
+      const { getByText } = renderMenus();
+      const loginButton = getByText('로그인');
+
+      await act(() => {
+        loginButton.click();
+      });
+
+      expect(onChange).toHaveBeenNthCalledWith(6, 'LOGIN');
     });
   });
 });

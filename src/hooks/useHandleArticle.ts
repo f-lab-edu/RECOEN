@@ -3,7 +3,7 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 
 import { articleState, writeStates, detailPageState } from 'src/recoil/article';
-import { openCreateModalStates } from 'src/recoil/permit';
+import { modalState } from 'src/recoil/modal';
 
 import { SaveArticleFunction, ArticleElements } from 'src/types/article';
 
@@ -58,7 +58,7 @@ export const useImageUrl = () => {
 
 const useHandleSuccess = () => {
   const resetArticle = useResetRecoilState(articleState);
-  const resetModalState = useResetRecoilState(openCreateModalStates);
+  const resetModalState = useResetRecoilState(modalState);
 
   const router = useRouter();
 

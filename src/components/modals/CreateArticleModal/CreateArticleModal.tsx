@@ -1,32 +1,27 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { theme } from 'src/style';
 
-import { useSetRecoilState } from 'recoil';
-import { openCreateModalStates } from 'src/recoil/permit';
-
-import Modal from '../Modal/Modal';
+import BaseModal from '../BaseModal/BaseModal';
 import ImageUpload from 'src/components/ImageUpload/ImageUpload';
 import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
 import { useResolveSaveFunction } from 'src/hooks/useHandleArticle';
+import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
 
 const CreateArticleModal = () => {
-  const setClose = useSetRecoilState(openCreateModalStates);
   const handleSaveArticle = useResolveSaveFunction();
-
-  const handleModalClose = () => {
-    setClose(false);
-  };
+  const handleOpenModal = useHandleOpenModal();
 
   return (
-    <Modal handleOpenModal={handleModalClose}>
-      <>
+    <BaseModal handleOpenModal={() => handleOpenModal(null)} right>
+      <Container>
         <Wrapper data-testid="createArticleModal">
           <H2>글 설정</H2>
           <ButtonWrapper>
-            <Button label="취소" onClick={handleModalClose} />
+            <Button label="취소" onClick={() => handleOpenModal(null)} />
             <Button label="저장" primary onClick={handleSaveArticle} />
           </ButtonWrapper>
         </Wrapper>
@@ -36,12 +31,22 @@ const CreateArticleModal = () => {
         <TagInput />
         <Guide>설명글</Guide>
         <DescInput />
-      </>
-    </Modal>
+      </Container>
+    </BaseModal>
   );
 };
 
 export default CreateArticleModal;
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${theme.color.nero};
+`;
 
 const Guide = styled.h3`
   font-size: 16px;
