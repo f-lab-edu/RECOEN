@@ -1,18 +1,14 @@
 import TagSearch from './TagSearch';
 
 import { RecoilRoot } from 'recoil';
-import RecoilObserver from 'src/components/RecoilObserver';
-import { filteredArticleStates } from 'src/recoil/article';
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 
 const tags = ['javascript', 'react', 'performance'];
 
 describe('TagSearch', () => {
-  const onChange = jest.fn();
   const renderTagSearch = () => {
     return render(
       <RecoilRoot>
-        <RecoilObserver node={filteredArticleStates} onChange={onChange} />
         <TagSearch tags={tags} />
       </RecoilRoot>,
     );
@@ -35,6 +31,15 @@ describe('TagSearch', () => {
       tags.forEach((tag) => {
         expect(getByText(tag)).toBeInTheDocument();
       });
+    });
+  });
+
+  describe('tag를 선택하면', () => {
+    it('선택된 tag로 articles가 정렬된다.', () => {
+      const { getByText } = renderTagSearch();
+
+      const selectedTag = getByText('javascript');
+      act(() => selectedTag.click());
     });
   });
 });
