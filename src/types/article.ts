@@ -15,6 +15,15 @@ export interface ArticleElementsType extends ArticleElements {
   time: string;
 }
 
+export type UseArticleElement = () => {
+  articleElements: ArticleElements;
+  setArticleElement: HandleArticleElementFunction;
+};
+
+export type HandleArticleElementFunction = (
+  arg: Partial<ArticleElements>,
+) => void;
+
 export type SaveArticleFunction = (
   data: ArticleElements,
 ) => Promise<AxiosResponse<any, any>>;
