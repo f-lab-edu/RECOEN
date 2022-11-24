@@ -5,14 +5,19 @@ import { useRouter } from 'next/router';
 import { articleState, writeStates, detailPageState } from 'src/recoil/article';
 import { modalState } from 'src/recoil/modal';
 
-import { SaveArticleFunction, ArticleElements } from 'src/types/article';
+import {
+  SaveArticleFunction,
+  ArticleElements,
+  UseArticleElement,
+  HandleArticleElementFunction,
+} from 'src/types/article';
 
 import { createArticle, updateArticle, deleteArticle } from 'src/apis';
 
-export const useArticleElement = () => {
+export const useArticleElement: UseArticleElement = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleState);
 
-  const setArticleElement = (element: Partial<ArticleElements>) => {
+  const setArticleElement: HandleArticleElementFunction = (element) => {
     setArticleElements({ ...articleElements, ...element });
   };
 
