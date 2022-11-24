@@ -5,6 +5,8 @@ import RecoilObserver from 'src/components/RecoilObserver';
 import { RecoilRoot } from 'recoil';
 import { articleState } from 'src/recoil/article';
 
+import { useArticleElement } from 'src/hooks/useHandleArticle';
+
 expect.extend(matchers);
 
 describe('TagInput', () => {
@@ -13,7 +15,7 @@ describe('TagInput', () => {
     render(
       <RecoilRoot>
         <RecoilObserver node={articleState} onChange={onChange} />
-        <TagInput />
+        <TagInput useArticleElement={useArticleElement} />
       </RecoilRoot>,
     );
 
