@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { useArticleElement } from 'src/hooks/useHandleArticle';
+import { UseArticleElement } from 'src/types/article';
 
-const DescInput = () => {
+interface Props {
+  useArticleElement: UseArticleElement;
+}
+
+const DescInput: React.FC<Props> = ({ useArticleElement }) => {
   const [currentLength, setCurrentLength] = useState<number>(0);
   const [isError, setError] = useState<boolean>(false);
   const { articleElements, setArticleElement } = useArticleElement();

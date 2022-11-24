@@ -1,8 +1,13 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
-import { useArticleElement } from 'src/hooks/useHandleArticle';
 
-const TitleInput = () => {
+import { UseArticleElement } from 'src/types/article';
+
+interface Props {
+  useArticleElement: UseArticleElement;
+}
+
+const TitleInput: React.FC<Props> = ({ useArticleElement }) => {
   const { articleElements, setArticleElement } = useArticleElement();
   return (
     <TextField

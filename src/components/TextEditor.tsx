@@ -3,9 +3,14 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { Editor } from '@toast-ui/react-editor';
 import { useS3Upload } from 'next-s3-upload';
-import { useContent, useArticleElement } from 'src/hooks/useHandleArticle';
 
-const TextEditor = () => {
+import { UseArticleElement } from 'src/types/article';
+
+interface Props {
+  useArticleElement: UseArticleElement;
+}
+
+const TextEditor: React.FC<Props> = ({ useArticleElement }) => {
   const editorRef = useRef<Editor>();
   const { uploadToS3 } = useS3Upload();
   const { articleElements, setArticleElement } = useArticleElement();

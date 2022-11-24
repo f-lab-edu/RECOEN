@@ -1,9 +1,12 @@
 import React, { useState, CompositionEvent } from 'react';
 import styled from '@emotion/styled';
 import Chip from 'src/components/ui/Chip/Chip';
-import { useArticleElement } from 'src/hooks/useHandleArticle';
+import { UseArticleElement } from 'src/types/article';
+interface Props {
+  useArticleElement: UseArticleElement;
+}
 
-const TagInput = () => {
+const TagInput: React.FC<Props> = ({ useArticleElement }) => {
   const [value, setValue] = useState('');
   const [isOnComposition, setIsOnComposition] = useState(false);
   const [isError, setError] = useState<boolean>(false);

@@ -8,7 +8,10 @@ import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
-import { useResolveSaveFunction } from 'src/hooks/useHandleArticle';
+import {
+  useResolveSaveFunction,
+  useArticleElement,
+} from 'src/hooks/useHandleArticle';
 import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
 
 const CreateArticleModal = () => {
@@ -26,11 +29,11 @@ const CreateArticleModal = () => {
           </ButtonWrapper>
         </Wrapper>
         <Guide>대표이미지</Guide>
-        <ImageUpload />
+        <ImageUpload useArticleElement={useArticleElement} />
         <Guide>태그(최대 3개)</Guide>
-        <TagInput />
+        <TagInput useArticleElement={useArticleElement} />
         <Guide>설명글</Guide>
-        <DescInput />
+        <DescInput useArticleElement={useArticleElement} />
       </Container>
     </BaseModal>
   );

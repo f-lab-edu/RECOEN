@@ -2,9 +2,13 @@
 import React from 'react';
 import { useS3Upload } from 'next-s3-upload';
 import styled from '@emotion/styled';
-import { useArticleElement } from 'src/hooks/useHandleArticle';
 
-const ImageUpload = () => {
+import { UseArticleElement } from 'src/types/article';
+interface Props {
+  useArticleElement: UseArticleElement;
+}
+
+const ImageUpload: React.FC<Props> = ({ useArticleElement }) => {
   const { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
   const { articleElements, setArticleElement } = useArticleElement();
 
