@@ -1,14 +1,15 @@
 import React, { useState, CompositionEvent } from 'react';
 import styled from '@emotion/styled';
 import Chip from 'src/components/ui/Chip/Chip';
-import { useTags } from 'src/hooks/useHandleArticle';
+import { useArticleElement } from 'src/hooks/useHandleArticle';
 
 const TagInput = () => {
   const [value, setValue] = useState('');
-  // const [tags, setTags] = useState<string[]>();
   const [isOnComposition, setIsOnComposition] = useState(false);
   const [isError, setError] = useState<boolean>(false);
-  const { tags, setTags } = useTags();
+
+  const { articleElements, setArticleElement } = useArticleElement();
+  const { tags } = articleElements;
 
   const composition = (e: CompositionEvent<HTMLInputElement>) => {
     if (e.type === 'compositionend') {
@@ -20,12 +21,12 @@ const TagInput = () => {
 
   const onRemove = (tag: string) => {
     const nextTags = tags.filter((t) => t !== tag);
-    setTags(nextTags);
+    setArticleElement({ tags: nextTags });
   };
 
   const handleBackspaceRemove = () => {
     const nextTags = tags.filter((t, i) => i !== tags.length - 1);
-    setTags(nextTags);
+    setArticleElement({ tags: nextTags });
   };
 
   const checkDuplicatedTag = (value: string) => {
@@ -46,7 +47,8 @@ const TagInput = () => {
       if (tags.length == 3) return setError(true);
       if (value == '') return;
 
-      if (!checkDuplicatedTag(value)) setTags(tags.concat(value));
+      if (!checkDuplicatedTag(value))
+        setArticleElement({ tags: tags.concat(value) });
       setValue('');
     }
   };

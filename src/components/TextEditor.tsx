@@ -3,17 +3,17 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { Editor } from '@toast-ui/react-editor';
 import { useS3Upload } from 'next-s3-upload';
-import { useContent } from 'src/hooks/useHandleArticle';
+import { useContent, useArticleElement } from 'src/hooks/useHandleArticle';
 
 const TextEditor = () => {
   const editorRef = useRef<Editor>();
   const { uploadToS3 } = useS3Upload();
-  const { content, setMarkDown } = useContent();
+  const { articleElements, setArticleElement } = useArticleElement();
 
   const handleChange = () => {
     if (!editorRef.current) return;
     const markDownData = editorRef.current.getInstance().getMarkdown();
-    setMarkDown(markDownData);
+    setArticleElement({ content: markDownData });
   };
 
   const uploadImage = async (
@@ -26,8 +26,8 @@ const TextEditor = () => {
 
   useEffect(() => {
     if (!editorRef.current) return;
-    editorRef.current.getInstance().setMarkdown(content);
-  }, [content]);
+    editorRef.current.getInstance().setMarkdown(articleElements.content);
+  }, [articleElements.content]);
 
   return (
     <Editor

@@ -1,15 +1,14 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
-import { useTitle } from 'src/hooks/useHandleArticle';
+import { useArticleElement } from 'src/hooks/useHandleArticle';
 
 const TitleInput = () => {
-  const { title, setArticleTitle } = useTitle();
-
+  const { articleElements, setArticleElement } = useArticleElement();
   return (
     <TextField
       data-testid="titleInput"
-      onChange={setArticleTitle}
-      value={title}
+      onChange={(e) => setArticleElement({ title: e.target.value })}
+      value={articleElements.title}
       label="제목을 입력해주세요"
       variant="outlined"
       fullWidth
