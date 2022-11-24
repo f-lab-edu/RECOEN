@@ -9,51 +9,14 @@ import { SaveArticleFunction, ArticleElements } from 'src/types/article';
 
 import { createArticle, updateArticle, deleteArticle } from 'src/apis';
 
-export const useTitle = () => {
+export const useArticleElement = () => {
   const [articleElements, setArticleElements] = useRecoilState(articleState);
 
-  const setArticleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setArticleElements({ ...articleElements, title: event.target.value });
+  const setArticleElement = (element: Partial<ArticleElements>) => {
+    setArticleElements({ ...articleElements, ...element });
   };
 
-  return { title: articleElements.title, setArticleTitle };
-};
-
-export const useContent = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
-
-  const setMarkDown = (markdown: string) => {
-    setArticleElements({ ...articleElements, content: markdown });
-  };
-
-  return { content: articleElements.content, setMarkDown };
-};
-
-export const useTags = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
-  const setTags = (tags: string[]) => {
-    setArticleElements({ ...articleElements, tags });
-  };
-  return { tags: articleElements.tags, setTags };
-};
-
-export const useDescription = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
-
-  const setDesc = (description: string) => {
-    setArticleElements({ ...articleElements, description });
-  };
-  return { desc: articleElements.description, setDesc };
-};
-
-export const useImageUrl = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
-
-  const setUrl = (imgUrl: string) => {
-    setArticleElements({ ...articleElements, imgUrl });
-  };
-
-  return { imgUrl: articleElements.imgUrl, setUrl };
+  return { articleElements, setArticleElement };
 };
 
 const useHandleSuccess = () => {
