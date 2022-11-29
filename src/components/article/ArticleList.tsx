@@ -16,33 +16,21 @@ const ArticleList = ({ articles }: Props) => {
   return (
     <Grid>
       <>
-        {filteredArticles.length == 0
-          ? articles.map((article: ArticleElementsType) => {
-              if (!article._id) return;
-              return (
-                <Article
-                  key={article._id}
-                  path={encodeURI(article._id)}
-                  title={article.title}
-                  imgUrl={article.imgUrl}
-                  description={article.description}
-                  blurDataURL={article.blurDataURL}
-                />
-              );
-            })
-          : filteredArticles.map((article: ArticleElementsType) => {
-              if (!article._id) return;
-              return (
-                <Article
-                  key={article._id}
-                  path={encodeURI(article._id)}
-                  title={article.title}
-                  imgUrl={article.imgUrl}
-                  description={article.description}
-                  blurDataURL={article.blurDataURL}
-                />
-              );
-            })}
+        {(filteredArticles.length ? filteredArticles : articles).map(
+          (article: ArticleElementsType) => {
+            if (!article._id) return;
+            return (
+              <Article
+                key={article._id}
+                path={encodeURI(article._id)}
+                title={article.title}
+                imgUrl={article.imgUrl}
+                description={article.description}
+                blurDataURL={article.blurDataURL}
+              />
+            );
+          },
+        )}
       </>
     </Grid>
   );
