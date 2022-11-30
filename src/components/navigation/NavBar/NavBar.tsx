@@ -30,6 +30,11 @@ const NavBar = () => {
     return null;
   };
 
+  const resolveMenuBar = () => {
+    if (router.pathname.includes('/write')) return <WritePageMenus />;
+    else return <Menus />;
+  };
+
   return (
     <FixedContainer
       data-testid="fixedContainer"
@@ -41,11 +46,7 @@ const NavBar = () => {
           <Title lang="en">recoen.</Title>
         </Link>
         {resolution == 'DESKTOP' ? (
-          router.pathname.includes('/write') ? (
-            <WritePageMenus />
-          ) : (
-            <Menus />
-          )
+          resolveMenuBar()
         ) : (
           <Image
             src={HamburgerMenu}
