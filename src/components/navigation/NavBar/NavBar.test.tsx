@@ -48,7 +48,7 @@ describe('NavBar', () => {
     it('카테고리 목록이 나와야 한다', () => {
       const { getByText } = renderNavBar('/');
 
-      expect(getByText('Article')).toBeInTheDocument();
+      expect(getByText('Coding')).toBeInTheDocument();
       expect(getByText('Book')).toBeInTheDocument();
       expect(getByText('Essay')).toBeInTheDocument();
       expect(getByText('About')).toBeInTheDocument();

@@ -4,7 +4,7 @@ export const ARTICLE_URI = '/api/article';
 const ARTICLES_URI = '/api/articles';
 
 export const getArticle = async (id: string) => {
-  return await axiosInstance.get(ARTICLE_URI, { data: id });
+  return await axiosInstance.get(CODING_ARTICLE_URI, { data: id });
 };
 
 export const getArticles = async () => {

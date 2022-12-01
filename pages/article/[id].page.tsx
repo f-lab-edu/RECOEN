@@ -12,7 +12,7 @@ import { serialize } from 'next-mdx-remote/serialize';
 import { useSetRecoilState, useResetRecoilState } from 'recoil';
 import { detailPageState } from 'src/recoil/article';
 
-import ArticleModel from 'pages/api/models/articleModel';
+import CodingArticleModel from 'pages/api/models/codingArticleModel';
 import MDXDetail from 'src/components/mdx/MDXDetail';
 import Head from 'src/components/Head';
 import Image from 'next/image';
@@ -77,7 +77,7 @@ export const getStaticPaths = async () => {
     console.log('CONNECTED TO MONGO IN DETAIL PATH');
 
     console.log('FETCHING DATA');
-    const res = await ArticleModel.find();
+    const res = await CodingArticleModel.find();
     console.log('FETCHED DATA');
 
     const articles = JSON.parse(JSON.stringify(res));
@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps = async (
 
     const { id } = context.params as IPrams;
 
-    const res = await ArticleModel.findById(id);
+    const res = await CodingArticleModel.findById(id);
     const article = JSON.parse(JSON.stringify(res));
 
     const { base64 } = await getPlaiceholder(article.imgUrl);
