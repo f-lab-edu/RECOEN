@@ -2,22 +2,27 @@
 import React from 'react';
 import { useS3Upload } from 'next-s3-upload';
 import styled from '@emotion/styled';
-import { useImageUrl } from 'src/hooks/useHandleArticle';
 
-const ImageUpload = () => {
+import { UseArticleElement } from 'src/types/article';
+interface Props {
+  useArticleElement: UseArticleElement;
+}
+
+const ImageUpload: React.FC<Props> = ({ useArticleElement }) => {
   const { FileInput, openFileDialog, uploadToS3 } = useS3Upload();
-  const { imgUrl, setUrl } = useImageUrl();
+  const { articleElements, setArticleElement } = useArticleElement();
 
   const handleFileChange = async (file: File) => {
     const { url } = await uploadToS3(file);
-    setUrl(url);
+    setArticleElement({ imgUrl: url });
   };
+
   return (
     <div>
       <FileInput data-testid="fileinput" onChange={handleFileChange} />
-      {imgUrl ? (
+      {articleElements.imgUrl ? (
         <Img
-          src={imgUrl}
+          src={articleElements.imgUrl}
           alt="preview image"
           width="200"
           height="200"

@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { useDescription } from 'src/hooks/useHandleArticle';
+import { UseArticleElement } from 'src/types/article';
 
-const DescInput = () => {
+interface Props {
+  useArticleElement: UseArticleElement;
+}
+
+const DescInput: React.FC<Props> = ({ useArticleElement }) => {
   const [currentLength, setCurrentLength] = useState<number>(0);
   const [isError, setError] = useState<boolean>(false);
-  const { desc, setDesc } = useDescription();
+  const { articleElements, setArticleElement } = useArticleElement();
 
   const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const textLength = e.target.value.length;
     setCurrentLength(textLength);
     if (textLength === 200) return setError(true);
 
-    setDesc(e.target.value);
+    setArticleElement({ description: e.target.value });
   };
 
   const onKeyDown = (
@@ -36,7 +40,7 @@ const DescInput = () => {
         isError={isError}
         onBlur={onBlur}
         onKeyDown={onKeyDown}
-        value={desc}
+        value={articleElements.description}
       />
     </Wrapper>
   );

@@ -4,7 +4,7 @@ import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
 
 import { getPlaiceholder } from 'plaiceholder';
-import { ArticleElementsType } from 'src/types/article';
+import { ViewArticleElement } from 'src/types/article';
 
 import Hero from 'src/components/hero/Hero/Hero';
 import ArticleList from 'src/components/article/ArticleList';
@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const articles = JSON.parse(JSON.stringify(res));
 
     const articlesWithBlurURL = await Promise.all(
-      articles.map(async (article: ArticleElementsType) => {
+      articles.map(async (article: ViewArticleElement) => {
         const { base64 } = await getPlaiceholder(article.imgUrl);
         return { ...article, blurDataURL: base64 };
       }),

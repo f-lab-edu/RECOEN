@@ -4,6 +4,7 @@ import ImageUpload from './ImageUpload';
 import RecoilObserver from 'src/components/RecoilObserver';
 import { RecoilRoot } from 'recoil';
 import { articleState } from 'src/recoil/article';
+import { useArticleElement } from 'src/hooks/useHandleArticle';
 
 describe('ImageUpload', () => {
   const onChange = jest.fn();
@@ -11,7 +12,7 @@ describe('ImageUpload', () => {
     render(
       <RecoilRoot>
         <RecoilObserver node={articleState} onChange={onChange} />
-        <ImageUpload />
+        <ImageUpload useArticleElement={useArticleElement} />
       </RecoilRoot>,
     );
 

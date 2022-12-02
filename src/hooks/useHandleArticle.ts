@@ -5,55 +5,23 @@ import { useRouter } from 'next/router';
 import { articleState, writeStates, detailPageState } from 'src/recoil/article';
 import { modalState } from 'src/recoil/modal';
 
-import { SaveArticleFunction, ArticleElements } from 'src/types/article';
+import {
+  SaveArticleFunction,
+  ArticleElement,
+  UseArticleElement,
+  HandleArticleElementFunction,
+} from 'src/types/article';
 
 import { createArticle, updateArticle, deleteArticle } from 'src/apis';
 
-export const useTitle = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
+export const useArticleElement: UseArticleElement = () => {
+  const [articleElements, setElement] = useRecoilState(articleState);
 
-  const setArticleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setArticleElements({ ...articleElements, title: event.target.value });
+  const setArticleElement: HandleArticleElementFunction = (element) => {
+    setElement({ ...articleElements, ...element });
   };
 
-  return { title: articleElements.title, setArticleTitle };
-};
-
-export const useContent = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
-
-  const setMarkDown = (markdown: string) => {
-    setArticleElements({ ...articleElements, content: markdown });
-  };
-
-  return { content: articleElements.content, setMarkDown };
-};
-
-export const useTags = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
-  const setTags = (tags: string[]) => {
-    setArticleElements({ ...articleElements, tags });
-  };
-  return { tags: articleElements.tags, setTags };
-};
-
-export const useDescription = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
-
-  const setDesc = (description: string) => {
-    setArticleElements({ ...articleElements, description });
-  };
-  return { desc: articleElements.description, setDesc };
-};
-
-export const useImageUrl = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
-
-  const setUrl = (imgUrl: string) => {
-    setArticleElements({ ...articleElements, imgUrl });
-  };
-
-  return { imgUrl: articleElements.imgUrl, setUrl };
+  return { articleElements, setArticleElement };
 };
 
 const useHandleSuccess = () => {
@@ -71,7 +39,7 @@ const useHandleSuccess = () => {
 };
 
 const saveArticle =
-  (articleElements: ArticleElements) =>
+  (articleElements: ArticleElement) =>
   (handleSuccess: () => void) =>
   async (saveArticleFunction: SaveArticleFunction) => {
     const res = await saveArticleFunction(articleElements);
