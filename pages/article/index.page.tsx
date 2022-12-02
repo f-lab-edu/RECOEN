@@ -1,7 +1,7 @@
 import React from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
-import CodingArticleModel from 'pages/api/models/codingArticleModel';
+import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
 
 import { getPlaiceholder } from 'plaiceholder';
 import { ViewArticleElement } from 'src/types/article';
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async () => {
     console.log('CONNECTED TO MONGO IN ARTICLE PAGE');
 
     console.log('FETCHING DATA IN ARTICLE PAGE');
-    const res = await CodingArticleModel.find();
+    const res = await ProgrammingArticleModel.find();
     console.log('FETCHED DATA IN ARTICLE PAGE');
 
     const articles = JSON.parse(JSON.stringify(res));

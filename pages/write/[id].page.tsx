@@ -7,7 +7,7 @@ import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import { useSetRecoilState, useResetRecoilState } from 'recoil';
 import { articleState } from 'src/recoil/article';
 
-import CodingArticleModel from 'pages/api/models/codingArticleModel';
+import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
 
 const UpdatePage = ({
   article,
@@ -42,7 +42,7 @@ export const getServerSideProps = async (
 ) => {
   await connectMongo();
   const { id } = context.params as IPrams;
-  const res = await CodingArticleModel.findById(id);
+  const res = await ProgrammingArticleModel.findById(id);
   const article = JSON.parse(JSON.stringify(res));
 
   return { props: { article } };

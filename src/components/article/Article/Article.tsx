@@ -20,7 +20,6 @@ const Article = ({
   blurDataURL,
   createdAt,
 }: Props) => {
-  console.log(createdAt);
   return (
     <Link href={`/article/${path}`}>
       <Container>

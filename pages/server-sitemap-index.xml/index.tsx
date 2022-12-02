@@ -1,11 +1,11 @@
 import { GetServerSideProps } from 'next';
 import { getServerSideSitemap } from 'next-sitemap';
-import CodingArticleModel from 'pages/api/models/articleModel';
+import ProgrammingArticleModel from 'pages/api/models/articleModel';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   await connectMongo();
-  const articleIds = await CodingArticleModel.find().select('_id');
+  const articleIds = await ProgrammingArticleModel.find().select('_id');
   const lastmod = new Date().toISOString();
 
   const AbsoluteFields = [

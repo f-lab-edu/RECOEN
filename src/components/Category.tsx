@@ -11,7 +11,7 @@ const Category = () => {
     setCategory(event.target.value);
   };
 
-  const categories = ['Coding', 'Book', 'Essay'];
+  const categories = ['Programming', 'Book', 'Essay'];
 
   const formStyles = {
     width: '200px',

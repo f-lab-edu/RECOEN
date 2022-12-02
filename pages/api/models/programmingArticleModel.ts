@@ -1,6 +1,6 @@
 import { Schema, model, models } from 'mongoose';
 
-const codingArticleSchema = new Schema(
+const programmingArticleSchema = new Schema(
   {
     title: String,
     description: String,
@@ -11,7 +11,7 @@ const codingArticleSchema = new Schema(
   { timestamps: true },
 );
 
-const CodingArticleModel =
-  models.Coding || model('Coding', codingArticleSchema);
+const ProgrammingArticleModel =
+  models.Programming || model('Programming', programmingArticleSchema);
 
-export default CodingArticleModel;
+export default ProgrammingArticleModel;
