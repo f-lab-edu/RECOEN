@@ -9,6 +9,7 @@ export interface ArticleElement {
   imgUrl: string;
   content: string;
   createdAt?: string;
+  category: ArticleCategory;
 }
 export interface ViewArticleElement extends ArticleElement {
   blurDataURL: string;
@@ -27,5 +28,7 @@ export type HandleArticleElementFunction = (
 ) => void;
 
 export type SaveArticleFunction = (
-  data: ArticleElement,
-) => Promise<AxiosResponse<any, any>>;
+  data: ArticleElements,
+) => (category: ArticleCategory) => Promise<AxiosResponse<any, any>>;
+
+export type ArticleCategory = 'programming' | 'book' | 'essay';

@@ -42,8 +42,9 @@ const saveArticle =
   (articleElements: ArticleElement) =>
   (handleSuccess: () => void) =>
   async (saveArticleFunction: SaveArticleFunction) => {
-    const res = await saveArticleFunction(articleElements);
-    console.log(res);
+    const res = await saveArticleFunction(articleElements)(
+      articleElements.category,
+    );
 
     if (res.status == 200) handleSuccess();
   };

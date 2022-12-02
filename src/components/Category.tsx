@@ -13,20 +13,6 @@ const Category = () => {
 
   const categories = ['Programming', 'Book', 'Essay'];
 
-  const formStyles = {
-    width: '200px',
-    borderRadius: '0px',
-    '& .MuiOutlinedInput-notchedOutline': {
-      border: '1px solid #373a3f',
-    },
-    '& :hover .MuiOutlinedInput-notchedOutline': {
-      border: '1px solid #373a3f !important',
-    },
-    '& .MuiSvgIcon-root': {
-      color: '#373a3f',
-    },
-  };
-
   return (
     <FormControl sx={formStyles}>
       <InputLabel sx={{ color: '#4a4c54', fontSize: '18px' }}>
@@ -57,3 +43,17 @@ const Category = () => {
 };
 
 export default Category;
+
+const formStyles = {
+  width: '200px',
+  borderRadius: '0px',
+  '& .MuiOutlinedInput-notchedOutline': {
+    border: '1px solid #373a3f',
+  },
+  '& :hover .MuiOutlinedInput-notchedOutline': {
+    border: '1px solid #373a3f !important',
+  },
+  '& .MuiSvgIcon-root': {
+    color: '#373a3f',
+  },
+};
