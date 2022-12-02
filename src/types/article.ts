@@ -8,11 +8,11 @@ export interface ArticleElement {
   tags: string[];
   imgUrl: string;
   content: string;
-  time?: string;
+  createdAt?: string;
 }
 export interface ViewArticleElement extends ArticleElement {
   blurDataURL: string;
-  time: string;
+  createdAt: string;
 }
 
 export type UseArticleElement = () => Return;

@@ -9,9 +9,18 @@ interface Props {
   path: string;
   imgUrl: string;
   blurDataURL: string;
+  createdAt: string;
 }
 
-const Article = ({ title, description, path, imgUrl, blurDataURL }: Props) => {
+const Article = ({
+  title,
+  description,
+  path,
+  imgUrl,
+  blurDataURL,
+  createdAt,
+}: Props) => {
+  console.log(createdAt);
   return (
     <Link href={`/article/${path}`}>
       <Container>
@@ -30,7 +39,7 @@ const Article = ({ title, description, path, imgUrl, blurDataURL }: Props) => {
             <Title>{title}</Title>
             <Desc>{description}</Desc>
           </div>
-          <Date>2022.10.23 7min read</Date>
+          <Date>{createdAt}</Date>
         </Wrapper>
       </Container>
     </Link>
