@@ -7,7 +7,7 @@ import { modalState } from 'src/recoil/modal';
 
 import {
   SaveArticleFunction,
-  ArticleElements,
+  ArticleElement,
   UseArticleElement,
   HandleArticleElementFunction,
 } from 'src/types/article';
@@ -15,10 +15,10 @@ import {
 import { createArticle, updateArticle, deleteArticle } from 'src/apis';
 
 export const useArticleElement: UseArticleElement = () => {
-  const [articleElements, setArticleElements] = useRecoilState(articleState);
+  const [articleElements, setElement] = useRecoilState(articleState);
 
   const setArticleElement: HandleArticleElementFunction = (element) => {
-    setArticleElements({ ...articleElements, ...element });
+    setElement({ ...articleElements, ...element });
   };
 
   return { articleElements, setArticleElement };
@@ -39,7 +39,7 @@ const useHandleSuccess = () => {
 };
 
 const saveArticle =
-  (articleElements: ArticleElements) =>
+  (articleElements: ArticleElement) =>
   (handleSuccess: () => void) =>
   async (saveArticleFunction: SaveArticleFunction) => {
     const res = await saveArticleFunction(articleElements);

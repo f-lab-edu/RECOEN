@@ -1,13 +1,13 @@
 import React from 'react';
 import NextHead from 'next/head';
 import { useRouter } from 'next/router';
-import { ArticleElementsType } from 'src/types/article';
+import { ViewArticleElement } from 'src/types/article';
 
 import Script from 'next/script';
 import * as gtag from 'src/lib/gtag';
 
 interface Props {
-  article?: ArticleElementsType;
+  article?: ViewArticleElement;
 }
 
 const Head: React.FC<Props> = ({ article }) => {

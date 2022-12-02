@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 
-export interface ArticleElements {
+export interface ArticleElement {
   status?: number;
   _id?: string;
   title: string;
@@ -10,20 +10,22 @@ export interface ArticleElements {
   content: string;
   time?: string;
 }
-export interface ArticleElementsType extends ArticleElements {
+export interface ViewArticleElement extends ArticleElement {
   blurDataURL: string;
   time: string;
 }
 
-export type UseArticleElement = () => {
-  articleElements: ArticleElements;
+export type UseArticleElement = () => Return;
+
+type Return = {
+  articleElements: ArticleElement;
   setArticleElement: HandleArticleElementFunction;
 };
 
 export type HandleArticleElementFunction = (
-  arg: Partial<ArticleElements>,
+  arg: Partial<ArticleElement>,
 ) => void;
 
 export type SaveArticleFunction = (
-  data: ArticleElements,
+  data: ArticleElement,
 ) => Promise<AxiosResponse<any, any>>;

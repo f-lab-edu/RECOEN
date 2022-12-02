@@ -3,16 +3,16 @@ import React from 'react';
 import Article from './Article/Article';
 import Grid from 'src/components/ui/Grid';
 
-import { ArticleElementsType } from 'src/types/article';
+import { ViewArticleElement } from 'src/types/article';
 interface Props {
-  articles: ArticleElementsType[];
+  articles: ViewArticleElement[];
 }
 
 const ArticleList = ({ articles }: Props) => {
   return (
     <Grid>
       <>
-        {articles.map((article: ArticleElementsType) => {
+        {articles.map((article: ViewArticleElement) => {
           if (!article._id) return;
           return (
             <Article

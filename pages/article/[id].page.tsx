@@ -17,7 +17,7 @@ import MDXDetail from 'src/components/mdx/MDXDetail';
 import Head from 'src/components/Head';
 import Image from 'next/image';
 
-import { ArticleElementsType } from 'src/types/article';
+import { ViewArticleElement } from 'src/types/article';
 
 import { useRouter } from 'next/router';
 
@@ -82,7 +82,7 @@ export const getStaticPaths = async () => {
 
     const articles = JSON.parse(JSON.stringify(res));
 
-    const paths = articles.map((article: ArticleElementsType) => {
+    const paths = articles.map((article: ViewArticleElement) => {
       if (article._id) return { params: { id: article._id.toString() } };
     });
 
