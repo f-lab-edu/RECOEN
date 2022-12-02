@@ -2,7 +2,7 @@ import React from 'react';
 
 import { TextEditor } from 'src/components';
 
-import Category from 'src/components/Category';
+import CategoryInput from 'src/components/CategoryInput';
 import TitleInput from 'src/components/Inputs/TitleInput';
 import styled from '@emotion/styled';
 
@@ -12,7 +12,7 @@ const WritePage = () => {
   return (
     <>
       <TitleWrapper>
-        <Category />
+        <CategoryInput useArticleElement={useArticleElement} />
         <TitleInput useArticleElement={useArticleElement} />
       </TitleWrapper>
 

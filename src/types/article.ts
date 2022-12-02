@@ -11,7 +11,7 @@ export interface ArticleElement {
   createdAt?: string;
   category: ArticleCategory;
 }
-export interface ViewArticleElement extends ArticleElement {
+export interface ViewArticleElement extends Omit<ArticleElement, 'category'> {
   blurDataURL: string;
   createdAt: string;
 }
@@ -28,7 +28,7 @@ export type HandleArticleElementFunction = (
 ) => void;
 
 export type SaveArticleFunction = (
-  data: ArticleElements,
+  data: ArticleElement,
 ) => (category: ArticleCategory) => Promise<AxiosResponse<any, any>>;
 
 export type ArticleCategory = 'programming' | 'book' | 'essay';

@@ -1,5 +1,5 @@
 import { axiosInstance } from './index';
-import { ArticleElements, ArticleCategory } from 'src/types/article';
+import { ArticleElement, ArticleCategory } from 'src/types/article';
 export const PROGRAMMING_ARTICLE_URI = '/api/programming';
 export const BOOK_ARTICLE_URI = '/api/book';
 export const ESSAY_ARTICLE_URI = '/api/essay';
@@ -20,11 +20,11 @@ export const getArticles = async () => {
 };
 
 export const createArticle =
-  (data: ArticleElements) => async (category: ArticleCategory) => {
+  (data: ArticleElement) => async (category: ArticleCategory) => {
     return await axiosInstance.post(uriMap[category], data);
   };
 
 export const updateArticle =
-  (data: ArticleElements) => async (category: ArticleCategory) => {
+  (data: ArticleElement) => async (category: ArticleCategory) => {
     return await axiosInstance.put(uriMap[category], data);
   };

@@ -2,16 +2,18 @@ import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
-const Category = () => {
-  const [category, setCategory] = React.useState('');
+import { UseArticleElement, ArticleCategory } from 'src/types/article';
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setCategory(event.target.value);
-  };
+interface Props {
+  useArticleElement: UseArticleElement;
+}
 
-  const categories = ['Programming', 'Book', 'Essay'];
+const CategoryInput: React.FC<Props> = ({ useArticleElement }) => {
+  const { articleElements, setArticleElement } = useArticleElement();
+
+  const categories = ['programming', 'book', 'essay'];
 
   return (
     <FormControl sx={formStyles}>
@@ -21,14 +23,16 @@ const Category = () => {
       <Select
         labelId="category-select"
         id="category-select-id"
-        value={category}
+        value={articleElements.category}
         label="Category"
         sx={{
           borderRadius: '0px',
           height: '50px',
           color: '#4a4c54',
         }}
-        onChange={handleChange}
+        onChange={(e) =>
+          setArticleElement({ category: e.target.value as ArticleCategory })
+        }
       >
         {categories.map((category) => {
           return (
@@ -42,7 +46,7 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default CategoryInput;
 
 const formStyles = {
   width: '200px',

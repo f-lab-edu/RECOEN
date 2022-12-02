@@ -23,6 +23,7 @@ const UpdatePage = ({
       imgUrl: article.imgUrl,
       description: article.description,
       tags: article.tags,
+      category: article.category,
     };
     setArticle(articleState);
 
