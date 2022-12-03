@@ -1,5 +1,13 @@
 import { AxiosResponse } from 'axios';
 
+export interface ArticleModel {
+  title: string;
+  description: string;
+  tags: string[];
+  content: string;
+  imgUrl: string;
+}
+
 export interface ArticleElement {
   status?: number;
   _id?: string;

@@ -40,6 +40,7 @@ const Article = ({
       imgUrl: article.imgUrl,
       description: article.description,
       tags: article.tags,
+      createdAt: article.createdAt,
     };
     setDetailStates(detailStates);
   }, []);
