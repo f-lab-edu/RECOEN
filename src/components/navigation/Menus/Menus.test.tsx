@@ -19,15 +19,15 @@ jest.mock('next-auth/react');
 const menus = [
   {
     name: 'Programming',
-    href: '/article',
+    href: '/programming',
   },
   {
     name: 'Book',
     href: '/book',
   },
   {
-    name: 'Quotes',
-    href: '/quotes',
+    name: 'Essay',
+    href: '/essay',
   },
   {
     name: 'About',
