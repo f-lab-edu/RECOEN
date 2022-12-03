@@ -6,7 +6,7 @@ import {
 } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 
-import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
+import BookArticleModel from 'pages/api/models/bookArticleModel';
 import DBUtils from 'src/utils/dbUtils';
 
 import { useSetRecoilState, useResetRecoilState } from 'recoil';
@@ -72,7 +72,7 @@ export default Article;
 
 export const getStaticPaths = async () => {
   try {
-    const programmingDB = await new DBUtils(ProgrammingArticleModel);
+    const programmingDB = await new DBUtils(BookArticleModel);
     await programmingDB.setUp();
     const paths = await programmingDB.findArticlePaths();
 
@@ -92,7 +92,7 @@ export const getStaticProps: GetStaticProps = async (
   try {
     const { id } = context.params as IPrams;
 
-    const programmingDB = await new DBUtils(ProgrammingArticleModel);
+    const programmingDB = await new DBUtils(BookArticleModel);
     await programmingDB.setUp();
     const article = await programmingDB.getMDXContent(id);
 

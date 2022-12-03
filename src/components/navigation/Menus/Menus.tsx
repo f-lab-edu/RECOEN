@@ -34,12 +34,6 @@ const Menus = () => {
       path: '/essay',
     },
     {
-      id: 'quotes',
-      name: 'Quotes',
-      title: '인용구 리스트 페이지입니다.',
-      path: '/quotes',
-    },
-    {
       id: 'about',
       name: 'About',
       title: '소개페이지입니다.',

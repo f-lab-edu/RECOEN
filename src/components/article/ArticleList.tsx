@@ -4,11 +4,13 @@ import Article from './Article/Article';
 import Grid from 'src/components/ui/Grid';
 
 import { ViewArticleElement } from 'src/types/article';
+import { ArticleCategory } from 'src/types/article';
 import { useRecoilValue } from 'recoil';
 import { filteredArticleStates } from 'src/recoil/article';
 
 interface Props {
   articles: ViewArticleElement[];
+  type: ArticleCategory;
 }
 
 const ArticleList = ({ articles }: Props) => {

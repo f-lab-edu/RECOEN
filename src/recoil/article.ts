@@ -23,7 +23,7 @@ export const filteredArticleStates = atom<ViewArticleElement[]>({
   default: [],
 });
 
-export const detailPageState = atom<ArticleElement>({
+export const detailPageState = atom<ViewArticleElement>({
   key: 'detailPageState',
   default: {
     _id: '',
@@ -33,7 +33,7 @@ export const detailPageState = atom<ArticleElement>({
     description: '',
     imgUrl: '',
     createdAt: '',
-    category: 'programming',
+    blurDataURL: '',
   },
 });
 

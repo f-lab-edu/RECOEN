@@ -30,7 +30,7 @@ const DetailTitle = () => {
       </ChipWrapper>
       <Title>{article.title}</Title>
       <Wrapper>
-        <Date>{article.time}</Date>
+        <Date>{article.createdAt}</Date>
         <ButtonsWrapper>
           <Button label="수정" onClick={handleEdit} />
           ·
