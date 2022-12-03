@@ -8,7 +8,7 @@ import ArticleList from 'src/components/article/ArticleList';
 import UpperLayout from 'src/components/hero/UpperLayout';
 import TagSearch from 'src/components/ui/TagSearch/TagSearch';
 
-const ArticlePage = ({
+const ProgrammingPage = ({
   articles,
   tags,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -26,7 +26,7 @@ const ArticlePage = ({
   );
 };
 
-export default ArticlePage;
+export default ProgrammingPage;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {

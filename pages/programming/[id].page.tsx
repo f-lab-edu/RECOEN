@@ -5,19 +5,16 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { connectMongo } from 'pages/api/middlewares/connectMongo';
-import { getPlaiceholder } from 'plaiceholder';
-import { serialize } from 'next-mdx-remote/serialize';
+
+import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
+import DBUtils from 'src/utils/dbUtils';
 
 import { useSetRecoilState, useResetRecoilState } from 'recoil';
 import { detailPageState } from 'src/recoil/article';
 
-import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
 import MDXDetail from 'src/components/mdx/MDXDetail';
 import Head from 'src/components/Head';
 import Image from 'next/image';
-
-import { ViewArticleElement } from 'src/types/article';
 
 import { useRouter } from 'next/router';
 
@@ -73,19 +70,9 @@ export default Article;
 
 export const getStaticPaths = async () => {
   try {
-    console.log('CONNECTING TO MONGO IN DETAIL PATH');
-    await connectMongo();
-    console.log('CONNECTED TO MONGO IN DETAIL PATH');
-
-    console.log('FETCHING DATA');
-    const res = await ProgrammingArticleModel.find();
-    console.log('FETCHED DATA');
-
-    const articles = JSON.parse(JSON.stringify(res));
-
-    const paths = articles.map((article: ViewArticleElement) => {
-      if (article._id) return { params: { id: article._id.toString() } };
-    });
+    const programmingDB = await new DBUtils(ProgrammingArticleModel);
+    await programmingDB.setUp();
+    const paths = await programmingDB.findArticlePaths();
 
     return {
       paths,
@@ -101,23 +88,15 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext,
 ) => {
   try {
-    console.log('CONNECTING TO MONGO IN DETAIL PROPS');
-    await connectMongo();
-    console.log('CONNECTED TO MONGO IN DETAIL PROPS');
-
     const { id } = context.params as IPrams;
 
-    const res = await ProgrammingArticleModel.findById(id);
-    const article = JSON.parse(JSON.stringify(res));
-
-    const { base64 } = await getPlaiceholder(article.imgUrl);
-    const MDXcontent = await serialize(article.content);
-
-    const assembledArticle = { ...article, blurDataURL: base64, MDXcontent };
+    const programmingDB = await new DBUtils(ProgrammingArticleModel);
+    await programmingDB.setUp();
+    const article = await programmingDB.getMDXContent(id);
 
     return {
       props: {
-        article: assembledArticle,
+        article,
       },
     };
   } catch (err) {
