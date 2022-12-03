@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { ArticleElement } from 'src/types/article';
+import { ArticleElement, ViewArticleElement } from 'src/types/article';
 export const articleState = atom<ArticleElement>({
   key: 'articleState',
   default: {
@@ -12,10 +12,16 @@ export const articleState = atom<ArticleElement>({
   },
 });
 
-export const filteredArticleStates = atom<ArticleElementsType[]>({
+export const articleListStates = atom<ViewArticleElement[]>({
+  key: 'articleListStates',
+  default: [],
+});
+
+export const filteredArticleStates = atom<ViewArticleElement[]>({
   key: 'filteredArticleStates',
   default: [],
 });
+
 export const detailPageState = atom<ArticleElement>({
   key: 'detailPageState',
   default: {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import ArticleModel from 'pages/api/models/articleModel';
@@ -20,10 +20,7 @@ const ArticlePage = ({
   tags,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const setArticleList = useSetRecoilState(articleListStates);
-
-  useEffect(() => {
-    setArticleList(articles);
-  }, []);
+  setArticleList(articles);
 
   return (
     <>
