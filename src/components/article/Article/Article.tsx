@@ -21,7 +21,7 @@ const Article = ({
   createdAt,
 }: Props) => {
   return (
-    <Link href={`/article/${path}`}>
+    <Link href={`/programming/${path}`}>
       <Container>
         <ImageWrapper>
           <Image
