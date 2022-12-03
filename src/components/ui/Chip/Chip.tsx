@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import XImage from '../../../../public/x.png';
@@ -8,20 +8,28 @@ export interface Props {
   label: string;
   deletable?: boolean;
   readOnly?: boolean;
+  isSelected?: boolean;
+  clickable?: boolean;
   onClick?: () => void;
 }
 
-const Chip = ({ label, deletable, readOnly, onClick }: Props) => {
-  const [isClicked, setIsClicked] = useState(false);
+const Chip = ({
+  label,
+  deletable,
+  readOnly,
+  isSelected,
+  clickable,
+  onClick,
+}: Props) => {
   const handleOnClick = () => {
-    setIsClicked(!isClicked);
     onClick?.();
   };
   return (
     <StyledChip
       deletable={deletable}
+      clickable={clickable}
       readOnly={readOnly}
-      isClicked={isClicked}
+      isSelected={isSelected}
       onClick={handleOnClick}
     >
       {label}
@@ -35,21 +43,24 @@ export default Chip;
 interface StyleProps {
   deletable?: boolean;
   readOnly?: boolean;
-  isClicked?: boolean;
+  isSelected?: boolean;
+  clickable?: boolean;
 }
 
 const StyledChip = styled.div<StyleProps>`
-  padding: 12px;
+  padding: 10px;
+  ${({ clickable }) => clickable && `padding: 10px 20px 10px 20px`};
   background: ${theme.color.gray200};
   border: 1px solid ${theme.color.gray200};
-  border-radius: 8px;
+  border-radius: 16px;
   transition: 0.1s ease-in-out;
   display: flex;
   gap: 5px;
   align-items: center;
   cursor: pointer;
   font-size: 12px;
-  color: ${({ deletable }) => deletable && `${theme.color.primary}`};
+  color: ${({ deletable }) =>
+    deletable ? `${theme.color.primary}` : `${theme.color.mainText}`};
   ${({ readOnly }) =>
     !readOnly &&
     `
@@ -58,9 +69,9 @@ const StyledChip = styled.div<StyleProps>`
       color: ${theme.color.primary};
     }
   `}
-  ${({ deletable, isClicked }) =>
+  ${({ deletable, isSelected }) =>
     !deletable &&
-    isClicked &&
+    isSelected &&
     `    
     border: 1px solid ${theme.color.primary};
     color: ${theme.color.primary};

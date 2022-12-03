@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { ArticleElement } from 'src/types/article';
+import { ArticleElement, ViewArticleElement } from 'src/types/article';
 export const articleState = atom<ArticleElement>({
   key: 'articleState',
   default: {
@@ -10,6 +10,16 @@ export const articleState = atom<ArticleElement>({
     imgUrl: '',
     time: '2022.10.23 · 7min read',
   },
+});
+
+export const articleListStates = atom<ViewArticleElement[]>({
+  key: 'articleListStates',
+  default: [],
+});
+
+export const filteredArticleStates = atom<ViewArticleElement[]>({
+  key: 'filteredArticleStates',
+  default: [],
 });
 
 export const detailPageState = atom<ArticleElement>({
@@ -28,4 +38,9 @@ export const detailPageState = atom<ArticleElement>({
 export const writeStates = atom<'create' | 'update'>({
   key: 'writeStates',
   default: 'create',
+});
+
+export const tagStates = atom<string[]>({
+  key: 'tagState',
+  default: [],
 });
