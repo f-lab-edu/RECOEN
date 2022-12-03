@@ -34,6 +34,7 @@ export const detailPageState = atom<ViewArticleElement>({
     imgUrl: '',
     createdAt: '',
     blurDataURL: '',
+    category: 'programming',
   },
 });
 

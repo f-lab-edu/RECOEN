@@ -40,6 +40,7 @@ const Article = ({
       tags: article.tags,
       createdAt: article.createdAt,
       blurDataURL: article.blurDataURL,
+      category: article.category,
     };
     setDetailStates(detailStates);
   }, []);

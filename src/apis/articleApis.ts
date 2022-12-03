@@ -5,7 +5,7 @@ export const BOOK_ARTICLE_URI = '/api/book';
 export const ESSAY_ARTICLE_URI = '/api/essay';
 const ARTICLES_URI = '/api/articles';
 
-const uriMap = {
+export const uriMap = {
   programming: PROGRAMMING_ARTICLE_URI,
   book: BOOK_ARTICLE_URI,
   essay: ESSAY_ARTICLE_URI,

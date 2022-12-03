@@ -21,7 +21,6 @@ handler
   .post(async (req, res) => {
     try {
       console.log('CREATING ARTICLE');
-      console.log(req.body);
       const article = await ProgrammingArticleModel.create(req.body);
       console.log('CREATED ARTICLE');
       res.status(200).json({ article });

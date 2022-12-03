@@ -8,6 +8,7 @@ const bookArticleSchema = new Schema<ArticleModel>(
     tags: [String],
     content: String,
     imgUrl: String,
+    category: String,
   },
   { timestamps: true },
 );

@@ -10,6 +10,7 @@ import {
   ArticleElement,
   UseArticleElement,
   HandleArticleElementFunction,
+  ArticleCategory,
 } from 'src/types/article';
 
 import { createArticle, updateArticle, deleteArticle } from 'src/apis';
@@ -70,15 +71,15 @@ export const useResolveSaveFunction = () => {
   return handleSaveArticle;
 };
 
-export const useHandleDelete = () => {
+export const useHandleDelete = (category: ArticleCategory) => {
   const detailArticle = useRecoilValue(detailPageState);
   const router = useRouter();
 
   const handleDelete = async () => {
     if (!detailArticle._id) return;
 
-    await deleteArticle(detailArticle._id);
-    return router.push('/article');
+    await deleteArticle(category)(detailArticle._id);
+    return router.push(`/${category}`);
   };
 
   return handleDelete;

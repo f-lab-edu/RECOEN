@@ -6,6 +6,7 @@ export interface ArticleModel {
   tags: string[];
   content: string;
   imgUrl: string;
+  category: ArticleCategory;
 }
 
 export interface ArticleElement {
@@ -19,7 +20,7 @@ export interface ArticleElement {
   createdAt?: string;
   category: ArticleCategory;
 }
-export interface ViewArticleElement extends Omit<ArticleElement, 'category'> {
+export interface ViewArticleElement extends ArticleElement {
   blurDataURL: string;
   createdAt: string;
 }

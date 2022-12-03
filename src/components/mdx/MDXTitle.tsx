@@ -14,7 +14,7 @@ const DetailTitle = () => {
   const router = useRouter();
   const article = useRecoilValue(detailPageState);
   const setWriteState = useSetRecoilState(writeStates);
-  const handleDelete = useHandleDelete();
+  const handleDelete = useHandleDelete(article.category);
 
   const handleEdit = () => {
     setWriteState('update');
@@ -32,8 +32,7 @@ const DetailTitle = () => {
       <Wrapper>
         <Date>{article.createdAt}</Date>
         <ButtonsWrapper>
-          <Button label="수정" onClick={handleEdit} />
-          ·
+          <Button label="수정" onClick={handleEdit} />·
           <Button label="삭제" onClick={handleDelete} />
         </ButtonsWrapper>
       </Wrapper>
