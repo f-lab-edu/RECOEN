@@ -18,7 +18,7 @@ const DetailTitle = () => {
 
   const handleEdit = () => {
     setWriteState('update');
-    router.push(`/write/${article._id}`);
+    router.push(`/write/${article._id}?category=${article.category}`);
   };
 
   return (

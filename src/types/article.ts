@@ -40,4 +40,4 @@ export type SaveArticleFunction = (
   data: ArticleElement,
 ) => (category: ArticleCategory) => Promise<AxiosResponse<any, any>>;
 
-export type ArticleCategory = 'programming' | 'book' | 'essay';
+export type ArticleCategory = 'programming' | 'book';
