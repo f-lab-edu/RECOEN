@@ -24,14 +24,14 @@ export const useArticleElement: UseArticleElement = () => {
   return { articleElements, setArticleElement };
 };
 
-const useHandleSuccess = () => {
+const useHandleSuccess = (category: ArticleCategory) => {
   const resetArticle = useResetRecoilState(articleState);
   const resetModalState = useResetRecoilState(modalState);
 
   const router = useRouter();
 
   return () => {
-    router.push('/article');
+    router.push(`/${category}`);
 
     resetArticle();
     resetModalState();
@@ -51,7 +51,7 @@ const saveArticle =
 
 export const useSaveArticle = () => {
   const articleElements = useRecoilValue(articleState);
-  const handleSuccess = useHandleSuccess();
+  const handleSuccess = useHandleSuccess(articleElements.category);
 
   const handleSaveArticle = saveArticle(articleElements)(handleSuccess);
 
