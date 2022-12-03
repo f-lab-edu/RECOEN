@@ -1,10 +1,10 @@
 import { useSetRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { articleListStates, filteredArticleStates } from 'src/recoil/article';
 import { pipe, toArray, filter, curry } from '@fxts/core';
-import { ArticleElementsType } from 'src/types/article';
+import { ViewArticleElement } from 'src/types/article';
 
 const filterArticles = curry(
-  (articles: ArticleElementsType[], selectedTag: string) => {
+  (articles: ViewArticleElement[], selectedTag: string) => {
     return pipe(
       articles,
       filter((article) => article.tags.includes(selectedTag)),

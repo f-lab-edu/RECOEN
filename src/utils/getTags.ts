@@ -1,8 +1,8 @@
 import { map, pipe, flat, toArray, uniq } from '@fxts/core';
 
-import { ArticleElements } from 'src/types/article';
+import { ArticleElement } from 'src/types/article';
 
-export const getTags = (lists: ArticleElements[]) =>
+export const getTags = (lists: ArticleElement[]) =>
   pipe(
     lists,
     map((article) => article.tags),
