@@ -8,6 +8,10 @@ import ArticleList from 'src/components/article/ArticleList';
 import UpperLayout from 'src/components/hero/UpperLayout';
 import TagSearch from 'src/components/ui/TagSearch/TagSearch';
 
+import { useSetRecoilState } from 'recoil';
+import { articleListStates } from 'src/recoil/article';
+import { getTags } from 'src/utils/getTags';
+
 const ProgrammingPage = ({
   articles,
   tags,
@@ -18,10 +22,10 @@ const ProgrammingPage = ({
   return (
     <>
       <UpperLayout
-        hero={<Hero text="Article" listLength={articles.length} />}
+        hero={<Hero text="Programming" listLength={articles.length} />}
         tagSearch={<TagSearch tags={tags} />}
       />
-      <ArticleList articles={articles} />
+      <ArticleList articles={articles} type="programming" />
     </>
   );
 };
@@ -33,6 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const programmingDB = await new DBUtils(ProgrammingArticleModel);
     await programmingDB.setUp();
     const articlesWithBlurURL = await programmingDB.findArticleWithBluredURL();
+    const tags = getTags(articlesWithBlurURL);
 
     return {
       props: {

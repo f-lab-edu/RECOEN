@@ -13,7 +13,7 @@ interface Props {
   type: ArticleCategory;
 }
 
-const ArticleList = ({ articles }: Props) => {
+const ArticleList = ({ articles, type }: Props) => {
   const filteredArticles = useRecoilValue(filteredArticleStates);
   return (
     <Grid>
@@ -29,6 +29,8 @@ const ArticleList = ({ articles }: Props) => {
                 imgUrl={article.imgUrl}
                 description={article.description}
                 blurDataURL={article.blurDataURL}
+                createdAt={article.createdAt}
+                type={type}
               />
             );
           },
