@@ -10,7 +10,7 @@ import { modalState } from 'src/recoil/modal';
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),
   useRouter: jest.fn(() => ({
-    pathname: '/article',
+    pathname: '/programming',
   })),
 }));
 
