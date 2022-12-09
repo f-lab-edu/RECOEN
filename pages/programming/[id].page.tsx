@@ -12,8 +12,11 @@ import DBUtils from 'src/utils/dbUtils';
 import { useSetRecoilState, useResetRecoilState } from 'recoil';
 import { detailPageState } from 'src/recoil/article';
 import { ViewArticleElement } from 'src/types/article';
+import { MDXRemote } from 'next-mdx-remote';
 
 import MDXDetail from 'src/components/mdx/MDXDetail';
+import MDXTitle from 'src/components/mdx/MDXTitle';
+import MDXTag from 'src/components/mdx/MDXComponent';
 import Head from 'src/components/Head';
 import Image from 'next/image';
 
@@ -57,14 +60,19 @@ const Article = ({
   return (
     <>
       <Head article={article} />
-      <Image
-        src={article.imgUrl}
-        sizes="100vw"
-        alt="Hero Image"
-        blurDataURL={article.blurDataURL}
-        fill
+      <MDXDetail
+        mdxTitle={<MDXTitle article={article} />}
+        image={
+          <Image
+            src={article.imgUrl}
+            alt="Hero Image"
+            blurDataURL={article.blurDataURL}
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'top top' }}
+          />
+        }
+        mdxRemote={<MDXRemote {...article.MDXcontent} components={MDXTag} />}
       />
-      <MDXDetail content={article.MDXcontent} />
     </>
   );
 };

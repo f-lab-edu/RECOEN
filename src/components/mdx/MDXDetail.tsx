@@ -2,19 +2,18 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { theme } from 'src/style/theme';
 
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import MDXTitle from 'src/components/mdx/MDXTitle';
-import MDXTag from 'src/components/mdx/MDXComponent';
-
 interface Props {
-  content: MDXRemoteSerializeResult;
+  mdxTitle: React.ReactElement;
+  image: React.ReactElement;
+  mdxRemote: React.ReactElement;
 }
 
-const DetailMDX: React.FC<Props> = ({ content }) => {
+const DetailMDX: React.FC<Props> = ({ mdxTitle, image, mdxRemote }) => {
   return (
     <Container>
-      <MDXTitle />
-      <MDXRemote {...content} components={MDXTag} />
+      {mdxTitle}
+      <ImageWrapper>{image}</ImageWrapper>
+      {mdxRemote}
     </Container>
   );
 };
@@ -23,15 +22,21 @@ export default DetailMDX;
 
 const Container = styled.main`
   position: absolute;
-  width: 1200px;
-  padding: 100px 200px;
+  width: 1280px;
+  padding: 10px 200px;
   margin: 0 auto;
   background-color: ${theme.color.background};
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 400px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  top: 300px;
   box-sizing: border-box;
+`;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 500px;
+  box-sizing: border-box;
+  position: relative;
 `;
