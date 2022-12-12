@@ -9,27 +9,35 @@ interface Props {
 
 const DetailMDX: React.FC<Props> = ({ mdxTitle, image, mdxRemote }) => {
   return (
-    <>
+    <Container>
       <Space />
-      <Container>{mdxTitle}</Container>
+      <Wrapper>{mdxTitle}</Wrapper>
       <Hr />
-      <Container>
+      <Wrapper>
         <ImageWrapper>{image}</ImageWrapper>
         {mdxRemote}
-      </Container>
-    </>
+      </Wrapper>
+    </Container>
   );
 };
 
 export default DetailMDX;
+
+const Container = styled.div`
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Space = styled.div`
   margin-top: 200px;
 `;
 
-const Container = styled.main`
-  width: 1280px;
-  padding: 10px 200px;
-  margin: 0 auto;
+const Wrapper = styled.main`
+  max-width: 880px;
+  width: 100%;
+  padding: 10px 30px 10px 30px;
   box-sizing: border-box;
 `;
 
