@@ -21,16 +21,11 @@ const DetailMDX: React.FC<Props> = ({ mdxTitle, image, mdxRemote }) => {
 export default DetailMDX;
 
 const Container = styled.main`
-  position: absolute;
   width: 1280px;
   padding: 10px 200px;
   margin: 0 auto;
+  margin-top: 200px;
   background-color: ${theme.color.background};
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 300px;
   box-sizing: border-box;
 `;
 
