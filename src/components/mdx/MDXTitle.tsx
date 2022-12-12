@@ -40,7 +40,6 @@ const DetailTitle: React.FC<Props> = ({ article }) => {
           <Button label="삭제" onClick={handleDelete} />
         </ButtonsWrapper>
       </Wrapper>
-      <Hr />
     </Container>
   );
 };
@@ -49,18 +48,8 @@ export default DetailTitle;
 
 const Container = styled.div`
   width: 100%;
-  margin-bottom: 100px;
   position: relative;
   box-sizing: border-box;
-`;
-
-const Hr = styled.hr`
-  width: 100vw;
-  left: 0;
-  transform: translateX(-20%);
-  border: 0.5px solid #4a4c55;
-  position: absolute;
-  margin-top: 20px;
 `;
 
 const Title = styled.h1`
