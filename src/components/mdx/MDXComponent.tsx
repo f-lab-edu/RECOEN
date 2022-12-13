@@ -2,6 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { theme } from 'src/style/theme';
 
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+
 import MDXFirstHead from 'src/components/mdx/MDXFirstHead';
 import MDXSecondHead from 'src/components/mdx/MDXSecondHead';
 import MDXThirdHead from 'src/components/mdx/MDXThirdHead';
