@@ -16,10 +16,10 @@ const Menus = () => {
 
   const items = [
     {
-      id: 'article',
-      name: 'Article',
+      id: 'programming',
+      name: 'Programming',
       title: '개발 아티클 리스트 페이지입니다.',
-      path: '/article',
+      path: '/programming',
     },
     {
       id: 'book',
@@ -32,12 +32,6 @@ const Menus = () => {
       name: 'Essay',
       title: '에세이 리스트 페이지입니다.',
       path: '/essay',
-    },
-    {
-      id: 'quotes',
-      name: 'Quotes',
-      title: '인용구 리스트 페이지입니다.',
-      path: '/quotes',
     },
     {
       id: 'about',

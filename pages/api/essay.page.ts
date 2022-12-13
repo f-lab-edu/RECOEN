@@ -1,6 +1,6 @@
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 import nc from 'next-connect';
-import ArticleModel from 'pages/api/models/articleModel';
+import EssayArticleModel from './models/essayArticleModel';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { withSentry } from '@sentry/nextjs';
 
@@ -21,7 +21,8 @@ handler
   .post(async (req, res) => {
     try {
       console.log('CREATING ARTICLE');
-      const article = await ArticleModel.create(req.body);
+      console.log(req.body);
+      const article = await EssayArticleModel.create(req.body);
       console.log('CREATED ARTICLE');
       res.status(200).json({ article });
     } catch (err) {
@@ -41,7 +42,7 @@ handler
         tags: body.tags,
       };
 
-      const article = await ArticleModel.findOneAndUpdate(
+      const article = await EssayArticleModel.findOneAndUpdate(
         { _id: id },
         updateContent,
       );
@@ -55,7 +56,7 @@ handler
     try {
       console.log('DELETING ARTICLE');
       const id = req.body.id;
-      const article = await ArticleModel.findByIdAndDelete(id);
+      const article = await EssayArticleModel.findByIdAndDelete(id);
 
       if (!article) return res.status(404);
       console.log('DELETED ARTICLE');

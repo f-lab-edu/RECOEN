@@ -5,19 +5,20 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { connectMongo } from 'pages/api/middlewares/connectMongo';
-import { getPlaiceholder } from 'plaiceholder';
-import { serialize } from 'next-mdx-remote/serialize';
+
+import BookArticleModel from 'pages/api/models/bookArticleModel';
+import DBUtils from 'src/utils/dbUtils';
 
 import { useSetRecoilState, useResetRecoilState } from 'recoil';
 import { detailPageState } from 'src/recoil/article';
+import { ViewArticleElement } from 'src/types/article';
 
-import ArticleModel from 'pages/api/models/articleModel';
+import { MDXRemote } from 'next-mdx-remote';
+import MDXTitle from 'src/components/mdx/MDXTitle';
 import MDXDetail from 'src/components/mdx/MDXDetail';
 import Head from 'src/components/Head';
 import Image from 'next/image';
-
-import { ViewArticleElement } from 'src/types/article';
+import MDXTag from 'src/components/mdx/MDXComponent';
 
 import { useRouter } from 'next/router';
 
@@ -33,13 +34,16 @@ const Article = ({
   const router = useRouter();
 
   useEffect(() => {
-    const detailStates = {
+    const detailStates: ViewArticleElement = {
       _id: article._id,
       title: article.title,
       content: article.content,
       imgUrl: article.imgUrl,
       description: article.description,
       tags: article.tags,
+      createdAt: article.createdAt,
+      blurDataURL: article.blurDataURL,
+      category: article.category,
     };
     setDetailStates(detailStates);
   }, []);
@@ -56,14 +60,19 @@ const Article = ({
   return (
     <>
       <Head article={article} />
-      <Image
-        src={article.imgUrl}
-        sizes="100vw"
-        alt="Hero Image"
-        blurDataURL={article.blurDataURL}
-        fill
+      <MDXDetail
+        mdxTitle={<MDXTitle article={article} />}
+        image={
+          <Image
+            src={article.imgUrl}
+            alt="Hero Image"
+            blurDataURL={article.blurDataURL}
+            fill
+            style={{ objectFit: 'cover', objectPosition: 'top top' }}
+          />
+        }
+        mdxRemote={<MDXRemote {...article.MDXcontent} components={MDXTag} />}
       />
-      <MDXDetail content={article.MDXcontent} />
     </>
   );
 };
@@ -72,19 +81,9 @@ export default Article;
 
 export const getStaticPaths = async () => {
   try {
-    console.log('CONNECTING TO MONGO IN DETAIL PATH');
-    await connectMongo();
-    console.log('CONNECTED TO MONGO IN DETAIL PATH');
-
-    console.log('FETCHING DATA');
-    const res = await ArticleModel.find();
-    console.log('FETCHED DATA');
-
-    const articles = JSON.parse(JSON.stringify(res));
-
-    const paths = articles.map((article: ViewArticleElement) => {
-      if (article._id) return { params: { id: article._id.toString() } };
-    });
+    const programmingDB = await new DBUtils(BookArticleModel);
+    await programmingDB.setUp();
+    const paths = await programmingDB.findArticlePaths();
 
     return {
       paths,
@@ -100,23 +99,15 @@ export const getStaticProps: GetStaticProps = async (
   context: GetStaticPropsContext,
 ) => {
   try {
-    console.log('CONNECTING TO MONGO IN DETAIL PROPS');
-    await connectMongo();
-    console.log('CONNECTED TO MONGO IN DETAIL PROPS');
-
     const { id } = context.params as IPrams;
 
-    const res = await ArticleModel.findById(id);
-    const article = JSON.parse(JSON.stringify(res));
-
-    const { base64 } = await getPlaiceholder(article.imgUrl);
-    const MDXcontent = await serialize(article.content);
-
-    const assembledArticle = { ...article, blurDataURL: base64, MDXcontent };
+    const programmingDB = await new DBUtils(BookArticleModel);
+    await programmingDB.setUp();
+    const article = await programmingDB.getMDXContent(id);
 
     return {
       props: {
-        article: assembledArticle,
+        article,
       },
     };
   } catch (err) {

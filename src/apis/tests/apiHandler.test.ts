@@ -17,7 +17,7 @@ describe('apiHandler', () => {
       const id = '1';
       const response = await getArticle(id);
 
-      expect(axiosInstance.get).toHaveBeenCalledWith('/api/article', {
+      expect(axiosInstance.get).toHaveBeenCalledWith('/api/programming', {
         data: id,
       });
       expect(response).toStrictEqual({

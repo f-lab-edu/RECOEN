@@ -2,6 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ArticleCategory } from 'src/types/article';
 
 interface Props {
   title: string;
@@ -9,11 +10,21 @@ interface Props {
   path: string;
   imgUrl: string;
   blurDataURL: string;
+  createdAt: string;
+  type: ArticleCategory;
 }
 
-const Article = ({ title, description, path, imgUrl, blurDataURL }: Props) => {
+const Article = ({
+  title,
+  description,
+  path,
+  imgUrl,
+  blurDataURL,
+  createdAt,
+  type,
+}: Props) => {
   return (
-    <Link href={`/article/${path}`}>
+    <Link href={`/${type}/${path}`}>
       <Container>
         <ImageWrapper>
           <Image
@@ -30,7 +41,7 @@ const Article = ({ title, description, path, imgUrl, blurDataURL }: Props) => {
             <Title>{title}</Title>
             <Desc>{description}</Desc>
           </div>
-          <Date>2022.10.23 7min read</Date>
+          <Date>{createdAt}</Date>
         </Wrapper>
       </Container>
     </Link>

@@ -1,7 +1,9 @@
 import { axiosInstance } from './index';
-import { ARTICLE_URI } from './index';
+import { uriMap } from './index';
+import { ArticleCategory } from 'src/types/article';
 
-export const deleteArticle = async (id: string) => {
-  const config = { data: { id } };
-  return await axiosInstance.delete(ARTICLE_URI, config);
-};
+export const deleteArticle =
+  (category: ArticleCategory) => async (id: string) => {
+    const config = { data: { id } };
+    return await axiosInstance.delete(uriMap[category], config);
+  };

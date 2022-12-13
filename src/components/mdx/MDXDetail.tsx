@@ -1,37 +1,57 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { theme } from 'src/style/theme';
-
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import MDXTitle from 'src/components/mdx/MDXTitle';
-import MDXTag from 'src/components/mdx/MDXComponent';
 
 interface Props {
-  content: MDXRemoteSerializeResult;
+  mdxTitle: React.ReactElement;
+  image: React.ReactElement;
+  mdxRemote: React.ReactElement;
 }
 
-const DetailMDX: React.FC<Props> = ({ content }) => {
+const DetailMDX: React.FC<Props> = ({ mdxTitle, image, mdxRemote }) => {
   return (
     <Container>
-      <MDXTitle />
-      <MDXRemote {...content} components={MDXTag} />
+      <Space />
+      <Wrapper>{mdxTitle}</Wrapper>
+      <Hr />
+      <Wrapper>
+        <ImageWrapper>{image}</ImageWrapper>
+        {mdxRemote}
+      </Wrapper>
     </Container>
   );
 };
 
 export default DetailMDX;
 
-const Container = styled.main`
-  position: absolute;
-  width: 1200px;
-  padding: 100px 200px;
-  margin: 0 auto;
-  background-color: ${theme.color.background};
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 400px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+const Container = styled.div`
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Space = styled.div`
+  margin-top: 200px;
+`;
+
+const Wrapper = styled.main`
+  max-width: 880px;
+  width: 100%;
+  padding: 10px 30px 10px 30px;
   box-sizing: border-box;
+`;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 500px;
+  box-sizing: border-box;
+  position: relative;
+`;
+
+const Hr = styled.div`
+  width: 100vw;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #4a4c55;
+  transform: scaleY(0.5);
 `;

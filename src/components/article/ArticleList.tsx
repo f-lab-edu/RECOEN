@@ -4,14 +4,16 @@ import Article from './Article/Article';
 import Grid from 'src/components/ui/Grid';
 
 import { ViewArticleElement } from 'src/types/article';
+import { ArticleCategory } from 'src/types/article';
 import { useRecoilValue } from 'recoil';
 import { filteredArticleStates } from 'src/recoil/article';
 
 interface Props {
   articles: ViewArticleElement[];
+  type: ArticleCategory;
 }
 
-const ArticleList = ({ articles }: Props) => {
+const ArticleList = ({ articles, type }: Props) => {
   const filteredArticles = useRecoilValue(filteredArticleStates);
   return (
     <Grid>
@@ -27,6 +29,8 @@ const ArticleList = ({ articles }: Props) => {
                 imgUrl={article.imgUrl}
                 description={article.description}
                 blurDataURL={article.blurDataURL}
+                createdAt={article.createdAt}
+                type={type}
               />
             );
           },

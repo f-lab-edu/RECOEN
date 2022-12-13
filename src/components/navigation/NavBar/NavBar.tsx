@@ -57,7 +57,8 @@ const FixedContainer = styled.div<StyleProps>`
 `;
 
 const Container = styled.header`
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   height: 70px;
   position: relative;
   display: flex;
@@ -65,6 +66,7 @@ const Container = styled.header`
   align-items: center;
   box-sizing: border-box;
   margin: 0 auto;
+  padding: 0 30px 0 30px;
 `;
 
 const Title = styled.span`

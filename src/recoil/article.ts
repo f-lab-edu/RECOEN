@@ -8,7 +8,8 @@ export const articleState = atom<ArticleElement>({
     tags: [],
     description: '',
     imgUrl: '',
-    time: '2022.10.23 · 7min read',
+    createdAt: '',
+    category: 'programming',
   },
 });
 
@@ -22,7 +23,7 @@ export const filteredArticleStates = atom<ViewArticleElement[]>({
   default: [],
 });
 
-export const detailPageState = atom<ArticleElement>({
+export const detailPageState = atom<ViewArticleElement>({
   key: 'detailPageState',
   default: {
     _id: '',
@@ -31,7 +32,9 @@ export const detailPageState = atom<ArticleElement>({
     tags: [],
     description: '',
     imgUrl: '',
-    time: '2022.10.23 · 7min read',
+    createdAt: '',
+    blurDataURL: '',
+    category: 'programming',
   },
 });
 

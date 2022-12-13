@@ -10,6 +10,7 @@ import {
   ArticleElement,
   UseArticleElement,
   HandleArticleElementFunction,
+  ArticleCategory,
 } from 'src/types/article';
 
 import { createArticle, updateArticle, deleteArticle } from 'src/apis';
@@ -24,14 +25,14 @@ export const useArticleElement: UseArticleElement = () => {
   return { articleElements, setArticleElement };
 };
 
-const useHandleSuccess = () => {
+const useHandleSuccess = (category: ArticleCategory) => {
   const resetArticle = useResetRecoilState(articleState);
   const resetModalState = useResetRecoilState(modalState);
 
   const router = useRouter();
 
   return () => {
-    router.push('/article');
+    router.push(`/${category}`);
 
     resetArticle();
     resetModalState();
@@ -42,14 +43,16 @@ const saveArticle =
   (articleElements: ArticleElement) =>
   (handleSuccess: () => void) =>
   async (saveArticleFunction: SaveArticleFunction) => {
-    const res = await saveArticleFunction(articleElements);
+    const res = await saveArticleFunction(articleElements)(
+      articleElements.category,
+    );
 
     if (res.status == 200) handleSuccess();
   };
 
 export const useSaveArticle = () => {
   const articleElements = useRecoilValue(articleState);
-  const handleSuccess = useHandleSuccess();
+  const handleSuccess = useHandleSuccess(articleElements.category);
 
   const handleSaveArticle = saveArticle(articleElements)(handleSuccess);
 
@@ -68,15 +71,15 @@ export const useResolveSaveFunction = () => {
   return handleSaveArticle;
 };
 
-export const useHandleDelete = () => {
+export const useHandleDelete = (category: ArticleCategory) => {
   const detailArticle = useRecoilValue(detailPageState);
   const router = useRouter();
 
   const handleDelete = async () => {
     if (!detailArticle._id) return;
 
-    await deleteArticle(detailArticle._id);
-    return router.push('/article');
+    await deleteArticle(category)(detailArticle._id);
+    return router.push(`/${category}`);
   };
 
   return handleDelete;

@@ -5,35 +5,38 @@ import styled from '@emotion/styled';
 import Button from 'src/components/ui/Button/Button';
 import Chip from 'src/components/ui/Chip/Chip';
 
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { writeStates, detailPageState } from 'src/recoil/article';
+import { useSetRecoilState } from 'recoil';
+import { writeStates } from 'src/recoil/article';
+import { ArticleElement } from 'src/types/article';
 
 import { useHandleDelete } from 'src/hooks/useHandleArticle';
 
-const DetailTitle = () => {
+interface Props {
+  article: ArticleElement;
+}
+
+const DetailTitle: React.FC<Props> = ({ article }) => {
   const router = useRouter();
-  const article = useRecoilValue(detailPageState);
   const setWriteState = useSetRecoilState(writeStates);
-  const handleDelete = useHandleDelete();
+  const handleDelete = useHandleDelete(article.category);
 
   const handleEdit = () => {
     setWriteState('update');
-    router.push(`/write/${article._id}`);
+    router.push(`/write/${article._id}?category=${article.category}`);
   };
 
   return (
     <Container>
+      <Title>{article.title}</Title>
       <ChipWrapper>
         {article.tags.map((tag) => {
           return <Chip key={tag} label={tag} readOnly />;
         })}
       </ChipWrapper>
-      <Title>{article.title}</Title>
       <Wrapper>
-        <Date>{article.time}</Date>
+        <Date>{article.createdAt}</Date>
         <ButtonsWrapper>
-          <Button label="수정" onClick={handleEdit} />
-          ·
+          <Button label="수정" onClick={handleEdit} />·
           <Button label="삭제" onClick={handleDelete} />
         </ButtonsWrapper>
       </Wrapper>
@@ -45,20 +48,20 @@ export default DetailTitle;
 
 const Container = styled.div`
   width: 100%;
-  border-bottom: 1px solid #4a4c55;
-  margin-bottom: 60px;
+  position: relative;
+  box-sizing: border-box;
 `;
 
 const Title = styled.h1`
   font-size: 45px;
   font-weight: 600;
   line-height: 65px;
-  margin-bottom: 60px;
 `;
 
 const ChipWrapper = styled.div`
   display: flex;
   gap: 8px;
+  margin-bottom: 10px;
 `;
 
 const Wrapper = styled.div`

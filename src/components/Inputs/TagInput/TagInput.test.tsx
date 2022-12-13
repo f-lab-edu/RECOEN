@@ -26,7 +26,8 @@ describe('TagInput', () => {
       imgUrl: '',
       tags,
       title: '',
-      time: '2022.10.23 · 7min read',
+      createdAt: '',
+      category: 'programming',
     };
   };
 

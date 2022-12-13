@@ -10,7 +10,7 @@ import { modalState } from 'src/recoil/modal';
 jest.mock('next/router', () => ({
   ...jest.requireActual('next/router'),
   useRouter: jest.fn(() => ({
-    pathname: '/article',
+    pathname: '/programming',
   })),
 }));
 
@@ -18,16 +18,16 @@ jest.mock('next-auth/react');
 
 const menus = [
   {
-    name: 'Article',
-    href: '/article',
+    name: 'Programming',
+    href: '/programming',
   },
   {
     name: 'Book',
     href: '/book',
   },
   {
-    name: 'Quotes',
-    href: '/quotes',
+    name: 'Essay',
+    href: '/essay',
   },
   {
     name: 'About',
