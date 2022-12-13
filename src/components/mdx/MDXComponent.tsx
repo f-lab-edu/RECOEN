@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { theme } from 'src/style/theme';
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialOceanic } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import MDXFirstHead from 'src/components/mdx/MDXFirstHead';
 import MDXSecondHead from 'src/components/mdx/MDXSecondHead';
@@ -13,7 +14,22 @@ const MDXTag = {
   h2: (props: any) => <MDXSecondHead {...props} />,
   h3: (props: any) => <MDXThirdHead {...props} />,
   p: (props: any) => <Paragraph {...props} />,
-  pre: (props: any) => <CodeBlock {...props} />,
+  pre: ({ children }: any) => {
+    const { className, ...rest } = children.props;
+    const match = /language-(\w+)/.exec(className || '');
+    return match ? (
+      <SyntaxHighlighter
+        style={materialOceanic}
+        language={match[1]}
+        PreTag="pre"
+        {...rest}
+      >
+        {String(children.props.children).replace(/\n$/, '')}
+      </SyntaxHighlighter>
+    ) : (
+      <code>{rest}</code>
+    );
+  },
   img: (props: any) => <Image {...props} />,
   a: (props: any) => <Anchor {...props} />,
   em: (props: any) => <Em {...props} />,
@@ -71,19 +87,4 @@ const Quote = styled.blockquote`
 
 const List = styled.li`
   color: #aaadbf;
-`;
-
-const CodeBlock = (props: any) => {
-  return (
-    <Pre>
-      <Code {...props} />
-    </Pre>
-  );
-};
-
-const Code = styled.code``;
-
-const Pre = styled.pre`
-  width: 100%;
-  overflow-x: scroll hidden;
 `;
