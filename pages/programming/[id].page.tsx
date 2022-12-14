@@ -24,6 +24,7 @@ import { useRouter } from 'next/router';
 
 interface IPrams extends ParsedUrlQuery {
   id: string;
+  type: 'book' | 'programming';
 }
 
 const Article = ({

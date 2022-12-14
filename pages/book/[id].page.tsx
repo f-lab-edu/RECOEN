@@ -29,29 +29,18 @@ interface IPrams extends ParsedUrlQuery {
 const Article = ({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const setDetailStates = useSetRecoilState(detailPageState);
-  const resetDetailStates = useResetRecoilState(detailPageState);
+  const setDetailPage = useSetRecoilState(detailPageState);
+  const resetDetailPage = useResetRecoilState(detailPageState);
   const router = useRouter();
 
   useEffect(() => {
-    const detailStates: ViewArticleElement = {
-      _id: article._id,
-      title: article.title,
-      content: article.content,
-      imgUrl: article.imgUrl,
-      description: article.description,
-      tags: article.tags,
-      createdAt: article.createdAt,
-      blurDataURL: article.blurDataURL,
-      category: article.category,
-    };
-    setDetailStates(detailStates);
+    setDetailPage(article);
   }, []);
 
   useEffect(() => {
     return () => {
       router.beforePopState(() => {
-        resetDetailStates();
+        resetDetailPage();
         return true;
       });
     };

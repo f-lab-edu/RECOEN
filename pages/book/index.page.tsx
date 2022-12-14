@@ -12,7 +12,7 @@ import TagSearch from 'src/components/ui/TagSearch/TagSearch';
 
 import { useSetRecoilState } from 'recoil';
 import { articleListStates } from 'src/recoil/article';
-
+// https://recon.com/article?id=1&type=book
 const BookPage = ({
   articles,
   tags,
