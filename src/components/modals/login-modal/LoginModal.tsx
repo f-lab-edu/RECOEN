@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseModal from '../BaseModal/BaseModal';
+import BaseModal from '../base-modal/BaseModal';
 import styled from '@emotion/styled';
 import { theme } from 'src/style';
 
