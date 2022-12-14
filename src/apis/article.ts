@@ -1,8 +1,8 @@
 import { axiosInstance } from './index';
 import { ArticleElement, ArticleCategory } from 'src/types/article';
-export const PROGRAMMING_ARTICLE_URI = '/api/programming';
-export const BOOK_ARTICLE_URI = '/api/book';
-export const ESSAY_ARTICLE_URI = '/api/essay';
+export const PROGRAMMING_ARTICLE_URI = '/api/article/programming';
+export const BOOK_ARTICLE_URI = '/api/article/book';
+export const ESSAY_ARTICLE_URI = '/api/article/essay';
 const ARTICLES_URI = '/api/articles';
 
 export const uriMap = {
@@ -20,11 +20,18 @@ export const getArticles = async () => {
 };
 
 export const createArticle =
-  (data: ArticleElement) => async (category: ArticleCategory) => {
+  (category: ArticleCategory) => async (data: ArticleElement) => {
     return await axiosInstance.post(uriMap[category], data);
   };
+
+export const createBookArticle = createArticle('book');
+export const createProgrammingArticle = createArticle('programming');
 
 export const updateArticle =
   (data: ArticleElement) => async (category: ArticleCategory) => {
     return await axiosInstance.put(uriMap[category], data);
   };
+
+// deleteArticle도 여기로 옮겨주세요.
+// uriMap 필요없는 것 같아요.
+// 타입별로 query 때려서 받아와야함.

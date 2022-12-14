@@ -20,7 +20,6 @@ const ArticleList = ({ articles, type }: Props) => {
       <>
         {(filteredArticles.length ? filteredArticles : articles).map(
           (article: ViewArticleElement) => {
-            if (!article._id) return;
             return (
               <Article
                 key={article._id}

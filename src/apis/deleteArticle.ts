@@ -7,3 +7,5 @@ export const deleteArticle =
     const config = { data: { id } };
     return await axiosInstance.delete(uriMap[category], config);
   };
+
+// 요것도 없애면 좋을 것 같아요

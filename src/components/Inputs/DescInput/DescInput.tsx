@@ -19,9 +19,7 @@ const DescInput: React.FC<Props> = ({ useArticleElement }) => {
     setArticleElement({ description: e.target.value });
   };
 
-  const onKeyDown = (
-    e: React.KeyboardEvent<HTMLTextAreaElement> & HTMLTextAreaElement,
-  ) => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Backspace') {
       if (currentLength < 199) return;
       setError(false);

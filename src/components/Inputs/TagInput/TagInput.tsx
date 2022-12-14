@@ -14,7 +14,7 @@ const TagInput: React.FC<Props> = ({ useArticleElement }) => {
   const { articleElements, setArticleElement } = useArticleElement();
   const { tags } = articleElements;
 
-  const composition = (e: CompositionEvent<HTMLInputElement>) => {
+  const onComposition = (e: CompositionEvent<HTMLInputElement>) => {
     if (e.type === 'compositionend') {
       setIsOnComposition(false);
       return;
@@ -28,7 +28,7 @@ const TagInput: React.FC<Props> = ({ useArticleElement }) => {
   };
 
   const handleBackspaceRemove = () => {
-    const nextTags = tags.filter((t, i) => i !== tags.length - 1);
+    const nextTags = tags.filter((_, i) => i !== tags.length - 1);
     setArticleElement({ tags: nextTags });
   };
 
@@ -50,8 +50,9 @@ const TagInput: React.FC<Props> = ({ useArticleElement }) => {
       if (tags.length == 3) return setError(true);
       if (value == '') return;
 
-      if (!checkDuplicatedTag(value))
+      if (!checkDuplicatedTag(value)) {
         setArticleElement({ tags: tags.concat(value) });
+      }
       setValue('');
     }
   };
@@ -62,9 +63,9 @@ const TagInput: React.FC<Props> = ({ useArticleElement }) => {
 
   const eventProps = {
     onChange: onChangeInput,
-    onCompositionStart: composition,
-    onCompositionUpdate: composition,
-    onCompositionEnd: composition,
+    onCompositionStart: onComposition,
+    onCompositionUpdate: onComposition,
+    onCompositionEnd: onComposition,
   };
 
   return (
