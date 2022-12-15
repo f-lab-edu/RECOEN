@@ -60,6 +60,10 @@ const Container = styled.article`
   flex-direction: column;
   cursor: pointer;
   margin: 0;
+
+  @media screen and (max-width: 768px) {
+    width: 40vw;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -67,6 +71,10 @@ const ImageWrapper = styled.div`
   height: 220px;
   position: relative;
   object-fit: cover;
+
+  @media screen and (max-width: 768px) {
+    width: 40vw;
+  }
 `;
 
 const Wrapper = styled.article`

@@ -25,6 +25,11 @@ const Layout = styled.div`
   margin: 0px auto;
   margin-top: 120px;
   margin-bottom: 50px;
+  padding: 0 30px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Hr = styled.hr`
