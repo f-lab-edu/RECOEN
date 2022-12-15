@@ -5,12 +5,22 @@ interface ModalProps {
   children: React.ReactElement;
   handleOpenModal: () => void;
   right?: boolean;
+  noneOverlay?: boolean;
 }
 
-const BaseModal = ({ children, handleOpenModal, right }: ModalProps) => {
+const BaseModal = ({
+  children,
+  handleOpenModal,
+  right,
+  noneOverlay,
+}: ModalProps) => {
   return (
     <>
-      <Overlay onClick={handleOpenModal} data-testid="overlay" />
+      <Overlay
+        onClick={handleOpenModal}
+        data-testid="overlay"
+        noneOverlay={noneOverlay}
+      />
       <Box data-testid="modal" right={right}>
         {children}
       </Box>
@@ -22,9 +32,10 @@ export default BaseModal;
 
 interface StyleProps {
   right?: boolean;
+  noneOverlay?: boolean;
 }
 
-const Overlay = styled.div`
+const Overlay = styled.div<StyleProps>`
   height: 100vh;
   width: 100vw;
   left: 0;
@@ -36,6 +47,7 @@ const Overlay = styled.div`
   position: fixed;
   z-index: 100;
   cursor: pointer;
+  display: ${({ noneOverlay }) => noneOverlay && 'none'};
 `;
 
 const rightStyle = `
