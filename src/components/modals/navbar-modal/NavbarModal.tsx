@@ -14,7 +14,7 @@ const NavbarModal = () => {
   return (
     <BaseModal
       handleOpenModal={() => handleOpenModal(null)}
-      options={{ noneOverlay: true }}
+      options={{ mobile: true }}
     >
       <Container>
         <ListWrapper>
@@ -37,13 +37,16 @@ const NavbarModal = () => {
 export default NavbarModal;
 
 const Container = styled.nav`
-  margin-top: 70px;
   width: 100vw;
-  height: calc(100vh - 70px);
+  height: calc(100vh);
   background-color: ${theme.color.background};
+  overflow-y: scroll;
 `;
 
 const ListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 `;

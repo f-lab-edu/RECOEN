@@ -6,7 +6,7 @@ interface ModalProps {
   handleOpenModal: () => void;
   options?: {
     right?: boolean;
-    noneOverlay?: boolean;
+    mobile?: boolean;
   };
 }
 
@@ -16,11 +16,15 @@ const BaseModal = ({ children, handleOpenModal, options }: ModalProps) => {
       <Overlay
         onClick={handleOpenModal}
         data-testid="overlay"
-        noneOverlay={options?.noneOverlay}
+        noneOverlay={options?.mobile}
       />
-      <Box data-testid="modal" right={options?.right}>
-        {children}
-      </Box>
+      {options?.mobile ? (
+        <MobileBox>{children}</MobileBox>
+      ) : (
+        <Box data-testid="modal" right={options?.right}>
+          {children}
+        </Box>
+      )}
     </>
   );
 };
@@ -68,4 +72,14 @@ const Box = styled.div<StyleProps>`
   z-index: 101;
   box-sizing: border-box;
   ${({ right }) => (right ? rightStyle : centerStyle)}
+`;
+
+const MobileBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  z-index: 101;
+  box-sizing: border-box;
+  top: calc(70px + 1px);
 `;

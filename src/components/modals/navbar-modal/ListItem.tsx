@@ -13,7 +13,7 @@ const ListItem: React.FC<Props> = ({ name, href, title }) => {
   return (
     <li>
       <StyledLink href={href} title={title}>
-        <Item>{name}</Item>
+        {name}
       </StyledLink>
     </li>
   );
@@ -25,10 +25,8 @@ const StyledLink = styled(Link)`
   height: 70px;
   width: 100%;
   border-bottom: 1px solid ${theme.color.gray200};
-`;
-
-const Item = styled.a`
   padding-left: 30px;
   display: flex;
   align-items: center;
+  color: ${theme.color.white};
 `;
