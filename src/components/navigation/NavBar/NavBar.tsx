@@ -18,6 +18,8 @@ import { modalState } from 'src/recoil/modal';
 
 const NavBar = () => {
   const router = useRouter();
+  const pathname = router.pathname;
+
   const resolution = useResolution();
   const handleOpenModal = useHandleOpenModal();
   const modalType = useRecoilValue(modalState);
@@ -31,14 +33,13 @@ const NavBar = () => {
   };
 
   const resolveBackground = () => {
-    const pathname = router.pathname;
     if (pathname == '/article/[id]')
       return `background: ${theme.color.bluredBlack};`;
     return null;
   };
 
   const resolveMenuBar = () => {
-    if (router.pathname.includes('/write')) return <WritePageMenus />;
+    if (pathname.includes('/write')) return <WritePageMenus />;
     else return <Menus />;
   };
 
@@ -55,21 +56,25 @@ const NavBar = () => {
         {resolution !== 'MOBILE' ? (
           resolveMenuBar()
         ) : modalType == null ? (
-          <Image
-            src={HamburgerMenu}
-            alt="hamburger menu"
-            width={20}
-            height={20}
-            onClick={() => handleOpenModal('NAVBAR')}
-          />
+          <Link href={`${pathname}?isModal=true`}>
+            <BurgerImage
+              src={HamburgerMenu}
+              alt="hamburger menu"
+              width={20}
+              height={20}
+              onClick={() => handleOpenModal('NAVBAR')}
+            />
+          </Link>
         ) : (
-          <XImage
-            src={xImage}
-            alt="remove navbar modal"
-            width={20}
-            height={20}
-            onClick={() => handleOpenModal(null)}
-          />
+          <Link href={`${pathname}`}>
+            <XImage
+              src={xImage}
+              alt="remove navbar modal"
+              width={20}
+              height={20}
+              onClick={() => handleOpenModal(null)}
+            />
+          </Link>
         )}
       </Container>
     </FixedContainer>
@@ -82,6 +87,10 @@ interface StyleProps {
   position?: string;
   background?: string | null;
 }
+
+const BurgerImage = styled(Image)`
+  cursor: pointer;
+`;
 
 const XImage = styled(Image)`
   cursor: pointer;

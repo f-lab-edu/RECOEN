@@ -17,6 +17,7 @@ import Modal from 'src/components/modals/modal/Modal';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
+  const isModal = router.query.isModal;
 
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
@@ -37,7 +38,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
         <RecoilRoot>
           <Global styles={globalStyles} />
           <NavBar />
-          <Container location={router.pathname}>
+          <Container location={router.pathname} isModal={!!isModal}>
             <Component {...pageProps} />
           </Container>
           <Modal />
@@ -51,20 +52,22 @@ export default MyApp;
 
 interface StyleProps {
   location: string;
+  isModal: boolean;
 }
 
 const writePageStyle = 'padding-top: 30px; width : 1200px';
 
 const Container = styled.div<StyleProps>`
-  padding-top: 90px;
+  padding-top: 70px;
   margin: 0 auto;
   ${(props) => {
     if (props.location.includes('/write')) return writePageStyle;
     if (props.location == '/article/[id]') return 'padding: 0px';
   }};
-  height: calc(100vh - 90px);
+  height: calc(100% - 70px);
   box-sizing: border-box;
   position: relative;
+  ${({ isModal }) => isModal && `overflow: hidden;`}
 
   @media screen and (max-width: 768px) {
     width: 100%;

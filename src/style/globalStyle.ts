@@ -4,6 +4,7 @@ import { theme } from 'src/style/theme';
 export const globalStyles = css`
   html {
     height: 100vh;
+    width: 100vw;
   }
   body {
     height: 100vh;
