@@ -10,10 +10,12 @@ import WritePageMenus from '../WritePageMenus/WritePageMenus';
 import HamburgerMenu from '../../../../public/hamburger.png';
 
 import { useResolution } from 'src/hooks/useResolution';
+import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
 
 const NavBar = () => {
   const router = useRouter();
   const resolution = useResolution();
+  const handleOpenModal = useHandleOpenModal();
 
   const resolvePosition = () => {
     const pathname = router.pathname;
@@ -53,6 +55,7 @@ const NavBar = () => {
             alt="hamburger-menu"
             width={20}
             height={20}
+            onClick={() => handleOpenModal('NAVBAR')}
           />
         )}
       </Container>

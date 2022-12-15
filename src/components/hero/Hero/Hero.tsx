@@ -24,6 +24,10 @@ const Text = styled.h1<StyleProps>`
     position: absolute;
     top: 0;
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
 export default Hero;

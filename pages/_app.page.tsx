@@ -13,7 +13,7 @@ import * as gtag from 'src/lib/gtag';
 
 import NavBar from 'src/components/navigation/NavBar/NavBar';
 import Head from 'src/components/Head';
-import Modal from 'src/components/modals/Modal';
+import Modal from 'src/components/modals/modal/Modal';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
@@ -65,4 +65,8 @@ const Container = styled.div<StyleProps>`
   height: calc(100vh - 90px);
   box-sizing: border-box;
   position: relative;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
