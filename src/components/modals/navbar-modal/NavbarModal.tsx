@@ -12,7 +12,10 @@ const NavbarModal = () => {
   const handleOpenModal = useHandleOpenModal();
 
   return (
-    <BaseModal handleOpenModal={() => handleOpenModal(null)} noneOverlay>
+    <BaseModal
+      handleOpenModal={() => handleOpenModal(null)}
+      options={{ noneOverlay: true }}
+    >
       <Container>
         <ListWrapper>
           {navItems.map((item) => {

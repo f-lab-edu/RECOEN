@@ -19,7 +19,10 @@ const CreateArticleModal = () => {
   const handleOpenModal = useHandleOpenModal();
 
   return (
-    <BaseModal handleOpenModal={() => handleOpenModal(null)} right>
+    <BaseModal
+      handleOpenModal={() => handleOpenModal(null)}
+      options={{ right: true }}
+    >
       <Container>
         <Wrapper data-testid="createArticleModal">
           <H2>글 설정</H2>

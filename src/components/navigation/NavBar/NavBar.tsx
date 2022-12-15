@@ -8,14 +8,19 @@ import { theme } from 'src/style';
 import Menus from '../Menus/Menus';
 import WritePageMenus from '../WritePageMenus/WritePageMenus';
 import HamburgerMenu from '../../../../public/hamburger.png';
+import xImage from '../../../../public/x-3.png';
 
 import { useResolution } from 'src/hooks/useResolution';
 import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
+
+import { useRecoilValue } from 'recoil';
+import { modalState } from 'src/recoil/modal';
 
 const NavBar = () => {
   const router = useRouter();
   const resolution = useResolution();
   const handleOpenModal = useHandleOpenModal();
+  const modalType = useRecoilValue(modalState);
 
   const resolvePosition = () => {
     const pathname = router.pathname;
@@ -49,13 +54,21 @@ const NavBar = () => {
         </Link>
         {resolution !== 'MOBILE' ? (
           resolveMenuBar()
-        ) : (
+        ) : modalType == null ? (
           <Image
             src={HamburgerMenu}
-            alt="hamburger-menu"
+            alt="hamburger menu"
             width={20}
             height={20}
             onClick={() => handleOpenModal('NAVBAR')}
+          />
+        ) : (
+          <XImage
+            src={xImage}
+            alt="remove navbar modal"
+            width={20}
+            height={20}
+            onClick={() => handleOpenModal(null)}
           />
         )}
       </Container>
@@ -69,6 +82,10 @@ interface StyleProps {
   position?: string;
   background?: string | null;
 }
+
+const XImage = styled(Image)`
+  cursor: pointer;
+`;
 
 const FixedContainer = styled.div<StyleProps>`
   ${({ position }) => position};
