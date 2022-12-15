@@ -41,11 +41,11 @@ const NavBar = () => {
       position={resolvePosition()}
       background={resolveBackground()}
     >
-      <Container resolution={resolution}>
+      <Container>
         <Link href="/">
           <Title lang="en">recoen.</Title>
         </Link>
-        {resolution == 'DESKTOP' ? (
+        {resolution !== 'MOBILE' ? (
           resolveMenuBar()
         ) : (
           <Image
@@ -65,7 +65,6 @@ export default NavBar;
 interface StyleProps {
   position?: string;
   background?: string | null;
-  resolution?: 'DESKTOP' | 'TABLET' | 'MOBILE';
 }
 
 const FixedContainer = styled.div<StyleProps>`
@@ -77,7 +76,7 @@ const FixedContainer = styled.div<StyleProps>`
 `;
 
 const Container = styled.header`
-  max-width: 1200px;
+  max-width: 1260px;
   width: 100%;
   height: 70px;
   position: relative;
@@ -87,6 +86,10 @@ const Container = styled.header`
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0 30px 0 30px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.span`
