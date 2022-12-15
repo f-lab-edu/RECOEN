@@ -3,16 +3,16 @@ import BaseModal from './BaseModal';
 import { RecoilRoot } from 'recoil';
 
 interface Props {
-  position?: 'right';
+  options?: { right: boolean };
 }
 
 describe('BaseModal', () => {
   const handleOpenModal = jest.fn();
-  const renderModal = ({ position }: Props) => {
+  const renderModal = ({ options }: Props) => {
     return render(
       <RecoilRoot>
         <div id="modal_root">
-          <BaseModal handleOpenModal={handleOpenModal} right={!!position}>
+          <BaseModal handleOpenModal={handleOpenModal} options={options}>
             <div>child</div>
           </BaseModal>
         </div>
@@ -41,7 +41,7 @@ describe('BaseModal', () => {
 
   context('props에 right을 넘겨주면', () => {
     it('모달이 오른쪽에 위치한 스타일로 변경된다', () => {
-      renderModal({ position: 'right' });
+      renderModal({ options: { right: true } });
       const modal = screen.getByTestId('modal');
 
       expect(modal).toHaveStyle({

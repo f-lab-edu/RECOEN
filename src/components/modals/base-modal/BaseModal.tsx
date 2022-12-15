@@ -4,24 +4,21 @@ import styled from '@emotion/styled';
 interface ModalProps {
   children: React.ReactElement;
   handleOpenModal: () => void;
-  right?: boolean;
-  noneOverlay?: boolean;
+  options?: {
+    right?: boolean;
+    noneOverlay?: boolean;
+  };
 }
 
-const BaseModal = ({
-  children,
-  handleOpenModal,
-  right,
-  noneOverlay,
-}: ModalProps) => {
+const BaseModal = ({ children, handleOpenModal, options }: ModalProps) => {
   return (
     <>
       <Overlay
         onClick={handleOpenModal}
         data-testid="overlay"
-        noneOverlay={noneOverlay}
+        noneOverlay={options?.noneOverlay}
       />
-      <Box data-testid="modal" right={right}>
+      <Box data-testid="modal" right={options?.right}>
         {children}
       </Box>
     </>
