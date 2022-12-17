@@ -1,6 +1,7 @@
 import { atom, selector } from 'recoil';
 import { isObjectEmpty } from 'src/utils/isObjectEmpty';
 import { ArticleElement, ViewArticleElement } from 'src/types/article';
+
 export const articleState = atom<ArticleElement>({
   key: 'articleState',
   default: {
@@ -48,7 +49,7 @@ export const articleValidationState = selector<boolean>({
   key: 'articleValidationState',
   get: ({ get }) => {
     const article = get(articleState);
-    const isEmpty = isObjectEmpty<ArticleElements>(article);
+    const isEmpty = isObjectEmpty(article);
     return isEmpty;
   },
 });

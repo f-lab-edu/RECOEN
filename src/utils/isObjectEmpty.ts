@@ -1,6 +1,6 @@
 import { pipe, values, some, isEmpty } from '@fxts/core';
 
-export const isObjectEmpty = <T extends object>(elements: T) =>
+export const isObjectEmpty = (elements: object) =>
   pipe(
     elements,
     values,
