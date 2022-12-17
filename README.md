@@ -49,6 +49,32 @@ jest와 react-testing-library를 활용해 매 컴포넌트마다 단위테스�
 
 함수형 프로그래밍에 대한 학습을 병형하며 진행하였습니다. 이를 적용하기 위해 유틸함수를 작성할 때 fxts 라이브러리에서 제공하는 pipe와 curry와 같은 함수를 활용해 순수한 함수를 조합하는 방식으로 작성하였습니다. 이를 통해 훨씬 더 간결하고 가독성 높은 코드를 작성할 수 있었습니다.
 
+```javascript
+// getTags 유틸
+import { map, pipe, flat, toArray, uniq } from '@fxts/core';
+
+import { ArticleElement } from 'src/types/article';
+
+export const getTags = (lists: ArticleElement[]) =>
+  pipe(
+    lists,
+    map((article) => article.tags),
+    flat,
+    uniq,
+    toArray,
+  );
+
+// isObjectEmpty 유틸
+import { pipe, values, some, isEmpty } from '@fxts/core';
+
+export const isObjectEmpty = (elements) =>
+  pipe(
+    elements,
+    values,
+    some((element) => isEmpty(element)),
+  );
+```
+
 ### 효율적인 에러 트래킹 :
 
 내가 개발하는 환경에서는 어떤 에러가 발생하는지 트래킹하기가 쉽습니다. 하지만, 유저의 환경에서는 어떤 에러가 발생했는지 유저가 직접 리포트해주지 않는 이상 그것을 트래킹하기는 어렵습니다. 이런 효율적인 에러 트래킹을 하기 위해서 sentry를 사용하였습니다.
