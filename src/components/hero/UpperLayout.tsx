@@ -28,7 +28,7 @@ const Layout = styled.div`
   padding: 0 30px;
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: calc(100% - 60px);
   }
 `;
 
