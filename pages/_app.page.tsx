@@ -64,7 +64,7 @@ const Container = styled.div<StyleProps>`
     if (props.location.includes('/write')) return writePageStyle;
     if (props.location == '/article/[id]') return 'padding: 0px';
   }};
-  height: calc(100% - 70px);
+  height: calc(100vh - 70px);
   box-sizing: border-box;
   position: relative;
   ${({ isModal }) => isModal && `overflow: hidden;`}
