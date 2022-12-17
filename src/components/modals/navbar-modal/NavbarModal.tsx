@@ -25,6 +25,7 @@ const NavbarModal = () => {
                 name={item.name}
                 title={item.title}
                 href={item.path}
+                onClick={() => handleOpenModal(null)}
               />
             );
           })}

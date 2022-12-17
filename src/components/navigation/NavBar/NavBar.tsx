@@ -35,7 +35,7 @@ const NavBar = () => {
   const resolveBackground = () => {
     if (pathname == '/article/[id]')
       return `background: ${theme.color.bluredBlack};`;
-    return null;
+    return `background: ${theme.color.background};`;
   };
 
   const resolveMenuBar = () => {

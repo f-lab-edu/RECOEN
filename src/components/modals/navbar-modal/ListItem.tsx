@@ -7,12 +7,13 @@ interface Props {
   name: string;
   href: string;
   title: string;
+  onClick: () => void;
 }
 
-const ListItem: React.FC<Props> = ({ name, href, title }) => {
+const ListItem: React.FC<Props> = ({ name, href, title, onClick }) => {
   return (
     <li>
-      <StyledLink href={href} title={title}>
+      <StyledLink href={href} title={title} onClick={onClick}>
         {name}
       </StyledLink>
     </li>
