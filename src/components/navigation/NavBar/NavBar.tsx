@@ -1,28 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import styled from '@emotion/styled';
 import { theme } from 'src/style';
 
-import Menus from '../Menus/Menus';
-import WritePageMenus from '../WritePageMenus/WritePageMenus';
-import HamburgerMenu from '../../../../public/hamburger.png';
-import xImage from '../../../../public/x-3.png';
-
-import { useResolution } from 'src/hooks/useResolution';
-import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
-
-import { useRecoilValue } from 'recoil';
-import { modalState } from 'src/recoil/modal';
+import { useResolveMenuBar } from 'src/hooks/useResolveMenuBar';
 
 const NavBar = () => {
   const router = useRouter();
   const pathname = router.pathname;
-
-  const resolution = useResolution();
-  const handleOpenModal = useHandleOpenModal();
-  const modalType = useRecoilValue(modalState);
+  const menuBar = useResolveMenuBar();
 
   const resolvePosition = () => {
     const pathname = router.pathname;
@@ -38,11 +25,6 @@ const NavBar = () => {
     return `background: ${theme.color.background};`;
   };
 
-  const resolveMenuBar = () => {
-    if (pathname.includes('/write')) return <WritePageMenus />;
-    else return <Menus />;
-  };
-
   return (
     <FixedContainer
       data-testid="fixedContainer"
@@ -53,29 +35,7 @@ const NavBar = () => {
         <Link href="/">
           <Title lang="en">recoen.</Title>
         </Link>
-        {resolution !== 'MOBILE' ? (
-          resolveMenuBar()
-        ) : modalType == null ? (
-          <Link href={`${pathname}?isModal=true`}>
-            <BurgerImage
-              src={HamburgerMenu}
-              alt="hamburger menu"
-              width={20}
-              height={20}
-              onClick={() => handleOpenModal('NAVBAR')}
-            />
-          </Link>
-        ) : (
-          <Link href={`${pathname}`}>
-            <XImage
-              src={xImage}
-              alt="remove navbar modal"
-              width={20}
-              height={20}
-              onClick={() => handleOpenModal(null)}
-            />
-          </Link>
-        )}
+        {menuBar}
       </Container>
     </FixedContainer>
   );
@@ -87,14 +47,6 @@ interface StyleProps {
   position?: string;
   background?: string | null;
 }
-
-const BurgerImage = styled(Image)`
-  cursor: pointer;
-`;
-
-const XImage = styled(Image)`
-  cursor: pointer;
-`;
 
 const FixedContainer = styled.div<StyleProps>`
   ${({ position }) => position};
