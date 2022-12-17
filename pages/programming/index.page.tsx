@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
 import DBUtils from 'src/utils/dbUtils';
@@ -17,7 +17,10 @@ const ProgrammingPage = ({
   tags,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const setArticleList = useSetRecoilState(articleListStates);
-  setArticleList(articles);
+
+  useEffect(() => {
+    setArticleList(articles);
+  }, []);
 
   return (
     <>
