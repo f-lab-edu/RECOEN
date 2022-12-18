@@ -22,7 +22,12 @@ const Container = styled.div`
   margin-top: 60px;
   padding: 0 30px;
 
+  @media screen and (max-width: 1260px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   @media screen and (max-width: 768px) {
     width: 100%;
+    grid-template-columns: 1fr 1fr;
   }
 `;
