@@ -33,7 +33,7 @@ const NavBar = () => {
     >
       <Container>
         <Link href="/">
-          <Title>recoen.</Title>
+          <Title lang="en">recoen.</Title>
         </Link>
         {router.pathname.includes('/write') ? <WritePageMenus /> : <Menus />}
       </Container>
