@@ -87,20 +87,27 @@ div나 span 태그 사용하기를 지양하고, 시맨틱한 태그를 사용�
 
 #### aria-label
 
-대부분의 요소들을 시맨틱하게 작성한 결과, aria-label을 넣지 않아도 screen reader가 정상적으로 모든 요소들을 읽을 수 있게 되었습니다. 하지만, 직접 눈을 감고 screen reader를 통해서 모든 요소들을 확인해 본 결과, tag 기반 검색 버튼 같은 경우에는 button이라는 role 만으로는 사용자가 어떤 역할을 하는지 이해하기 어렵다고 판단했습니다. 때문에 해당 요소에는 aria-label을 넣어주었고, 이를 통해서 screen reader 만으로도 모든 요소들을 적절하게 이해할 수 있게 되었습니다.
+대부분의 요소들을 시맨틱하게 작성한 결과, aria-label을 넣지 않아도 screen reader가 정상적으로 모든 요소들을 읽을 수 있게 되었습니다. 하지만, 직접 눈을 감고 screen reader를 통해서 모든 요소들을 확인해 본 결과, 몇몇 요소들의 경우 문맥상 시맨틱 태그으로만은 이해하기 어렵겠다고 판단된 요소들이 있었습니다.
+
+1. tag 기반 검색 요소 :
+   tag 기반 검색 버튼 같은 경우에는 button이라는 role 만으로는 사용자가 어떤 역할을 하는지 이해하기 어렵다고 판단했습니다. 때문에 해당 요소에는 aria-label을 넣어주었습니다.
 
 ```javascript
 <StyledChip
-  deletable={deletable}
-  clickable={clickable}
-  readOnly={readOnly}
-  isSelected={isSelected}
-  onClick={handleOnClick}
+  ...
   aria-label={clickable ? `태그 기반 검색 ${label}` : `태그 ${label}`}
 >
   {label}
   {deletable && <Image src={XImage} alt="삭제" width={8} height={8} />}
 </StyledChip>
+```
+
+2. 제목과 설명글 :
+   해당 내용을 스크린 리더가 쭉쭉 읽어나가지만, 추가적으로 무엇에 대한 내용인지 설명을 덧붙임으로써 더 이해하기 쉽도록 만들었습니다.
+
+```javascript
+<Title aria-label={`제목 : ${title}`}>{title}</Title>
+<Desc aria-label={`설명글 : ${description}`}>{description}</Desc>
 ```
 
 #### 언어 설정
