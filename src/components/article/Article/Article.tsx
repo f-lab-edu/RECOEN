@@ -38,8 +38,8 @@ const Article = ({
         </ImageWrapper>
         <Wrapper>
           <div>
-            <Title>{title}</Title>
-            <Desc>{description}</Desc>
+            <Title aria-label={`제목 : ${title}`}>{title}</Title>
+            <Desc aria-label={`설명문 : ${description}`}>{description}</Desc>
           </div>
           <Date>{createdAt}</Date>
         </Wrapper>
