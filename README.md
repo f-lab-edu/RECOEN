@@ -103,6 +103,20 @@ div나 span 태그 사용하기를 지양하고, 시맨틱한 태그를 사용�
 </StyledChip>
 ```
 
+#### 언어 설정
+
+기본적으로 전체 페이지의 언어 설정을 ko로 해두고, 영어를 사용하는 곳이 명확한 곳에서 lang="en" 프로퍼티를 사용하였습니다. 이를 통해 AT 기기가 정확하게 언어를 인지할 수 있게 만들었습니다.
+
+```javascript
+  <Title lang="en">recoen.</Title>
+  ...
+  <StyledLink href={path} title={title} passHref legacyBehavior>
+    <Item ref={ref} barWidth={barWidth} isActive={isActive} lang="en">
+      {name}
+    </Item>
+  </StyledLink>
+```
+
 <br>
 
 ## ✨자랑하고 싶은 내용
