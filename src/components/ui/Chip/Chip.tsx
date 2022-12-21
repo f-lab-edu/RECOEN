@@ -31,6 +31,7 @@ const Chip = ({
       readOnly={readOnly}
       isSelected={isSelected}
       onClick={handleOnClick}
+      aria-label={`태그 기반 검색어 ${label}`}
     >
       {label}
       {deletable && <Image src={XImage} alt="삭제" width={8} height={8} />}
