@@ -15,7 +15,7 @@ export default MDXSecondHead;
 
 const H2 = styled.h2`
   font-weight: 400;
-  font-size: 30px;
+  font-size: 2.3rem;
   margin: 35px 0px;
   & a {
     color: #57a1f8;

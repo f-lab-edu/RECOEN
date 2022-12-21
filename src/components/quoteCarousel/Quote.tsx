@@ -41,7 +41,7 @@ const UpperWrapper = styled.div`
 `;
 
 const EnglishQuote = styled.blockquote`
-  font-size: 46px;
+  font-size: 3rem;
   text-align: right;
   margin-right: 0;
   margin-left: 0;
@@ -58,7 +58,7 @@ const EnglishParagraph = styled.p`
 const EnglishCite = styled.cite`
   text-align: right;
   color: ${theme.color.gray100};
-  font-size: 18px;
+  font-size: 1rem;
   font-family: 'PT Serif', serif;
   font-style: none;
 `;

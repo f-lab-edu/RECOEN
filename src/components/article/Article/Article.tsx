@@ -38,8 +38,8 @@ const Article = ({
         </ImageWrapper>
         <Wrapper>
           <div>
-            <Title>{title}</Title>
-            <Desc>{description}</Desc>
+            <Title aria-label={`제목 : ${title}`}>{title}</Title>
+            <Desc aria-label={`설명문 : ${description}`}>{description}</Desc>
           </div>
           <Date>{createdAt}</Date>
         </Wrapper>
@@ -85,7 +85,7 @@ const Title = styled.h2`
 
 const Desc = styled.p`
   font-weight: 200;
-  font-size: 14px;
+  font-size: 1rem;
   color: #9599a0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -98,6 +98,6 @@ const Desc = styled.p`
 
 const Date = styled.time`
   font-weight: 200;
-  font-size: 14px;
+  font-size: 0.9rem;
   color: #9599a0;
 `;

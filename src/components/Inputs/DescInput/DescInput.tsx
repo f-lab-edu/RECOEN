@@ -63,7 +63,7 @@ const Length = styled.span`
   top: -32px;
   right: 0px;
   color: #494c56;
-  font-size: 14px;
+  font-size: 0.9rem;
 `;
 
 const TextArea = styled.textarea<StyledProps>`
@@ -76,11 +76,11 @@ const TextArea = styled.textarea<StyledProps>`
   box-sizing: border-box;
   color: #9499a1;
   outline: none;
-  font-size: 16px;
+  font-size: 1rem;
   overflow: hidden;
   ::placeholder {
     color: #494c56;
-    font-size: 16px;
+    font-size: 1rem;
   }
   :after {
     content: '0/200';

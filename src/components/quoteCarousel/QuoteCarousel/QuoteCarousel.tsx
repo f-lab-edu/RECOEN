@@ -118,19 +118,19 @@ const NumBox = styled.div`
 
 const TotalNum = styled.div`
   color: #494c56;
-  font-size: 20px;
+  font-size: 1.1rem;
 `;
 
 const StyledHyphen = styled.div`
   height: 0.5px;
-  width: 20px;
+  width: 1.1rem;
   background-color: #494c56;
   margin: 5px;
 `;
 
 const CurrentNum = styled.div`
   color: #9499a1;
-  font-size: 20px;
+  font-size: 1.1rem;
 `;
 
 const StyleImage = styled(Image)`

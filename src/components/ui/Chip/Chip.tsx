@@ -31,6 +31,7 @@ const Chip = ({
       readOnly={readOnly}
       isSelected={isSelected}
       onClick={handleOnClick}
+      aria-label={`태그 기반 검색어 ${label}`}
     >
       {label}
       {deletable && <Image src={XImage} alt="삭제" width={8} height={8} />}
@@ -47,7 +48,7 @@ interface StyleProps {
   clickable?: boolean;
 }
 
-const StyledChip = styled.div<StyleProps>`
+const StyledChip = styled.button<StyleProps>`
   padding: 10px;
   ${({ clickable }) => clickable && `padding: 10px 20px 10px 20px`};
   background: ${theme.color.gray200};
@@ -58,7 +59,7 @@ const StyledChip = styled.div<StyleProps>`
   gap: 5px;
   align-items: center;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 0.8rem;
   color: ${({ deletable }) =>
     deletable ? `${theme.color.primary}` : `${theme.color.mainText}`};
   ${({ readOnly }) =>

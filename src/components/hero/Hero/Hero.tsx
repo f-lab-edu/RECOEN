@@ -15,12 +15,12 @@ interface StyleProps {
 }
 
 const Text = styled.h1<StyleProps>`
-  font-size: 80px;
+  font-size: 5rem;
   position: relative;
   margin-bottom: 30px;
   :after {
     content: '${(props) => props.listLength}';
-    font-size: 40px;
+    font-size: 2.5rem;
     position: absolute;
     top: 0;
   }

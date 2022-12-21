@@ -61,7 +61,7 @@ const Container = styled.div`
 `;
 
 const Guide = styled.h3`
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: #9499a1;
   text-align: left;

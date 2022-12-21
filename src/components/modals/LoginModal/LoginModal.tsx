@@ -53,7 +53,7 @@ const Text = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
   padding: 30px 0;
 `;
@@ -77,7 +77,7 @@ const commonStyle = `
   border:none;
   margin-bottom:10px;
   font-weight:600;
-  font-size:15px;
+  font-size:1rem;
   border-radius:8px;
   cursor:pointer;
 `;
