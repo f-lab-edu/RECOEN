@@ -85,6 +85,24 @@ export const isObjectEmpty = (elements) =>
 
 div나 span 태그 사용하기를 지양하고, 시맨틱한 태그를 사용하기 위해 고민했습니다. `article`, `time`, `section`, `blockquote`, `cite`, `nav`와 같은 태그들을 적절히 활용하였습니다. `h1` 태그 같은 경우에는 한 페이지당 하나만 존재하도록 작성하였으며, heading 요소들이 순서를 갖추어 화면을 구성할 수 있도록 작성했습니다. 또한 필요한 곳에서 button이나 a 태그를 활용함으로써, 모든 페이지에서 tabIndex도 순서에 알맞게 움직일 수 있게 하였습니다.
 
+#### aria-label
+
+대부분의 요소들을 시맨틱하게 작성한 결과, aria-label을 넣지 않아도 screen reader가 정상적으로 모든 요소들을 읽을 수 있게 되었습니다. 하지만, 직접 눈을 감고 screen reader를 통해서 모든 요소들을 확인해 본 결과, tag 기반 검색 버튼 같은 경우에는 button이라는 role 만으로는 사용자가 어떤 역할을 하는지 이해하기 어렵다고 판단했습니다. 때문에 해당 요소에는 aria-label을 넣어주었고, 이를 통해서 screen reader 만으로도 모든 요소들을 적절하게 이해할 수 있게 되었습니다.
+
+```javascript
+<StyledChip
+  deletable={deletable}
+  clickable={clickable}
+  readOnly={readOnly}
+  isSelected={isSelected}
+  onClick={handleOnClick}
+  aria-label={clickable ? `태그 기반 검색 ${label}` : `태그 ${label}`}
+>
+  {label}
+  {deletable && <Image src={XImage} alt="삭제" width={8} height={8} />}
+</StyledChip>
+```
+
 <br>
 
 ## ✨자랑하고 싶은 내용
