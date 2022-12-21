@@ -70,7 +70,7 @@ const Container = styled.header`
 `;
 
 const Title = styled.span`
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #ffffff;
   cursor: pointer;

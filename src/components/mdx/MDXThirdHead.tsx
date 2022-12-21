@@ -15,7 +15,7 @@ export default MDXThirdHead;
 
 const H3 = styled.h3`
   font-weight: 400;
-  font-size: 25px;
+  font-size: 1.5rem;
   margin: 20px 0px;
 
   & a {

@@ -59,7 +59,7 @@ const StyledChip = styled.button<StyleProps>`
   gap: 5px;
   align-items: center;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 0.8rem;
   color: ${({ deletable }) =>
     deletable ? `${theme.color.primary}` : `${theme.color.mainText}`};
   ${({ readOnly }) =>

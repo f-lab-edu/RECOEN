@@ -53,7 +53,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 45px;
+  font-size: 3rem;
   font-weight: 600;
   line-height: 65px;
 `;
@@ -79,6 +79,6 @@ const ButtonsWrapper = styled.div`
 
 const Date = styled.time`
   font-weight: 200;
-  font-size: 16px;
+  font-size: 1rem;
   color: #494c56;
 `;

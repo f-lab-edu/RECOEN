@@ -24,7 +24,7 @@ interface StyledProps {
 }
 
 const StyledButton = styled.button<StyledProps>`
-  font-size: 14px;
+  font-size: 0.9rem;
   cursor: pointer;
   padding: 10px 22px;
   border-radius: 12px;

@@ -108,7 +108,7 @@ const Input = styled.input<StyleProps>`
   border: 1px solid #3c3e44;
   outline: none;
   color: #9499a1;
-  font-size: 16px;
+  font-size: 1rem;
   ::placeholder {
     color: #494c56;
   }
