@@ -47,7 +47,7 @@ interface StyleProps {
   clickable?: boolean;
 }
 
-const StyledChip = styled.div<StyleProps>`
+const StyledChip = styled.button<StyleProps>`
   padding: 10px;
   ${({ clickable }) => clickable && `padding: 10px 20px 10px 20px`};
   background: ${theme.color.gray200};
