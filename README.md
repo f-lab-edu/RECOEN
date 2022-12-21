@@ -83,7 +83,7 @@ export const isObjectEmpty = (elements) =>
 
 #### 시맨틱 태그
 
-div나 span 태그 사용하기를 지양하고, 시맨틱한 태그를 사용하기 위해 고민했습니다. `article`, `time`, `section`, `blockquote`, `cite`, `nav`와 같은 태그들을 적절히 활용하였습니다. `h1` 태그 같은 경우에는 한 페이지당 하나만 존재하도록 작성하였으며, heading 요소들이 순서를 갖추어 화면을 구성할 수 있도록 작성했습니다.
+div나 span 태그 사용하기를 지양하고, 시맨틱한 태그를 사용하기 위해 고민했습니다. `article`, `time`, `section`, `blockquote`, `cite`, `nav`와 같은 태그들을 적절히 활용하였습니다. `h1` 태그 같은 경우에는 한 페이지당 하나만 존재하도록 작성하였으며, heading 요소들이 순서를 갖추어 화면을 구성할 수 있도록 작성했습니다. 또한 필요한 곳에서 button이나 a 태그를 활용함으로써, 모든 페이지에서 tabIndex도 순서에 알맞게 움직일 수 있게 하였습니다.
 
 <br>
 
