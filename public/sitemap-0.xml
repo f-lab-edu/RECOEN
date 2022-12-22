@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="https://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="https://www.w3.org/1999/xhtml" xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="https://www.google.com/schemas/sitemap-image/1.1" xmlns:video="https://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://recoen.vercel.app</loc><lastmod>2022-10-29T14:46:56.355Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/article</loc><lastmod>2022-10-29T14:46:56.355Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/write</loc><lastmod>2022-10-29T14:46:56.355Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/article/635b646cf727a5690ad11fad</loc><lastmod>2022-10-29T14:46:56.355Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/article/635d1b9b9edb64eb1ae92233</loc><lastmod>2022-10-29T14:46:56.355Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app</loc><lastmod>2022-12-22T06:56:11.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/book</loc><lastmod>2022-12-22T06:56:11.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/programming</loc><lastmod>2022-12-22T06:56:11.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/write</loc><lastmod>2022-12-22T06:56:11.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/book/638b70bd265c75012b24acc8</loc><lastmod>2022-12-22T06:56:11.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/book/638b722e265c75012b24acd4</loc><lastmod>2022-12-22T06:56:11.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/book/639f29d07474f9ddeb0b3480</loc><lastmod>2022-12-22T06:56:11.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
