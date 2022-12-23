@@ -10,6 +10,7 @@ import { writeStates } from 'src/recoil/article';
 import { ArticleElement } from 'src/types/article';
 
 import { useHandleDelete } from 'src/hooks/useHandleArticle';
+import { convertDateFormat } from 'src/utils';
 
 interface Props {
   article: ArticleElement;
@@ -34,7 +35,7 @@ const DetailTitle: React.FC<Props> = ({ article }) => {
         })}
       </ChipWrapper>
       <Wrapper>
-        <Date>{article.createdAt}</Date>
+        <Date>{convertDateFormat(article.createdAt)}</Date>
         <ButtonsWrapper>
           <Button label="수정" onClick={handleEdit} />·
           <Button label="삭제" onClick={handleDelete} />

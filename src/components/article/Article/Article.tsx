@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArticleCategory } from 'src/types/article';
+import { convertDateFormat } from 'src/utils';
 
 interface Props {
   title: string;
@@ -41,7 +42,7 @@ const Article = ({
             <Title aria-label={`제목 : ${title}`}>{title}</Title>
             <Desc aria-label={`설명문 : ${description}`}>{description}</Desc>
           </div>
-          <Date>{createdAt}</Date>
+          <Date>{convertDateFormat(createdAt)}</Date>
         </Wrapper>
       </Container>
     </Link>
