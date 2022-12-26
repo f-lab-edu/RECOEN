@@ -13,7 +13,8 @@ const NavBar = () => {
 
   const resolvePosition = () => {
     const pathname = router.pathname;
-    if (pathname == '/article/[id]') return 'position: absolute';
+    if (pathname == '/programming/[id]' || pathname == '/book/[id]')
+      return 'position: absolute';
     if (pathname.includes('/write')) return 'position: relative';
     return 'position:fixed';
   };
