@@ -7,7 +7,7 @@ interface Props {
   mdxRemote: React.ReactElement;
 }
 
-const DetailMDX: React.FC<Props> = ({ mdxTitle, image, mdxRemote }) => {
+const ArticleDetail: React.FC<Props> = ({ mdxTitle, image, mdxRemote }) => {
   return (
     <Container>
       <Space />
@@ -21,7 +21,7 @@ const DetailMDX: React.FC<Props> = ({ mdxTitle, image, mdxRemote }) => {
   );
 };
 
-export default DetailMDX;
+export default ArticleDetail;
 
 const Container = styled.div`
   width: 100vw;

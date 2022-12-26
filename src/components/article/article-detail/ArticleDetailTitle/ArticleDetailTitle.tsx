@@ -16,7 +16,7 @@ interface Props {
   article: ArticleElement;
 }
 
-const DetailTitle: React.FC<Props> = ({ article }) => {
+const ArticleDetailTitle: React.FC<Props> = ({ article }) => {
   const router = useRouter();
   const setWriteState = useSetRecoilState(writeStates);
   const handleDelete = useHandleDelete(article.category);
@@ -45,7 +45,7 @@ const DetailTitle: React.FC<Props> = ({ article }) => {
   );
 };
 
-export default DetailTitle;
+export default ArticleDetailTitle;
 
 const Container = styled.div`
   width: 100%;
