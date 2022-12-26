@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import WritePage from './index.page';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
@@ -10,6 +9,8 @@ import { ArticleCategory } from 'src/types/article';
 
 import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
 import BookArticleModel from 'pages/api/models/bookArticleModel';
+
+import WriteContainer from 'src/components/WriteContainer';
 
 const UpdatePage = ({
   article,
@@ -32,7 +33,7 @@ const UpdatePage = ({
     return () => resetDetailStates();
   }, []);
 
-  return <WritePage />;
+  return <WriteContainer />;
 };
 
 export default UpdatePage;
