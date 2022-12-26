@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { Editor } from '@toast-ui/react-editor';
@@ -13,7 +13,7 @@ interface Props {
 const TextEditor: React.FC<Props> = ({ useArticleElement }) => {
   const editorRef = useRef<Editor>();
   const { uploadToS3 } = useS3Upload();
-  const { articleElements, setArticleElement } = useArticleElement();
+  const { setArticleElement } = useArticleElement();
 
   const handleChange = () => {
     if (!editorRef.current) return;
@@ -28,11 +28,6 @@ const TextEditor: React.FC<Props> = ({ useArticleElement }) => {
     const { url } = await uploadToS3(blob);
     callback(url, 'alt text');
   };
-
-  useEffect(() => {
-    if (!editorRef.current) return;
-    editorRef.current.getInstance().setMarkdown(articleElements.content);
-  }, [articleElements.content]);
 
   return (
     <Editor

@@ -37,7 +37,7 @@ describe('NavBar', () => {
 
   describe('detail 페이지에 있으면', () => {
     it('position이 absolute로 바뀐다', () => {
-      const { getByTestId } = renderNavBar('/article/[id]');
+      const { getByTestId } = renderNavBar('/programming/[id]');
       const fixedContainer = getByTestId('fixedContainer');
 
       expect(fixedContainer).toHaveStyleRule('position', 'absolute');
