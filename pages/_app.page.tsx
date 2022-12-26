@@ -59,7 +59,7 @@ const Container = styled.div<StyleProps>`
   padding-top: 90px;
   margin: 0 auto;
   ${(props) => {
-    if (props.location == '/write') return writePageStyle;
+    if (props.location.includes('/write')) return writePageStyle;
     if (props.location == '/article/[id]') return 'padding: 0px';
   }};
   height: calc(100vh - 90px);

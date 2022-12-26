@@ -37,8 +37,8 @@ const DetailTitle: React.FC<Props> = ({ article }) => {
       <Wrapper>
         <Date>{convertDateFormat(article.createdAt)}</Date>
         <ButtonsWrapper>
-          {/* <Button label="수정" onClick={handleEdit} />·
-          <Button label="삭제" onClick={handleDelete} /> */}
+          <Button label="수정" onClick={handleEdit} />
+          <Button label="삭제" onClick={handleDelete} />
         </ButtonsWrapper>
       </Wrapper>
     </Container>
