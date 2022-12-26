@@ -14,11 +14,12 @@ import { detailPageState } from 'src/recoil/article';
 import { ViewArticleElement } from 'src/types/article';
 
 import { MDXRemote } from 'next-mdx-remote';
-import MDXTitle from 'src/components/mdx/MDXTitle';
-import MDXDetail from 'src/components/mdx/MDXDetail';
 import Head from 'src/components/Head';
 import Image from 'next/image';
-import MDXTag from 'src/components/mdx/MDXComponent';
+
+import MDXTag from 'src/components/article/article-detail/MDXTag';
+import ArticleDetail from 'src/components/article/article-detail/ArticleDetail';
+import ArticleDetailTitle from 'src/components/article/article-detail/ArticleDetailTitle/ArticleDetailTitle';
 
 import { useRouter } from 'next/router';
 
@@ -60,8 +61,8 @@ const Article = ({
   return (
     <>
       <Head article={article} />
-      <MDXDetail
-        mdxTitle={<MDXTitle article={article} />}
+      <ArticleDetail
+        mdxTitle={<ArticleDetailTitle article={article} />}
         image={
           <Image
             src={article.imgUrl}

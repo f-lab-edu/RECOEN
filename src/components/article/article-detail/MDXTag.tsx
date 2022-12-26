@@ -5,14 +5,18 @@ import { theme } from 'src/style/theme';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialOceanic } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-import MDXFirstHead from 'src/components/mdx/MDXFirstHead';
-import MDXSecondHead from 'src/components/mdx/MDXSecondHead';
-import MDXThirdHead from 'src/components/mdx/MDXThirdHead';
+import {
+  MDXFirstHead,
+  MDXSecondHead,
+  MDXThirdHead,
+  MDXForthHead,
+} from './ArticleHeading';
 
 const MDXTag = {
   h1: (props: any) => <MDXFirstHead {...props} />,
   h2: (props: any) => <MDXSecondHead {...props} />,
   h3: (props: any) => <MDXThirdHead {...props} />,
+  h4: (props: any) => <MDXForthHead {...props} />,
   p: (props: any) => <Paragraph {...props} />,
   pre: ({ children }: any) => {
     const { className, ...rest } = children.props;

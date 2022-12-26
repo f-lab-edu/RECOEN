@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil';
 import { articleValidationState } from 'src/recoil/article';
 
 import BaseModal from '../BaseModal/BaseModal';
-import ImageUpload from 'src/components/ImageUpload/ImageUpload';
+import ImageUpload from 'src/components/Image-upload/ImageUpload';
 import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
