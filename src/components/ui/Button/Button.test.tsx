@@ -21,22 +21,22 @@ describe('Button', () => {
     };
   };
 
-  describe('label에 넘겨준 글자가', () => {
+  context('label에 글자가 넘겨주면 ', () => {
     it('화면에 보인다', () => {
       const { getByText } = renderButton(buttonProps('normal')('active'));
       expect(getByText('버튼')).toBeInTheDocument();
     });
   });
 
-  describe('normal type에서', () => {
-    describe('가만히 있으면', () => {
+  context('normal type에서', () => {
+    context('가만히 있으면', () => {
       it('폰트색은 #4a4c55이다', () => {
         const { getByText } = renderButton(buttonProps('normal')('active'));
         expect(getByText('버튼')).toHaveStyleRule('color', '#9599a0');
       });
     });
 
-    describe('호버를 하면', () => {
+    context('호버를 하면', () => {
       it('폰트색은 #9599a0이다', () => {
         const { getByText } = renderButton(buttonProps('normal')('active'));
         const button = getByText('버튼');
@@ -46,7 +46,7 @@ describe('Button', () => {
       });
     });
 
-    describe('disable 상태이면', () => {
+    context('disable 상태이면', () => {
       it('cursor가 not-allowed처리된다', () => {
         const { getByText } = renderButton(buttonProps('normal')('deactivate'));
         expect(getByText('버튼')).toHaveStyle('cursor : not-allowed');
@@ -54,8 +54,8 @@ describe('Button', () => {
     });
   });
 
-  describe('primary type에서', () => {
-    describe('가만히 있으면', () => {
+  context('primary type에서', () => {
+    context('가만히 있으면', () => {
       it('폰트색은 #ffffff이다', () => {
         const { getByText } = renderButton(buttonProps('primary')('active'));
         expect(getByText('버튼')).toHaveStyle('color : #ffffff');
@@ -67,7 +67,7 @@ describe('Button', () => {
       });
     });
 
-    describe('호버를 하면', () => {
+    context('호버를 하면', () => {
       it('배경색은 #2B31C7이다', () => {
         const { getByText } = renderButton(buttonProps('primary')('active'));
         const button = getByText('버튼');
@@ -78,7 +78,7 @@ describe('Button', () => {
       });
     });
 
-    describe('disable 상태이면', () => {
+    context('disable 상태이면', () => {
       it('cursor가 not-allowed처리된다', () => {
         const { getByText } = renderButton(
           buttonProps('primary')('deactivate'),

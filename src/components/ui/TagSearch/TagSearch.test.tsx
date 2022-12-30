@@ -14,7 +14,7 @@ describe('TagSearch', () => {
     );
   };
 
-  describe('tags의 값들이', () => {
+  context('tags의 값들이 넘어오면', () => {
     it('화면에 보여진다.', () => {
       const { getByText } = renderTagSearch();
 
@@ -24,17 +24,7 @@ describe('TagSearch', () => {
     });
   });
 
-  describe('tags의 값들이', () => {
-    it('화면에 보여진다.', () => {
-      const { getByText } = renderTagSearch();
-
-      tags.forEach((tag) => {
-        expect(getByText(tag)).toBeInTheDocument();
-      });
-    });
-  });
-
-  describe('tag를 선택하면', () => {
+  context('tag를 선택하면', () => {
     it('선택된 tag로 articles가 정렬된다.', () => {
       const { getByText } = renderTagSearch();
 

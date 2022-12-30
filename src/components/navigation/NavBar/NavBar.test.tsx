@@ -26,7 +26,7 @@ describe('NavBar', () => {
       ),
     );
 
-  describe('recoen. 을 클릭하면', () => {
+  context('recoen. 을 클릭하면', () => {
     it('메인 페이지로 이동한다', () => {
       const { getByText } = renderNavBar('/');
       const recoen = getByText(/recoen./).closest('a');
@@ -35,7 +35,7 @@ describe('NavBar', () => {
     });
   });
 
-  describe('detail 페이지에 있으면', () => {
+  context('detail 페이지에 있으면', () => {
     it('position이 absolute로 바뀐다', () => {
       const { getByTestId } = renderNavBar('/programming/[id]');
       const fixedContainer = getByTestId('fixedContainer');
@@ -44,7 +44,7 @@ describe('NavBar', () => {
     });
   });
 
-  describe('메인 페이지에 있을 때', () => {
+  context('메인 페이지에 있을 때', () => {
     it('카테고리 목록이 나와야 한다', () => {
       const { getByText } = renderNavBar('/');
 
@@ -55,7 +55,7 @@ describe('NavBar', () => {
     });
   });
 
-  describe('/write 페이지에 있으면 ', () => {
+  context('/write 페이지에 있으면 ', () => {
     it('position이 relative로 바뀐다', () => {
       const { getByTestId } = renderNavBar('/write');
       const fixedContainer = getByTestId('fixedContainer');

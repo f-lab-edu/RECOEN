@@ -53,7 +53,7 @@ describe('Menus', () => {
 
   beforeEach(() => mockUseSession(false));
 
-  describe('로그아웃 상태이면', () => {
+  context('로그아웃 상태이면', () => {
     it('로그인 버튼이 나온다', () => {
       const { getByText } = renderMenus();
 
@@ -61,7 +61,7 @@ describe('Menus', () => {
     });
   });
 
-  describe('로그인 상태이면', () => {
+  context('로그인 상태이면', () => {
     it('로그아웃, + 글쓰기 버튼이 나온다', () => {
       mockUseSession(true);
       const { getByText } = renderMenus();
@@ -71,7 +71,7 @@ describe('Menus', () => {
     });
   });
 
-  describe('각 카테고리를 클릭하면', () => {
+  context('각 카테고리를 클릭하면', () => {
     it('각각의 페이지로 이동한다', () => {
       const { getByText } = renderMenus();
 
@@ -84,7 +84,7 @@ describe('Menus', () => {
     });
   });
 
-  describe('글쓰기 버튼을 클릭하면', () => {
+  context('글쓰기 버튼을 클릭하면', () => {
     it('/write 페이지로 이동한다', () => {
       mockUseSession(true);
       const { getByText } = renderMenus();
@@ -94,7 +94,7 @@ describe('Menus', () => {
     });
   });
 
-  describe('로그인 버튼을 클릭하면', () => {
+  context('로그인 버튼을 클릭하면', () => {
     it('로그인 모달이 나온다', async () => {
       const { getByText } = renderMenus();
       const loginButton = getByText('로그인');
