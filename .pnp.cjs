@@ -52,6 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.0.2"],\
             ["@types/jest-plugin-context", "npm:2.9.5"],\
             ["@types/node", "npm:18.7.15"],\
+            ["@types/ramda", "npm:0.28.20"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/react-syntax-highlighter", "npm:15.5.5"],\
@@ -82,6 +83,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["plaiceholder", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:2.5.0"],\
             ["prettier", "npm:2.7.1"],\
             ["prosemirror-transform", "npm:1.7.0"],\
+            ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:18.2.0"],\
             ["react-query", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:3.39.2"],\
@@ -4466,6 +4468,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/ramda", [\
+        ["npm:0.28.20", {\
+          "packageLocation": "./.yarn/cache/@types-ramda-npm-0.28.20-633f49d471-02c1e958a0.zip/node_modules/@types/ramda/",\
+          "packageDependencies": [\
+            ["@types/ramda", "npm:0.28.20"],\
+            ["ts-toolbelt", "npm:6.15.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/react", [\
         ["npm:18.0.18", {\
           "packageLocation": "./.yarn/cache/@types-react-npm-18.0.18-7a5d9ad98c-6d72d35ab3.zip/node_modules/@types/react/",\
@@ -5286,6 +5298,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.0.2"],\
             ["@types/jest-plugin-context", "npm:2.9.5"],\
             ["@types/node", "npm:18.7.15"],\
+            ["@types/ramda", "npm:0.28.20"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/react-syntax-highlighter", "npm:15.5.5"],\
@@ -5316,6 +5329,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["plaiceholder", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:2.5.0"],\
             ["prettier", "npm:2.7.1"],\
             ["prosemirror-transform", "npm:1.7.0"],\
+            ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:18.2.0"],\
             ["react-query", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:3.39.2"],\
@@ -13464,6 +13478,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/quick-lru-npm-5.1.1-e38e0edce3-a516faa255.zip/node_modules/quick-lru/",\
           "packageDependencies": [\
             ["quick-lru", "npm:5.1.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["ramda", [\
+        ["npm:0.28.0", {\
+          "packageLocation": "./.yarn/cache/ramda-npm-0.28.0-6a5fe8f6cc-44ea6e5010.zip/node_modules/ramda/",\
+          "packageDependencies": [\
+            ["ramda", "npm:0.28.0"]\
           ],\
           "linkType": "HARD"\
         }]\
