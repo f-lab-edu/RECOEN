@@ -14,7 +14,7 @@ describe('WritePageMenus', () => {
       </RecoilRoot>,
     );
 
-  describe('나가기 버튼을 누르면', () => {
+  context('나가기 버튼을 누르면', () => {
     it('메인 페이지로 이동한다', () => {
       const { getByText } = renderMenus();
       const link = getByText(/나가기/).closest('a');
@@ -23,7 +23,7 @@ describe('WritePageMenus', () => {
     });
   });
 
-  describe('게시하기 버튼을 누르면', () => {
+  context('게시하기 버튼을 누르면', () => {
     it('모달이 열린다', () => {
       const { getByText } = renderMenus();
       const button = getByText('게시하기');

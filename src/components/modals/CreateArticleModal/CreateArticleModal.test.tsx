@@ -10,7 +10,7 @@ describe('CreateArticleModal', () => {
         <CreateArticleModal />
       </RecoilRoot>,
     );
-  describe('rendering', () => {
+  context('rendering', () => {
     it('modal_root에 render되어야 한다.', () => {
       renderCreateArticleModal();
       const modal = screen.getByTestId('modal');
@@ -36,7 +36,7 @@ describe('CreateArticleModal', () => {
     });
   });
 
-  describe('취소버튼을 클릭하면', () => {
+  context('취소버튼을 클릭하면', () => {
     it('모달이 닫혀야한다.', () => {
       renderCreateArticleModal();
       const cancel = screen.getByText(/취소/);

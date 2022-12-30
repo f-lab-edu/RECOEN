@@ -32,7 +32,7 @@ describe('DescInput', () => {
     };
   };
 
-  describe('focus되면', () => {
+  context('focus되면', () => {
     it('인풋라인이 파란색으로 바뀐다', async () => {
       const { getByRole } = renderDescInput();
       const descInput = getByRole('textbox');
@@ -43,7 +43,7 @@ describe('DescInput', () => {
     });
   });
 
-  describe('입력하면', () => {
+  context('입력하면', () => {
     it('onChange에 값이 들어간다', async () => {
       const { getByRole } = renderDescInput();
       const descInput = getByRole('textbox');
@@ -54,7 +54,7 @@ describe('DescInput', () => {
     });
   });
 
-  describe('글자가 200자가 넘어갔을 때', () => {
+  context('글자가 200자가 넘어갔을 때', () => {
     it('인풋라인이 빨간색으로 바뀐다', async () => {
       const { getByRole } = renderDescInput();
       const descInput = getByRole('textbox');
@@ -73,7 +73,7 @@ describe('DescInput', () => {
       expect(descInput).toHaveStyle('border : 1px solid #c4001d');
     });
 
-    describe('다시 Backspace를 하면', () => {
+    context('다시 Backspace를 하면', () => {
       it('인풋라인이 파란색으로 돌아온다', async () => {
         const { getByRole } = renderDescInput();
         const descInput = getByRole('textbox');
@@ -102,7 +102,7 @@ describe('DescInput', () => {
       });
     });
 
-    describe('onBlur가 일어나면', () => {
+    context('onBlur가 일어나면', () => {
       it('인풋라인에 빨간색이 사라진다', async () => {
         const { getByRole } = renderDescInput();
         const descInput = getByRole('textbox');
@@ -125,7 +125,7 @@ describe('DescInput', () => {
     });
   });
 
-  describe('글자가 199 글자 이하일 때', () => {
+  context('글자가 199 글자 이하일 때', () => {
     it('Backspace를 하면 그대로 파란색이다', async () => {
       const { getByRole } = renderDescInput();
       const descInput = getByRole('textbox');

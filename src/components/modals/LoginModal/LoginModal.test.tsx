@@ -20,14 +20,14 @@ describe('LoginModal', () => {
     );
   };
 
-  describe('렌더링', () => {
-    it('modal_root에 render 되어야 한다.', () => {
+  context('렌더링되면', () => {
+    it('modal_root에 모달이 띄워진다.', () => {
       const { getByText } = renderLoginModal();
       expect(getByText('로그인')).toBeInTheDocument();
     });
   });
 
-  describe('"다음에 할게요" 버튼을 클릭하면', () => {
+  context('"다음에 할게요" 버튼을 클릭하면', () => {
     it('모달이 닫혀야 한다', () => {
       const { getByText } = renderLoginModal();
       const closeButton = getByText('다음에 할게요');
@@ -38,7 +38,7 @@ describe('LoginModal', () => {
     });
   });
 
-  describe('google 버튼을 클릭하면', () => {
+  context('google 버튼을 클릭하면', () => {
     it('signin이 호출된다', () => {
       const { getByText } = renderLoginModal();
       const googleButton = getByText('Google로 로그인하기');

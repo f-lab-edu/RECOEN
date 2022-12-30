@@ -3332,6 +3332,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jest-plugin-context@npm:^2.9.5":
+  version: 2.9.5
+  resolution: "@types/jest-plugin-context@npm:2.9.5"
+  dependencies:
+    "@types/jest": "*"
+  checksum: af078e46a4215549cfa0adcfdce8aaa437be1ab1108cd74863c69f38a9e98816c8decca5a638085c35d9ef388e7f08ac233796b9b5dfee99046af5c0373b2202
+  languageName: node
+  linkType: hard
+
 "@types/jest@npm:*, @types/jest@npm:^29.0.2":
   version: 29.0.2
   resolution: "@types/jest@npm:29.0.2"
@@ -4130,6 +4139,7 @@ __metadata:
     "@toast-ui/react-editor": ^3.2.2
     "@types/gtag.js": ^0.0.12
     "@types/jest": ^29.0.2
+    "@types/jest-plugin-context": ^2.9.5
     "@types/node": 18.7.15
     "@types/react": ^18.0.21
     "@types/react-dom": 18.0.6
@@ -4150,6 +4160,7 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     jest: ^29.1.2
     jest-environment-jsdom: ^29.0.3
+    jest-plugin-context: ^2.9.0
     mongoose: ^6.6.1
     next: latest
     next-auth: ^4.15.0
@@ -8351,6 +8362,15 @@ __metadata:
     "@types/node": "*"
     jest-util: ^29.1.2
   checksum: 145817b10c79e8d1801dba8ae5c6e305f17f2497ed1eb9b54336fa7b448ffcafb2cc97b57cef650cc5b3f7d77a063d586b3d446bcd907161e2ca7e5d68184e8f
+  languageName: node
+  linkType: hard
+
+"jest-plugin-context@npm:^2.9.0":
+  version: 2.9.0
+  resolution: "jest-plugin-context@npm:2.9.0"
+  peerDependencies:
+    jest: "*"
+  checksum: 508ff501f755a34adbd97abf38812b6a7feffeebd524d0f476b7f90624fac1ae9e4d1fc0f06bac765513e9634666823d9ec63067d7bbe38bd892303d52ed3a2a
   languageName: node
   linkType: hard
 

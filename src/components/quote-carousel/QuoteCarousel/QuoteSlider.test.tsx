@@ -36,7 +36,7 @@ describe('QuoteSlider', () => {
     });
   });
 
-  describe('버튼을 클릭하면', () => {
+  context('버튼을 클릭하면', () => {
     it('slide가 움직여야 한다.', () => {
       renderQuoteSlider();
       const nextSlideButton = screen.getByAltText(/Rigth Arrow/);

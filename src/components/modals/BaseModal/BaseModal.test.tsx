@@ -19,7 +19,7 @@ describe('BaseModal', () => {
       </RecoilRoot>,
     );
   };
-  describe('modal_root에 ', () => {
+  context('modal_root에 ', () => {
     it('렌더링된다', () => {
       renderModal({});
       const modal = screen.getByTestId('modal');
@@ -28,7 +28,7 @@ describe('BaseModal', () => {
     });
   });
 
-  describe('overlay를 클릭하면', () => {
+  context('overlay를 클릭하면', () => {
     it('handleOpenModal이 호출된다', () => {
       renderModal({});
       const overlay = screen.getByTestId('overlay');
@@ -39,7 +39,7 @@ describe('BaseModal', () => {
     });
   });
 
-  describe('props에 right을 넘겨주면', () => {
+  context('props에 right을 넘겨주면', () => {
     it('모달이 오른쪽에 위치한 스타일로 변경된다', () => {
       renderModal({ position: 'right' });
       const modal = screen.getByTestId('modal');
