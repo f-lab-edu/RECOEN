@@ -35,7 +35,7 @@ describe('TagInput', () => {
     renderTagInput();
   });
 
-  describe('태그를 입력하면', () => {
+  context('태그를 입력하면', () => {
     it('태그가 화면에 보인다.', () => {
       const { getByRole } = renderTagInput();
 
@@ -50,7 +50,7 @@ describe('TagInput', () => {
     });
   });
 
-  describe('태그를 클릭하면', () => {
+  context('태그를 클릭하면', () => {
     it('태그가 지워진다.', () => {
       const { getByRole, getByText } = renderTagInput();
       const input = getByRole('textbox');
@@ -68,7 +68,7 @@ describe('TagInput', () => {
     });
   });
 
-  describe('태그가 3개 이상일 때 입력하면', () => {
+  context('태그가 3개 이상일 때 입력하면', () => {
     it('인풋의 아웃라인 스타일이 빨간색으로 변한다', async () => {
       const { getByRole } = renderTagInput();
       const input = getByRole('textbox');
@@ -93,7 +93,7 @@ describe('TagInput', () => {
     });
   });
 
-  describe('인풋에서 Backspace를 입력하면', () => {
+  context('인풋에서 Backspace를 입력하면', () => {
     it('태그가 지워진다', () => {
       const { getByRole, queryByText } = renderTagInput();
       const input = getByRole('textbox');
@@ -114,7 +114,7 @@ describe('TagInput', () => {
     });
   });
 
-  describe('동일한 태그를 입력하면', () => {
+  context('동일한 태그를 입력하면', () => {
     it('입력이 되지 않는다', () => {
       const { getByRole, getAllByText } = renderTagInput();
       const input = getByRole('textbox');
@@ -131,7 +131,7 @@ describe('TagInput', () => {
     });
   });
 
-  describe('태그인풋에 blur 이벤트가 발생하면', () => {
+  context('태그인풋에 blur 이벤트가 발생하면', () => {
     it('에러 라인이 사라진다', async () => {
       const { getByRole } = renderTagInput();
       const input = getByRole('textbox');
@@ -153,7 +153,7 @@ describe('TagInput', () => {
     });
   });
 
-  describe('빈 값을 입력하고 엔터를 누르면', () => {
+  context('빈 값을 입력하고 엔터를 누르면', () => {
     it('태그가 추가되지 않는다', () => {
       const { getByRole, getAllByText } = renderTagInput();
       const input = getByRole('textbox');
