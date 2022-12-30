@@ -24,6 +24,7 @@ const articleList = [
 
 describe('getTags', () => {
   it('article list에서 중복없이 tags만 뽑아내야한다.', () => {
+    console.log(getTags(articleList));
     expect(getTags(articleList)).toStrictEqual([
       'react',
       'javascript',

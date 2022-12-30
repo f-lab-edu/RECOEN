@@ -1,12 +1,6 @@
-import { map, pipe, flat, toArray, uniq } from '@fxts/core';
+import pipe from 'ramda/src/pipe';
+import pluck from 'ramda/src/pluck';
+import flatten from 'ramda/src/flatten';
+import uniq from 'ramda/src/uniq';
 
-import { ArticleElement } from 'src/types/article';
-
-export const getTags = (lists: ArticleElement[]) =>
-  pipe(
-    lists,
-    map((article) => article.tags),
-    flat,
-    uniq,
-    toArray,
-  );
+export const getTags = pipe(pluck('tags'), flatten, uniq);
