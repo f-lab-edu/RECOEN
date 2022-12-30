@@ -3,7 +3,4 @@ import values from 'ramda/src/values';
 import isEmpty from 'ramda/src/isEmpty';
 import any from 'ramda/src/any';
 
-export const isObjectEmpty = pipe(
-  values,
-  any((element) => isEmpty(element)),
-);
+export const isObjectEmpty = pipe(values, any(isEmpty));
