@@ -1957,15 +1957,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fxts/core@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "@fxts/core@npm:0.11.0"
-  dependencies:
-    tslib: ^2.4.1
-  checksum: e5976edaf8203a143ddee099c94d8c0808f13f3c13f4e7303111d827b72a81c46953d5674596a211d3475ac8b5a14b565385acf751522441a3b2dd6e5b181da9
-  languageName: node
-  linkType: hard
-
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -3450,6 +3441,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/ramda@npm:^0.28.20":
+  version: 0.28.20
+  resolution: "@types/ramda@npm:0.28.20"
+  dependencies:
+    ts-toolbelt: ^6.15.1
+  checksum: 02c1e958a09724079acd975aefd2e9ae1327097f941c661ca596e2a8e16df3bd0f0755a16ab378eeb562d8624d7614a3159de2a0129e7d8522a2d79699390818
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:18.0.6, @types/react-dom@npm:^18.0.0":
   version: 18.0.6
   resolution: "@types/react-dom@npm:18.0.6"
@@ -4125,7 +4125,6 @@ __metadata:
     "@emotion/jest": ^11.10.0
     "@emotion/react": ^11.10.4
     "@emotion/styled": ^11.10.4
-    "@fxts/core": ^0.11.0
     "@mui/material": ^5.10.9
     "@next/bundle-analyzer": ^12.3.1
     "@next/env": ^13.0.3
@@ -4141,6 +4140,7 @@ __metadata:
     "@types/jest": ^29.0.2
     "@types/jest-plugin-context": ^2.9.5
     "@types/node": 18.7.15
+    "@types/ramda": ^0.28.20
     "@types/react": ^18.0.21
     "@types/react-dom": 18.0.6
     "@types/react-syntax-highlighter": ^15.5.5
@@ -4171,6 +4171,7 @@ __metadata:
     plaiceholder: ^2.5.0
     prettier: ^2.7.1
     prosemirror-transform: ^1.7.0
+    ramda: ^0.28.0
     react: latest
     react-dom: latest
     react-query: ^3.39.2
@@ -11126,6 +11127,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ramda@npm:^0.28.0":
+  version: 0.28.0
+  resolution: "ramda@npm:0.28.0"
+  checksum: 44ea6e5010bba70151b6a92d8114a91915e8b5a16105cce65fae58c9d7386b812c429645e35f21141d7087568550ce383bc10ee1a65cdec951f4b69ea457e6a4
+  languageName: node
+  linkType: hard
+
 "rc@npm:1.2.8, rc@npm:^1.2.7, rc@npm:^1.2.8":
   version: 1.2.8
   resolution: "rc@npm:1.2.8"
@@ -12552,7 +12560,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-toolbelt@npm:^6.15.5":
+"ts-toolbelt@npm:^6.15.1, ts-toolbelt@npm:^6.15.5":
   version: 6.15.5
   resolution: "ts-toolbelt@npm:6.15.5"
   checksum: 24ad00cfd9ce735c76c873a9b1347eac475b94e39ebbdf100c9019dce88dd5f4babed52884cf82bb456a38c28edd0099ab6f704b84b2e5e034852b618472c1f3
@@ -12582,13 +12590,6 @@ __metadata:
   version: 2.4.0
   resolution: "tslib@npm:2.4.0"
   checksum: 8c4aa6a3c5a754bf76aefc38026134180c053b7bd2f81338cb5e5ebf96fefa0f417bff221592bf801077f5bf990562f6264fecbc42cd3309b33872cb6fc3b113
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "tslib@npm:2.4.1"
-  checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca
   languageName: node
   linkType: hard
 

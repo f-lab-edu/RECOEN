@@ -36,7 +36,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/jest", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.0"],\
             ["@emotion/react", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.4"],\
             ["@emotion/styled", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.4"],\
-            ["@fxts/core", "npm:0.11.0"],\
             ["@mui/material", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:5.10.9"],\
             ["@next/bundle-analyzer", "npm:12.3.1"],\
             ["@next/env", "npm:13.0.3"],\
@@ -52,6 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.0.2"],\
             ["@types/jest-plugin-context", "npm:2.9.5"],\
             ["@types/node", "npm:18.7.15"],\
+            ["@types/ramda", "npm:0.28.20"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/react-syntax-highlighter", "npm:15.5.5"],\
@@ -82,6 +82,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["plaiceholder", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:2.5.0"],\
             ["prettier", "npm:2.7.1"],\
             ["prosemirror-transform", "npm:1.7.0"],\
+            ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:18.2.0"],\
             ["react-query", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:3.39.2"],\
@@ -2644,16 +2645,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@fxts/core", [\
-        ["npm:0.11.0", {\
-          "packageLocation": "./.yarn/cache/@fxts-core-npm-0.11.0-1a56022603-e5976edaf8.zip/node_modules/@fxts/core/",\
-          "packageDependencies": [\
-            ["@fxts/core", "npm:0.11.0"],\
-            ["tslib", "npm:2.4.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@gar/promisify", [\
         ["npm:1.1.3", {\
           "packageLocation": "./.yarn/cache/@gar-promisify-npm-1.1.3-ac1a325862-4059f790e2.zip/node_modules/@gar/promisify/",\
@@ -4466,6 +4457,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/ramda", [\
+        ["npm:0.28.20", {\
+          "packageLocation": "./.yarn/cache/@types-ramda-npm-0.28.20-633f49d471-02c1e958a0.zip/node_modules/@types/ramda/",\
+          "packageDependencies": [\
+            ["@types/ramda", "npm:0.28.20"],\
+            ["ts-toolbelt", "npm:6.15.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/react", [\
         ["npm:18.0.18", {\
           "packageLocation": "./.yarn/cache/@types-react-npm-18.0.18-7a5d9ad98c-6d72d35ab3.zip/node_modules/@types/react/",\
@@ -5270,7 +5271,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@emotion/jest", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.0"],\
             ["@emotion/react", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.4"],\
             ["@emotion/styled", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:11.10.4"],\
-            ["@fxts/core", "npm:0.11.0"],\
             ["@mui/material", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:5.10.9"],\
             ["@next/bundle-analyzer", "npm:12.3.1"],\
             ["@next/env", "npm:13.0.3"],\
@@ -5286,6 +5286,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.0.2"],\
             ["@types/jest-plugin-context", "npm:2.9.5"],\
             ["@types/node", "npm:18.7.15"],\
+            ["@types/ramda", "npm:0.28.20"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
             ["@types/react-syntax-highlighter", "npm:15.5.5"],\
@@ -5316,6 +5317,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["plaiceholder", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:2.5.0"],\
             ["prettier", "npm:2.7.1"],\
             ["prosemirror-transform", "npm:1.7.0"],\
+            ["ramda", "npm:0.28.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:18.2.0"],\
             ["react-query", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:3.39.2"],\
@@ -13468,6 +13470,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["ramda", [\
+        ["npm:0.28.0", {\
+          "packageLocation": "./.yarn/cache/ramda-npm-0.28.0-6a5fe8f6cc-44ea6e5010.zip/node_modules/ramda/",\
+          "packageDependencies": [\
+            ["ramda", "npm:0.28.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["rc", [\
         ["npm:1.2.8", {\
           "packageLocation": "./.yarn/cache/rc-npm-1.2.8-d6768ac936-2e26e052f8.zip/node_modules/rc/",\
@@ -15134,13 +15145,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/tslib-npm-2.4.0-9cb6dc5030-8c4aa6a3c5.zip/node_modules/tslib/",\
           "packageDependencies": [\
             ["tslib", "npm:2.4.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:2.4.1", {\
-          "packageLocation": "./.yarn/cache/tslib-npm-2.4.1-36f0ed04db-19480d6e03.zip/node_modules/tslib/",\
-          "packageDependencies": [\
-            ["tslib", "npm:2.4.1"]\
           ],\
           "linkType": "HARD"\
         }]\

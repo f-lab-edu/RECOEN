@@ -1,8 +1,6 @@
-import { pipe, values, some, isEmpty } from '@fxts/core';
+import pipe from 'ramda/src/pipe';
+import values from 'ramda/src/values';
+import isEmpty from 'ramda/src/isEmpty';
+import any from 'ramda/src/any';
 
-export const isObjectEmpty = (elements: object) =>
-  pipe(
-    elements,
-    values,
-    some((element) => isEmpty(element)),
-  );
+export const isObjectEmpty = pipe(values, any(isEmpty));
