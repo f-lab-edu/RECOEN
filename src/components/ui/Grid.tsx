@@ -28,12 +28,13 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   width: 1200px;
   gap: 20px;
+
   @media screen and (max-width: 1260px) {
     width: 800px;
     grid-template-columns: 1fr 1fr;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     width: 380px;
     grid-template-columns: 1fr;
   }

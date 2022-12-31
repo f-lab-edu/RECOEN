@@ -68,6 +68,10 @@ const Container = styled.header`
   margin: 0 auto;
   padding: 0 30px 0 30px;
 
+  @media screen and (max-width: 1200px) {
+    width: 860px;
+  }
+
   @media screen and (max-width: 768px) {
     width: 100%;
   }
