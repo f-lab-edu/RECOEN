@@ -13,12 +13,11 @@ import HamburgerMenu from '../../../../public/hamburger.png';
 const MobileMenu = () => {
   const modalType = useRecoilValue(modalState);
   const router = useRouter();
-  const pathname = router.pathname;
   const handleOpenModal = useHandleOpenModal();
 
   if (modalType == null) {
     return (
-      <Link href={`${pathname}?isModal=true`}>
+      <Link href={`${router.asPath}?isModal=true`}>
         <BurgerImage
           src={HamburgerMenu}
           alt="hamburger menu"
@@ -30,7 +29,7 @@ const MobileMenu = () => {
     );
   }
   return (
-    <Link href={`${pathname}`}>
+    <Link href={`${router.pathname}`}>
       <XImage
         src={xImage}
         alt="remove navbar modal"
