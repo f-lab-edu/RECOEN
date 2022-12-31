@@ -25,7 +25,7 @@ const Article = ({
   type,
 }: Props) => {
   return (
-    <Link href={`/${type}/${path}`}>
+    <StyledLink href={`/${type}/${path}`}>
       <Container>
         <ImageWrapper>
           <Image
@@ -45,11 +45,16 @@ const Article = ({
           <Date>{convertDateFormat(createdAt)}</Date>
         </Wrapper>
       </Container>
-    </Link>
+    </StyledLink>
   );
 };
 
 export default Article;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+`;
 
 const Container = styled.article`
   width: 380px;
@@ -60,9 +65,10 @@ const Container = styled.article`
   flex-direction: column;
   cursor: pointer;
   margin: 0;
+  align-items: center;
 
   @media screen and (max-width: 768px) {
-    width: 40vw;
+    width: 315px;
   }
 `;
 
@@ -73,7 +79,7 @@ const ImageWrapper = styled.div`
   object-fit: cover;
 
   @media screen and (max-width: 768px) {
-    width: 40vw;
+    width: 315px;
   }
 `;
 

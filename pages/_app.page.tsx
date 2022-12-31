@@ -13,7 +13,7 @@ import * as gtag from 'src/lib/gtag';
 
 import NavBar from 'src/components/navigation/NavBar/NavBar';
 import Head from 'src/components/Head';
-import Modal from 'src/components/modals/modal/Modal';
+import Modal from 'src/components/modals/Modal';
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
