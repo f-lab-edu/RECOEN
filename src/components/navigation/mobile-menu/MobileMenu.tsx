@@ -6,6 +6,7 @@ import { useRecoilValue } from 'recoil';
 import { modalState } from 'src/recoil/modal';
 import { useRouter } from 'next/router';
 import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
+import { getPathname } from 'src/utils';
 
 import xImage from '../../../../public/x-3.png';
 import HamburgerMenu from '../../../../public/hamburger.png';
@@ -29,7 +30,7 @@ const MobileMenu = () => {
     );
   }
   return (
-    <Link href={`${router.pathname}`}>
+    <Link href={`${getPathname(router.pathname)(router.query)}`}>
       <XImage
         src={xImage}
         alt="remove navbar modal"

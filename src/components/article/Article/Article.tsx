@@ -92,15 +92,17 @@ const Wrapper = styled.article`
 `;
 
 const Title = styled.h2`
+  font-size: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #f3f3f3;
+  width: 100%;
 `;
 
 const Desc = styled.p`
   font-weight: 200;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #9599a0;
   overflow: hidden;
   text-overflow: ellipsis;
