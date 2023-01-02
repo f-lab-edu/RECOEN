@@ -30,7 +30,7 @@ const MobileMenu = () => {
     );
   }
   return (
-    <Link href={`${getPathname(router.pathname)(router.query)}`}>
+    <Link href={`${getPathname(router)}`}>
       <XImage
         src={xImage}
         alt="remove navbar modal"

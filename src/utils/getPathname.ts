@@ -1,12 +1,8 @@
 import isEmpty from 'ramda/src/isEmpty';
-import curry from 'ramda/src/curry';
+import { NextRouter } from 'next/router';
 
-type Query = { [key: string]: string };
+const makePathname = (router: NextRouter) =>
+  router.pathname.replace(/\[id\]/g, router.query.id as string);
 
-const makePathname = curry((pathname: string, query: Query) =>
-  pathname.replace(/\[id\]/g, query.id),
-);
-
-export const getPathname = curry((pathname: string, query: Query) =>
-  isEmpty(query) ? pathname : makePathname(pathname)(query),
-);
+export const getPathname = (router: NextRouter) =>
+  isEmpty(router.query) ? router.pathname : makePathname(router);
