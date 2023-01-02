@@ -98,6 +98,10 @@ const Title = styled.h2`
   text-overflow: ellipsis;
   color: #f3f3f3;
   width: 100%;
+
+  @media screen and (max-width: 768px) {
+    width: 315px;
+  }
 `;
 
 const Desc = styled.p`
@@ -111,6 +115,10 @@ const Desc = styled.p`
   -webkit-box-orient: vertical;
   line-height: 1.4;
   letter-spacing: 0.3px;
+
+  @media screen and (max-width: 768px) {
+    width: 315px;
+  }
 `;
 
 const Date = styled.time`
