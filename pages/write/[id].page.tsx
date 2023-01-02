@@ -10,7 +10,7 @@ import { ArticleCategory } from 'src/types/article';
 import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
 import BookArticleModel from 'pages/api/models/bookArticleModel';
 
-import WriteContainer from 'src/components/WriteContainer';
+import WritePageContainer from 'src/components/container/WritePageContainer';
 
 const UpdatePage = ({
   article,
@@ -33,7 +33,7 @@ const UpdatePage = ({
     return () => resetDetailStates();
   }, []);
 
-  return <WriteContainer />;
+  return <WritePageContainer />;
 };
 
 export default UpdatePage;
