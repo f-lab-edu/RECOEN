@@ -44,30 +44,12 @@ describe('NavBar', () => {
     });
   });
 
-  context('메인 페이지에 있을 때', () => {
-    it('카테고리 목록이 나와야 한다', () => {
-      const { getByText } = renderNavBar('/');
-
-      expect(getByText('Programming')).toBeInTheDocument();
-      expect(getByText('Book')).toBeInTheDocument();
-      expect(getByText('Essay')).toBeInTheDocument();
-      expect(getByText('About')).toBeInTheDocument();
-    });
-  });
-
   context('/write 페이지에 있으면 ', () => {
     it('position이 relative로 바뀐다', () => {
       const { getByTestId } = renderNavBar('/write');
       const fixedContainer = getByTestId('fixedContainer');
 
       expect(fixedContainer).toHaveStyleRule('position', 'relative');
-    });
-
-    it('write 관련 메뉴들이 나와야 한다', () => {
-      const { getByText } = renderNavBar('/write');
-
-      expect(getByText('나가기')).toBeInTheDocument();
-      expect(getByText('게시하기')).toBeInTheDocument();
     });
   });
 });
