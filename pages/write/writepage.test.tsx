@@ -1,15 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { RecoilRoot } from 'recoil';
-import { useResolution } from 'src/hooks/useResolution';
+import { useDetectResolution } from 'src/hooks/useDetectResolution';
 
 import WritePage from './index.page';
 
 jest.mock('src/components/TextEditor');
 jest.mock('src/utils');
-jest.mock('src/hooks/useResolution', () => {
+jest.mock('src/hooks/useDetectResolution', () => {
   return {
-    useResolution: jest.fn(),
+    useDetectResolution: jest.fn(),
   };
 });
 
@@ -24,7 +24,7 @@ describe('WritePage', () => {
 
   context('DESKTOP 화면일 때,', () => {
     it('제목입력 input, 카테고리 input이 보여야 한다.', async () => {
-      (useResolution as jest.Mock).mockImplementation(() => {
+      (useDetectResolution as jest.Mock).mockImplementation(() => {
         return 'DESKTOP';
       });
 
@@ -39,7 +39,7 @@ describe('WritePage', () => {
 
   context('MOBILE 화면일 때,', () => {
     it('해당기기는 지원하지 않는다는 문구가 나와야한다.', async () => {
-      (useResolution as jest.Mock).mockImplementation(() => {
+      (useDetectResolution as jest.Mock).mockImplementation(() => {
         return 'MOBILE';
       });
 
