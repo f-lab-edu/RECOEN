@@ -1,4 +1,4 @@
-import useResolution, { MenuBar } from './useResolution';
+import useResolution, { MenuBar } from './useDetectResolution';
 import { useRouter } from 'next/router';
 
 import WritePageMenus from 'src/components/navigation/WritePageMenus/WritePageMenus';

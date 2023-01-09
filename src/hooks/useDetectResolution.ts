@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 export type MenuBar = 'MOBILE' | 'TABLET' | 'DESKTOP' | 'EMPTY';
 
 // 해상도에 맞게 감지하는 훅
-export const useResolution = () => {
+export const useDetectResolution = () => {
   const [resolution, setResolution] = useState<MenuBar>('EMPTY');
 
   const ev = () => {
@@ -33,4 +33,4 @@ export const useResolution = () => {
   return resolution;
 };
 
-export default useResolution;
+export default useDetectResolution;

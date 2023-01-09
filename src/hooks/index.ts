@@ -1,3 +1,3 @@
 export * from './usePreview';
 export * from './useHandleArticle';
-export * from './useResolution';
+export * from './useDetectResolution';
