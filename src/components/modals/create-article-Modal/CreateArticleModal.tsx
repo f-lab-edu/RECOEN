@@ -2,10 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { theme } from 'src/style';
 
-import { useRecoilValue } from 'recoil';
-import { articleValidationState } from 'src/recoil/article';
-
-import BaseModal from '../BaseModal/BaseModal';
+import BaseModal from '../base-modal/BaseModal';
 import ImageUpload from 'src/components/Image-upload/ImageUpload';
 import Button from 'src/components/ui/Button/Button';
 import DescInput from 'src/components/Inputs/DescInput/DescInput';
@@ -20,21 +17,18 @@ import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
 const CreateArticleModal = () => {
   const handleSaveArticle = useResolveSaveFunction();
   const handleOpenModal = useHandleOpenModal();
-  const isArticleEmpty = useRecoilValue(articleValidationState);
 
   return (
-    <BaseModal handleOpenModal={() => handleOpenModal(null)} right>
+    <BaseModal
+      handleOpenModal={() => handleOpenModal(null)}
+      options={{ right: true }}
+    >
       <Container>
         <Wrapper data-testid="createArticleModal">
           <H2>글 설정</H2>
           <ButtonWrapper>
             <Button label="취소" onClick={() => handleOpenModal(null)} />
-            <Button
-              label="저장"
-              primary
-              onClick={handleSaveArticle}
-              disabled={isArticleEmpty}
-            />
+            <Button label="저장" primary onClick={handleSaveArticle} />
           </ButtonWrapper>
         </Wrapper>
         <Guide>대표이미지</Guide>
@@ -61,7 +55,7 @@ const Container = styled.div`
 `;
 
 const Guide = styled.h3`
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
   color: #9499a1;
   text-align: left;

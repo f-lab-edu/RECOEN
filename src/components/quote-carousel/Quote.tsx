@@ -38,6 +38,10 @@ const UpperWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const EnglishQuote = styled.blockquote`
@@ -68,6 +72,10 @@ const DownWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const KoreanQuote = styled.blockquote`

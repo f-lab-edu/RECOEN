@@ -6,18 +6,36 @@ interface Props {
 }
 
 const Grid = ({ children }: Props) => {
-  return <Container>{children}</Container>;
+  return (
+    <Container>
+      <Wrapper>{children}</Wrapper>
+    </Container>
+  );
 };
 
 export default Grid;
 
 const Container = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-top: 60px;
+`;
+
+const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 1200px;
   gap: 20px;
-  justify-items: center;
-  box-sizing: border-box;
-  margin: 0 auto;
-  margin-top: 60px;
+
+  @media screen and (max-width: 1260px) {
+    width: 800px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 380px;
+    grid-template-columns: 1fr;
+  }
 `;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import BookArticleModel from 'pages/api/models/bookArticleModel';
@@ -18,7 +18,9 @@ const BookPage = ({
   tags,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const setArticleList = useSetRecoilState(articleListStates);
-  setArticleList(articles);
+  useEffect(() => {
+    setArticleList(articles);
+  }, []);
 
   return (
     <>

@@ -87,6 +87,10 @@ const Container = styled.div`
   height: 100%;
   box-sizing: border-box;
   margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const QuotesBox = styled.section`

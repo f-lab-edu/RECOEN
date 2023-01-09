@@ -1,15 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
 import styled from '@emotion/styled';
 import { theme } from 'src/style';
 
-import Menus from '../Menus/Menus';
-import WritePageMenus from '../WritePageMenus/WritePageMenus';
+import { useResolveMenuBar } from 'src/hooks/useResolveMenuBar';
 
 const NavBar = () => {
   const router = useRouter();
+  const pathname = router.pathname;
+  const menuBar = useResolveMenuBar();
 
   const resolvePosition = () => {
     const pathname = router.pathname;
@@ -20,10 +20,9 @@ const NavBar = () => {
   };
 
   const resolveBackground = () => {
-    const pathname = router.pathname;
     if (pathname == '/article/[id]')
       return `background: ${theme.color.bluredBlack};`;
-    return null;
+    return `background: ${theme.color.background};`;
   };
 
   return (
@@ -36,7 +35,7 @@ const NavBar = () => {
         <Link href="/">
           <Title lang="en">recoen.</Title>
         </Link>
-        {router.pathname.includes('/write') ? <WritePageMenus /> : <Menus />}
+        {menuBar}
       </Container>
     </FixedContainer>
   );
@@ -45,20 +44,20 @@ const NavBar = () => {
 export default NavBar;
 
 interface StyleProps {
-  position: string;
-  background: string | null;
+  position?: string;
+  background?: string | null;
 }
 
 const FixedContainer = styled.div<StyleProps>`
   ${({ position }) => position};
   ${({ background }) => background};
-  width: 100%;
+  width: 100vw;
   z-index: 99;
   border-bottom: 1px solid rgba(74, 76, 85, 0.3);
 `;
 
 const Container = styled.header`
-  max-width: 1200px;
+  max-width: 1260px;
   width: 100%;
   height: 70px;
   position: relative;
@@ -68,6 +67,14 @@ const Container = styled.header`
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0 30px 0 30px;
+
+  @media screen and (max-width: 1200px) {
+    width: 860px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.span`

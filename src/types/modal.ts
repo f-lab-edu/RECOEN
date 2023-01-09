@@ -1,1 +1,1 @@
-export type ModalType = 'CREATE_ARTICLE' | 'LOGIN' | null;
+export type ModalType = 'CREATE_ARTICLE' | 'LOGIN' | 'NAVBAR' | null;

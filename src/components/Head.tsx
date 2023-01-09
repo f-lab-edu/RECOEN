@@ -27,7 +27,7 @@ const Head: React.FC<Props> = ({ article }) => {
       <NextHead>
         <title>{article?.title || meta.title}</title>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="initial-scale=1.0 width=device-width" />
         <meta
           content={article?.description || meta.description}
           name="description"

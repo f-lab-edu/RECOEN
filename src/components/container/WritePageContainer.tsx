@@ -5,7 +5,7 @@ import TitleInput from 'src/components/Inputs/TitleInput';
 import styled from '@emotion/styled';
 import { useArticleElement } from 'src/hooks/useHandleArticle';
 
-const WriteContainer = () => {
+const WritePageContainer = () => {
   return (
     <>
       <TitleWrapper>
@@ -18,7 +18,7 @@ const WriteContainer = () => {
   );
 };
 
-export default WriteContainer;
+export default WritePageContainer;
 
 const TitleWrapper = styled.div`
   width: 100%;

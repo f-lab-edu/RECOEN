@@ -25,7 +25,7 @@ const Article = ({
   type,
 }: Props) => {
   return (
-    <Link href={`/${type}/${path}`}>
+    <StyledLink href={`/${type}/${path}`}>
       <Container>
         <ImageWrapper>
           <Image
@@ -45,11 +45,16 @@ const Article = ({
           <Date>{convertDateFormat(createdAt)}</Date>
         </Wrapper>
       </Container>
-    </Link>
+    </StyledLink>
   );
 };
 
 export default Article;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+`;
 
 const Container = styled.article`
   width: 380px;
@@ -60,6 +65,11 @@ const Container = styled.article`
   flex-direction: column;
   cursor: pointer;
   margin: 0;
+  align-items: center;
+
+  @media screen and (max-width: 768px) {
+    width: 315px;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -67,6 +77,10 @@ const ImageWrapper = styled.div`
   height: 220px;
   position: relative;
   object-fit: cover;
+
+  @media screen and (max-width: 768px) {
+    width: 315px;
+  }
 `;
 
 const Wrapper = styled.article`
@@ -78,15 +92,21 @@ const Wrapper = styled.article`
 `;
 
 const Title = styled.h2`
+  font-size: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   color: #f3f3f3;
+  width: 100%;
+
+  @media screen and (max-width: 768px) {
+    width: 315px;
+  }
 `;
 
 const Desc = styled.p`
   font-weight: 200;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #9599a0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -95,6 +115,10 @@ const Desc = styled.p`
   -webkit-box-orient: vertical;
   line-height: 1.4;
   letter-spacing: 0.3px;
+
+  @media screen and (max-width: 768px) {
+    width: 315px;
+  }
 `;
 
 const Date = styled.time`
