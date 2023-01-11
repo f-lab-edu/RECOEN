@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { deleteArticle, uriMap } from '../index';
+import { deleteArticle, uriMap } from '..';
 
 jest.mock('axios');
 
