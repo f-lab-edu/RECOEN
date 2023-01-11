@@ -19,3 +19,9 @@ export const updateArticle =
   (data: ArticleElement) => async (category: ArticleCategory) => {
     return await axiosInstance.put(uriMap[category], data);
   };
+
+export const deleteArticle =
+  (category: ArticleCategory) => async (id: string) => {
+    const config = { data: { id } };
+    return await axiosInstance.delete(uriMap[category], config);
+  };
