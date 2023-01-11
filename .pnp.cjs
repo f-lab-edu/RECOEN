@@ -14190,6 +14190,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["querystring", [\
+        ["npm:0.2.1", {\
+          "packageLocation": "./.yarn/cache/querystring-npm-0.2.1-15cb60859d-7b83b45d64.zip/node_modules/querystring/",\
+          "packageDependencies": [\
+            ["querystring", "npm:0.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["querystringify", [\
         ["npm:2.2.0", {\
           "packageLocation": "./.yarn/cache/querystringify-npm-2.2.0-4e77c9f606-5641ea231b.zip/node_modules/querystringify/",\
