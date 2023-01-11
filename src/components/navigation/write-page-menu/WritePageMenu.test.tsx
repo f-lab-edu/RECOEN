@@ -1,16 +1,16 @@
 import { render, fireEvent } from '@testing-library/react';
-import WritePageMenus from './WritePageMenus';
+import WritePageMenu from './WritePageMenu';
 import RecoilObserver from 'src/components/RecoilObserver';
 import { RecoilRoot } from 'recoil';
 import { modalState } from 'src/recoil/modal';
 
-describe('WritePageMenus', () => {
+describe('WritePageMenu', () => {
   const onChange = jest.fn();
   const renderMenus = () =>
     render(
       <RecoilRoot>
         <RecoilObserver node={modalState} onChange={onChange} />
-        <WritePageMenus />
+        <WritePageMenu />
       </RecoilRoot>,
     );
 

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { ViewArticleElement } from 'src/types/article';
 
 import Script from 'next/script';
-import * as gtag from 'src/lib/gtag';
+import * as gtag from 'src/utils/gtag';
 
 interface Props {
   article?: ViewArticleElement;

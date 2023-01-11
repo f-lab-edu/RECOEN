@@ -9,7 +9,7 @@ import styled from '@emotion/styled';
 
 import { RecoilRoot } from 'recoil';
 
-import * as gtag from 'src/lib/gtag';
+import * as gtag from 'src/utils/gtag';
 
 import NavBar from 'src/components/navigation/NavBar/NavBar';
 import Head from 'src/components/Head';
