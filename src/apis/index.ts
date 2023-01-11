@@ -1,2 +1,2 @@
-export * from './articleApis';
-export * from './axiosConfig';
+export * from './article';
+export * from './config';
