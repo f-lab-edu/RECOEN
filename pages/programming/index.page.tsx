@@ -28,7 +28,7 @@ const ProgrammingPage = ({
         hero={<Hero text="Programming" listLength={articles.length} />}
         tagSearch={<TagSearch tags={tags} />}
       />
-      <ArticleList articles={articles} type="programming" />
+      <ArticleList articles={articles} category="programming" />
     </>
   );
 };

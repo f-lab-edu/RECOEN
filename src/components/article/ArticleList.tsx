@@ -10,10 +10,10 @@ import { filteredArticleStates } from 'src/recoil/article';
 
 interface Props {
   articles: ViewArticleElement[];
-  type: ArticleCategory;
+  category: ArticleCategory;
 }
 
-const ArticleList = ({ articles, type }: Props) => {
+const ArticleList = ({ articles, category }: Props) => {
   const filteredArticles = useRecoilValue(filteredArticleStates);
   return (
     <Grid>
@@ -30,7 +30,7 @@ const ArticleList = ({ articles, type }: Props) => {
                 description={article.description}
                 blurDataURL={article.blurDataURL}
                 createdAt={article.createdAt}
-                type={type}
+                category={category}
               />
             );
           },
