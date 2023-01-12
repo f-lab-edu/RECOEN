@@ -5,10 +5,8 @@ import BookArticleModel from 'pages/api/models/bookArticleModel';
 import DBUtils from 'src/utils/dbUtils';
 import { getTags } from 'src/utils/getTags';
 
-import Hero from 'src/components/hero/Hero/Hero';
 import ArticleList from 'src/components/article/ArticleList';
 import UpperLayout from 'src/components/hero/UpperLayout';
-import TagSearch from 'src/components/ui/TagSearch/TagSearch';
 
 import { useSetRecoilState } from 'recoil';
 import { articleListStates } from 'src/recoil/article';
@@ -24,11 +22,11 @@ const BookPage = ({
 
   return (
     <>
-      <UpperLayout
-        hero={<Hero text="Book" listLength={articles.length} />}
-        tagSearch={<TagSearch tags={tags} />}
-      />
-      <ArticleList articles={articles} type="book" />
+      <UpperLayout>
+        <UpperLayout.Hero text="Book" listLength={articles.length} />
+        <UpperLayout.TagSearch tags={tags} />
+      </UpperLayout>
+      <ArticleList articles={articles} category="book" />
     </>
   );
 };
