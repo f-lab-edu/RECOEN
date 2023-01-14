@@ -41,20 +41,22 @@ export default UpdatePage;
 interface IPrams extends ParsedUrlQuery {
   id: string;
 }
-export const getServerSideProps = async (
-  context: GetServerSidePropsContext,
-) => {
+
+const fetchArticle = async (context: GetServerSidePropsContext) => {
   await connectMongo();
   const { id, category } = context.query as IPrams;
   const modelCategory = category as ArticleCategory;
-
   const ModelMap = {
     programming: ProgrammingArticleModel,
     book: BookArticleModel,
   };
-
   const res = await ModelMap[modelCategory].findById(id);
   const article = JSON.parse(JSON.stringify(res));
-
   return { props: { article } };
+};
+
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext,
+) => {
+  return fetchArticle(context);
 };
