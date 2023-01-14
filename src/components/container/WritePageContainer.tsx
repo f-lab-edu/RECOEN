@@ -1,11 +1,19 @@
 import { TextEditor } from 'src/components';
+import { useSession } from 'next-auth/react';
 
 import CategoryInput from 'src/components/Inputs/CategoryInput';
 import TitleInput from 'src/components/Inputs/TitleInput';
 import styled from '@emotion/styled';
+
 import { useArticleElement } from 'src/hooks/useHandleArticle';
+import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
 
 const WritePageContainer = () => {
+  const { status } = useSession();
+  const handleOpenModal = useHandleOpenModal();
+
+  if (status === 'unauthenticated') handleOpenModal('UNAUTH');
+
   return (
     <>
       <TitleWrapper>
