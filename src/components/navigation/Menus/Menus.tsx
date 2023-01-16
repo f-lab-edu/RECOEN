@@ -36,7 +36,7 @@ const Menus = () => {
           <>
             <Button label="로그아웃" onClick={signOut} />
             <Link href="/write" title="작성하기 페이지입니다.">
-              <Button label="+ 글쓰기" primary />
+              {session.isAdmin && <Button label="+ 글쓰기" primary />}
             </Link>
           </>
         ) : (
