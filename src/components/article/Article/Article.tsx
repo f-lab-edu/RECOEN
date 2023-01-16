@@ -12,7 +12,7 @@ interface Props {
   imgUrl: string;
   blurDataURL: string;
   createdAt: string;
-  type: ArticleCategory;
+  category: ArticleCategory;
 }
 
 const Article = ({
@@ -22,10 +22,10 @@ const Article = ({
   imgUrl,
   blurDataURL,
   createdAt,
-  type,
+  category,
 }: Props) => {
   return (
-    <StyledLink href={`/${type}/${path}`}>
+    <StyledLink href={`/${category}/${path}`}>
       <Container>
         <ImageWrapper>
           <Image

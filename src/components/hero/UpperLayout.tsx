@@ -1,24 +1,25 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import TagSearch from 'src/components/ui/TagSearch/TagSearch';
+import Hero from 'src/components/hero/Hero/Hero';
 
 interface Props {
-  hero: React.ReactElement;
-  tagSearch: React.ReactElement;
+  children: React.ReactElement[];
 }
 
-const UpperLayout = ({ hero, tagSearch }: Props) => {
+const UpperLayout = ({ children }: Props) => {
   return (
     <>
-      <Layout>
-        {hero}
-        {tagSearch}
-      </Layout>
+      <Layout>{children}</Layout>
       <Hr />
     </>
   );
 };
 
 export default UpperLayout;
+
+UpperLayout.Hero = Hero;
+UpperLayout.TagSearch = TagSearch;
 
 const Layout = styled.div`
   width: 1200px;
