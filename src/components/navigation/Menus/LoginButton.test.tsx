@@ -49,8 +49,8 @@ describe('LoginButton', () => {
     });
   });
 
-  context('로그인 상태일 때', () => {
-    context('관리자 계정이 아니면', () => {
+  context('로그인 상태이고', () => {
+    context('관리자 계정이 아닐 때,', () => {
       it('로그아웃 버튼이 나오고, 글쓰기 버튼이 사라진다', () => {
         mockUseSession({ isLogin: true, isAdmin: false });
         const { queryByText } = renderLoginButton();
@@ -60,13 +60,23 @@ describe('LoginButton', () => {
       });
     });
 
-    context('관리자 계정이면', () => {
+    context('관리자 계정일 때,', () => {
       it('로그아웃, + 글쓰기 버튼이 나온다', () => {
         mockUseSession({ isLogin: true, isAdmin: true });
         const { queryByText } = renderLoginButton();
 
         expect(queryByText('로그아웃')).toBeInTheDocument();
         expect(queryByText('+ 글쓰기')).toBeInTheDocument();
+      });
+
+      context('+ 글쓰기 버튼을 누르면', () => {
+        it('/write 페이지로 이동한다', () => {
+          mockUseSession({ isLogin: true, isAdmin: true });
+          const { getByText } = renderLoginButton();
+          const writeLink = getByText('+ 글쓰기').closest('a');
+
+          expect(writeLink).toHaveAttribute('href', '/write');
+        });
       });
     });
   });
