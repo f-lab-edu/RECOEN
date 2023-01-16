@@ -1,21 +1,12 @@
-import { screen, render, act } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import LoginButton from './LoginButton';
 
 import { RecoilRoot } from 'recoil';
 import RecoilObserver from 'src/components/RecoilObserver';
 import { modalState } from 'src/recoil/modal';
-import { useSession } from 'next-auth/react';
+import { mockUseSession } from 'src/utils/test-utils';
 
 jest.mock('next-auth/react');
-
-type Session = { isLogin: boolean; isAdmin: boolean };
-
-const mockUseSession = ({ isLogin, isAdmin }: Session) => {
-  (useSession as jest.Mock).mockImplementation(() => {
-    if (isLogin) return { data: { isAdmin } };
-    else return { data: isLogin };
-  });
-};
 
 describe('LoginButton', () => {
   const onChange = jest.fn();
