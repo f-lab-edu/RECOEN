@@ -4,7 +4,7 @@ import MobileMenu from './MobileMenu';
 import { RecoilRoot } from 'recoil';
 import RecoilObserver from 'src/components/RecoilObserver';
 import { modalState } from 'src/recoil/modal';
-import { mockRouter } from '__mocks__/mockRouter';
+import { mockRouter } from 'src/utils/test-utils';
 
 jest.mock('src/utils/getPathname');
 

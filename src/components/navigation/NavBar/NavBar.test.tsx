@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import NavBar from './NavBar';
 import { matchers } from '@emotion/jest';
-import { mockRouter } from '__mocks__/mockRouter';
+import { mockRouter } from 'src/utils/test-utils';
 import { useSession } from 'next-auth/react';
 import { RecoilRoot } from 'recoil';
 
