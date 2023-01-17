@@ -1,0 +1,15 @@
+name: Ping Google about updated sitemap
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  ping:
+    name: Ping Google
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send HTTP GET request
+        # Example: `curl http://www.google.com/ping?sitemap=https://www.example.com/sitemap.xml`
+        run: curl http://www.google.com/ping?sitemap=https://recoen.vercel.app/sitemap.xml
