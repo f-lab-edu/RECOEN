@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 
 import styled from '@emotion/styled';
 import Button from 'src/components/ui/Button/Button';
@@ -18,6 +19,7 @@ interface Props {
 
 const ArticleDetailTitle: React.FC<Props> = ({ article }) => {
   const router = useRouter();
+  const { data: session } = useSession();
   const setWriteState = useSetRecoilState(writeStates);
   const handleDelete = useHandleDelete(article.category);
 
@@ -36,10 +38,12 @@ const ArticleDetailTitle: React.FC<Props> = ({ article }) => {
       </ChipWrapper>
       <Wrapper>
         <Date>{convertDateFormat(article.createdAt)}</Date>
-        <ButtonsWrapper>
-          {/* <Button label="수정" onClick={handleEdit} />
-          <Button label="삭제" onClick={handleDelete} /> */}
-        </ButtonsWrapper>
+        {session?.isAdmin && (
+          <ButtonsWrapper>
+            <Button label="수정" onClick={handleEdit} />
+            <Button label="삭제" onClick={handleDelete} />
+          </ButtonsWrapper>
+        )}
       </Wrapper>
     </Container>
   );

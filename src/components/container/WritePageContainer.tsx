@@ -3,6 +3,7 @@ import { TextEditor } from 'src/components';
 import CategoryInput from 'src/components/Inputs/CategoryInput';
 import TitleInput from 'src/components/Inputs/TitleInput';
 import styled from '@emotion/styled';
+
 import { useArticleElement } from 'src/hooks/useHandleArticle';
 
 const WritePageContainer = () => {

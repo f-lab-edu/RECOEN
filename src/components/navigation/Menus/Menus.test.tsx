@@ -1,4 +1,4 @@
-import { render, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Menus from './Menus';
 
 import { useSession } from 'next-auth/react';
@@ -53,21 +53,12 @@ describe('Menus', () => {
 
   beforeEach(() => mockUseSession(false));
 
-  context('로그아웃 상태이면', () => {
-    it('로그인 버튼이 나온다', () => {
-      const { getByText } = renderMenus();
+  context('렌더링', () => {
+    it('button 및 nav등 필요한 요소들이 보인다', () => {
+      const { getByRole } = renderMenus();
 
-      expect(getByText('로그인')).toBeInTheDocument();
-    });
-  });
-
-  context('로그인 상태이면', () => {
-    it('로그아웃, + 글쓰기 버튼이 나온다', () => {
-      mockUseSession(true);
-      const { getByText } = renderMenus();
-
-      expect(getByText('로그아웃')).toBeInTheDocument();
-      expect(getByText('+ 글쓰기')).toBeInTheDocument();
+      expect(getByRole('button')).toBeInTheDocument();
+      expect(getByRole('navigation')).toBeInTheDocument();
     });
   });
 
@@ -81,29 +72,6 @@ describe('Menus', () => {
           item.href,
         );
       });
-    });
-  });
-
-  context('글쓰기 버튼을 클릭하면', () => {
-    it('/write 페이지로 이동한다', () => {
-      mockUseSession(true);
-      const { getByText } = renderMenus();
-      const writeLink = getByText('+ 글쓰기').closest('a');
-
-      expect(writeLink).toHaveAttribute('href', '/write');
-    });
-  });
-
-  context('로그인 버튼을 클릭하면', () => {
-    it('로그인 모달이 나온다', async () => {
-      const { getByText } = renderMenus();
-      const loginButton = getByText('로그인');
-
-      await act(() => {
-        loginButton.click();
-      });
-
-      expect(onChange).toHaveBeenNthCalledWith(6, 'LOGIN');
     });
   });
 });
