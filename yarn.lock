@@ -4227,12 +4227,10 @@ __metadata:
     babel-loader: ^8.2.5
     browser-image-compression: ^2.0.0
     cypress: ^12.3.0
-    cypress-react-selector: ^3.0.0
     dotenv: ^16.0.3
     eslint: 8.23.0
     eslint-config-next: latest
     eslint-config-prettier: ^8.5.0
-    eslint-plugin-cypress: ^2.12.1
     eslint-plugin-prettier: ^4.2.1
     jest: ^29.1.2
     jest-environment-jsdom: ^29.0.3
@@ -5770,15 +5768,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress-react-selector@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "cypress-react-selector@npm:3.0.0"
-  dependencies:
-    resq: 1.10.2
-  checksum: ab0f04a34dc9232fa79ea7a867575838129bae5321677c295db08afb5fc45e6023d298cd5b5caf1ed8dc302125066e143c541836fd7ab9cf3e68c4e015431658
-  languageName: node
-  linkType: hard
-
 "cypress@npm:^12.3.0":
   version: 12.3.0
   resolution: "cypress@npm:12.3.0"
@@ -6673,17 +6662,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-cypress@npm:^2.12.1":
-  version: 2.12.1
-  resolution: "eslint-plugin-cypress@npm:2.12.1"
-  dependencies:
-    globals: ^11.12.0
-  peerDependencies:
-    eslint: ">= 3.2.1"
-  checksum: 1f1c36e149304e9a6f58e2292a761abad58274da33b3a48b24ad55ad20cbce3ac7467321f2b6fcb052f9563c89f67004de4766eba2e2bdbcb010a6a0666989cf
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-import@npm:^2.26.0":
   version: 2.26.0
   resolution: "eslint-plugin-import@npm:2.26.0"
@@ -7140,13 +7118,6 @@ __metadata:
   version: 1.4.1
   resolution: "extsprintf@npm:1.4.1"
   checksum: a2f29b241914a8d2bad64363de684821b6b1609d06ae68d5b539e4de6b28659715b5bea94a7265201603713b7027d35399d10b0548f09071c5513e65e8323d33
-  languageName: node
-  linkType: hard
-
-"fast-deep-equal@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "fast-deep-equal@npm:2.0.1"
-  checksum: b701835a87985e0ec4925bdf1f0c1e7eb56309b5d12d534d5b4b69d95a54d65bb16861c081781ead55f73f12d6c60ba668713391ee7fbf6b0567026f579b7b0b
   languageName: node
   linkType: hard
 
@@ -7694,7 +7665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^11.1.0, globals@npm:^11.12.0":
+"globals@npm:^11.1.0":
   version: 11.12.0
   resolution: "globals@npm:11.12.0"
   checksum: 67051a45eca3db904aee189dfc7cd53c20c7d881679c93f6146ddd4c9f4ab2268e68a919df740d39c71f4445d2b38ee360fc234428baea1dbdfe68bbcb46979e
@@ -12245,15 +12216,6 @@ __metadata:
   dependencies:
     lowercase-keys: ^2.0.0
   checksum: b122535466e9c97b55e69c7f18e2be0ce3823c5d47ee8de0d9c0b114aa55741c6db8bfbfce3766a94d1272e61bfb1ebf0a15e9310ac5629fbb7446a861b4fd3a
-  languageName: node
-  linkType: hard
-
-"resq@npm:1.10.2":
-  version: 1.10.2
-  resolution: "resq@npm:1.10.2"
-  dependencies:
-    fast-deep-equal: ^2.0.1
-  checksum: 24e2beea8645415d301af011728c4661699ff79b2bb87ba87a75994e7676c962f40c54bdb15fbcfa6dcb74eb390777a841e225f356ac7d6e0be68a3175afcee9
   languageName: node
   linkType: hard
 
