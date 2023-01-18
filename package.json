@@ -8,7 +8,9 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "cypress open": "cypress open",
+    "cypress run": "cypress run"
   },
   "dependencies": {
     "@aws-sdk/abort-controller": "^3.186.0",
