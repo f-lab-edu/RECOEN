@@ -2353,12 +2353,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@cypress/request", [\
-        ["npm:2.88.10", {\
-          "packageLocation": "./.yarn/cache/@cypress-request-npm-2.88.10-44c588c8fc-69c3e3b332.zip/node_modules/@cypress/request/",\
+        ["npm:2.88.11", {\
+          "packageLocation": "./.yarn/cache/@cypress-request-npm-2.88.11-863a69ed3c-e4b3f62e0c.zip/node_modules/@cypress/request/",\
           "packageDependencies": [\
-            ["@cypress/request", "npm:2.88.10"],\
+            ["@cypress/request", "npm:2.88.11"],\
             ["aws-sign2", "npm:0.7.0"],\
-            ["aws4", "npm:1.11.0"],\
+            ["aws4", "npm:1.12.0"],\
             ["caseless", "npm:0.12.0"],\
             ["combined-stream", "npm:1.0.8"],\
             ["extend", "npm:3.0.2"],\
@@ -2370,7 +2370,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["json-stringify-safe", "npm:5.0.1"],\
             ["mime-types", "npm:2.1.35"],\
             ["performance-now", "npm:2.1.0"],\
-            ["qs", "npm:6.5.3"],\
+            ["qs", "npm:6.10.4"],\
             ["safe-buffer", "npm:5.2.1"],\
             ["tough-cookie", "npm:2.5.0"],\
             ["tunnel-agent", "npm:0.6.0"],\
@@ -5938,10 +5938,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["aws4", [\
-        ["npm:1.11.0", {\
-          "packageLocation": "./.yarn/cache/aws4-npm-1.11.0-283476ad94-5a00d045fd.zip/node_modules/aws4/",\
+        ["npm:1.12.0", {\
+          "packageLocation": "./.yarn/cache/aws4-npm-1.12.0-af8e48a2ab-68f79708ac.zip/node_modules/aws4/",\
           "packageDependencies": [\
-            ["aws4", "npm:1.11.0"]\
+            ["aws4", "npm:1.12.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7246,7 +7246,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/unplugged/cypress-npm-12.3.0-957753b3a4/node_modules/cypress/",\
           "packageDependencies": [\
             ["cypress", "npm:12.3.0"],\
-            ["@cypress/request", "npm:2.88.10"],\
+            ["@cypress/request", "npm:2.88.11"],\
             ["@cypress/xvfb", "npm:1.2.4"],\
             ["@types/node", "npm:14.18.36"],\
             ["@types/sinonjs__fake-timers", "npm:8.1.1"],\
@@ -14182,10 +14182,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["qs", [\
-        ["npm:6.5.3", {\
-          "packageLocation": "./.yarn/cache/qs-npm-6.5.3-90b2635484-6f20bf08ca.zip/node_modules/qs/",\
+        ["npm:6.10.4", {\
+          "packageLocation": "./.yarn/cache/qs-npm-6.10.4-9b6a538d57-31e4fedd75.zip/node_modules/qs/",\
           "packageDependencies": [\
-            ["qs", "npm:6.5.3"]\
+            ["qs", "npm:6.10.4"],\
+            ["side-channel", "npm:1.0.4"]\
           ],\
           "linkType": "HARD"\
         }]\
