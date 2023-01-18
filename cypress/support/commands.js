@@ -39,3 +39,8 @@ Cypress.Commands.add('login', () => {
     { secure: true },
   );
 });
+
+Cypress.Commands.add('logout', () => {
+  cy.visit('/api/auth/signout');
+  cy.get('form').submit();
+});

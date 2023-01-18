@@ -3,7 +3,7 @@ const { GoogleSocialLogin } = require('cypress-social-logins').plugins;
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://recoen.vercel.app',
+    baseUrl: 'http://localhost:3000',
     viewportHeight: 800,
     viewportWidth: 1280,
     setupNodeEvents(on, config) {
