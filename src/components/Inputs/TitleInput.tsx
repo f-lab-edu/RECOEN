@@ -11,6 +11,7 @@ const TitleInput: React.FC<Props> = ({ useArticleElement }) => {
   const { articleElements, setArticleElement } = useArticleElement();
   return (
     <TextField
+      data-testid="title-input"
       onChange={(e) => setArticleElement({ title: e.target.value })}
       value={articleElements.title}
       label="제목을 입력해주세요"
