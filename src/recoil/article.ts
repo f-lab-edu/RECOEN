@@ -45,6 +45,16 @@ export const writeStates = atom<'create' | 'update'>({
   default: 'create',
 });
 
+export const articleValidationFirstStep = selector<boolean>({
+  key: 'articleValidationFirstStep',
+  get: ({ get }) => {
+    const { title, content } = get(articleState);
+    const firstObject = { title, content };
+    const isEmpty = isObjectEmpty(firstObject);
+    return isEmpty;
+  },
+});
+
 export const articleValidationState = selector<boolean>({
   key: 'articleValidationState',
   get: ({ get }) => {
