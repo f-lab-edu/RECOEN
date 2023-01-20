@@ -55,11 +55,12 @@ export const articleValidationFirstStep = selector<boolean>({
   },
 });
 
-export const articleValidationState = selector<boolean>({
-  key: 'articleValidationState',
+export const articleValidationSecondStep = selector<boolean>({
+  key: 'articleValidationSecondStep',
   get: ({ get }) => {
-    const article = get(articleState);
-    const isEmpty = isObjectEmpty(article);
+    const { imgUrl, tags, description } = get(articleState);
+    const secondObject = { imgUrl, tags, description };
+    const isEmpty = isObjectEmpty(secondObject);
     return isEmpty;
   },
 });
