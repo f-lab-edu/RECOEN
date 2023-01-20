@@ -13,10 +13,13 @@ import {
   useArticleElement,
 } from 'src/hooks/useHandleArticle';
 import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
+import { articleValidationSecondStep } from 'src/recoil/article';
+import { useRecoilValue } from 'recoil';
 
 const CreateArticleModal = () => {
   const handleSaveArticle = useResolveSaveFunction();
   const handleOpenModal = useHandleOpenModal();
+  const isValid = useRecoilValue(articleValidationSecondStep);
 
   return (
     <BaseModal
@@ -28,7 +31,12 @@ const CreateArticleModal = () => {
           <H2>글 설정</H2>
           <ButtonWrapper>
             <Button label="취소" onClick={() => handleOpenModal(null)} />
-            <Button label="저장" primary onClick={handleSaveArticle} />
+            <Button
+              label="저장"
+              primary
+              onClick={handleSaveArticle}
+              disabled={isValid}
+            />
           </ButtonWrapper>
         </Wrapper>
         <Guide>대표이미지</Guide>
