@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
-import Image from 'next/image';
-import LeftArrow from '../../../../public/leftArrow.png';
-import RigthArrow from '../../../../public/rightArrow.png';
+
 import Quote from '../Quote';
+import ProgressBox from '../ProgressBox';
+import { useViewportWidth } from 'src/hooks';
 
 export type QuoteT = {
   englishQuote: string;
@@ -19,22 +19,16 @@ const QuoteCarousel = ({ quotes }: Props) => {
   const slideRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const TOTAL_SLIDES = quotes.length - 1;
-  const SLIDE_BOX_WIDTH = 1200 * TOTAL_SLIDES;
+  const viewportWidth = useViewportWidth();
 
-  const NextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES) return;
-    setCurrentSlide(currentSlide + 1);
-  };
+  console.log(viewportWidth);
 
-  const PrevSlide = () => {
-    if (currentSlide === 0) return;
-    setCurrentSlide(currentSlide - 1);
-  };
+  const SLIDE_BOX_WIDTH = viewportWidth * TOTAL_SLIDES;
 
   useEffect(() => {
     if (!slideRef.current) return;
 
-    const moveX = 1200 * currentSlide;
+    const moveX = viewportWidth * currentSlide;
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${moveX}px)`;
   }, [currentSlide]);
@@ -48,28 +42,11 @@ const QuoteCarousel = ({ quotes }: Props) => {
           })}
         </SlideBox>
       </QuotesBox>
-      <ProgressBox>
-        <NumBox>
-          <CurrentNum data-testid="currentNum">0{currentSlide + 1}</CurrentNum>
-          <StyledHyphen />
-          <TotalNum>0{TOTAL_SLIDES + 1}</TotalNum>
-        </NumBox>
-        <StyleImage
-          onClick={PrevSlide}
-          src={LeftArrow}
-          width={50}
-          height={50}
-          alt="Left Arrow"
-        />
-        <StyleImage
-          data-testid="nextSlideButton"
-          onClick={NextSlide}
-          src={RigthArrow}
-          width={50}
-          height={50}
-          alt="Rigth Arrow"
-        />
-      </ProgressBox>
+      <ProgressBox
+        setCurrentSlide={setCurrentSlide}
+        currentSlide={currentSlide}
+        totalSlides={TOTAL_SLIDES}
+      />
     </Container>
   );
 };
@@ -99,47 +76,14 @@ const QuotesBox = styled.section`
   height: 100%;
   overflow: hidden;
   box-sizing: border-box;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 30px;
+    width: 100%;
+  }
 `;
 
 const SlideBox = styled.div<StyleProps>`
   display: flex;
   width: ${(props) => props.slideBoxWidth}px;
-`;
-
-const ProgressBox = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-  box-sizing: content-box;
-  height: 50px;
-  width: 100%;
-`;
-
-const NumBox = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const TotalNum = styled.div`
-  color: #494c56;
-  font-size: 1.1rem;
-`;
-
-const StyledHyphen = styled.div`
-  height: 0.5px;
-  width: 1.1rem;
-  background-color: #494c56;
-  margin: 5px;
-`;
-
-const CurrentNum = styled.div`
-  color: #9499a1;
-  font-size: 1.1rem;
-`;
-
-const StyleImage = styled(Image)`
-  cursor: pointer;
-  :hover {
-    opacity: 0.5;
-  }
 `;
