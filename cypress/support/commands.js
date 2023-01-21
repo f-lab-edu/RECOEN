@@ -45,15 +45,24 @@ Cypress.Commands.add('logout', () => {
   cy.get('form').submit();
 });
 
-Cypress.Commands.add('fillTitleContentInputs', () => {
-  cy.get('[data-testid="title-input"]')
-    .find('input')
-    .type('제목', { force: true });
+Cypress.Commands.add(
+  'handleTitleContentInputs',
+  ({ title = '제목', content = '내용' } = {}, { isClear = false } = {}) => {
+    if (isClear) {
+      cy.get('[data-testid="title-input"]')
+        .find('input')
+        .clear({ force: true });
+    }
 
-  cy.get('.toastui-editor-pseudo-clipboard').type('내용', {
-    force: true,
-  });
-});
+    cy.get('.toastui-editor-pseudo-clipboard').type(content, {
+      force: true,
+    });
+
+    cy.get('[data-testid="title-input"]')
+      .find('input')
+      .type(title, { force: true });
+  },
+);
 
 Cypress.Commands.add('fillArticleMetaData', () => {
   cy.get('[data-testid="tag-input"]').type('태그').type('{enter}');

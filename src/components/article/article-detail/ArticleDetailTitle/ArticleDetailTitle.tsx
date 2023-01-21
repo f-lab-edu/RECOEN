@@ -22,6 +22,7 @@ const ArticleDetailTitle: React.FC<Props> = ({ article }) => {
   const { data: session } = useSession();
   const setWriteState = useSetRecoilState(writeStates);
   const handleDelete = useHandleDelete(article.category);
+  console.log(session);
 
   const handleEdit = () => {
     setWriteState('update');
@@ -30,7 +31,7 @@ const ArticleDetailTitle: React.FC<Props> = ({ article }) => {
 
   return (
     <Container>
-      <Title>{article.title}</Title>
+      <Title data-testid="article-detail-title">{article.title}</Title>
       <ChipWrapper>
         {article.tags.map((tag) => {
           return <Chip key={tag} label={tag} readOnly />;
@@ -40,7 +41,11 @@ const ArticleDetailTitle: React.FC<Props> = ({ article }) => {
         <Date>{convertDateFormat(article.createdAt)}</Date>
         {session?.isAdmin && (
           <ButtonsWrapper>
-            <Button label="수정" onClick={handleEdit} />
+            <Button
+              data-testid="edit-button"
+              label="수정"
+              onClick={handleEdit}
+            />
             <Button label="삭제" onClick={handleDelete} />
           </ButtonsWrapper>
         )}

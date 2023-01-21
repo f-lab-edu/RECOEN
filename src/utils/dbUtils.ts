@@ -21,7 +21,7 @@ export default class DBUtils {
 
   async find() {
     console.log('FETCHING DATA IN ARTICLE PAGE');
-    const res = await this.model.find();
+    const res = await this.model.find().sort({ createdAt: -1 });
     console.log('FETCHED DATA IN ARTICLE PAGE');
 
     return JSON.parse(JSON.stringify(res));

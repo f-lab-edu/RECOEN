@@ -28,12 +28,12 @@ describe('article CRUD spec', () => {
 
         context('제목과 내용을 다 입력했다면,', () => {
           it('작성하기 버튼이 활성화 되어야 한다.', () => {
-            cy.fillTitleContentInputs();
+            cy.handleTitleContentInputs();
             cy.contains('게시하기').should('be.enabled');
           });
 
           beforeEach(() => {
-            cy.fillTitleContentInputs();
+            cy.handleTitleContentInputs();
             cy.contains('게시하기').click();
           });
 
@@ -75,31 +75,56 @@ describe('article CRUD spec', () => {
     });
   });
 
-  // context('아티클 리스트 페이지에서', () => {
-  //   beforeEach(() => {
-  //     // cy.fixture('session').then((session) => {
-  //     //   cy.login();
-  //     //   cy.visit(`/programming`);
-  //     //   cy.wait('@session');
-  //     // });
-  //   });
+  context('아티클 리스트 페이지에서', () => {
+    beforeEach(() => {
+      cy.login();
+      cy.visit(`/programming`);
+      cy.wait('@session');
+    });
 
-  //   context('새로 추가된 글을 클릭하면', () => {
-  //     it('상세 페이지를 보여준다.', () => {
-  //       cy.get("[data-testid='article-title']").first().click();
+    context('새로 추가된 글을 클릭하면', () => {
+      it('상세 페이지를 보여준다.', () => {
+        cy.get("[data-testid='article']").first().click();
+        cy.wait(2000);
 
-  //       cy.get("[data-testid='article-head']").should('exist');
-  //     });
-  //   });
+        cy.get("[data-testid='article-detail-title']").should('exist');
+      });
 
-  //   context('상세 페이지에서', () => {
-  //     context('수정 버튼을 클릭하면', () => {
-  //       it('해당 글과 태그를 수정할 수 있다.', () => {});
-  //     });
+      context('상세 페이지에서', () => {
+        context('수정 버튼을 클릭하면', () => {
+          it('해당 글과 태그를 수정할 수 있다.', () => {
+            cy.get("[data-testid='article']").first().click();
 
-  //     context('삭제 버튼을 클릭하면', () => {
-  //       it('해당 글은 태그와 함께 삭제 되어야 한다.', () => {});
-  //     });
-  //   });
-  // });
+            cy.wait(2000);
+            cy.contains('수정').click();
+
+            cy.handleTitleContentInputs(
+              {
+                title: '수정된 제목',
+                content: '수정된 내용',
+              },
+              { isClear: true },
+            );
+
+            cy.contains('게시하기').click();
+            cy.contains('저장').click();
+
+            cy.contains('수정된 제목').should('exist');
+          });
+
+          context('수정된 글을 클릭한 후', () => {
+            context('삭제 버튼을 클릭하면', () => {
+              it('해당 게시글은 삭제되어야 한다', () => {
+                cy.contains('수정된 제목').click();
+
+                cy.contains('삭제').click();
+
+                cy.contains('수정된 제목').should('be.not.exist');
+              });
+            });
+          });
+        });
+      });
+    });
+  });
 });
