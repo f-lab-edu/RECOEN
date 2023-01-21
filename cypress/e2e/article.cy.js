@@ -26,37 +26,50 @@ describe('article CRUD spec', () => {
           });
         });
 
-        context('모든 요소를 다 입력했다면,', () => {
+        context('제목과 내용을 다 입력했다면,', () => {
           it('작성하기 버튼이 활성화 되어야 한다.', () => {
-            cy.get('[data-testid="title-input"]')
-              .find('input')
-              .type('제목', { force: true });
-
-            cy.get('.toastui-editor-pseudo-clipboard').type('내용', {
-              force: true,
-            });
+            cy.fillTitleContentInputs();
             cy.contains('게시하기').should('be.enabled');
           });
 
-          // context('작성하기 버튼을 클릭하면', () => {
-          //   context('썸네일, 태그, 설명문을 입력하는 모달이 나오는데', () => {
-          //     context('하나의 요소라도 입력하지 않았다면,', () => {
-          //       it('작성하기 버튼이 비활성화 되어야 한다.', () => {
-          //         // cy.get("[data-testid='write-button']").click();
-          //         // cy.get("[data-testid='send-write-button']").should('be.disabled');
-          //       });
-          //     });
-          //     context('모든 요소가 입력되었다면', () => {
-          //       it('작성하기 버튼이 활성화 되어야 한다.', () => {
-          //         // cy.get("[data-testid='write-button']").click();
-          //         // cy.get("[data-testid='send-write-button']").should('be.enabled');
-          //       });
-          //       // context('작성하기 버튼을 클릭하면', () => {
-          //       //   it('아티클 리스트 페이지에 글과 태그가 추가되어야 한다.', () => {});
-          //       // });
-          //     });
-          //   });
-          // });
+          beforeEach(() => {
+            cy.fillTitleContentInputs();
+            cy.contains('게시하기').click();
+          });
+
+          context('작성하기 버튼을 클릭하면', () => {
+            context('썸네일, 태그, 설명문을 입력하는 모달이 나오는데', () => {
+              context('하나의 요소라도 입력하지 않았다면,', () => {
+                it('저장 버튼이 비활성화 되어야 한다.', () => {
+                  cy.contains('저장').should('be.disabled');
+                });
+              });
+
+              context('모든 요소가 입력되었다면', () => {
+                beforeEach(() => {
+                  cy.fillArticleMetaData();
+                });
+
+                it('작성하기 버튼이 활성화 되어야 한다.', () => {
+                  cy.contains('저장').should('be.enabled');
+                });
+
+                context('작성하기 버튼을 클릭하면', () => {
+                  it('아티클 리스트 페이지에 글과 태그가 추가되어야 한다.', () => {
+                    cy.contains('저장')
+                      .should('be.enabled')
+                      .then((element) => {
+                        element.click();
+                      });
+
+                    cy.contains('제목').should('exist');
+                    cy.contains('태그').should('exist');
+                    cy.contains('설명문').should('exist');
+                  });
+                });
+              });
+            });
+          });
         });
       });
     });

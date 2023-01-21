@@ -19,7 +19,7 @@ const ImageUpload: React.FC<Props> = ({ useArticleElement }) => {
 
   return (
     <div>
-      <FileInput data-testid="fileinput" onChange={handleFileChange} />
+      <FileInput data-testid="file-input" onChange={handleFileChange} />
       {articleElements.imgUrl ? (
         <Img
           src={articleElements.imgUrl}

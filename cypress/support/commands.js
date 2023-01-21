@@ -44,3 +44,23 @@ Cypress.Commands.add('logout', () => {
   cy.visit('/api/auth/signout');
   cy.get('form').submit();
 });
+
+Cypress.Commands.add('fillTitleContentInputs', () => {
+  cy.get('[data-testid="title-input"]')
+    .find('input')
+    .type('제목', { force: true });
+
+  cy.get('.toastui-editor-pseudo-clipboard').type('내용', {
+    force: true,
+  });
+});
+
+Cypress.Commands.add('fillArticleMetaData', () => {
+  cy.get('[data-testid="tag-input"]').type('태그').type('{enter}');
+
+  cy.get("[data-testid='desc-input']").type('설명문');
+
+  cy.get('[data-testid="file-input"]').selectFile('public/recoen.png', {
+    force: true,
+  });
+});

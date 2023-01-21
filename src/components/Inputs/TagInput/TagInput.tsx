@@ -70,6 +70,7 @@ const TagInput: React.FC<Props> = ({ useArticleElement }) => {
   return (
     <Container>
       <Input
+        data-testid="tag-input"
         value={value}
         onKeyDown={onKeyDown}
         placeholder="#태그입력"
