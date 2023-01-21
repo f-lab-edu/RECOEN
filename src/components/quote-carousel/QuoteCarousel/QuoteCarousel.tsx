@@ -1,9 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
 
 import Quote from '../Quote';
 import ProgressBox from '../ProgressBox';
-import { useViewportWidth } from 'src/hooks';
 
 export type QuoteT = {
   englishQuote: string;
@@ -16,31 +15,25 @@ interface Props {
 }
 
 const QuoteCarousel = ({ quotes }: Props) => {
-  const slideRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
   const TOTAL_SLIDES = quotes.length - 1;
-  const viewportWidth = useViewportWidth();
-
-  console.log(viewportWidth);
-
-  const SLIDE_BOX_WIDTH = viewportWidth * TOTAL_SLIDES;
-
-  useEffect(() => {
-    if (!slideRef.current) return;
-
-    const moveX = viewportWidth * currentSlide;
-    slideRef.current.style.transition = 'all 0.5s ease-in-out';
-    slideRef.current.style.transform = `translateX(-${moveX}px)`;
-  }, [currentSlide]);
 
   return (
     <Container>
       <QuotesBox>
-        <SlideBox ref={slideRef} slideBoxWidth={SLIDE_BOX_WIDTH}>
-          {quotes.map((quote) => {
-            return <Quote key={quote.englishQuote} quote={quote} />;
-          })}
-        </SlideBox>
+        {quotes.map((quote, index) => {
+          return (
+            <>
+              {currentSlide == index && (
+                <Quote
+                  key={quote.englishQuote}
+                  quote={quote}
+                  isActive={currentSlide == index}
+                />
+              )}
+            </>
+          );
+        })}
       </QuotesBox>
       <ProgressBox
         setCurrentSlide={setCurrentSlide}
@@ -53,17 +46,15 @@ const QuoteCarousel = ({ quotes }: Props) => {
 
 export default QuoteCarousel;
 
-interface StyleProps {
-  currentLineWidth?: number;
-  slideBoxWidth?: number;
-  currentLinePos?: number;
-}
-
 const Container = styled.div`
   width: 1200px;
   height: 100%;
   box-sizing: border-box;
   margin: 0 auto;
+
+  @media screen and (max-width: 1200px) {
+    width: 860px;
+  }
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -74,16 +65,10 @@ const QuotesBox = styled.section`
   display: flex;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   box-sizing: border-box;
 
   @media screen and (max-width: 768px) {
     padding: 0 30px;
     width: 100%;
   }
-`;
-
-const SlideBox = styled.div<StyleProps>`
-  display: flex;
-  width: ${(props) => props.slideBoxWidth}px;
 `;
