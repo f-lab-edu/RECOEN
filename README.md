@@ -7,25 +7,44 @@
 
 ## 기술스택
 
+클라이언트 :
+
 - React
-  - recoil
-  - emotion
-- NextJs
-  - next-auth
-  - next-connect
-  - next-mdx-remote
-  - next-s3-upload
-- Typescript
-- ramdajs
-- jest
-- react-testing-library
-- toast-ui/editor
+- TypeScript
+- Emotion(CSS)
+- Recoil
+- Nextjs
+- Ramdajs
+
+서버 :
+
+- Node.js
+
+테스팅 도구 :
+
+- Jest
+- React-testing-library
+- Cypress (E2E)
+
+기능 구현에 사용한 도구 :
+
 - axios
+- next-auth
+- next-connect
+- next-mdx-remote
+- next-s3-upload
+- toast-ui/editor
 - sharp
 - plaiceholder
 - mongoose
-- yarn berry
+
+에러 트래킹에 사용한 도구 :
+
 - sentry
+
+DB :
+
+- MongoDB
 
 <br>
 
