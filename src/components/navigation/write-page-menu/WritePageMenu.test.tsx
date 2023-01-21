@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import WritePageMenu from './WritePageMenu';
 import RecoilObserver from 'src/components/RecoilObserver';
 import { RecoilRoot } from 'recoil';
@@ -23,14 +23,11 @@ describe('WritePageMenu', () => {
     });
   });
 
-  context('게시하기 버튼을 누르면', () => {
-    it('모달이 열린다', () => {
+  context('게시하기 버튼은 초기에', () => {
+    it('disabled 상태여야 한다', () => {
       const { getByText } = renderMenus();
-      const button = getByText('게시하기');
 
-      fireEvent.click(button);
-
-      expect(onChange).toHaveBeenNthCalledWith(3, 'CREATE_ARTICLE');
+      expect(getByText('게시하기')).toHaveStyle('cursor : not-allowed');
     });
   });
 });
