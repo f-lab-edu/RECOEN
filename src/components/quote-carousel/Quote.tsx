@@ -61,6 +61,7 @@ const QuoteBox = styled.article<{ isActive: boolean }>`
 `;
 
 const UpperWrapper = styled.div`
+  padding-top: 50px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -74,8 +75,16 @@ const EnglishQuote = styled.blockquote`
   margin-left: 0;
   padding: 0;
   color: ${theme.color.gray100};
-  white-space: pre;
+  white-space: pre-line;
   font-family: 'PT Serif', serif;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 2.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const EnglishParagraph = styled.p`
@@ -101,8 +110,9 @@ const KoreanQuote = styled.blockquote`
   margin: 0;
   color: ${theme.color.gray100};
   display: inline;
-  white-space: pre;
+  white-space: pre-line;
   position: relative;
+
   :before {
     content: '';
     background-color: ${theme.color.gray100};
@@ -114,4 +124,10 @@ const KoreanQuote = styled.blockquote`
   }
 `;
 
-const KoreanParagraph = styled.p``;
+const KoreanParagraph = styled.p`
+  padding-bottom: 20px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+`;
