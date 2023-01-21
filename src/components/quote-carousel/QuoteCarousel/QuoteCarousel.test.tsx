@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, within } from '@testing-library/react';
-import QuoteSlider from './QuoteCarousel';
+import QuoteCarousel from './QuoteCarousel';
 
 const quotesData = [
   {
@@ -25,12 +25,13 @@ const quotesData = [
   },
 ];
 
-describe('QuoteSlider', () => {
-  const renderQuoteSlider = () => render(<QuoteSlider quotes={quotesData} />);
-  
+describe('QuoteCarousel', () => {
+  const renderQuoteCarousel = () =>
+    render(<QuoteCarousel quotes={quotesData} />);
+
   context('버튼을 클릭하면', () => {
     it('slide가 움직여야 한다.', () => {
-      renderQuoteSlider();
+      renderQuoteCarousel();
       const nextSlideButton = screen.getByAltText(/Rigth Arrow/);
       const { getByText } = within(screen.getByTestId('currentNum'));
 
