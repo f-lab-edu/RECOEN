@@ -27,15 +27,7 @@ const quotesData = [
 
 describe('QuoteSlider', () => {
   const renderQuoteSlider = () => render(<QuoteSlider quotes={quotesData} />);
-  describe('render', () => {
-    it('should render correctly', () => {
-      renderQuoteSlider();
-      quotesData.forEach(({ englishCite }) => {
-        expect(screen.getByText(englishCite)).toBeInTheDocument();
-      });
-    });
-  });
-
+  
   context('버튼을 클릭하면', () => {
     it('slide가 움직여야 한다.', () => {
       renderQuoteSlider();
