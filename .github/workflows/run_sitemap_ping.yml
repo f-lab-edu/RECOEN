@@ -1,7 +1,7 @@
 name: Ping Google about updated sitemap
 
 on:
-  push:
+  pull_request:
     branches: ['main']
 
 jobs:

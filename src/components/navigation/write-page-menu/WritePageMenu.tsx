@@ -4,9 +4,12 @@ import Link from 'next/link';
 
 import Button from 'src/components/ui/Button/Button';
 import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
+import { articleValidationFirstStep } from 'src/recoil/article';
+import { useRecoilValue } from 'recoil';
 
 const WritePageMenus = () => {
   const handleModalOpen = useHandleOpenModal();
+  const isValid = useRecoilValue(articleValidationFirstStep);
 
   return (
     <Wrapper>
@@ -16,6 +19,7 @@ const WritePageMenus = () => {
       <Button
         primary
         label="게시하기"
+        disabled={isValid}
         onClick={() => handleModalOpen('CREATE_ARTICLE')}
       />
     </Wrapper>

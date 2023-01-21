@@ -34,6 +34,7 @@ const DescInput: React.FC<Props> = ({ useArticleElement }) => {
     <Wrapper>
       <Length>{currentLength}/200</Length>
       <TextArea
+        data-testid="desc-input"
         placeholder="설명글을 작성해주세요"
         maxLength={200}
         onChange={handleOnChange}
