@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
+
+import ArticleCollection from 'pages/api/models/articleCollectionModel';
 import DBUtils from 'src/utils/dbUtils';
 
 import ArticleList from 'src/components/article/ArticleList';
@@ -35,9 +36,11 @@ export default ProgrammingPage;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const programmingDB = await new DBUtils(ProgrammingArticleModel);
-    await programmingDB.setUp();
-    const articlesWithBlurURL = await programmingDB.findArticleWithBluredURL();
+    const articleDB = await new DBUtils(ArticleCollection);
+    await articleDB.setUp();
+    const articlesWithBlurURL = await articleDB.findArticleWithBluredURL(
+      'programming',
+    );
     const tags = getTags(articlesWithBlurURL);
 
     return {

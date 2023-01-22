@@ -13,7 +13,10 @@ const articleSchema = new Schema<ArticleModelT>(
   { timestamps: true },
 );
 
-const ArticleModel =
-  models.Article || model<ArticleModelT>('article', articleSchema);
+const ArticleCollectionModel =
+  models.ArticleCollection ||
+  model<ArticleModelT>('ArticleCollection', articleSchema);
 
-export default ArticleModel;
+export default ArticleCollectionModel;
+
+articleSchema.index({ category: 1, createdAt: -1 }); // schema level

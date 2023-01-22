@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 
@@ -43,9 +42,7 @@ const saveArticle =
   (articleElements: ArticleElement) =>
   (handleSuccess: () => void) =>
   async (saveArticleFunction: SaveArticleFunction) => {
-    const res = await saveArticleFunction(articleElements)(
-      articleElements.category,
-    );
+    const res = await saveArticleFunction(articleElements);
 
     if (res.status == 200) handleSuccess();
   };
@@ -78,7 +75,7 @@ export const useHandleDelete = (category: ArticleCategory) => {
   const handleDelete = async () => {
     if (!detailArticle._id) return;
 
-    await deleteArticle(category)(detailArticle._id);
+    await deleteArticle(detailArticle._id);
     return router.push(`/${category}`);
   };
 
