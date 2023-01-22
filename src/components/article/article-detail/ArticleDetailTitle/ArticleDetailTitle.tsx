@@ -22,7 +22,6 @@ const ArticleDetailTitle: React.FC<Props> = ({ article }) => {
   const { data: session } = useSession();
   const setWriteState = useSetRecoilState(writeStates);
   const handleDelete = useHandleDelete(article.category);
-  console.log(session);
 
   const handleEdit = () => {
     setWriteState('update');
