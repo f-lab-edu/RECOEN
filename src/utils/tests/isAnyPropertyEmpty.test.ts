@@ -1,4 +1,4 @@
-import { isObjectEmpty } from '../isObjectEmpty';
+import { isAnyPropertyEmpty } from '../isAnyPropertyEmpty';
 
 const emptyArticle = {
   _id: '',
@@ -23,13 +23,13 @@ const article = {
 describe('isEmpty', () => {
   describe('들어온 객체에 값이 비어있으면', () => {
     it('true를 반환한다.', () => {
-      expect(isObjectEmpty(emptyArticle)).toBe(true);
+      expect(isAnyPropertyEmpty(emptyArticle)).toBe(true);
     });
   });
 
   describe('들어온 객체에 값이 있으면', () => {
     it('false를 반환한다.', () => {
-      expect(isObjectEmpty(article)).toBe(false);
+      expect(isAnyPropertyEmpty(article)).toBe(false);
     });
   });
 });
