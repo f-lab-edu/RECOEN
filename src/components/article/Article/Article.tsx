@@ -65,7 +65,6 @@ const Container = styled.article`
   flex-direction: column;
   cursor: pointer;
   margin: 0;
-  align-items: center;
 
   @media screen and (max-width: 768px) {
     width: 315px;
