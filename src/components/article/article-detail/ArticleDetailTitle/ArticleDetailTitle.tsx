@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import Button from 'src/components/ui/Button/Button';
 import Chip from 'src/components/ui/Chip/Chip';
 
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 import { writeStates } from 'src/recoil/article';
 import { ArticleElement } from 'src/types/article';
 
@@ -21,11 +21,11 @@ const ArticleDetailTitle: React.FC<Props> = ({ article }) => {
   const router = useRouter();
   const { data: session } = useSession();
   const setWriteState = useSetRecoilState(writeStates);
+
   const handleDelete = useHandleDelete(article.category);
 
   const handleEdit = () => {
-    setWriteState('update');
-    router.push(`/write/${article._id}?category=${article.category}`);
+    router.push(`/write/${article._id}?type=update`);
   };
 
   return (
