@@ -6,11 +6,9 @@ import styled from '@emotion/styled';
 import Button from 'src/components/ui/Button/Button';
 import Chip from 'src/components/ui/Chip/Chip';
 
-import { useSetRecoilState, useRecoilValue } from 'recoil';
-import { writeStates } from 'src/recoil/article';
 import { ArticleElement } from 'src/types/article';
 
-import { useHandleDelete } from 'src/hooks/useHandleArticle';
+import { useHandleDelete } from 'src/hooks';
 import { convertDateFormat } from 'src/utils';
 
 interface Props {
@@ -20,7 +18,6 @@ interface Props {
 const ArticleDetailTitle: React.FC<Props> = ({ article }) => {
   const router = useRouter();
   const { data: session } = useSession();
-  const setWriteState = useSetRecoilState(writeStates);
 
   const handleDelete = useHandleDelete(article.category);
 
