@@ -1,11 +1,9 @@
 import React from 'react';
 
 import Essay from './Essay';
-import Grid from 'src/components/ui/Grid';
 import styled from '@emotion/styled';
 
 import { ViewArticleElement } from 'src/types/article';
-import { ArticleCategory } from 'src/types/article';
 import { useRecoilValue } from 'recoil';
 import { filteredArticleStates } from 'src/recoil/article';
 

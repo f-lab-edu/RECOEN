@@ -5,9 +5,11 @@ import { SaveArticleFunction, ArticleElement } from 'src/types/article';
 import { createArticle, updateArticle } from 'src/apis';
 import { useHandleSuccess } from './useHandleSuccess';
 
-export const useResolveSaveFunction = () => {
+export const useResolveSaveHandler = () => {
   const articleElements = useRecoilValue(articleState);
   const handleSuccess = useHandleSuccess(articleElements.category);
+  const writeState = useRecoilValue(writeStates);
+
   const makeSaveArticleHandler =
     (articleElements: ArticleElement, handleSuccess: () => void) =>
     async (saveArticleFunction: SaveArticleFunction) => {
@@ -21,12 +23,10 @@ export const useResolveSaveFunction = () => {
     handleSuccess,
   );
 
-  const writeState = useRecoilValue(writeStates);
-
-  const handleArticleMap = {
-    create: handleSaveArticle(createArticle),
-    update: handleSaveArticle(updateArticle),
+  const handleArticleSave = () => {
+    if (writeState === 'create') return handleSaveArticle(createArticle);
+    if (writeState === 'update') return handleSaveArticle(updateArticle);
   };
 
-  return handleArticleMap[writeState];
+  return handleArticleSave;
 };
