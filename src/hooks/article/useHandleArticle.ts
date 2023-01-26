@@ -5,32 +5,28 @@ import { SaveArticleFunction, ArticleElement } from 'src/types/article';
 import { createArticle, updateArticle } from 'src/apis';
 import { useHandleSuccess } from './useHandleSuccess';
 
-const saveArticle =
-  (articleElements: ArticleElement) =>
-  (handleSuccess: () => void) =>
-  async (saveArticleFunction: SaveArticleFunction) => {
-    const res = await saveArticleFunction(articleElements);
-
-    if (res.status == 200) handleSuccess();
-  };
-
-export const useSaveArticle = () => {
+export const useResolveSaveFunction = () => {
   const articleElements = useRecoilValue(articleState);
   const handleSuccess = useHandleSuccess(articleElements.category);
+  const makeSaveArticleHandler =
+    (articleElements: ArticleElement, handleSuccess: () => void) =>
+    async (saveArticleFunction: SaveArticleFunction) => {
+      const res = await saveArticleFunction(articleElements);
 
-  const handleSaveArticle = saveArticle(articleElements)(handleSuccess);
+      if (res.status == 200) handleSuccess();
+    };
 
-  return handleSaveArticle;
-};
+  const handleSaveArticle = makeSaveArticleHandler(
+    articleElements,
+    handleSuccess,
+  );
 
-export const useResolveSaveFunction = () => {
-  const saveArticle = useSaveArticle();
   const writeState = useRecoilValue(writeStates);
 
-  const handleSaveArticle = () => {
-    if (writeState == 'create') saveArticle(createArticle);
-    if (writeState == 'update') saveArticle(updateArticle);
+  const handleArticleMap = {
+    create: handleSaveArticle(createArticle),
+    update: handleSaveArticle(updateArticle),
   };
 
-  return handleSaveArticle;
+  return handleArticleMap[writeState];
 };
