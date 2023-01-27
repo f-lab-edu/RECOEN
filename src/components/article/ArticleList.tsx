@@ -12,8 +12,12 @@ interface Props {
 
 const ArticleList = ({ articles, renderListItem }: Props) => {
   const filteredArticles = useRecoilValue(filteredArticleStates);
+  const getCategory = (articles: ViewArticleElement[]) => {
+    return articles[0].category;
+  };
+
   return (
-    <Grid>
+    <Grid category={getCategory(articles)}>
       <>
         {(filteredArticles.length ? filteredArticles : articles).map(
           (article: ViewArticleElement) => renderListItem(article),
