@@ -6,12 +6,12 @@ interface Props {
   children: React.ReactElement[];
 }
 
-const ListContainer = ({ children }: Props) => {
+const ListPageContainer = ({ children }: Props) => {
   return <>{children}</>;
 };
 
-export default ListContainer;
+export default ListPageContainer;
 
-ListContainer.UpperLayout = UpperLayout;
-ListContainer.ArticleList = ArticleList;
-ListContainer.Hr = Hr;
+ListPageContainer.UpperLayout = UpperLayout;
+ListPageContainer.ArticleList = ArticleList;
+ListPageContainer.Hr = Hr;
