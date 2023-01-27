@@ -44,17 +44,16 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  margin-top: 60px;
 `;
 
 const Wrapper = styled.div`
   width: 1200px;
 
-  @media screen and (max-width: 1260px) {
+  @media screen and (max-width: 1200px) {
     width: 800px;
   }
 
   @media screen and (max-width: 767px) {
-    width: 380px;
+    width: 100%;
   }
 `;

@@ -21,7 +21,10 @@ export default Time;
 const DateContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Day = styled.div`

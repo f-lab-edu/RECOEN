@@ -10,14 +10,14 @@ import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
 import {
   useHandleOpenModal,
-  useResolveSaveHandler,
+  useResolveSaveArticleHandler,
   useArticleElement,
 } from 'src/hooks';
 import { articleValidationSecondStep } from 'src/recoil/article';
 import { useRecoilValue } from 'recoil';
 
 const CreateArticleModal = () => {
-  const handleSaveArticle = useResolveSaveHandler();
+  const handleSaveArticle = useResolveSaveArticleHandler();
   const handleOpenModal = useHandleOpenModal();
   const isValid = useRecoilValue(articleValidationSecondStep);
 
