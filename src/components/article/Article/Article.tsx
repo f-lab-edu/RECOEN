@@ -14,7 +14,6 @@ const Article = ({ article }: Props) => {
     <StyledLink
       data-testid="article"
       href={`/${article.category}/${article._id}`}
-      key={article._id}
     >
       <Container>
         <ImageWrapper>

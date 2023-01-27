@@ -32,7 +32,9 @@ const BookPage = ({
       <ListPageContainer.Hr />
       <ListPageContainer.ArticleList
         articles={articles}
-        renderListItem={(article) => <Article article={article} />}
+        renderListItem={(article) => (
+          <Article article={article} key={article._id} />
+        )}
       />
     </ListPageContainer>
   );
