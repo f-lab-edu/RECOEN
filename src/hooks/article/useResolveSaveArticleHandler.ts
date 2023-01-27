@@ -5,7 +5,7 @@ import { SaveArticleFunction, ArticleElement } from 'src/types/article';
 import { createArticle, updateArticle } from 'src/apis';
 import { useHandleSuccess } from './useHandleSuccess';
 
-export const useResolveSaveHandler = () => {
+export const useResolveSaveArticleHandler = () => {
   const articleElements = useRecoilValue(articleState);
   const handleSuccess = useHandleSuccess(articleElements.category);
   const writeState = useRecoilValue(writeStates);

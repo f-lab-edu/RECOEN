@@ -2756,7 +2756,7 @@ __metadata:
   dependencies:
     "@nodelib/fs.stat": 2.0.5
     run-parallel: ^1.1.9
-  checksum: a970d595bd23c66c880e0ef1817791432dbb7acbb8d44b7e7d0e7a22f4521260d4a83f7f9fd61d44fda4610105577f8f58a60718105fb38352baed612fd79e59
+  checksum: a970d595bd23c66c880e0ef1817791432dbb7acbb8d44b7e7d0e7a22f4521200d4a83f7f9fd61d44fda4610105577f8f58a60718105fb38352baed612fd79e59
   languageName: node
   linkType: hard
 
@@ -2971,7 +2971,7 @@ __metadata:
     "@sentry/utils": 7.19.0
     localforage: ^1.8.1
     tslib: ^1.9.3
-  checksum: 0317f6fb04c09d9cff6d0944492c23238f479555efc36752656bbad6b73b6bfeba5bab57d65381260e7718f1b1fd0ae9a2427b9e03fc418a830e23208bcef003
+  checksum: 0317f6fb04c09d9cff6d0944492c23238f479555efc36752656bbad6b73b6bfeba5bab57d65381200e7718f1b1fd0ae9a2427b9e03fc418a830e23208bcef003
   languageName: node
   linkType: hard
 
@@ -7067,7 +7067,7 @@ __metadata:
 "esutils@npm:^2.0.2":
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
-  checksum: 22b5b08f74737379a840b8ed2036a5fb35826c709ab000683b092d9054e5c2a82c27818f12604bfc2a9a76b90b6834ef081edbc1c7ae30d1627012e067c6ec87
+  checksum: 22b5b08f74737379a840b8ed2036a5fb35826c709ab000683b092d9054e5c2a82c27818f12004bfc2a9a76b90b6834ef081edbc1c7ae30d1627012e067c6ec87
   languageName: node
   linkType: hard
 
