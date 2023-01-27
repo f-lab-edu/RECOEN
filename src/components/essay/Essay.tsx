@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { convertDateFormat } from 'src/utils';
 import { theme } from 'src/style';
+import Time from './Time';
 
 interface Props {
   title: string;
@@ -24,13 +25,10 @@ const Essay = ({
 }: Props) => {
   return (
     <StyledLink data-testid="essay" href={`/essay/${path}`}>
-      {/* <Container> */}
+      <Time createdAt={createdAt} />
       <Wrapper>
-        <div>
-          <Title aria-label={`제목 : ${title}`}>{title}</Title>
-          <Desc aria-label={`설명문 : ${description}`}>{description}</Desc>
-        </div>
-        <Date>{convertDateFormat(createdAt)}</Date>
+        <Title aria-label={`제목 : ${title}`}>{title}</Title>
+        <Desc aria-label={`설명문 : ${description}`}>{description}</Desc>
       </Wrapper>
       <ImageWrapper>
         <Image
@@ -39,10 +37,9 @@ const Essay = ({
           placeholder="blur"
           blurDataURL={blurDataURL}
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', borderRadius: '8px' }}
         />
       </ImageWrapper>
-      {/* </Container> */}
     </StyledLink>
   );
 };
@@ -51,51 +48,45 @@ export default Essay;
 
 const StyledLink = styled(Link)`
   display: flex;
-  justify-content: center;
-  border-bottom: 1px solid ${theme.color.gray200};
-`;
+  justify-content: space-between;
+  padding: 60px 0;
+  border-bottom: 2px solid ${theme.color.gray200};
+  color: ${theme.color.gray100};
+  transition: 0.3s ease-in-out;
 
-const Container = styled.article`
-  width: 380px;
-  height: 400px;
-  border-radius: 16px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  margin: 0;
-
-  @media screen and (max-width: 768px) {
-    width: 315px;
+  :hover {
+    color: ${theme.color.white};
   }
 `;
 
 const ImageWrapper = styled.div`
-  width: 380px;
-  height: 220px;
+  width: 180px;
+  height: 110px;
   position: relative;
   object-fit: cover;
 
-  @media screen and (max-width: 768px) {
-    width: 315px;
+  @media screen and (max-width: 1200px) {
+    display: none;
   }
 `;
 
 const Wrapper = styled.article`
   box-sizing: border-box;
-  height: 180px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  max-width: 600px;
+  padding: 0 30px;
 `;
 
 const Title = styled.h2`
-  font-size: 1rem;
-  white-space: nowrap;
+  font-weight: 300;
+  font-size: 1.2rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: #f3f3f3;
-  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-top: 2px;
 
   @media screen and (max-width: 768px) {
     width: 315px;
@@ -105,7 +96,6 @@ const Title = styled.h2`
 const Desc = styled.p`
   font-weight: 200;
   font-size: 0.9rem;
-  color: #9599a0;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -117,10 +107,4 @@ const Desc = styled.p`
   @media screen and (max-width: 768px) {
     width: 315px;
   }
-`;
-
-const Date = styled.time`
-  font-weight: 200;
-  font-size: 0.9rem;
-  color: #9599a0;
 `;
