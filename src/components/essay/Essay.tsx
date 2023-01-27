@@ -13,7 +13,11 @@ interface Props {
 
 const Essay = ({ article }: Props) => {
   return (
-    <StyledLink data-testid="essay" href={`/essay/${article._id}`}>
+    <StyledLink
+      data-testid="essay"
+      href={`/essay/${article._id}`}
+      key={article._id}
+    >
       <Time createdAt={article.createdAt} />
       <Wrapper>
         <Title aria-label={`제목 : ${article.title}`}>{article.title}</Title>

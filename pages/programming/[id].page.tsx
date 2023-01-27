@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   GetStaticProps,
   GetStaticPropsContext,
@@ -22,7 +22,7 @@ interface IPrams extends ParsedUrlQuery {
   id: string;
 }
 
-const Article = ({
+const ProgrammingDetailPage = ({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   useSettingDetailPage(article);
@@ -47,7 +47,7 @@ const Article = ({
   );
 };
 
-export default Article;
+export default ProgrammingDetailPage;
 
 export const getStaticPaths = async () => {
   try {
