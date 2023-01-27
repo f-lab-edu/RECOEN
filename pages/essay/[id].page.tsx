@@ -9,21 +9,20 @@ import { ParsedUrlQuery } from 'querystring';
 import ArticleCollection from 'pages/api/models/articleCollectionModel';
 import DBUtils from 'src/utils/dbUtils';
 
-import { useSettingDetailPage } from 'src/hooks';
-
 import { MDXRemote } from 'next-mdx-remote';
-import Head from 'src/components/Head';
-import Image from 'next/image';
+import { useSettingDetailPage } from 'src/hooks';
 
 import MDXTag from 'src/components/article/article-detail/MDXTag';
 import ArticleDetail from 'src/components/article/article-detail/ArticleDetail';
 import ArticleDetailTitle from 'src/components/article/article-detail/ArticleDetailTitle/ArticleDetailTitle';
+import Head from 'src/components/Head';
+import Image from 'next/image';
 
 interface IPrams extends ParsedUrlQuery {
   id: string;
 }
 
-const BookDetailPage = ({
+const EssayDetailPage = ({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   useSettingDetailPage(article);
@@ -48,13 +47,13 @@ const BookDetailPage = ({
   );
 };
 
-export default BookDetailPage;
+export default EssayDetailPage;
 
 export const getStaticPaths = async () => {
   try {
     const articleDB = await new DBUtils(ArticleCollection);
     await articleDB.setUp();
-    const paths = await articleDB.findArticlePaths('book');
+    const paths = await articleDB.findArticlePaths('essay');
 
     return {
       paths,
