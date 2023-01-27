@@ -11,13 +11,8 @@ import DBUtils from 'src/utils/dbUtils';
 
 import { useSettingDetailPage } from 'src/hooks';
 
-import { MDXRemote } from 'next-mdx-remote';
-import Head from 'src/components/Head';
-import Image from 'next/image';
-
 import MDXTag from 'src/components/article/article-detail/MDXTag';
-import ArticleDetail from 'src/components/article/article-detail/ArticleDetail';
-import ArticleDetailTitle from 'src/components/article/article-detail/ArticleDetailTitle/ArticleDetailTitle';
+import DetailPageContainer from 'src/components/container/DetailPageContainer';
 
 interface IPrams extends ParsedUrlQuery {
   id: string;
@@ -29,22 +24,20 @@ const BookDetailPage = ({
   useSettingDetailPage(article);
 
   return (
-    <>
-      <Head article={article} />
-      <ArticleDetail
-        mdxTitle={<ArticleDetailTitle article={article} />}
-        image={
-          <Image
-            src={article.imgUrl}
-            alt="Hero Image"
-            blurDataURL={article.blurDataURL}
-            fill
-            style={{ objectFit: 'cover', objectPosition: 'top top' }}
-          />
-        }
-        mdxRemote={<MDXRemote {...article.MDXcontent} components={MDXTag} />}
-      />
-    </>
+    <DetailPageContainer>
+      <DetailPageContainer.Head article={article} />
+      <DetailPageContainer.TitleWrapper>
+        <DetailPageContainer.Title article={article} />
+      </DetailPageContainer.TitleWrapper>
+      <DetailPageContainer.Hr />
+      <DetailPageContainer.ContentWrapper>
+        <DetailPageContainer.Thunbnail article={article} />
+        <DetailPageContainer.Content
+          {...article.MDXcontent}
+          components={MDXTag}
+        />
+      </DetailPageContainer.ContentWrapper>
+    </DetailPageContainer>
   );
 };
 
