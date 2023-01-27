@@ -2,40 +2,31 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
-import { convertDateFormat } from 'src/utils';
 import { theme } from 'src/style';
 import Time from './Time';
 
+import { ViewArticleElement } from 'src/types/article';
+
 interface Props {
-  title: string;
-  description: string;
-  path: string;
-  imgUrl: string;
-  blurDataURL: string;
-  createdAt: string;
+  article: ViewArticleElement;
 }
 
-const Essay = ({
-  title,
-  description,
-  path,
-  imgUrl,
-  blurDataURL,
-  createdAt,
-}: Props) => {
+const Essay = ({ article }: Props) => {
   return (
-    <StyledLink data-testid="essay" href={`/essay/${path}`}>
-      <Time createdAt={createdAt} />
+    <StyledLink data-testid="essay" href={`/essay/${article._id}`}>
+      <Time createdAt={article.createdAt} />
       <Wrapper>
-        <Title aria-label={`제목 : ${title}`}>{title}</Title>
-        <Desc aria-label={`설명문 : ${description}`}>{description}</Desc>
+        <Title aria-label={`제목 : ${article.title}`}>{article.title}</Title>
+        <Desc aria-label={`설명문 : ${article.description}`}>
+          {article.description}
+        </Desc>
       </Wrapper>
       <ImageWrapper>
         <Image
-          src={imgUrl}
+          src={article.imgUrl}
           alt="Thumbnail of essay-article"
           placeholder="blur"
-          blurDataURL={blurDataURL}
+          blurDataURL={article.blurDataURL}
           fill
           style={{ objectFit: 'cover', borderRadius: '8px' }}
         />
@@ -87,10 +78,6 @@ const Title = styled.h2`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   margin-top: 2px;
-
-  @media screen and (max-width: 768px) {
-    width: 315px;
-  }
 `;
 
 const Desc = styled.p`
@@ -103,8 +90,4 @@ const Desc = styled.p`
   -webkit-box-orient: vertical;
   line-height: 1.4;
   letter-spacing: 0.3px;
-
-  @media screen and (max-width: 768px) {
-    width: 315px;
-  }
 `;
