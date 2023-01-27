@@ -6,7 +6,7 @@ import DBUtils from 'src/utils/dbUtils';
 import { getTags } from 'src/utils/getTags';
 
 import Article from 'src/components/article/Article/Article';
-import ListContainer from 'src/components/container/ListContainer';
+import ListPageContainer from 'src/components/container/ListPageContainer';
 
 import { useSetRecoilState } from 'recoil';
 import { articleListStates } from 'src/recoil/article';
@@ -21,20 +21,20 @@ const BookPage = ({
   }, []);
 
   return (
-    <ListContainer>
-      <ListContainer.UpperLayout>
-        <ListContainer.UpperLayout.Hero
+    <ListPageContainer>
+      <ListPageContainer.UpperLayout>
+        <ListPageContainer.UpperLayout.Hero
           text="Book"
           listLength={articles.length}
         />
-        <ListContainer.UpperLayout.TagSearch tags={tags} />
-      </ListContainer.UpperLayout>
-      <ListContainer.Hr />
-      <ListContainer.ArticleList
+        <ListPageContainer.UpperLayout.TagSearch tags={tags} />
+      </ListPageContainer.UpperLayout>
+      <ListPageContainer.Hr />
+      <ListPageContainer.ArticleList
         articles={articles}
         renderListItem={(article) => <Article article={article} />}
       />
-    </ListContainer>
+    </ListPageContainer>
   );
 };
 
