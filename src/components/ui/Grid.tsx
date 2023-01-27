@@ -1,21 +1,45 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { ArticleCategory } from 'src/types/article';
 
 interface Props {
   children: React.ReactElement;
+  category: ArticleCategory;
 }
 
-const Grid = ({ children }: Props) => {
-  return (
-    <Container>
-      <Wrapper>{children}</Wrapper>
-    </Container>
-  );
+const Grid = ({ children, category }: Props) => {
+  switch (category) {
+    case 'essay':
+      return <VTwoGrid>{children}</VTwoGrid>;
+    default:
+      return <VOneGrid>{children}</VOneGrid>;
+  }
 };
 
 export default Grid;
 
-const Container = styled.div`
+interface VersionProps {
+  children: React.ReactElement;
+}
+
+const VOneGrid = ({ children }: VersionProps) => {
+  return (
+    <VOneContainer>
+      <VOneWrapper>{children}</VOneWrapper>
+    </VOneContainer>
+  );
+};
+
+const VTwoGrid = ({ children }: VersionProps) => {
+  return (
+    <VTwoContainer>
+      <VTwoWrapper>{children}</VTwoWrapper>
+    </VTwoContainer>
+  );
+};
+
+// version one grid style
+const VOneContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -23,7 +47,7 @@ const Container = styled.div`
   margin-top: 60px;
 `;
 
-const Wrapper = styled.div`
+const VOneWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 1200px;
@@ -37,5 +61,25 @@ const Wrapper = styled.div`
   @media screen and (max-width: 767px) {
     width: 380px;
     grid-template-columns: 1fr;
+  }
+`;
+
+// version two grid style
+const VTwoContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+`;
+
+const VTwoWrapper = styled.div`
+  width: 1200px;
+
+  @media screen and (max-width: 1200px) {
+    width: 800px;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
   }
 `;
