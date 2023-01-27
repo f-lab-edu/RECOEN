@@ -31,7 +31,3 @@ const Layout = styled.div`
     width: calc(100% - 60px);
   }
 `;
-
-const Hr = styled.hr`
-  border: 0.5px solid #494c56;
-`;
