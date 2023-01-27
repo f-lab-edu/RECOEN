@@ -4,9 +4,8 @@ import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import ArticleCollection from 'pages/api/models/articleCollectionModel';
 import DBUtils from 'src/utils/dbUtils';
 
-import ArticleList from 'src/components/article/ArticleList';
-import UpperLayout from 'src/components/hero/UpperLayout';
 import Article from 'src/components/article/Article/Article';
+import ListContainer from 'src/components/container/ListContainer';
 
 import { useSetRecoilState } from 'recoil';
 import { articleListStates } from 'src/recoil/article';
@@ -23,16 +22,20 @@ const ProgrammingPage = ({
   }, []);
 
   return (
-    <>
-      <UpperLayout>
-        <UpperLayout.Hero text="Programming" listLength={articles.length} />
-        <UpperLayout.TagSearch tags={tags} />
-      </UpperLayout>
-      <ArticleList
+    <ListContainer>
+      <ListContainer.UpperLayout>
+        <ListContainer.UpperLayout.Hero
+          text="Programming"
+          listLength={articles.length}
+        />
+        <ListContainer.UpperLayout.TagSearch tags={tags} />
+      </ListContainer.UpperLayout>
+      <ListContainer.Hr />
+      <ListContainer.ArticleList
         articles={articles}
         renderListItem={(article) => <Article article={article} />}
       />
-    </>
+    </ListContainer>
   );
 };
 

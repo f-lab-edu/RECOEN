@@ -5,9 +5,8 @@ import ArticleCollection from 'pages/api/models/articleCollectionModel';
 import DBUtils from 'src/utils/dbUtils';
 import { getTags } from 'src/utils/getTags';
 
-import ArticleList from 'src/components/article/ArticleList';
 import Essay from 'src/components/essay/Essay';
-import UpperLayout from 'src/components/hero/UpperLayout';
+import ListContainer from 'src/components/container/ListContainer';
 
 import { useSetRecoilState } from 'recoil';
 import { articleListStates } from 'src/recoil/article';
@@ -22,16 +21,20 @@ const EssayPage = ({
   }, []);
 
   return (
-    <>
-      <UpperLayout>
-        <UpperLayout.Hero text="Essay" listLength={articles.length} />
-        <UpperLayout.TagSearch tags={tags} />
-      </UpperLayout>
-      <ArticleList
+    <ListContainer>
+      <ListContainer.UpperLayout>
+        <ListContainer.UpperLayout.Hero
+          text="Essay"
+          listLength={articles.length}
+        />
+        <ListContainer.UpperLayout.TagSearch tags={tags} />
+      </ListContainer.UpperLayout>
+      <ListContainer.Hr />
+      <ListContainer.ArticleList
         articles={articles}
         renderListItem={(article) => <Essay article={article} />}
       />
-    </>
+    </ListContainer>
   );
 };
 

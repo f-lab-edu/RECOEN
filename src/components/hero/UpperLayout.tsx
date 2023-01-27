@@ -8,12 +8,7 @@ interface Props {
 }
 
 const UpperLayout = ({ children }: Props) => {
-  return (
-    <>
-      <Layout>{children}</Layout>
-      <Hr />
-    </>
-  );
+  return <Layout>{children}</Layout>;
 };
 
 export default UpperLayout;
