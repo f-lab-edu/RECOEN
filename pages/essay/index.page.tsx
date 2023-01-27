@@ -32,7 +32,9 @@ const EssayPage = ({
       <ListPageContainer.Hr />
       <ListPageContainer.ArticleList
         articles={articles}
-        renderListItem={(article) => <Essay article={article} />}
+        renderListItem={(article) => (
+          <Essay article={article} key={article._id} />
+        )}
       />
     </ListPageContainer>
   );
