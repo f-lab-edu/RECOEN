@@ -18,11 +18,11 @@ const Grid = ({ children, category }: Props) => {
 
 export default Grid;
 
-interface VersionProps {
+interface GridVersionProps {
   children: React.ReactElement;
 }
 
-const VOneGrid = ({ children }: VersionProps) => {
+const VOneGrid = ({ children }: GridVersionProps) => {
   return (
     <VOneContainer>
       <VOneWrapper>{children}</VOneWrapper>
@@ -30,7 +30,7 @@ const VOneGrid = ({ children }: VersionProps) => {
   );
 };
 
-const VTwoGrid = ({ children }: VersionProps) => {
+const VTwoGrid = ({ children }: GridVersionProps) => {
   return (
     <VTwoContainer>
       <VTwoWrapper>{children}</VTwoWrapper>
