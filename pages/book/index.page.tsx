@@ -6,6 +6,7 @@ import DBUtils from 'src/utils/dbUtils';
 import { getTags } from 'src/utils/getTags';
 
 import ArticleList from 'src/components/article/ArticleList';
+import Article from 'src/components/article/Article/Article';
 import UpperLayout from 'src/components/hero/UpperLayout';
 
 import { useSetRecoilState } from 'recoil';
@@ -26,7 +27,10 @@ const BookPage = ({
         <UpperLayout.Hero text="Book" listLength={articles.length} />
         <UpperLayout.TagSearch tags={tags} />
       </UpperLayout>
-      <ArticleList articles={articles} category="book" />
+      <ArticleList
+        articles={articles}
+        renderListItem={(article) => <Article article={article} />}
+      />
     </>
   );
 };
