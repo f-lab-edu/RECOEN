@@ -4,17 +4,7 @@ import { viewArticle } from 'src/fixtures';
 
 describe('<Article/>', () => {
   it('should render correctly', () => {
-    render(
-      <Article
-        title={viewArticle.title}
-        description={viewArticle.description}
-        path="/book/[id]"
-        imgUrl={viewArticle.imgUrl}
-        blurDataURL={viewArticle.blurDataURL}
-        createdAt={viewArticle.createdAt}
-        type={viewArticle.category}
-      />,
-    );
+    render(<Article article={viewArticle} />);
 
     const title = screen.getByRole('heading', {
       name: /리액트 fiber에 대해서 알아보자/i,
