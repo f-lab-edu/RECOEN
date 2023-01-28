@@ -22,6 +22,7 @@ const ProgrammingDetailPage = ({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   useSettingDetailPage(article);
+
   return (
     <DetailPageContainer>
       <DetailPageContainer.Head article={article} />

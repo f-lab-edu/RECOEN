@@ -6,3 +6,4 @@ export * from './useArticleElement';
 export * from './article/useResolveSaveArticleHandler';
 export * from './article/useHandleDelete';
 export * from './detail-page/useSettingDetailPage';
+export * from './useSettingListPage';
