@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import ArticleCollection from 'pages/api/models/articleCollectionModel';
@@ -7,19 +7,14 @@ import DBUtils from 'src/utils/dbUtils';
 import Article from 'src/components/article/Article/Article';
 import ListPageContainer from 'src/components/container/ListPageContainer';
 
-import { useSetRecoilState } from 'recoil';
-import { articleListStates } from 'src/recoil/article';
 import { getTags } from 'src/utils/getTags';
+import { useSettingListPage } from 'src/hooks';
 
 const ProgrammingPage = ({
   articles,
   tags,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const setArticleList = useSetRecoilState(articleListStates);
-
-  useEffect(() => {
-    setArticleList(articles);
-  }, []);
+  useSettingListPage(articles);
 
   return (
     <ListPageContainer>
