@@ -18,6 +18,8 @@ const nextConfig = {
         'process.env.MONGO_URI': JSON.stringify(process.env.MONGO_URI),
       }),
     );
+
+    return config;
   },
   // env: {
   //   MONGO_URI: process.env.MONGO_URI,
