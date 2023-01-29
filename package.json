@@ -8,7 +8,9 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest"
+    "test": "jest",
+    "cypress open": "cypress open",
+    "cypress run": "cypress run"
   },
   "dependencies": {
     "@aws-sdk/abort-controller": "^3.186.0",
@@ -37,6 +39,7 @@
     "ramda": "^0.28.0",
     "react": "latest",
     "react-dom": "latest",
+    "react-icons": "^4.7.1",
     "react-query": "^3.39.2",
     "react-syntax-highlighter": "^15.5.0",
     "recoil": "^0.7.5",
@@ -70,6 +73,7 @@
     "@yarnpkg/sdks": "^3.0.0-rc.22",
     "babel-loader": "^8.2.5",
     "cypress": "^12.3.0",
+    "cypress-social-logins": "^1.14.0",
     "eslint": "8.23.0",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^8.5.0",

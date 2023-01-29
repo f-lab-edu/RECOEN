@@ -9,14 +9,17 @@ import DescInput from 'src/components/Inputs/DescInput/DescInput';
 import TagInput from 'src/components/Inputs/TagInput/TagInput';
 
 import {
-  useResolveSaveFunction,
+  useHandleOpenModal,
+  useResolveSaveArticleHandler,
   useArticleElement,
-} from 'src/hooks/useHandleArticle';
-import { useHandleOpenModal } from 'src/hooks/useHandleOpenModal';
+} from 'src/hooks';
+import { articleValidationSecondStep } from 'src/recoil/article';
+import { useRecoilValue } from 'recoil';
 
 const CreateArticleModal = () => {
-  const handleSaveArticle = useResolveSaveFunction();
+  const handleSaveArticle = useResolveSaveArticleHandler();
   const handleOpenModal = useHandleOpenModal();
+  const isValid = useRecoilValue(articleValidationSecondStep);
 
   return (
     <BaseModal
@@ -28,7 +31,12 @@ const CreateArticleModal = () => {
           <H2>글 설정</H2>
           <ButtonWrapper>
             <Button label="취소" onClick={() => handleOpenModal(null)} />
-            <Button label="저장" primary onClick={handleSaveArticle} />
+            <Button
+              label="저장"
+              primary
+              onClick={handleSaveArticle}
+              disabled={isValid}
+            />
           </ButtonWrapper>
         </Wrapper>
         <Guide>대표이미지</Guide>

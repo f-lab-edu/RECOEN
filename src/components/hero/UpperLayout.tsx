@@ -8,12 +8,7 @@ interface Props {
 }
 
 const UpperLayout = ({ children }: Props) => {
-  return (
-    <>
-      <Layout>{children}</Layout>
-      <Hr />
-    </>
-  );
+  return <Layout>{children}</Layout>;
 };
 
 export default UpperLayout;
@@ -28,15 +23,11 @@ const Layout = styled.div`
   margin-bottom: 50px;
   padding: 0 30px;
 
-  @media screen and (max-width: 1260px) {
-    width: 800px;
+  @media screen and (max-width: 1200px) {
+    width: calc(100% - 60px);
   }
 
   @media screen and (max-width: 768px) {
     width: calc(100% - 60px);
   }
-`;
-
-const Hr = styled.hr`
-  border: 0.5px solid #494c56;
 `;

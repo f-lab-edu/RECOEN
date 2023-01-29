@@ -10,7 +10,6 @@ interface Props {
 const ArticleDetail: React.FC<Props> = ({ mdxTitle, image, mdxRemote }) => {
   return (
     <Container>
-      <Space />
       <Wrapper>{mdxTitle}</Wrapper>
       <Hr />
       <Wrapper>
@@ -30,11 +29,8 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Space = styled.div`
-  margin-top: 200px;
-`;
-
 const Wrapper = styled.main`
+  margin-top: 200px;
   max-width: 880px;
   width: 100%;
   padding: 10px 30px 10px 30px;

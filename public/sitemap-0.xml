@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="https://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="https://www.w3.org/1999/xhtml" xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="https://www.google.com/schemas/sitemap-image/1.1" xmlns:video="https://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://recoen.vercel.app</loc><lastmod>2022-12-26T08:15:03.458Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/book</loc><lastmod>2022-12-26T08:15:03.458Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/programming</loc><lastmod>2022-12-26T08:15:03.458Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/write</loc><lastmod>2022-12-26T08:15:03.458Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/book/63a94f73762157f8cd9e3318</loc><lastmod>2022-12-26T08:15:03.458Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/book/63a950b8762157f8cd9e331e</loc><lastmod>2022-12-26T08:15:03.458Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/book/63a95680762157f8cd9e3325</loc><lastmod>2022-12-26T08:15:03.458Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://recoen.vercel.app/programming/63a94b1e762157f8cd9e32f4</loc><lastmod>2022-12-26T08:15:03.458Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/about</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/book</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/essay</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/programming</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/write</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/essay/63cf852b5ab1b1625c12af29</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/programming/63cd295e3cf0de57fd2554d0</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/book/63cd2cc83cf0de57fd2554d9</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://recoen.vercel.app/book/63cd2c4d3cf0de57fd2554d4</loc><lastmod>2023-01-29T01:33:30.893Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

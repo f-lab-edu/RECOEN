@@ -5,18 +5,20 @@ import { connectMongo } from 'pages/api/middlewares/connectMongo';
 
 import { useSetRecoilState, useResetRecoilState } from 'recoil';
 import { articleState } from 'src/recoil/article';
-import { ArticleCategory } from 'src/types/article';
 
-import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
-import BookArticleModel from 'pages/api/models/bookArticleModel';
-
+import ArticleCollectionModel from 'pages/api/models/articleCollectionModel';
 import WritePageContainer from 'src/components/container/WritePageContainer';
+
+import { writeStates } from 'src/recoil/article';
+import { useRouter } from 'next/router';
 
 const UpdatePage = ({
   article,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const setArticle = useSetRecoilState(articleState);
+  const setWriteState = useSetRecoilState(writeStates);
   const resetDetailStates = useResetRecoilState(articleState);
+  const { query } = useRouter();
 
   useEffect(() => {
     const articleState = {
@@ -29,6 +31,9 @@ const UpdatePage = ({
       category: article.category,
     };
     setArticle(articleState);
+
+    if (query.type !== 'update') return;
+    setWriteState(query.type);
 
     return () => resetDetailStates();
   }, []);
@@ -44,13 +49,9 @@ interface IPrams extends ParsedUrlQuery {
 
 const fetchArticle = async (context: GetServerSidePropsContext) => {
   await connectMongo();
-  const { id, category } = context.query as IPrams;
-  const modelCategory = category as ArticleCategory;
-  const ModelMap = {
-    programming: ProgrammingArticleModel,
-    book: BookArticleModel,
-  };
-  const res = await ModelMap[modelCategory].findById(id);
+  const { id } = context.query as IPrams;
+
+  const res = await ArticleCollectionModel.findById(id);
   const article = JSON.parse(JSON.stringify(res));
   return { props: { article } };
 };

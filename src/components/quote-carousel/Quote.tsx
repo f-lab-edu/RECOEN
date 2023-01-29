@@ -1,15 +1,17 @@
 import React from 'react';
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { QuoteT } from './QuoteCarousel/QuoteCarousel';
 import { theme } from 'src/style/theme';
 
 interface QuoteProps {
   quote: QuoteT;
+  isActive: boolean;
 }
 
-const Quote = ({ quote }: QuoteProps) => {
+const Quote = ({ quote, isActive }: QuoteProps) => {
   return (
-    <QuoteBox>
+    <QuoteBox isActive={isActive}>
       <UpperWrapper>
         <EnglishQuote>
           <EnglishParagraph>{quote.englishQuote}</EnglishParagraph>
@@ -27,21 +29,43 @@ const Quote = ({ quote }: QuoteProps) => {
 
 export default Quote;
 
-const QuoteBox = styled.article`
+const inAnimation = keyframes`
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95)
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1)
+  }
+`;
+const outAnimation = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+`;
+
+const QuoteBox = styled.article<{ isActive: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  animation: ${({ isActive }) => (isActive ? inAnimation : outAnimation)} 1.1s
+    ease;
 `;
 
 const UpperWrapper = styled.div`
-  width: 1200px;
+  padding-top: 50px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
 `;
 
 const EnglishQuote = styled.blockquote`
@@ -51,8 +75,16 @@ const EnglishQuote = styled.blockquote`
   margin-left: 0;
   padding: 0;
   color: ${theme.color.gray100};
-  white-space: pre;
+  white-space: pre-line;
   font-family: 'PT Serif', serif;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 2.5rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const EnglishParagraph = styled.p`
@@ -68,22 +100,19 @@ const EnglishCite = styled.cite`
 `;
 
 const DownWrapper = styled.div`
-  width: 1200px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  @media screen and (max-width: 768px) {
-    width: 100%;
-  }
 `;
 
 const KoreanQuote = styled.blockquote`
   margin: 0;
   color: ${theme.color.gray100};
   display: inline;
-  white-space: pre;
+  white-space: pre-line;
   position: relative;
+
   :before {
     content: '';
     background-color: ${theme.color.gray100};
@@ -95,4 +124,10 @@ const KoreanQuote = styled.blockquote`
   }
 `;
 
-const KoreanParagraph = styled.p``;
+const KoreanParagraph = styled.p`
+  padding-bottom: 20px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+`;

@@ -1,5 +1,5 @@
 import { atom, selector } from 'recoil';
-import { isObjectEmpty } from 'src/utils/isObjectEmpty';
+import { isAnyPropertyEmpty } from 'src/utils/isAnyPropertyEmpty';
 import { ArticleElement, ViewArticleElement } from 'src/types/article';
 
 export const articleState = atom<ArticleElement>({
@@ -45,11 +45,22 @@ export const writeStates = atom<'create' | 'update'>({
   default: 'create',
 });
 
-export const articleValidationState = selector<boolean>({
-  key: 'articleValidationState',
+export const articleValidationFirstStep = selector<boolean>({
+  key: 'articleValidationFirstStep',
   get: ({ get }) => {
-    const article = get(articleState);
-    const isEmpty = isObjectEmpty(article);
+    const { title, content } = get(articleState);
+    const firstObject = { title, content };
+    const isEmpty = isAnyPropertyEmpty(firstObject);
+    return isEmpty;
+  },
+});
+
+export const articleValidationSecondStep = selector<boolean>({
+  key: 'articleValidationSecondStep',
+  get: ({ get }) => {
+    const { imgUrl, tags, description } = get(articleState);
+    const secondObject = { imgUrl, tags, description };
+    const isEmpty = isAnyPropertyEmpty(secondObject);
     return isEmpty;
   },
 });

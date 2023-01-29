@@ -19,9 +19,12 @@ export default class DBUtils {
     console.log('CONNECTED TO MONGO IN ARTICLE PAGE');
   }
 
-  async find() {
+  async find(category: string) {
     console.log('FETCHING DATA IN ARTICLE PAGE');
-    const res = await this.model.find();
+    const res = await this.model
+      .find({ category })
+      .sort({ createdAt: -1 })
+      .hint({ category: 1, createdAt: -1 });
     console.log('FETCHED DATA IN ARTICLE PAGE');
 
     return JSON.parse(JSON.stringify(res));
@@ -33,8 +36,8 @@ export default class DBUtils {
     return JSON.parse(JSON.stringify(res));
   }
 
-  async findArticleWithBluredURL() {
-    const articles = await this.find();
+  async findArticleWithBluredURL(category: string) {
+    const articles = await this.find(category);
 
     const articlesWithBlurURL = await Promise.all(
       articles.map(async (article: ViewArticleElement) => {
@@ -46,8 +49,8 @@ export default class DBUtils {
     return articlesWithBlurURL;
   }
 
-  async findArticlePaths() {
-    const articles = await this.find();
+  async findArticlePaths(category: string) {
+    const articles = await this.find(category);
 
     const paths = articles.map((article: ViewArticleElement) => {
       if (article._id) return { params: { id: article._id.toString() } };
