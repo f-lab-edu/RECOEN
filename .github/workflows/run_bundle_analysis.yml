@@ -33,7 +33,7 @@ jobs:
       - name: Build next.js app
         run: yarn build
         env:
-          MONGO_URI: ${{ secrets.MONGO_URI }}
+          MONGO_URI: ${{ env.MONGO_URI }}
 
       - name: Analyze bundle
         run: npx -p nextjs-bundle-analysis report
