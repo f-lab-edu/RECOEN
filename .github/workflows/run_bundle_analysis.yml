@@ -13,12 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Show env variables
-        run: |
-          echo "Environment Variables:"
-          echo "MONGO_URI=${{secrets.MONGO_URI}}"
-          echo "MONGO_URI=${{env.MONGO_URI}}"
-
       - name: Set up node
         uses: actions/setup-node@v3
         with:
@@ -39,7 +33,7 @@ jobs:
       - name: Build next.js app
         run: yarn build
         env:
-          MONGO_URI: ${{ env.MONGO_URI }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
 
       - name: Analyze bundle
         run: npx -p nextjs-bundle-analysis report

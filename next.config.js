@@ -21,9 +21,6 @@ const nextConfig = {
 
     return config;
   },
-  // env: {
-  //   MONGO_URI: process.env.MONGO_URI,
-  // },
 };
 
 const sentryWebpackPluginOptions = {
