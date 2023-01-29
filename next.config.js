@@ -13,7 +13,7 @@ const nextConfig = {
     hideSourceMaps: true,
   },
   env: {
-    MONGO_URI: JSON.stringify(process.env.MONGO_URI),
+    MONGO_URI: process.env.MONGO_URI,
   },
 };
 
