@@ -33,7 +33,6 @@ jobs:
       - name: Show env variables
           run: |
             echo "Environment Variables:"
-            echo "MONGO_URI=${secrets.MONGO_URI}"
             echo "MONGO_URI=${{secrets.MONGO_URI}}"
 
       - name: Build next.js app
