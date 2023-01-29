@@ -17,6 +17,7 @@ jobs:
         run: |
           echo "Environment Variables:"
           echo "MONGO_URI=${{secrets.MONGO_URI}}"
+          echo "MONGO_URI=${{env.MONGO_URI}}"
 
       - name: Set up node
         uses: actions/setup-node@v3
