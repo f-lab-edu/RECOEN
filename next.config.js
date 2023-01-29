@@ -12,6 +12,9 @@ const nextConfig = {
   sentry: {
     hideSourceMaps: true,
   },
+  env: {
+    MONGO_URI: JSON.stringify(process.env.MONGO_URI),
+  },
 };
 
 const sentryWebpackPluginOptions = {
