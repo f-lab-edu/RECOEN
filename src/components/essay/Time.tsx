@@ -21,7 +21,7 @@ export default Time;
 const DateContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   @media screen and (max-width: 768px) {
     display: none;
   }

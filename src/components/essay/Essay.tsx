@@ -16,21 +16,23 @@ const Essay = ({ article }: Props) => {
     <StyledLink data-testid="essay" href={`/essay/${article._id}`}>
       <Time createdAt={article.createdAt} />
       <Wrapper>
-        <Title aria-label={`제목 : ${article.title}`}>{article.title}</Title>
-        <Desc aria-label={`설명문 : ${article.description}`}>
-          {article.description}
-        </Desc>
+        <Box>
+          <Title aria-label={`제목 : ${article.title}`}>{article.title}</Title>
+          <Desc aria-label={`설명문 : ${article.description}`}>
+            {article.description}
+          </Desc>
+        </Box>
+        <ImageWrapper>
+          <Image
+            src={article.imgUrl}
+            alt="Thumbnail of essay-article"
+            placeholder="blur"
+            blurDataURL={article.blurDataURL}
+            fill
+            style={{ objectFit: 'cover', borderRadius: '8px' }}
+          />
+        </ImageWrapper>
       </Wrapper>
-      <ImageWrapper>
-        <Image
-          src={article.imgUrl}
-          alt="Thumbnail of essay-article"
-          placeholder="blur"
-          blurDataURL={article.blurDataURL}
-          fill
-          style={{ objectFit: 'cover', borderRadius: '8px' }}
-        />
-      </ImageWrapper>
     </StyledLink>
   );
 };
@@ -38,8 +40,8 @@ const Essay = ({ article }: Props) => {
 export default Essay;
 
 const StyledLink = styled(Link)`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
   padding: 60px 0;
   border-bottom: 2px solid ${theme.color.gray200};
   color: ${theme.color.gray100};
@@ -47,6 +49,10 @@ const StyledLink = styled(Link)`
 
   :hover {
     color: ${theme.color.white};
+  }
+
+  @media screen and (max-width: 1200px) {
+    display: flex;
   }
 `;
 
@@ -61,12 +67,17 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Wrapper = styled.article`
+const Box = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   max-width: 600px;
   padding: 0 30px;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Title = styled.h2`
