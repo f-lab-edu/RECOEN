@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   GetStaticProps,
   GetStaticPropsContext,
@@ -6,84 +6,48 @@ import {
 } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 
-import ProgrammingArticleModel from 'pages/api/models/programmingArticleModel';
+import ArticleCollection from 'pages/api/models/articleCollectionModel';
 import DBUtils from 'src/utils/dbUtils';
 
-import { useSetRecoilState, useResetRecoilState } from 'recoil';
-import { detailPageState } from 'src/recoil/article';
-import { ViewArticleElement } from 'src/types/article';
-import { MDXRemote } from 'next-mdx-remote';
+import { useSettingDetailPage } from 'src/hooks';
 
 import MDXTag from 'src/components/article/article-detail/MDXTag';
-import ArticleDetail from 'src/components/article/article-detail/ArticleDetail';
-import ArticleDetailTitle from 'src/components/article/article-detail/ArticleDetailTitle/ArticleDetailTitle';
-import Head from 'src/components/Head';
-import Image from 'next/image';
-
-import { useRouter } from 'next/router';
+import DetailPageContainer from 'src/components/container/DetailPageContainer';
 
 interface IPrams extends ParsedUrlQuery {
   id: string;
 }
 
-const Article = ({
+const ProgrammingDetailPage = ({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const setDetailStates = useSetRecoilState(detailPageState);
-  const resetDetailStates = useResetRecoilState(detailPageState);
-  const router = useRouter();
-
-  useEffect(() => {
-    const detailStates: ViewArticleElement = {
-      _id: article._id,
-      title: article.title,
-      content: article.content,
-      imgUrl: article.imgUrl,
-      description: article.description,
-      tags: article.tags,
-      createdAt: article.createdAt,
-      blurDataURL: article.blurDataURL,
-      category: article.category,
-    };
-    setDetailStates(detailStates);
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      router.beforePopState(() => {
-        resetDetailStates();
-        return true;
-      });
-    };
-  }, []);
+  useSettingDetailPage(article);
 
   return (
-    <>
-      <Head article={article} />
-      <ArticleDetail
-        mdxTitle={<ArticleDetailTitle article={article} />}
-        image={
-          <Image
-            src={article.imgUrl}
-            alt="Hero Image"
-            blurDataURL={article.blurDataURL}
-            fill
-            style={{ objectFit: 'cover', objectPosition: 'top top' }}
-          />
-        }
-        mdxRemote={<MDXRemote {...article.MDXcontent} components={MDXTag} />}
-      />
-    </>
+    <DetailPageContainer>
+      <DetailPageContainer.Head article={article} />
+      <DetailPageContainer.TitleWrapper>
+        <DetailPageContainer.Title article={article} />
+      </DetailPageContainer.TitleWrapper>
+      <DetailPageContainer.Hr />
+      <DetailPageContainer.ContentWrapper>
+        <DetailPageContainer.Thunbnail article={article} />
+        <DetailPageContainer.Content
+          {...article.MDXcontent}
+          components={MDXTag}
+        />
+      </DetailPageContainer.ContentWrapper>
+    </DetailPageContainer>
   );
 };
 
-export default Article;
+export default ProgrammingDetailPage;
 
 export const getStaticPaths = async () => {
   try {
-    const programmingDB = await new DBUtils(ProgrammingArticleModel);
-    await programmingDB.setUp();
-    const paths = await programmingDB.findArticlePaths();
+    const articleDB = await new DBUtils(ArticleCollection);
+    await articleDB.setUp();
+    const paths = await articleDB.findArticlePaths('programming');
 
     return {
       paths,
@@ -101,7 +65,7 @@ export const getStaticProps: GetStaticProps = async (
   try {
     const { id } = context.params as IPrams;
 
-    const programmingDB = await new DBUtils(ProgrammingArticleModel);
+    const programmingDB = await new DBUtils(ArticleCollection);
     await programmingDB.setUp();
     const article = await programmingDB.getMDXContent(id);
 
@@ -109,6 +73,7 @@ export const getStaticProps: GetStaticProps = async (
       props: {
         article,
       },
+      revalidate: 10, // In seconds
     };
   } catch (err) {
     console.log(err);

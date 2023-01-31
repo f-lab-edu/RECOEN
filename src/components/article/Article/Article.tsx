@@ -2,47 +2,40 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArticleCategory } from 'src/types/article';
+import { ViewArticleElement } from 'src/types/article';
 import { convertDateFormat } from 'src/utils';
 
 interface Props {
-  title: string;
-  description: string;
-  path: string;
-  imgUrl: string;
-  blurDataURL: string;
-  createdAt: string;
-  category: ArticleCategory;
+  article: ViewArticleElement;
 }
 
-const Article = ({
-  title,
-  description,
-  path,
-  imgUrl,
-  blurDataURL,
-  createdAt,
-  category,
-}: Props) => {
+const Article = ({ article }: Props) => {
   return (
-    <StyledLink data-testid="article" href={`/${category}/${path}`}>
+    <StyledLink
+      data-testid="article"
+      href={`/${article.category}/${article._id}`}
+    >
       <Container>
         <ImageWrapper>
           <Image
-            src={imgUrl}
+            src={article.imgUrl}
             alt="Thumbnail of article"
             placeholder="blur"
-            blurDataURL={blurDataURL}
+            blurDataURL={article.blurDataURL}
             fill
             style={{ objectFit: 'cover' }}
           />
         </ImageWrapper>
         <Wrapper>
           <div>
-            <Title aria-label={`제목 : ${title}`}>{title}</Title>
-            <Desc aria-label={`설명문 : ${description}`}>{description}</Desc>
+            <Title aria-label={`제목 : ${article.title}`}>
+              {article.title}
+            </Title>
+            <Desc aria-label={`설명문 : ${article.description}`}>
+              {article.description}
+            </Desc>
           </div>
-          <Date>{convertDateFormat(createdAt)}</Date>
+          <Date>{convertDateFormat(article.createdAt)}</Date>
         </Wrapper>
       </Container>
     </StyledLink>
@@ -65,7 +58,6 @@ const Container = styled.article`
   flex-direction: column;
   cursor: pointer;
   margin: 0;
-  align-items: center;
 
   @media screen and (max-width: 768px) {
     width: 315px;

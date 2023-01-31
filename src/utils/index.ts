@@ -2,4 +2,5 @@ export * from './compressImage';
 export * from './getTags';
 export * from './convertDateFormat';
 export * from './getPathname';
-export * from './isObjectEmpty';
+export * from './isAnyPropertyEmpty';
+export * from './getDayMonth';

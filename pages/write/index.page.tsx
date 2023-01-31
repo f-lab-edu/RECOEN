@@ -13,8 +13,8 @@ const WritePage = () => {
   const { data: session, status } = useSession();
 
   if (status === 'unauthenticated') handleOpenModal('UNAUTH'); // TODO : 모달 구현방식 리팩토링 한 다음 권한 없음에 대한 모달 다시 띄우기
-  if (resolution == 'DESKTOP') return <WritePageContainer />;
 
+  if (resolution == 'DESKTOP') return <WritePageContainer />;
   return <MobileWritePage />;
 };
 

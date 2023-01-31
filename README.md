@@ -100,13 +100,13 @@ export const getTags = pipe(pluck('tags'), flatten, uniq);
 ```
 
 ```javascript
-// isObjectEmpty 유틸
+// isAnyPropertyEmpty 유틸
 import pipe from 'ramda/src/pipe';
 import values from 'ramda/src/values';
 import isEmpty from 'ramda/src/isEmpty';
 import any from 'ramda/src/any';
 
-export const isObjectEmpty = pipe(values, any(isEmpty));
+export const isAnyPropertyEmpty = pipe(values, any(isEmpty));
 ```
 
 ```javascript
