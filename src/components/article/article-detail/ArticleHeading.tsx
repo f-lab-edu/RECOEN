@@ -38,6 +38,10 @@ const H2 = styled.h2`
     color: #57a1f8;
     text-decoration: none;
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.6rem;
+  }
 `;
 
 export const MDXThirdHead: React.FC<any> = (props) => {
@@ -60,6 +64,10 @@ const H3 = styled.h3`
     color: #57a1f8;
     text-decoration: none;
   }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const MDXForthHead: React.FC<any> = (props) => {
@@ -71,7 +79,7 @@ export const MDXForthHead: React.FC<any> = (props) => {
   );
 };
 
-const H4 = styled.h3`
+const H4 = styled.h4`
   font-weight: 400;
   font-size: 1.1rem;
   margin: 16px 0px;
@@ -79,5 +87,9 @@ const H4 = styled.h3`
   & a {
     color: #57a1f8;
     text-decoration: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
   }
 `;

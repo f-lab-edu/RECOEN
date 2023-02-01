@@ -23,6 +23,9 @@ const Text = styled.h1<StyleProps>`
     font-size: 2.5rem;
     position: absolute;
     top: 0;
+    @media screen and (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
 
   @media screen and (max-width: 768px) {
