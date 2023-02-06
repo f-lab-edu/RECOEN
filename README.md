@@ -9,38 +9,37 @@
 
 클라이언트 :
 
-- React
-- TypeScript
-- Emotion(CSS)
-- Recoil
-- Nextjs
-- Ramdajs
+- React : 컴포넌트 기반의 UI 라이브러리로써, vuejs보다는 높은 자율성을 가지며, 풍성한 생태계를 가지고 있다는 점에서 선택하게 되었습니다.
+- TypeScript : 정적 타입 검사를 통한 안정성과 타입 인텔리센스를 통한 생산성을 높이기 위해 사용했습니다.
+- Emotion(CSS) : 가독성 높고, 응집성있는 스타일을 작성하기 위해 css-in-js 라이브러리를 선택했습니다. 그 중에서도 emotionjs를 사용한 이유는
+- Recoil : 전역 상태를 관리하기 위한 라이브러리로써, Redux와 비교했을 때, 더욱 간결하고, 상태를 작은 단위로 활용하기에 용이함이 있다고 생각해 사용했습니다.
+- Nextjs : 서버사이드 렌더링을 지원하기 위하여 사용했습니다. 또한, 빌드 시간을 단축시키고, 빌드된 파일을 캐싱하여 빠른 로딩을 지원하기 위해 사용했습니다.
+- Ramdajs : 함수형 프로그래밍을 위해 사용했습니다. 불변성을 지키면서, 코드의 가독성을 높이기 위해 사용했습니다.
 
 서버 :
 
-- Node.js
+- Node.js : 자바스크립트를 사용하여 서버를 구축하기 위해 사용했습니다.
 
 테스팅 도구 :
 
-- Jest
-- React-testing-library
-- Cypress (E2E)
+- Jest : 테스트 코드를 작성하기 위해 사용했습니다.
+- React-testing-library : 컴포넌트 단위의 테스트 코드를 작성하기 위해 사용했습니다.
+- Cypress (E2E) : E2E 테스트를 위해 사용했습니다. playwright와 비교를 해본 결과 속도적인 측면에선 상대적으로 느리다는 단점이 있었지만, 퀄리티 높은 공식문서와 잘 구성되어 있는 커뮤니티를 통해 더욱 빠른 학습 및 문제를 해결할 수 있다는 점에서 cypress를 선택하게 되었습니다.
 
 기능 구현에 사용한 도구 :
 
-- axios
-- next-auth
-- next-connect
-- next-mdx-remote
-- next-s3-upload
-- toast-ui/editor
-- sharp
-- plaiceholder
-- mongoose
+- axios : HTTP 통신을 위해 사용했습니다.
+- next-auth : 소셜 로그인을 손쉽게 구현하기 위해 사용했습니다.
+- next-connect : nextjs의 api 기능을 사용할 때 더욱 효율적으로 작성하기 위해 미들웨어 라이브러리로 사용했습니다.
+- next-mdx-remote : 디테일 페이지에서 mdx를 사용하기 위해 사용했습니다.
+- next-s3-upload : 손쉽게 S3에 이미지를 업로드하기 위해 사용했습니다.
+- toast-ui/editor : 여러 에디터 라이브러리 중 지속적으로 관리되고 있으며 한글로 친절하게 공식문서가 작성되어 있기에 선택했습니다.
+- plaiceholder : 이미지 최적화를 위하여 lazy 로딩을 사용시, blur 이미지를 제공하기 위해서 사용했습니다.
+- mongoose : MongoDB를 사용하기 위해 사용했습니다.
 
 에러 트래킹에 사용한 도구 :
 
-- sentry
+- sentry : 효율적으로 에러 트래킹을 위해 사용했습니다.
 
 DB :
 
