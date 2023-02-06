@@ -1,9 +1,10 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import Link from 'next/link';
 
 import { theme } from 'src/style';
+import { useSetBarWidth } from 'src/hooks';
 
 export interface Props {
   isActive: boolean;
@@ -13,14 +14,7 @@ export interface Props {
 }
 
 const NavBarItem = ({ isActive, path, title, name }: Props) => {
-  const ref = useRef<HTMLAnchorElement>(null);
-  const [barWidth, setBarWidth] = useState<number>();
-
-  useEffect(() => {
-    if (ref.current) {
-      setBarWidth(ref.current.offsetWidth - 2);
-    }
-  }, [ref]);
+  const { ref, barWidth } = useSetBarWidth();
 
   return (
     <li>
