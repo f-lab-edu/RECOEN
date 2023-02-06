@@ -38,6 +38,6 @@ export type HandleArticleElementFunction = (
 
 export type SaveArticleFunction = (
   data: ArticleElement,
-) => (category: ArticleCategory) => Promise<AxiosResponse<any, any>>;
+) => Promise<AxiosResponse<any, any>>;
 
-export type ArticleCategory = 'programming' | 'book';
+export type ArticleCategory = 'programming' | 'book' | 'essay';

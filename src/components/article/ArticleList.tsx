@@ -1,39 +1,26 @@
 import React from 'react';
-
-import Article from './Article/Article';
 import Grid from 'src/components/ui/Grid';
 
 import { ViewArticleElement } from 'src/types/article';
-import { ArticleCategory } from 'src/types/article';
 import { useRecoilValue } from 'recoil';
 import { filteredArticleStates } from 'src/recoil/article';
 
 interface Props {
   articles: ViewArticleElement[];
-  category: ArticleCategory;
+  renderListItem: (article: ViewArticleElement) => JSX.Element;
 }
 
-const ArticleList = ({ articles, category }: Props) => {
+const ArticleList = ({ articles, renderListItem }: Props) => {
   const filteredArticles = useRecoilValue(filteredArticleStates);
+  const getCategory = (articles: ViewArticleElement[]) => {
+    return articles[0].category;
+  };
+
   return (
-    <Grid>
+    <Grid category={getCategory(articles)}>
       <>
         {(filteredArticles.length ? filteredArticles : articles).map(
-          (article: ViewArticleElement) => {
-            if (!article._id) return;
-            return (
-              <Article
-                key={article._id}
-                path={encodeURI(article._id)}
-                title={article.title}
-                imgUrl={article.imgUrl}
-                description={article.description}
-                blurDataURL={article.blurDataURL}
-                createdAt={article.createdAt}
-                category={category}
-              />
-            );
-          },
+          (article: ViewArticleElement) => renderListItem(article),
         )}
       </>
     </Grid>
