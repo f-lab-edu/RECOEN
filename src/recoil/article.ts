@@ -40,8 +40,8 @@ export const detailPageState = atom<ViewArticleElement>({
   },
 });
 
-export const writeStates = atom<'create' | 'update'>({
-  key: 'writeStates',
+export const writeStatus = atom<'create' | 'update'>({
+  key: 'writeStatus',
   default: 'create',
 });
 

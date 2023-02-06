@@ -9,14 +9,14 @@ import { articleState } from 'src/recoil/article';
 import ArticleCollectionModel from 'pages/api/models/articleCollectionModel';
 import WritePageContainer from 'src/components/container/WritePageContainer';
 
-import { writeStates } from 'src/recoil/article';
+import { writeStatus } from 'src/recoil/article';
 import { useRouter } from 'next/router';
 
 const UpdatePage = ({
   article,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const setArticle = useSetRecoilState(articleState);
-  const setWriteState = useSetRecoilState(writeStates);
+  const setWriteState = useSetRecoilState(writeStatus);
   const resetDetailStates = useResetRecoilState(articleState);
   const { query } = useRouter();
 

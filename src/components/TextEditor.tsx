@@ -32,7 +32,7 @@ const TextEditor: React.FC<Props> = ({ useArticleElement }) => {
   useEffect(() => {
     if (!editorRef.current) return;
     editorRef.current.getInstance().setMarkdown(articleElements.content);
-  }, []);
+  }, [editorRef.current]);
 
   return (
     <Editor
