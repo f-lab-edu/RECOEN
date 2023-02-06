@@ -49,7 +49,15 @@ DB :
 
 ## 기능소개 :
 
-|
+|기능|스크린샷|
+|-|-|
+|로그인|스크린샷 추가예정|
+|새글작성|스크린샷 추가예정|
+|게시글수정|스크린샷 추가예정|
+|게시글삭제|![delete_AdobeExpress](https://user-images.githubusercontent.com/71473074/217035934-d5e5cc03-4864-43ba-bcaa-e5b46b1c298e.gif)|
+|슬라이더|![slider_AdobeExpress](https://user-images.githubusercontent.com/71473074/217035706-5017f659-f078-46de-85aa-82556120f74f.gif)|
+
+
 
 <br>
 
