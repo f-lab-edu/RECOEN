@@ -2,9 +2,8 @@ import { render, act } from '@testing-library/react';
 import LoginButton from './LoginButton';
 
 import { RecoilRoot } from 'recoil';
-import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilObserver, mockUseSession } from 'src/utils';
 import { modalState } from 'src/recoil/modal';
-import { mockUseSession } from 'src/utils/test-utils';
 
 jest.mock('next-auth/react');
 

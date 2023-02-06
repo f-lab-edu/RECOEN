@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import ImageUpload from './ImageUpload';
 
-import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilObserver } from 'src/utils';
 import { RecoilRoot } from 'recoil';
 import { articleState } from 'src/recoil/article';
 import { useArticleElement } from 'src/hooks';

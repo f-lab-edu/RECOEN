@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import WritePageMenu from './WritePageMenu';
-import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilObserver } from 'src/utils';
 import { RecoilRoot } from 'recoil';
 import { modalState } from 'src/recoil/modal';
 

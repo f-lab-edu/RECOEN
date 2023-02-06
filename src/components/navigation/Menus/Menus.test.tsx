@@ -4,7 +4,7 @@ import Menus from './Menus';
 import { useSession } from 'next-auth/react';
 
 import { RecoilRoot } from 'recoil';
-import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilObserver } from 'src/utils';
 import { modalState } from 'src/recoil/modal';
 
 jest.mock('next/router', () => ({

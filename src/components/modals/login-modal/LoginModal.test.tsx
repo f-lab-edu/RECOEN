@@ -2,7 +2,7 @@ import { render, act } from '@testing-library/react';
 import LoginModal from 'src/components/modals/login-modal/LoginModal';
 import { signIn } from 'next-auth/react';
 
-import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilObserver } from 'src/utils';
 import { RecoilRoot } from 'recoil';
 import { modalState } from 'src/recoil/modal';
 

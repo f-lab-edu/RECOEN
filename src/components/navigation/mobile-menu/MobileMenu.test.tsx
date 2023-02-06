@@ -2,9 +2,8 @@ import { render, act, waitFor, screen } from '@testing-library/react';
 import MobileMenu from './MobileMenu';
 
 import { RecoilRoot } from 'recoil';
-import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilObserver, mockRouter } from 'src/utils';
 import { modalState } from 'src/recoil/modal';
-import { mockRouter } from 'src/utils/test-utils';
 
 jest.mock('src/utils/getPathname');
 

@@ -4,3 +4,4 @@ export * from './convertDateFormat';
 export * from './getPathname';
 export * from './isAnyPropertyEmpty';
 export * from './getDayMonth';
+export * from './test-utils';

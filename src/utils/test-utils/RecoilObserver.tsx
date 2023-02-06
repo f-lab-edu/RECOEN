@@ -6,10 +6,8 @@ type Props = {
   onChange: (value: RecoilState<any>) => void;
 };
 
-const RecoilObserver: React.FC<Props> = ({ node, onChange }) => {
+export const RecoilObserver: React.FC<Props> = ({ node, onChange }) => {
   const value = useRecoilValue(node);
   useEffect(() => onChange(value), [onChange, value]);
   return null;
 };
-
-export default RecoilObserver;
