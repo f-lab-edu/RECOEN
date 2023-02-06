@@ -1,42 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { connectMongo } from 'pages/api/middlewares/connectMongo';
 
-import { useSetRecoilState, useResetRecoilState } from 'recoil';
-import { articleState } from 'src/recoil/article';
-
 import ArticleCollectionModel from 'pages/api/models/articleCollectionModel';
 import WritePageContainer from 'src/components/container/WritePageContainer';
 
-import { writeStatus } from 'src/recoil/article';
-import { useRouter } from 'next/router';
+import { useSettingUpdatePage } from 'src/hooks';
 
 const UpdatePage = ({
   article,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const setArticle = useSetRecoilState(articleState);
-  const setWriteState = useSetRecoilState(writeStatus);
-  const resetDetailStates = useResetRecoilState(articleState);
-  const { query } = useRouter();
-
-  useEffect(() => {
-    const articleState = {
-      _id: article._id,
-      title: article.title,
-      content: article.content,
-      imgUrl: article.imgUrl,
-      description: article.description,
-      tags: article.tags,
-      category: article.category,
-    };
-    setArticle(articleState);
-
-    if (query.type !== 'update') return;
-    setWriteState(query.type);
-
-    return () => resetDetailStates();
-  }, []);
+  useSettingUpdatePage(article);
 
   return <WritePageContainer />;
 };
