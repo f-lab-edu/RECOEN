@@ -24,7 +24,6 @@
     "@toast-ui/editor": "^3.2.1",
     "@toast-ui/react-editor": "^3.2.2",
     "axios": "^0.27.2",
-    "browser-image-compression": "^2.0.0",
     "dotenv": "^16.0.3",
     "mongoose": "^6.6.1",
     "next": "latest",
