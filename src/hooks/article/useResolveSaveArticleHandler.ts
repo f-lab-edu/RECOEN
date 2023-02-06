@@ -1,5 +1,5 @@
 import { useRecoilValue } from 'recoil';
-import { articleState, writeStates } from 'src/recoil/article';
+import { articleState, writeStatus } from 'src/recoil/article';
 
 import { SaveArticleFunction, ArticleElement } from 'src/types/article';
 import { createArticle, updateArticle } from 'src/apis';
@@ -8,7 +8,7 @@ import { useHandleSuccess } from './useHandleSuccess';
 export const useResolveSaveArticleHandler = () => {
   const articleElements = useRecoilValue(articleState);
   const handleSuccess = useHandleSuccess(articleElements.category);
-  const writeState = useRecoilValue(writeStates);
+  const writeState = useRecoilValue(writeStatus);
 
   const makeSaveArticleHandler =
     (articleElements: ArticleElement, handleSuccess: () => void) =>
