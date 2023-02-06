@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import { theme } from 'src/style';
 
-interface Props {
+export interface Props {
   isActive: boolean;
   path: string;
   title: string;
@@ -72,6 +72,8 @@ const Item = styled.a<StyleProps>`
   color: #bababa;
   cursor: pointer;
   position: relative;
+  ${({ isActive }) => isActive && `color: ${theme.color.primary}`};
+
   :hover {
     color: ${theme.color.primary};
     ::after {
