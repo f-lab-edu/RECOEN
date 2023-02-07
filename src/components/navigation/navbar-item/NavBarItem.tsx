@@ -1,11 +1,12 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
 import Link from 'next/link';
 
 import { theme } from 'src/style';
+import { useSetBarWidth } from 'src/hooks';
 
-interface Props {
+export interface Props {
   isActive: boolean;
   path: string;
   title: string;
@@ -13,14 +14,7 @@ interface Props {
 }
 
 const NavBarItem = ({ isActive, path, title, name }: Props) => {
-  const ref = useRef<HTMLAnchorElement>(null);
-  const [barWidth, setBarWidth] = useState<number>();
-
-  useEffect(() => {
-    if (ref.current) {
-      setBarWidth(ref.current.offsetWidth - 2);
-    }
-  }, [ref]);
+  const { ref, barWidth } = useSetBarWidth();
 
   return (
     <li>
@@ -72,6 +66,8 @@ const Item = styled.a<StyleProps>`
   color: #bababa;
   cursor: pointer;
   position: relative;
+  ${({ isActive }) => isActive && `color: ${theme.color.primary}`};
+
   :hover {
     color: ${theme.color.primary};
     ::after {

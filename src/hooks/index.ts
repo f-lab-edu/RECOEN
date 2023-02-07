@@ -5,3 +5,4 @@ export * from './useViewportWidth';
 export * from './useArticleElement';
 export * from './detail-page/useSettingDetailPage';
 export * from './article';
+export * from './useSetBarWidth';

@@ -4280,7 +4280,6 @@ __metadata:
     "@yarnpkg/sdks": ^3.0.0-rc.22
     axios: ^0.27.2
     babel-loader: ^8.2.5
-    browser-image-compression: ^2.0.0
     cypress: ^12.3.0
     cypress-social-logins: ^1.14.0
     dotenv: ^16.0.3
@@ -5047,15 +5046,6 @@ __metadata:
     rimraf: 3.0.2
     unload: 2.2.0
   checksum: 803794c48dcce7f03aca69797430bd8b1c4cfd70b7de22079cd89567eeffaa126a1db98c7c2d86af8131d9bb41ed367c0fef96dfb446151c927b831572c621fc
-  languageName: node
-  linkType: hard
-
-"browser-image-compression@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "browser-image-compression@npm:2.0.0"
-  dependencies:
-    uzip: 0.20201231.0
-  checksum: c95b3ad5d6d32999d5e8cd04c7de9e071a301644ed561f001a18d4fbd5202925daeba14d8bf98ff5965fefc21c63f7a3cbb1879bf754d68654f72f492916d13c
   languageName: node
   linkType: hard
 
@@ -13969,13 +13959,6 @@ __metadata:
   bin:
     uvu: bin.js
   checksum: 09460a37975627de9fcad396e5078fb844d01aaf64a6399ebfcfd9e55f1c2037539b47611e8631f89be07656962af0cf48c334993db82b9ae9c3d25ce3862168
-  languageName: node
-  linkType: hard
-
-"uzip@npm:0.20201231.0":
-  version: 0.20201231.0
-  resolution: "uzip@npm:0.20201231.0"
-  checksum: 34253f4c3d996571b10b659eea415bec952bde940e1fd44090ce19687b6dbaae411d8e6321b9028e44aa442379659d71bb39e95ba15de0626cfe970d90b24f40
   languageName: node
   linkType: hard
 

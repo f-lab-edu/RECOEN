@@ -1,7 +1,7 @@
 import { render, fireEvent } from '@testing-library/react';
 import TagInput from './TagInput';
 import { matchers } from '@emotion/jest';
-import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilObserver } from 'src/utils';
 import { RecoilRoot } from 'recoil';
 import { articleState } from 'src/recoil/article';
 

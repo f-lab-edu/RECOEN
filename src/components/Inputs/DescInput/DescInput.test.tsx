@@ -1,7 +1,7 @@
 import { render, fireEvent, act } from '@testing-library/react';
 import DescInput from './DescInput';
 import { matchers } from '@emotion/jest';
-import RecoilObserver from 'src/components/RecoilObserver';
+import { RecoilObserver } from 'src/utils';
 import { RecoilRoot } from 'recoil';
 import { articleState } from 'src/recoil/article';
 

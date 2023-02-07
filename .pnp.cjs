@@ -63,7 +63,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/sdks", "npm:3.0.0-rc.22"],\
             ["axios", "npm:0.27.2"],\
             ["babel-loader", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:8.2.5"],\
-            ["browser-image-compression", "npm:2.0.0"],\
             ["cypress", "npm:12.3.0"],\
             ["cypress-social-logins", "npm:1.14.0"],\
             ["dotenv", "npm:16.0.3"],\
@@ -5447,7 +5446,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@yarnpkg/sdks", "npm:3.0.0-rc.22"],\
             ["axios", "npm:0.27.2"],\
             ["babel-loader", "virtual:091eb689b5e337eef090d9df6ccd88646a06674b17d76b1d2ef2ef7ca355046d2163e999cbed9f2521c92cbd369ab95e4450f88a0292c275d772cb6ae357bb59#npm:8.2.5"],\
-            ["browser-image-compression", "npm:2.0.0"],\
             ["cypress", "npm:12.3.0"],\
             ["cypress-social-logins", "npm:1.14.0"],\
             ["dotenv", "npm:16.0.3"],\
@@ -6409,16 +6407,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["oblivious-set", "npm:1.0.0"],\
             ["rimraf", "npm:3.0.2"],\
             ["unload", "npm:2.2.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["browser-image-compression", [\
-        ["npm:2.0.0", {\
-          "packageLocation": "./.yarn/cache/browser-image-compression-npm-2.0.0-d41d5989f6-c95b3ad5d6.zip/node_modules/browser-image-compression/",\
-          "packageDependencies": [\
-            ["browser-image-compression", "npm:2.0.0"],\
-            ["uzip", "npm:0.20201231.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16719,15 +16707,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["diff", "npm:5.1.0"],\
             ["kleur", "npm:4.1.5"],\
             ["sade", "npm:1.8.1"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["uzip", [\
-        ["npm:0.20201231.0", {\
-          "packageLocation": "./.yarn/cache/uzip-npm-0.20201231.0-122f770c6a-34253f4c3d.zip/node_modules/uzip/",\
-          "packageDependencies": [\
-            ["uzip", "npm:0.20201231.0"]\
           ],\
           "linkType": "HARD"\
         }]\

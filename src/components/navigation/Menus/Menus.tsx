@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 
-import NavBarItem from '../NavBarItem';
+import NavBarItem from '../navbar-item/NavBarItem';
 import navItems from 'src/fixtures/navItems';
 import LoginButton from './LoginButton';
 
