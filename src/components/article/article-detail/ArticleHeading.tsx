@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeTitleFragment } from 'src/utils/makeTitleFragment';
 import styled from '@emotion/styled';
+import { theme } from 'src/style';
 
 export const MDXFirstHead: React.FC<any> = (props) => {
   const fragment = makeTitleFragment(props.children);
@@ -15,9 +16,10 @@ const H1 = styled.h1`
   font-weight: 400;
   font-size: 3rem;
   margin: 40px 0px;
+  line-height: 40px;
   & a {
-    color: #57a1f8;
     text-decoration: none;
+    line-height: 40px;
   }
 `;
 
@@ -35,7 +37,7 @@ const H2 = styled.h2`
   font-size: 2.3rem;
   margin: 35px 0px;
   & a {
-    color: #57a1f8;
+    color: ${theme.color.white};
     text-decoration: none;
   }
 
@@ -61,7 +63,7 @@ const H3 = styled.h3`
   margin: 20px 0px;
 
   & a {
-    color: #57a1f8;
+    color: ${theme.color.white};
     text-decoration: none;
   }
 
@@ -85,7 +87,7 @@ const H4 = styled.h4`
   margin: 16px 0px;
 
   & a {
-    color: #57a1f8;
+    color: ${theme.color.white};
     text-decoration: none;
   }
 

@@ -18,4 +18,8 @@ export const globalStyles = css`
   a {
     text-decoration: none;
   }
+  /* strong {
+    font-weight: normal;
+    font-style: normal;
+  } */
 `;
