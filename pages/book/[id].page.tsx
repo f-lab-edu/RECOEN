@@ -19,7 +19,7 @@ interface IPrams extends ParsedUrlQuery {
 }
 
 const BookDetailPage = ({
-  article,
+  article = null,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   useSettingDetailPage(article);
 
