@@ -51,11 +51,11 @@ export const getStaticPaths = async () => {
 
     return {
       paths,
-      fallback: false,
+      fallback: 'blocking',
     };
   } catch (error) {
     console.log(error);
-    return { paths: [], fallback: false };
+    return { paths: [], fallback: true };
   }
 };
 
