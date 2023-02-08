@@ -19,7 +19,7 @@ interface IPrams extends ParsedUrlQuery {
 }
 
 const EssayDetailPage = ({
-  article,
+  article = null,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   useSettingDetailPage(article);
 
@@ -73,7 +73,6 @@ export const getStaticProps: GetStaticProps = async (
       props: {
         article,
       },
-      revalidate: 10, // In seconds
     };
   } catch (err) {
     console.log(err);

@@ -40,12 +40,13 @@ const MDXTag = {
   strong: (props: any) => <Strong {...props} />,
   blockquote: (props: any) => <BlockQuote {...props} />,
   li: (props: any) => <List {...props} />,
+  ul: (props: any) => <Ul {...props} />,
 };
 
 export default MDXTag;
 
 const Paragraph = styled.p`
-  color: #aaadbf;
+  color: ${theme.color.gray300};
   font-weight: 300;
   letter-spacing: 0.9px;
   line-height: 25px;
@@ -62,7 +63,7 @@ const Em = styled.em`
 `;
 
 const Strong = styled.strong`
-  color: #ffffff;
+  color: ${theme.color.white};
   font-weight: bold;
 `;
 
@@ -90,5 +91,11 @@ const Quote = styled.blockquote`
 `;
 
 const List = styled.li`
-  color: #aaadbf;
+  color: ${theme.color.gray300};
+  font-weight: 300;
+  margin: 10px 0;
+`;
+
+const Ul = styled.ul`
+  padding-left: 20px;
 `;
