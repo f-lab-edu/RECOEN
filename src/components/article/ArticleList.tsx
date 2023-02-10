@@ -7,7 +7,7 @@ import { filteredArticleStates } from 'src/recoil/article';
 
 interface Props {
   articles: ViewArticleElement[];
-  renderListItem: (article: ViewArticleElement) => JSX.Element;
+  renderListItem: (article: ViewArticleElement, index: number) => JSX.Element;
 }
 
 const ArticleList = ({ articles, renderListItem }: Props) => {
@@ -20,7 +20,8 @@ const ArticleList = ({ articles, renderListItem }: Props) => {
     <Grid category={getCategory(articles)}>
       <>
         {(filteredArticles.length ? filteredArticles : articles).map(
-          (article: ViewArticleElement) => renderListItem(article),
+          (article: ViewArticleElement, index) =>
+            renderListItem(article, index),
         )}
       </>
     </Grid>
