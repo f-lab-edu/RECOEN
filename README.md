@@ -49,16 +49,13 @@ DB :
 
 ## 기능소개
 
-| 기능       | 스크린샷                                                                                                                      |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| 로그인     | ![login_AdobeExpress](https://user-images.githubusercontent.com/71473074/217205151-9c8f7390-86d8-4768-80a7-8eea776cf956.gif)  |
-| 새글작성   | ![new_article_AdobeExpress (1)](https://user-images.githubusercontent.com/71473074/218024244-8757462c-aeb2-44a3-9b01-4140afacb23f.gif)|
-| 게시글수정 | ![update_article_AdobeExpress](https://user-images.githubusercontent.com/71473074/218024268-c26cfc6c-c220-41bc-b32c-672e927b47e4.gif)|
-| 게시글삭제 | ![delete_article_AdobeExpress](https://user-images.githubusercontent.com/71473074/218024275-1c09d22b-376a-45f8-90d9-a54785db07f4.gif) |
-| 슬라이더   | ![slider_AdobeExpress](https://user-images.githubusercontent.com/71473074/217035706-5017f659-f078-46de-85aa-82556120f74f.gif) |
-
-
-
+| 기능       | 스크린샷                                                                                                                               |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 로그인     | ![login_AdobeExpress](https://user-images.githubusercontent.com/71473074/217205151-9c8f7390-86d8-4768-80a7-8eea776cf956.gif)           |
+| 새글작성   | ![new_article_AdobeExpress (1)](https://user-images.githubusercontent.com/71473074/218024244-8757462c-aeb2-44a3-9b01-4140afacb23f.gif) |
+| 게시글수정 | ![update_article_AdobeExpress](https://user-images.githubusercontent.com/71473074/218024268-c26cfc6c-c220-41bc-b32c-672e927b47e4.gif)  |
+| 게시글삭제 | ![delete_article_AdobeExpress](https://user-images.githubusercontent.com/71473074/218024275-1c09d22b-376a-45f8-90d9-a54785db07f4.gif)  |
+| 슬라이더   | ![slider_AdobeExpress](https://user-images.githubusercontent.com/71473074/217035706-5017f659-f078-46de-85aa-82556120f74f.gif)          |
 
 <br>
 
