@@ -9,9 +9,10 @@ import { ViewArticleElement } from 'src/types/article';
 
 interface Props {
   article: ViewArticleElement;
+  index: number;
 }
 
-const Essay = ({ article }: Props) => {
+const Essay = ({ article, index }: Props) => {
   return (
     <StyledLink data-testid="essay" href={`/essay/${article._id}`}>
       <Time createdAt={article.createdAt} />
@@ -30,6 +31,7 @@ const Essay = ({ article }: Props) => {
             blurDataURL={article.blurDataURL}
             fill
             style={{ objectFit: 'cover', borderRadius: '8px' }}
+            loading={index < 3 ? 'eager' : 'lazy'}
           />
         </ImageWrapper>
       </Wrapper>

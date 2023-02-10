@@ -7,9 +7,10 @@ import { convertDateFormat } from 'src/utils';
 
 interface Props {
   article: ViewArticleElement;
+  index: number;
 }
 
-const Article = ({ article }: Props) => {
+const Article = ({ article, index }: Props) => {
   return (
     <StyledLink
       data-testid="article"
@@ -24,6 +25,7 @@ const Article = ({ article }: Props) => {
             blurDataURL={article.blurDataURL}
             fill
             style={{ objectFit: 'cover' }}
+            loading={index < 3 ? 'eager' : 'lazy'}
           />
         </ImageWrapper>
         <Wrapper>
