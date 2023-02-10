@@ -47,22 +47,19 @@ DB :
 
 <br>
 
-## 기능소개 :
+## 기능소개
 
-| 기능       | 스크린샷                                                                                                                      |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| 로그인     | ![login_AdobeExpress](https://user-images.githubusercontent.com/71473074/217205151-9c8f7390-86d8-4768-80a7-8eea776cf956.gif)  |
-| 새글작성   | ![new_article_AdobeExpress (1)](https://user-images.githubusercontent.com/71473074/218024244-8757462c-aeb2-44a3-9b01-4140afacb23f.gif)|
-| 게시글수정 | ![update_article_AdobeExpress](https://user-images.githubusercontent.com/71473074/218024268-c26cfc6c-c220-41bc-b32c-672e927b47e4.gif)|
-| 게시글삭제 | ![delete_article_AdobeExpress](https://user-images.githubusercontent.com/71473074/218024275-1c09d22b-376a-45f8-90d9-a54785db07f4.gif) |
-| 슬라이더   | ![slider_AdobeExpress](https://user-images.githubusercontent.com/71473074/217035706-5017f659-f078-46de-85aa-82556120f74f.gif) |
-
-
-
+| 기능       | 스크린샷                                                                                                                               |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 로그인     | ![login_AdobeExpress](https://user-images.githubusercontent.com/71473074/217205151-9c8f7390-86d8-4768-80a7-8eea776cf956.gif)           |
+| 새글작성   | ![new_article_AdobeExpress (1)](https://user-images.githubusercontent.com/71473074/218024244-8757462c-aeb2-44a3-9b01-4140afacb23f.gif) |
+| 게시글수정 | ![update_article_AdobeExpress](https://user-images.githubusercontent.com/71473074/218024268-c26cfc6c-c220-41bc-b32c-672e927b47e4.gif)  |
+| 게시글삭제 | ![delete_article_AdobeExpress](https://user-images.githubusercontent.com/71473074/218024275-1c09d22b-376a-45f8-90d9-a54785db07f4.gif)  |
+| 슬라이더   | ![slider_AdobeExpress](https://user-images.githubusercontent.com/71473074/217035706-5017f659-f078-46de-85aa-82556120f74f.gif)          |
 
 <br>
 
-## ✨자랑하고 싶은 내용 :
+## ✨자랑하고 싶은 내용
 
 ### 객체지향적 설계를 위한 고민과 리액트 고급패턴 활용 :
 
@@ -141,7 +138,7 @@ github action을 통해 매 pr마다 테스트코드, 린트, 번들사이즈등
 
 ### SEO 최적화 :
 
-og 태그와 Head컴포넌트를 메인페이지와 동적페이지들에 적용하여 검색최적화를 실행하였습니다. 또한 매 페이지마다 sitemap이 동적으로 생성될 수 있도록 하였고 이를 통해 검색엔진에 잡힐 수 있도록 하였습니다. 그 결과 라이트하우스 SEO점수에서 100점을 받을 수 있었습니다.
+og 태그와 Head컴포넌트를 메인페이지와 동적페이지들에 적용하여 필요한 메타 데이터를 제공하여 SEO를 최적화 했습니다. 매 페이지마다 sitemap이 동적으로 생성될 수 있도록 하였고 이를 통해 검색엔진에 잡힐 수 있도록 하였습니다. 다른 link로 향하는 a 태그의 경우에는 title 속성에 필요한 설명을 부여하기, robots.txt 제공하기, 이미지 alt속성 제공하기 등등 SEO에 필요한 요소를 적용했고, 그 결과 라이트하우스 SEO점수에서 100점을 받을 수 있었습니다.
 
 ### 효율적인 에러 트래킹 :
 
