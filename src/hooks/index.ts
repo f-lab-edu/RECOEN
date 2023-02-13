@@ -1,4 +1,3 @@
-export * from './usePreview';
 export * from './useDetectResolution';
 export * from './useHandleOpenModal';
 export * from './useViewportWidth';
