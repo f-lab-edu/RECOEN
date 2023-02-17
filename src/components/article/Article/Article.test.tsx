@@ -4,7 +4,7 @@ import { viewArticle } from 'src/fixtures';
 
 describe('<Article/>', () => {
   it('should render correctly', () => {
-    render(<Article article={viewArticle} />);
+    render(<Article article={viewArticle} index={0} />);
 
     const title = screen.getByRole('heading', {
       name: /리액트 fiber에 대해서 알아보자/i,
