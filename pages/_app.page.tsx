@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { SessionProvider } from 'next-auth/react';
@@ -11,9 +12,11 @@ import { RecoilRoot } from 'recoil';
 
 import * as gtag from 'src/utils/gtag';
 
-import NavBar from 'src/components/navigation/NavBar/NavBar';
 import Head from 'src/components/Head';
-import Modal from 'src/components/modals/Modal';
+const DynamicNavBar = dynamic(
+  () => import('src/components/navigation/NavBar/NavBar'),
+);
+const DynamicModal = dynamic(() => import('src/components/modals/Modal'));
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
@@ -37,11 +40,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       <SessionProvider session={session}>
         <RecoilRoot>
           <Global styles={globalStyles} />
-          <NavBar />
+          <DynamicNavBar />
           <Container location={router.pathname} isModal={!!isModal}>
             <Component {...pageProps} />
           </Container>
-          <Modal />
+          <DynamicModal />
         </RecoilRoot>
       </SessionProvider>
     </>
