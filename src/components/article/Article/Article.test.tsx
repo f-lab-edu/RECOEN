@@ -15,4 +15,20 @@ describe('<Article/>', () => {
     expect(title).toBeInTheDocument();
     expect(description).toBeInTheDocument();
   });
+
+  context('index가 3이상이면', () => {
+    it('이미지의 loading이 lazy여야 한다', () => {
+      render(<Article article={viewArticle} index={3} />);
+      const image = screen.getByRole('img');
+      expect(image).toHaveAttribute('loading', 'lazy');
+    });
+  });
+
+  context('index가 3미만이면', () => {
+    it('이미지의 loading이 eager여야 한다', () => {
+      render(<Article article={viewArticle} index={2} />);
+      const image = screen.getByRole('img');
+      expect(image).toHaveAttribute('loading', 'eager');
+    });
+  });
 });

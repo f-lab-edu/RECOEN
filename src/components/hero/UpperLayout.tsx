@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import TagSearch from 'src/components/ui/TagSearch/TagSearch';
+import TagSearch from 'src/components/tag/TagSearch';
 import Hero from 'src/components/hero/Hero/Hero';
 
 interface Props {
