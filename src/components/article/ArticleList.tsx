@@ -4,6 +4,7 @@ import Grid from 'src/components/ui/Grid';
 import { ViewArticleElement } from 'src/types/article';
 import { useRecoilValue } from 'recoil';
 import { filteredArticleStates } from 'src/recoil/article';
+import { getCategory } from 'src/utils';
 
 interface Props {
   articles: ViewArticleElement[];
@@ -12,9 +13,6 @@ interface Props {
 
 const ArticleList = ({ articles, renderListItem }: Props) => {
   const filteredArticles = useRecoilValue(filteredArticleStates);
-  const getCategory = (articles: ViewArticleElement[]) => {
-    return articles[0].category;
-  };
 
   return (
     <Grid category={getCategory(articles)}>
