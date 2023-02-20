@@ -10,6 +10,7 @@
     "lint": "next lint",
     "test": "jest",
     "coverage": "jest --coverage",
+    "coverage-summary": "jest --coverage --coverageReporters='text-summary'",
     "cypress open": "cypress open",
     "cypress run": "cypress run",
     "analyze": "ANALYZE=true next build"
