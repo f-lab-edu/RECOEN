@@ -20,6 +20,7 @@ const customJestConfig = {
     '\\.(css|less)$': '<rootDir>/__mocks__/styleMock.js',
     uuid: require.resolve('uuid'),
   },
+  coverageReporters: ['clover', 'json', 'lcov', ['text', { skipFull: true }]],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

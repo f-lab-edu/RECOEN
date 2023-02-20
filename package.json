@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
+    "coverage": "jest --coverage",
     "cypress open": "cypress open",
     "cypress run": "cypress run",
     "analyze": "ANALYZE=true next build"

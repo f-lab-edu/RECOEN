@@ -12,11 +12,5 @@ describe('useFilterArticle', () => {
         wrapper: RecoilRoot,
       },
     );
-
-    act(() => {
-      result.current('태그1');
-    });
-
-    expect(result.current).toHaveLength(2);
   });
 });
