@@ -22,10 +22,7 @@ const CreateArticleModal = () => {
   const isValid = useRecoilValue(articleValidationSecondStep);
 
   return (
-    <BaseModal
-      handleOpenModal={() => handleOpenModal(null)}
-      options={{ right: true }}
-    >
+    <BaseModal handleOpenModal={() => handleOpenModal(null)} right={true}>
       <Container>
         <Wrapper data-testid="createArticleModal">
           <H2>글 설정</H2>

@@ -1,30 +1,19 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-interface ModalProps {
+export interface Props {
   children: React.ReactElement;
   handleOpenModal: () => void;
-  options?: {
-    right?: boolean;
-    mobile?: boolean;
-  };
+  right?: boolean;
 }
 
-const BaseModal = ({ children, handleOpenModal, options }: ModalProps) => {
+const BaseModal = ({ children, handleOpenModal, right }: Props) => {
   return (
     <>
-      <Overlay
-        onClick={handleOpenModal}
-        data-testid="overlay"
-        noneOverlay={options?.mobile}
-      />
-      {options?.mobile ? (
-        <MobileBox>{children}</MobileBox>
-      ) : (
-        <Box data-testid="modal" right={options?.right}>
-          {children}
-        </Box>
-      )}
+      <Overlay onClick={handleOpenModal} data-testid="overlay" />
+      <Box data-testid="modal" right={right}>
+        {children}
+      </Box>
     </>
   );
 };
@@ -33,7 +22,6 @@ export default BaseModal;
 
 interface StyleProps {
   right?: boolean;
-  noneOverlay?: boolean;
 }
 
 const Overlay = styled.div<StyleProps>`
@@ -48,7 +36,6 @@ const Overlay = styled.div<StyleProps>`
   position: fixed;
   z-index: 100;
   cursor: pointer;
-  display: ${({ noneOverlay }) => noneOverlay && 'none'};
 `;
 
 const rightStyle = `
@@ -72,14 +59,4 @@ const Box = styled.div<StyleProps>`
   z-index: 101;
   box-sizing: border-box;
   ${({ right }) => (right ? rightStyle : centerStyle)}
-`;
-
-const MobileBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  z-index: 101;
-  box-sizing: border-box;
-  top: calc(70px + 1px);
 `;
