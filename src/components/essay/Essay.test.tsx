@@ -21,4 +21,20 @@ describe('Essay', () => {
       expect(essay).toHaveAttribute('href', '/essay/60a7e6f1c6e7b6d8f6f0f6f2');
     });
   });
+
+  context('index가 3이상이면', () => {
+    it('이미지의 loading이 lazy여야 한다', () => {
+      const { getByRole } = render(<Essay article={viewArticle} index={3} />);
+      const image = getByRole('img');
+      expect(image).toHaveAttribute('loading', 'lazy');
+    });
+  });
+
+  context('index가 3미만이면', () => {
+    it('이미지의 loading이 eager여야 한다', () => {
+      const { getByRole } = render(<Essay article={viewArticle} index={2} />);
+      const image = getByRole('img');
+      expect(image).toHaveAttribute('loading', 'eager');
+    });
+  });
 });
