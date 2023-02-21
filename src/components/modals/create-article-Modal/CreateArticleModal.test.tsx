@@ -1,12 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import CreateArticleModal from './CreateArticleModal';
 import { RecoilRoot } from 'recoil';
+import { RecoilObserver } from 'src/utils';
+import { modalState } from 'src/recoil/modal';
+
 jest.mock('src/apis');
 
 describe('CreateArticleModal', () => {
+  const onChange = jest.fn();
   const renderCreateArticleModal = () =>
     render(
       <RecoilRoot>
+        <RecoilObserver node={modalState} onChange={onChange} />
         <CreateArticleModal />
       </RecoilRoot>,
     );
@@ -45,12 +50,13 @@ describe('CreateArticleModal', () => {
     });
   });
 
-  // describe('저장버튼을 클릭하면', () => {
-  //   it('handleOnClickSave 함수가 호출된다.', () => {
-  //     renderCreateArticleModal();
-  //     const save = screen.getByText(/저장/);
-  //     fireEvent.click(save);
-  //     expect(createArticle).toBeCalled();
-  //   });
-  // });
+  context('overlay를 클릭하면', () => {
+    it('모달이 닫혀야한다.', () => {
+      const { getByTestId } = renderCreateArticleModal();
+      const overlay = getByTestId('overlay');
+      fireEvent.click(overlay);
+
+      expect(onChange).toBeCalledWith(null);
+    });
+  });
 });
