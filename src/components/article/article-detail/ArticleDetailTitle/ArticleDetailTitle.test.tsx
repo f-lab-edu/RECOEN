@@ -1,10 +1,20 @@
-import { render } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 
 import { RecoilRoot } from 'recoil';
 
 import ArticleDetailTitle from './ArticleDetailTitle';
-import { article } from 'src/fixtures';
+import { viewArticle } from 'src/fixtures';
 import { mockUseSession } from 'src/utils/test-utils';
+
+const onChange = jest.fn();
+
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      push: onChange,
+    };
+  },
+}));
 
 jest.mock('next-auth/react');
 
@@ -12,7 +22,7 @@ describe('<ArticleDetailTitle/>', () => {
   const renderArticleDetailTitle = () => {
     return render(
       <RecoilRoot>
-        <ArticleDetailTitle article={article} />
+        <ArticleDetailTitle article={viewArticle} />
       </RecoilRoot>,
     );
   };
@@ -35,6 +45,22 @@ describe('<ArticleDetailTitle/>', () => {
 
       expect(getByText('수정')).toBeInTheDocument();
       expect(getByText('삭제')).toBeInTheDocument();
+    });
+
+    context('수정 버튼을 클릭하면', () => {
+      it('수정 페이지로 이동한다', () => {
+        mockUseSession({ isLogin: true, isAdmin: true });
+
+        const { getByText } = renderArticleDetailTitle();
+
+        act(() => {
+          getByText('수정').click();
+        });
+
+        expect(onChange).toBeCalledWith(
+          `/write/60a7e6f1c6e7b6d8f6f0f6f2?type=update`,
+        );
+      });
     });
   });
 });
