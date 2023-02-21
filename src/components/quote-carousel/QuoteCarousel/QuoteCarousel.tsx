@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import styled from '@emotion/styled';
 
-import Quote from '../Quote';
+import Quote from '../Quote/Quote';
 import ProgressBox from '../ProgressBox';
+import { v4 as uuidv4 } from 'uuid';
 
 export type QuoteT = {
   englishQuote: string;
@@ -26,7 +27,7 @@ const QuoteCarousel = ({ quotes }: Props) => {
             <>
               {currentSlide == index && (
                 <Quote
-                  key={quote.englishQuote}
+                  key={uuidv4()}
                   quote={quote}
                   isActive={currentSlide == index}
                 />

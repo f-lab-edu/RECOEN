@@ -8,7 +8,7 @@
     "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
+    "test": "jest --watch",
     "coverage": "jest --coverage",
     "coverage-summary": "jest --coverage --coverageReporters='text-summary'",
     "cypress open": "cypress open",

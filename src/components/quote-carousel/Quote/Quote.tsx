@@ -1,7 +1,7 @@
 import React from 'react';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import { QuoteT } from './QuoteCarousel/QuoteCarousel';
+import { QuoteT } from '../QuoteCarousel/QuoteCarousel';
 import { theme } from 'src/style/theme';
 
 interface QuoteProps {
@@ -11,7 +11,7 @@ interface QuoteProps {
 
 const Quote = ({ quote, isActive }: QuoteProps) => {
   return (
-    <QuoteBox isActive={isActive}>
+    <QuoteBox data-testid="quote-box" isActive={isActive}>
       <UpperWrapper>
         <EnglishQuote>
           <EnglishParagraph>{quote.englishQuote}</EnglishParagraph>
