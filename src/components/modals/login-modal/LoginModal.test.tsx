@@ -1,4 +1,4 @@
-import { render, act } from '@testing-library/react';
+import { render, act, fireEvent } from '@testing-library/react';
 import LoginModal from 'src/components/modals/login-modal/LoginModal';
 import { signIn } from 'next-auth/react';
 
@@ -46,6 +46,17 @@ describe('LoginModal', () => {
       googleButton.click();
 
       expect(signIn).toBeCalled();
+    });
+  });
+
+  context('overlay를 클릭하면', () => {
+    it('모달이 닫혀야 한다', () => {
+      const { getByTestId } = renderLoginModal();
+      const overlay = getByTestId('overlay');
+
+      fireEvent.click(overlay);
+
+      expect(onChange).toHaveBeenCalledWith(null);
     });
   });
 });
